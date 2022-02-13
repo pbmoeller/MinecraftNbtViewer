@@ -1,0 +1,46 @@
+#ifndef AWESOMENBTVIEWER_VERSION_HPP_IN
+#define AWESOMENBTVIEWER_VERSION_HPP_IN
+
+namespace anv
+{
+
+constexpr int AwesomeNbtViewer_VersionMajor         = @AWESOMENBTVIEWER_VERSION_MAJOR@;
+constexpr int AwesomeNbtViewer_VersionMinor         = @AWESOMENBTVIEWER_VERSION_MINOR@;
+constexpr int AwesomeNbtViewer_VersionPatch         = @AWESOMENBTVIEWER_VERSION_PATCH@;
+constexpr const char * AwesomeNbtViewer_Version     = "@AWESOMENBTVIEWER_VERSION@";
+constexpr const char * AwesomeNbtViewer_GitBranch   = "@AWESOMENBTVIEWER_GIT_BRANCH@";
+constexpr const char * AwesomeNbtViewer_GitHash     = "@AWESOMENBTVIEWER_GIT_HASH@";
+
+constexpr int getVersionMajor()
+{
+    return AwesomeNbtViewer_VersionMajor;
+}
+
+constexpr int getVersionMinor()
+{
+    return AwesomeNbtViewer_VersionMinor;
+}
+
+constexpr int getVersionPatch()
+{
+    return AwesomeNbtViewer_VersionPatch;
+}
+
+constexpr const char * getVersion()
+{
+    return AwesomeNbtViewer_Version;
+}
+
+constexpr const char * getGitBranch()
+{
+    return AwesomeNbtViewer_GitBranch;
+}
+
+constexpr const char * getGitHash()
+{
+    return AwesomeNbtViewer_GitHash;
+}
+
+} // namespace anv
+
+#endif // AWESOMENBTVIEWER_VERSION_HPP_IN

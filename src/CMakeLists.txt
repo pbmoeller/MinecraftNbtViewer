@@ -27,9 +27,10 @@ add_executable(AwesomeNbtViewer
     ${AWESOMENBTVIEWER_SOURCES}
     ${AWESOMENBTVIEWER_INCLUDES}
 )
+
 target_include_directories(AwesomeNbtViewer
     PUBLIC $<BUILD_INTERFACE:${AwesomeNbtViewer_SOURCE_DIR}/include/>
-           $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+           $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
            $<INSTALL_INTERFACE:${AwesomeNbtViewer_INSTALL_INCLUDE_DIR}>
 )
 target_link_libraries(AwesomeNbtViewer 
@@ -54,3 +55,7 @@ if (MSVC)
         string(REPLACE "/W3" "/W4" ${flag_var} "${${flag_var}}")
     endforeach()
 endif()
+
+
+### Install
+install(TARGETS AwesomeNbtViewer EXPORT AwesomeNbtViewer DESTINATION "${AwesomeNbtViewer_INSTALL_BINARY_DIR}")
