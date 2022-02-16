@@ -2,30 +2,40 @@
 set(AWESOMENBTVIEWER_HEADER_PATH "${AwesomeNbtViewer_SOURCE_DIR}/include/AwesomeNbtViewer")
 
 ### Includes
-set(AWESOMENBTVIEWER_WIDGETS_INCLUDES
+set(ANV_WIDGETS_HEADER
     "${AWESOMENBTVIEWER_HEADER_PATH}/widgets/main_window.hpp"
 )
 
-set(AWESOMENBTVIEWER_INCLUDES
-    ${AWESOME_WIDGETS_INCLUDES}
+set(ANV_HEADER
+    ${ANV_WIDGETS_HEADER}
     "${AWESOMENBTVIEWER_HEADER_PATH}/awesome_nbt_viewer_app.hpp"
 )
 
 ### Sources
-set(AWESOMENBTVIEWER_WIDGETS_SOURCES
+set(ANV_WIDGETS_SOURCES
     "widgets/main_window.cpp"
 )
 
-set(AWESOMENBTVIEWER_SOURCES
-    ${AWESOMENBTVIEWER_WIDGETS_SOURCES}
+set(ANV_SOURCES
+    ${ANV_WIDGETS_SOURCES}
     "main.cpp"
     "awesome_nbt_viewer_app.cpp"
 )
 
-### Targets
+### Ui
+set(ANV_WIDGETS_UI
+    "widgets/main_window.ui"
+)
+
+set(ANV_UI
+    ${ANV_WIDGETS_UI}
+)
+
+### Target
 add_executable(AwesomeNbtViewer 
-    ${AWESOMENBTVIEWER_SOURCES}
-    ${AWESOMENBTVIEWER_INCLUDES}
+    ${ANV_SOURCES}
+    ${ANV_HEADER}
+    ${ANV_UI}
 )
 
 target_include_directories(AwesomeNbtViewer
@@ -33,11 +43,14 @@ target_include_directories(AwesomeNbtViewer
            $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
            $<INSTALL_INTERFACE:${AwesomeNbtViewer_INSTALL_INCLUDE_DIR}>
 )
+
 target_link_libraries(AwesomeNbtViewer 
     PRIVATE AwesomeMC
-    PRIVATE Qt6::Widgets
+    PRIVATE Qt6::Widgets Qt6::Core
 )
+
 set_target_properties(AwesomeNbtViewer PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
+
 target_compile_options(AwesomeNbtViewer PRIVATE
      $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:
           -std=c++20 -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Woverloaded-virtual -Wpedantic>

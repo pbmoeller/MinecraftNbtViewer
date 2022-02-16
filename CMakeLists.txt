@@ -36,9 +36,9 @@ configure_file(
 )
 
 ### Qt Stuff
+set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
 
 ### Installation directories
 set(AwesomeNbtViewer_INSTALL_BINARY_DIR "bin")
@@ -48,7 +48,7 @@ set(AwesomeNbtViewer_INSTALL_CMAKE_CONFIG_DIR "share/AwesomeNbtViewer/cmake")
 set(AwesomeNbtViewer_INSTALL_ADDITIONAL_FILES_DIR "share/AwesomeNbtViewer")
 
 ### Search and include necessary packages
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Core)
 find_package(AwesomeMC REQUIRED)
 
 ### AwesomeNbtViewer
