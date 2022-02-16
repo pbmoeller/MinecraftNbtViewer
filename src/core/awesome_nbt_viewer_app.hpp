@@ -2,7 +2,7 @@
 #define AWESOMENBTVIEWER_AWESOME_NBT_VIEWER_APP_HPP
 
 // AwesomeNbtViewer
-#include <AwesomeNbtViewer/widgets/main_window.hpp>
+#include "widgets/main_window.hpp"
 
 // Qt
 #include <QObject>

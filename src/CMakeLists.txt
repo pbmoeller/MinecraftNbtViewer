@@ -1,25 +1,30 @@
-# Header Path Prefix
-set(AWESOMENBTVIEWER_HEADER_PATH "${AwesomeNbtViewer_SOURCE_DIR}/include/AwesomeNbtViewer")
-
 ### Includes
+set(ANV_CORE_HEADER
+    "core/awesome_nbt_viewer_app.hpp"
+)
+
 set(ANV_WIDGETS_HEADER
-    "${AWESOMENBTVIEWER_HEADER_PATH}/widgets/main_window.hpp"
+    "widgets/main_window.hpp"
 )
 
 set(ANV_HEADER
+    ${ANV_CORE_HEADER}
     ${ANV_WIDGETS_HEADER}
-    "${AWESOMENBTVIEWER_HEADER_PATH}/awesome_nbt_viewer_app.hpp"
 )
 
 ### Sources
+set(ANV_CORE_SOURCES
+    "core/awesome_nbt_viewer_app.cpp"
+)
+
 set(ANV_WIDGETS_SOURCES
     "widgets/main_window.cpp"
 )
 
 set(ANV_SOURCES
+    ${ANV_CORE_SOURCES}
     ${ANV_WIDGETS_SOURCES}
     "main.cpp"
-    "awesome_nbt_viewer_app.cpp"
 )
 
 ### Ui
@@ -33,14 +38,14 @@ set(ANV_UI
 
 ### Target
 add_executable(AwesomeNbtViewer 
-    ${ANV_SOURCES}
     ${ANV_HEADER}
+    ${ANV_SOURCES}
     ${ANV_UI}
 )
 
 target_include_directories(AwesomeNbtViewer
-    PUBLIC $<BUILD_INTERFACE:${AwesomeNbtViewer_SOURCE_DIR}/include/>
-           $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
+    PUBLIC $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
+           $<BUILD_INTERFACE:${AwesomeNbtViewer_SOURCE_DIR}/src>
            $<INSTALL_INTERFACE:${AwesomeNbtViewer_INSTALL_INCLUDE_DIR}>
 )
 

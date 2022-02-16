@@ -1,6 +1,6 @@
 // AwesomeNbtViewer
-#include <AwesomeNbtViewer/awesome_nbt_viewer_app.hpp>
-#include <AwesomeNbtViewer/version.hpp>
+#include "core/awesome_nbt_viewer_app.hpp"
+#include "version.hpp"
 
 // Qt
 #include <QApplication>

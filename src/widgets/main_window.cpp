@@ -1,5 +1,5 @@
-#include <AwesomeNbtViewer/widgets/main_window.hpp>
-#include <AwesomeNbtViewer/widgets/ui_main_window.h>
+#include "main_window.hpp"
+#include "ui_main_window.h"
 
 namespace anv
 {

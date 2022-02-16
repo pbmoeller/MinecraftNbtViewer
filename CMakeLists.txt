@@ -31,8 +31,8 @@ execute_process(
 )
 
 configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/AwesomeNbtViewer/version.hpp.in
-    ${PROJECT_BINARY_DIR}/AwesomeNbtViewer/version.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/version.hpp.in
+    ${PROJECT_BINARY_DIR}/version.hpp
 )
 
 ### Qt Stuff
