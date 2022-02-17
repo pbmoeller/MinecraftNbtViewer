@@ -20,6 +20,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void closeEvent(QCloseEvent *event);
+
+private:
+    bool userReallyWantsToQuit();
+
 private:
     Ui::MainWindow *m_ui;
 };
