@@ -3,12 +3,18 @@ set(ANV_CORE_HEADER
     "core/awesome_nbt_viewer_app.hpp"
 )
 
+set(ANV_MODELS_HEADER
+    "models/nbt_data_treemodel.hpp"
+    "models/nbt_data_treenode.hpp"
+)
+
 set(ANV_WIDGETS_HEADER
     "widgets/main_window.hpp"
 )
 
 set(ANV_HEADER
     ${ANV_CORE_HEADER}
+    ${ANV_MODELS_HEADER}
     ${ANV_WIDGETS_HEADER}
 )
 
@@ -17,12 +23,18 @@ set(ANV_CORE_SOURCES
     "core/awesome_nbt_viewer_app.cpp"
 )
 
+set(ANV_MODELS_SOURCES
+    "models/nbt_data_treemodel.cpp"
+    "models/nbt_data_treenode.cpp"
+)
+
 set(ANV_WIDGETS_SOURCES
     "widgets/main_window.cpp"
 )
 
 set(ANV_SOURCES
     ${ANV_CORE_SOURCES}
+    ${ANV_MODELS_SOURCES}
     ${ANV_WIDGETS_SOURCES}
     "main.cpp"
 )

@@ -12,6 +12,8 @@ class MainWindow;
 namespace anv
 {
 
+class NbtDataTreeModel;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -23,11 +25,19 @@ public:
 public slots:
     void closeEvent(QCloseEvent *event);
 
+    void openFile();
+    void openFolder();
+
+
 private:
     bool userReallyWantsToQuit();
 
 private:
     Ui::MainWindow *m_ui;
+
+    QString m_currentDirectory;
+
+    NbtDataTreeModel *nbtTreeModel;
 };
 
 } // namespace anv
