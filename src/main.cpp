@@ -12,10 +12,11 @@ int main(int argc, char **argv)
 {
     std::cout << "Hello world!" << std::endl;
 
-    QCoreApplication::setApplicationName("AwesomeNbtViewer");
+    QCoreApplication::setApplicationName("Awesome Nbt Viewer");
     QCoreApplication::setApplicationVersion(anv::getVersion());
 
     QApplication app(argc, argv);
+    app.setWindowIcon(QIcon(":/icons/grass_block_64x64.png"));
     anv::AwesomeNbtViewerApp awesomeApp;
     awesomeApp.create();
     return app.exec();

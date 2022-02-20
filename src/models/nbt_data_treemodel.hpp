@@ -7,7 +7,7 @@
 namespace anv
 {
 
-class NbtDataTreeNode;
+class NbtTreeItemBase;
 
 class NbtDataTreeModel : public QAbstractItemModel
 {
@@ -16,9 +16,14 @@ public:
     explicit NbtDataTreeModel(QObject *parent = nullptr);
     virtual ~NbtDataTreeModel();
 
+    void clear();
     void load(const QString &directory);
 
+    NbtTreeItemBase* fromIndex(const QModelIndex &index) const;
+    QModelIndex toIndex(NbtTreeItemBase *item, int column) const;
+
     // Reimplemented functions of QAbstractItemModel
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
@@ -27,11 +32,14 @@ public:
     virtual int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
+    virtual bool hasChildren(const QModelIndex& parent) const override;
     virtual void fetchMore(const QModelIndex &parent) override;
     virtual bool canFetchMore(const QModelIndex& parent) const override;
 
 private:
-    NbtDataTreeNode *m_rootItem;
+    NbtTreeItemBase *m_rootItem;
+
+    static const int ColumnCount = 1;
 };
 
 } // namespace anv

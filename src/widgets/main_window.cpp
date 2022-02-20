@@ -15,11 +15,14 @@ MainWindow::MainWindow(QWidget *parent)
     , m_ui(new Ui::MainWindow)
 {
     m_ui->setupUi(this);
+    this->setWindowTitle(QApplication::applicationName());
 
     m_nbtTreeModel = new NbtDataTreeModel();
     m_ui->nbtDataTreeView->setModel(m_nbtTreeModel);
+    m_ui->nbtDataTreeView->setHeaderHidden(true);
 
-    m_currentDirectory = QStandardPaths::AppDataLocation + "\\.minecraft\\saves";
+    m_currentDirectory = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)
+                            + "/../.minecraft/saves";
 
     connect(m_ui->actionOpen_File, &QAction::triggered, this, &MainWindow::openFile);
     connect(m_ui->actionOpen_Folder, &QAction::triggered, this, &MainWindow::openFolder);
@@ -45,9 +48,6 @@ void MainWindow::openFile()
     QString filename = QFileDialog::getOpenFileName(this, tr("Open File"), m_currentDirectory);
     if(!filename.isEmpty()) {
         qDebug() << "Opening file: " << filename;
-
-        NbtDataTreeModel *model = new NbtDataTreeModel(filename, this);
-        m_ui->nbtDataTreeView->setModel(model);
     }
 }
 
@@ -56,8 +56,7 @@ void MainWindow::openFolder()
     QString directory = QFileDialog::getExistingDirectory(this, tr("Open Folder"), m_currentDirectory);
     if(!directory.isEmpty()) {
         qDebug() << "Opening directory: " << directory;
-
-
+        m_nbtTreeModel->load(directory);
     }
 }
 

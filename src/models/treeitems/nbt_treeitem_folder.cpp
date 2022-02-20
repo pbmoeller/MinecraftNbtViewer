@@ -1,0 +1,124 @@
+// AwesomeNbtViewer
+#include "nbt_treeitem_folder.hpp"
+#include "util/minecraft_util.hpp"
+
+// Qt
+#include <QDir>
+#include <QFileInfo>
+#include <QString>
+
+namespace anv
+{
+
+const QStringList KnownFilesFilter = QStringList({
+    "*.dat"
+    "*.mca"
+    "*.mcr"
+    "*.json"
+    "*.dat_old"
+    "*.dat_mcr"
+    "*.schematic"
+});
+
+NbtTreeItemFolder::NbtTreeItemFolder(NbtTreeItemBase *parentItem,
+                                     const QString &folderName,
+                                     const QString &pathToFolder)
+    : NbtTreeItemBase(parentItem)
+    , m_canFetchData(true)
+    , m_folderName(folderName)
+    , m_pathToFolder(pathToFolder)
+{
+
+}
+
+NbtTreeItemFolder::~NbtTreeItemFolder()
+{
+
+}
+
+QIcon NbtTreeItemFolder::getIcon() const
+{
+    return QIcon(":/icons/folder_24x24.png");
+}
+
+QString NbtTreeItemFolder::getName() const
+{
+    return m_folderName;
+}
+
+bool NbtTreeItemFolder::canFetchMore() const
+{
+    return m_canFetchData;
+}
+
+void NbtTreeItemFolder::fetchMore()
+{
+    m_canFetchData= false;
+    readKnownFilesInDirectory(this, m_pathToFolder + '/' + m_folderName);
+    sort();
+}
+
+void NbtTreeItemFolder::readKnownFilesInDirectory(NbtTreeItemBase *parent,
+                                                  const QString &directory)
+{
+    QDir dir(directory);
+
+    // Directories
+    for(QString subDirectory : dir.entryList(QStringList(), QDir::Dirs)) {
+        if(subDirectory == "." || subDirectory == "..") {
+            continue;
+        }
+        if(isMinecraftWorldDirectory(directory + '/' + subDirectory)) {
+            new NbtTreeItemFolderWorld(parent, subDirectory, directory);
+        } else {
+            new NbtTreeItemFolder(parent, subDirectory, directory);
+        }
+    }
+
+    // Files
+    for(QString filename : dir.entryList(QStringList()
+                                            << "*.dat"
+                                            << "*.mca"
+                                            << "*.mcr"
+                                            << "*.json"
+                                            << "*.dat_old"
+                                            << "*.dat_mcr"
+                                            << "*.schematic",
+                                         QDir::Files)) {
+        QFileInfo fileInfo(filename);
+        if(fileInfo.suffix() == "dat"
+            || fileInfo.suffix() == "dat_old"
+            || fileInfo.suffix() == "dat_mcr"
+            || fileInfo.suffix() == "schematic") {
+            // Add NBT File
+        } else if(fileInfo.suffix() == "mca" || fileInfo.suffix() == "mcr") {
+            // Add Region File
+        } else if(fileInfo.suffix() == "json") {
+            // Add JSON File
+        }
+    }
+}
+
+//
+// NbtTreeItemFolderWorld
+//
+
+NbtTreeItemFolderWorld::NbtTreeItemFolderWorld(NbtTreeItemBase *parentItem,
+                                               const QString &folderName,
+                                               const QString &pathToFolder)
+    : NbtTreeItemFolder(parentItem, folderName, pathToFolder)
+{
+
+}
+
+NbtTreeItemFolderWorld::~NbtTreeItemFolderWorld()
+{
+
+}
+
+QIcon NbtTreeItemFolderWorld::getIcon() const
+{
+    return QIcon(":/icons/worldfolder_24x24.png");
+}
+
+} // namespace anv;

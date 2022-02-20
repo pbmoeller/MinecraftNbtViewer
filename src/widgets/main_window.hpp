@@ -37,7 +37,7 @@ private:
 
     QString m_currentDirectory;
 
-    NbtDataTreeModel *nbtTreeModel;
+    NbtDataTreeModel *m_nbtTreeModel;
 };
 
 } // namespace anv

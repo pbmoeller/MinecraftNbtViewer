@@ -5,7 +5,12 @@ set(ANV_CORE_HEADER
 
 set(ANV_MODELS_HEADER
     "models/nbt_data_treemodel.hpp"
-    "models/nbt_data_treenode.hpp"
+    "models/treeitems/nbt_treeitem_base.hpp"
+    "models/treeitems/nbt_treeitem_folder.hpp"
+)
+
+set(ANV_UTIL_HEADER
+    "util/minecraft_util.hpp"
 )
 
 set(ANV_WIDGETS_HEADER
@@ -15,6 +20,7 @@ set(ANV_WIDGETS_HEADER
 set(ANV_HEADER
     ${ANV_CORE_HEADER}
     ${ANV_MODELS_HEADER}
+    ${ANV_UTIL_HEADER}
     ${ANV_WIDGETS_HEADER}
 )
 
@@ -25,7 +31,12 @@ set(ANV_CORE_SOURCES
 
 set(ANV_MODELS_SOURCES
     "models/nbt_data_treemodel.cpp"
-    "models/nbt_data_treenode.cpp"
+    "models/treeitems/nbt_treeitem_base.cpp"
+    "models/treeitems/nbt_treeitem_folder.cpp"
+)
+
+set(ANV_UTIL_SOURCES
+    "util/minecraft_util.cpp"
 )
 
 set(ANV_WIDGETS_SOURCES
@@ -35,6 +46,7 @@ set(ANV_WIDGETS_SOURCES
 set(ANV_SOURCES
     ${ANV_CORE_SOURCES}
     ${ANV_MODELS_SOURCES}
+    ${ANV_UTIL_SOURCES}
     ${ANV_WIDGETS_SOURCES}
     "main.cpp"
 )
@@ -48,11 +60,17 @@ set(ANV_UI
     ${ANV_WIDGETS_UI}
 )
 
+### Resources
+set(ANV_RESOURCES
+    "${AwesomeNbtViewer_SOURCE_DIR}/resources/resources.qrc"
+)
+
 ### Target
 add_executable(AwesomeNbtViewer 
     ${ANV_HEADER}
     ${ANV_SOURCES}
     ${ANV_UI}
+    ${ANV_RESOURCES}
 )
 
 target_include_directories(AwesomeNbtViewer
