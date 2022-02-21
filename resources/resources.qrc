@@ -4,5 +4,6 @@
         <file>icons/worldfolder_24x24.png</file>
         <file>icons/grass_block_64x64.png</file>
         <file>icons/folder_32x32.png</file>
+        <file>icons/grassfolder_24x24.png</file>
     </qresource>
 </RCC>

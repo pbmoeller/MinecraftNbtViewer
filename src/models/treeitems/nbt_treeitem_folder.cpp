@@ -118,7 +118,7 @@ NbtTreeItemFolderWorld::~NbtTreeItemFolderWorld()
 
 QIcon NbtTreeItemFolderWorld::getIcon() const
 {
-    return QIcon(":/icons/worldfolder_24x24.png");
+    return QIcon(":/icons/grassfolder_24x24.png");
 }
 
 } // namespace anv;
