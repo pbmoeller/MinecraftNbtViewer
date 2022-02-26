@@ -7,6 +7,7 @@ set(ANV_MODELS_HEADER
     "models/nbt_data_treemodel.hpp"
     "models/treeitems/nbt_treeitem_base.hpp"
     "models/treeitems/nbt_treeitem_folder.hpp"
+    "models/treeitems/nbt_treeitem_nbtfile.hpp"
 )
 
 set(ANV_UTIL_HEADER
@@ -33,6 +34,7 @@ set(ANV_MODELS_SOURCES
     "models/nbt_data_treemodel.cpp"
     "models/treeitems/nbt_treeitem_base.cpp"
     "models/treeitems/nbt_treeitem_folder.cpp"
+    "models/treeitems/nbt_treeitem_nbtfile.cpp"
 )
 
 set(ANV_UTIL_SOURCES

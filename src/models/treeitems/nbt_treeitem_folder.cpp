@@ -1,5 +1,6 @@
 // AwesomeNbtViewer
 #include "nbt_treeitem_folder.hpp"
+#include "nbt_treeitem_nbtfile.hpp"
 #include "util/minecraft_util.hpp"
 
 // Qt
@@ -38,7 +39,7 @@ NbtTreeItemFolder::~NbtTreeItemFolder()
 
 QIcon NbtTreeItemFolder::getIcon() const
 {
-    return QIcon(":/icons/folder_24x24.png");
+    return QIcon(":/icons/16x16/Folder.png");
 }
 
 QString NbtTreeItemFolder::getName() const
@@ -90,7 +91,7 @@ void NbtTreeItemFolder::readKnownFilesInDirectory(NbtTreeItemBase *parent,
             || fileInfo.suffix() == "dat_old"
             || fileInfo.suffix() == "dat_mcr"
             || fileInfo.suffix() == "schematic") {
-            // Add NBT File
+            new NbtTreeItemNbtFile(parent, fileInfo.fileName(), directory);
         } else if(fileInfo.suffix() == "mca" || fileInfo.suffix() == "mcr") {
             // Add Region File
         } else if(fileInfo.suffix() == "json") {
@@ -118,7 +119,7 @@ NbtTreeItemFolderWorld::~NbtTreeItemFolderWorld()
 
 QIcon NbtTreeItemFolderWorld::getIcon() const
 {
-    return QIcon(":/icons/grassfolder_24x24.png");
+    return QIcon(":/icons/16x16/World.png");
 }
 
 } // namespace anv;

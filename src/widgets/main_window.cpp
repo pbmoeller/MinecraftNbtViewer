@@ -20,6 +20,9 @@ MainWindow::MainWindow(QWidget *parent)
     m_nbtTreeModel = new NbtDataTreeModel();
     m_ui->nbtDataTreeView->setModel(m_nbtTreeModel);
     m_ui->nbtDataTreeView->setHeaderHidden(true);
+    m_ui->nbtDataTreeView->setIconSize(QSize(16, 16));
+
+    qDebug() << "Icon Size: " << m_ui->nbtDataTreeView->iconSize();
 
     m_currentDirectory = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)
                             + "/../.minecraft/saves";
@@ -57,6 +60,8 @@ void MainWindow::openFolder()
     if(!directory.isEmpty()) {
         qDebug() << "Opening directory: " << directory;
         m_nbtTreeModel->load(directory);
+
+        qDebug() << "Icon Size: " << m_ui->nbtDataTreeView->iconSize();
     }
 }
 
