@@ -17,7 +17,6 @@ public:
 
     NbtTreeItemBase*& getParent();
     QVector<NbtTreeItemBase*>& getChildren();
-    // const QVector<NbtTreeItemBase*>& getChildren() const;
 
     void sort();
     void clear();

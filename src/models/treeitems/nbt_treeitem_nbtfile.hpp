@@ -4,9 +4,15 @@
 // AwesomeNbtViewer
 #include "nbt_treeitem_base.hpp"
 
+// AwesomeMC
+#include <AwesomeMC/nbt/tags/compound_tag.hpp>
+
 // Qt
 #include <QString>
 #include <QIcon>
+
+// STL
+#include <memory>
 
 namespace anv
 {
@@ -29,6 +35,7 @@ private:
     bool m_canFetchData;
     QString m_filename;
     QString m_pathToFile;
+    std::unique_ptr<amc::CompoundTag> m_nbtRootTag;
 };
 
 } // namespace anv
