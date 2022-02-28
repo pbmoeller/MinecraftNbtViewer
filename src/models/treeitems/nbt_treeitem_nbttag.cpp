@@ -1,10 +1,17 @@
 // AwesomeNbtViewer
 #include "nbt_treeitem_nbttag.hpp"
 
+// AwesomeMC
+#include <AwesomeMC/nbt/tags/tags.hpp>
+
+// Qt
+#include <QObject>
+
 namespace anv
 {
 
-NbtTreeItemNbtTag::NbtTreeItemNbtTag(NbtTreeItemBase *parentItem, amc::AbstractTag *tag)
+NbtTreeItemNbtTag::NbtTreeItemNbtTag(NbtTreeItemBase *parentItem,
+                                     amc::AbstractTag *tag)
     : NbtTreeItemBase(parentItem)
     , m_tag(tag)
 {
@@ -183,7 +190,14 @@ QIcon NbtTreeItemStringTag::getIcon() const
 
 QString NbtTreeItemStringTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::StringTag *tag = amc::tag_cast<amc::StringTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString(tag->getName().c_str()).append(": ");
+    }
+    name += tag->getValue().c_str();
+
+    return name;
 }
 
 NbtTreeItemCompoundTag::NbtTreeItemCompoundTag(NbtTreeItemBase *parentItem,
@@ -205,7 +219,9 @@ QIcon NbtTreeItemCompoundTag::getIcon() const
 
 QString NbtTreeItemCompoundTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    return QString(QObject::tr("%1: %2 entries"))
+                .arg(m_tag->getName().c_str())
+                .arg(amc::tag_cast<amc::CompoundTag*>(m_tag)->size());
 }
 
 NbtTreeItemListTag::NbtTreeItemListTag(NbtTreeItemBase *parentItem,
@@ -227,7 +243,9 @@ QIcon NbtTreeItemListTag::getIcon() const
 
 QString NbtTreeItemListTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    return QString(QObject::tr("%1: %2 entries"))
+        .arg(m_tag->getName().c_str())
+        .arg(amc::tag_cast<amc::ListTag*>(m_tag)->size());
 }
 
 NbtTreeItemByteArrayTag::NbtTreeItemByteArrayTag(NbtTreeItemBase *parentItem,

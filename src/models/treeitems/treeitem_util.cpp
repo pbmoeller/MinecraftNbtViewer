@@ -54,6 +54,7 @@ void addNbtChild(NbtTreeItemBase *parentItem,
             for(amc::AbstractTag *childTag : amc::tag_cast<amc::ListTag*>(tag)->getValue()) {
                 addNbtChild(treeItem, childTag);
             }
+            treeItem->sort();
             break;
         }
         case amc::TagType::Compound:
@@ -62,6 +63,7 @@ void addNbtChild(NbtTreeItemBase *parentItem,
             for(amc::AbstractTag *childTag : amc::tag_cast<amc::CompoundTag*>(tag)->getValue()) {
                 addNbtChild(treeItem, childTag);
             }
+            treeItem->sort();
             break;
         }
         case amc::TagType::ByteArray:
