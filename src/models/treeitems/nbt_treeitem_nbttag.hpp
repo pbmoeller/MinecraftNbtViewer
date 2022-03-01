@@ -21,6 +21,8 @@ public:
     virtual QString getName() const override;
     amc::TagType getTagType() const;
 
+    void sort();
+
 protected:
     amc::AbstractTag *m_tag;
 };
