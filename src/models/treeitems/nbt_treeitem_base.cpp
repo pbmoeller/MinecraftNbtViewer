@@ -51,7 +51,7 @@ void NbtTreeItemBase::sort()
            && dynamic_cast<NbtTreeItemFolder*>(left) == nullptr) {
             return false;
         }
-        return left->getName() < right->getName();
+        return left->getName().toLower() < right->getName().toLower();
     });
 }
 

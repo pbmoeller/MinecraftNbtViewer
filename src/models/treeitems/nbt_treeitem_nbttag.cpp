@@ -61,7 +61,7 @@ void NbtTreeItemNbtTag::sort()
         }
         if(leftTag->getTagType() == amc::TagType::Compound
            && rightTag->getTagType() == amc::TagType::Compound) {
-            return leftTag->getName() < rightTag->getName();
+            return leftTag->getName().toLower() < rightTag->getName().toLower();
         } else if(leftTag->getTagType() == amc::TagType::Compound) {
             return true;
         } else if(rightTag->getTagType() == amc::TagType::Compound) {
@@ -69,7 +69,7 @@ void NbtTreeItemNbtTag::sort()
         } else {
             if(leftTag->getTagType() == amc::TagType::List
                && rightTag->getTagType() == amc::TagType::List) {
-                return leftTag->getName() < rightTag->getName();
+                return leftTag->getName().toLower() < rightTag->getName().toLower();
             } else if(leftTag->getTagType() == amc::TagType::List) {
                 return true;
             } else if(rightTag->getTagType() == amc::TagType::List) {
@@ -77,7 +77,7 @@ void NbtTreeItemNbtTag::sort()
             }
         }
 
-        return leftTag->getName() < rightTag->getName();
+        return leftTag->getName().toLower() < rightTag->getName().toLower();
     });
 }
 
@@ -100,7 +100,14 @@ QIcon NbtTreeItemByteTag::getIcon() const
 
 QString NbtTreeItemByteTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::ByteTag *tag = amc::tag_cast<amc::ByteTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString("%1: ").arg(tag->getName().c_str());
+    }
+    name += QString::number(tag->getValue());
+
+    return name;
 }
 
 NbtTreeItemShortTag::NbtTreeItemShortTag(NbtTreeItemBase *parentItem,
@@ -122,7 +129,14 @@ QIcon NbtTreeItemShortTag::getIcon() const
 
 QString NbtTreeItemShortTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::ShortTag *tag = amc::tag_cast<amc::ShortTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString("%1: ").arg(tag->getName().c_str());
+    }
+    name += QString::number(tag->getValue());
+
+    return name;
 }
 
 NbtTreeItemIntTag::NbtTreeItemIntTag(NbtTreeItemBase *parentItem,
@@ -144,7 +158,14 @@ QIcon NbtTreeItemIntTag::getIcon() const
 
 QString NbtTreeItemIntTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::IntTag *tag = amc::tag_cast<amc::IntTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString("%1: ").arg(tag->getName().c_str());
+    }
+    name += QString::number(tag->getValue());
+
+    return name;
 }
 
 NbtTreeItemLongTag::NbtTreeItemLongTag(NbtTreeItemBase *parentItem,
@@ -166,7 +187,14 @@ QIcon NbtTreeItemLongTag::getIcon() const
 
 QString NbtTreeItemLongTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::LongTag *tag = amc::tag_cast<amc::LongTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString("%1: ").arg(tag->getName().c_str());
+    }
+    name += QString::number(tag->getValue());
+
+    return name;
 }
 
 NbtTreeItemFloatTag::NbtTreeItemFloatTag(NbtTreeItemBase *parentItem,
@@ -188,7 +216,14 @@ QIcon NbtTreeItemFloatTag::getIcon() const
 
 QString NbtTreeItemFloatTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::FloatTag *tag = amc::tag_cast<amc::FloatTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString("%1: ").arg(tag->getName().c_str());
+    }
+    name += QString::number(tag->getValue(), 'g', 6);
+
+    return name;
 }
 
 NbtTreeItemDoubleTag::NbtTreeItemDoubleTag(NbtTreeItemBase *parentItem,
@@ -210,7 +245,14 @@ QIcon NbtTreeItemDoubleTag::getIcon() const
 
 QString NbtTreeItemDoubleTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::DoubleTag *tag = amc::tag_cast<amc::DoubleTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString("%1: ").arg(tag->getName().c_str());
+    }
+    name += QString::number(tag->getValue(), 'g', 16);
+
+    return name;
 }
 
 NbtTreeItemStringTag::NbtTreeItemStringTag(NbtTreeItemBase *parentItem,
@@ -309,7 +351,14 @@ QIcon NbtTreeItemByteArrayTag::getIcon() const
 
 QString NbtTreeItemByteArrayTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::ByteArrayTag *tag = amc::tag_cast<amc::ByteArrayTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString("%1: ").arg(tag->getName().c_str());
+    }
+    name += QString("%1 Bytes").arg(tag->size());
+
+    return name;
 }
 
 NbtTreeItemIntArrayTag::NbtTreeItemIntArrayTag(NbtTreeItemBase *parentItem,
@@ -331,7 +380,14 @@ QIcon NbtTreeItemIntArrayTag::getIcon() const
 
 QString NbtTreeItemIntArrayTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::IntArrayTag *tag = amc::tag_cast<amc::IntArrayTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString("%1: ").arg(tag->getName().c_str());
+    }
+    name += QString("%1 Integers").arg(tag->size());
+
+    return name;
 }
 
 NbtTreeItemLongArrayTag::NbtTreeItemLongArrayTag(NbtTreeItemBase *parentItem,
@@ -353,7 +409,14 @@ QIcon NbtTreeItemLongArrayTag::getIcon() const
 
 QString NbtTreeItemLongArrayTag::getName() const
 {
-    return QString(m_tag->getName().c_str());
+    amc::LongArrayTag *tag = amc::tag_cast<amc::LongArrayTag*>(m_tag);
+    QString name;
+    if(!tag->getName().empty()) {
+        name = QString("%1: ").arg(tag->getName().c_str());
+    }
+    name += QString("%1 Long Integers").arg(tag->size());
+
+    return name;
 }
 
 } // namespace anv
