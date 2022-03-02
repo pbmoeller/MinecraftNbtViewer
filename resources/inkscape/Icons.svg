@@ -1,0 +1,2438 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866666"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\file_128.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="Icons.svg">
+  <metadata
+     id="metadata897">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="true"
+     units="px"
+     width="128px"
+     inkscape:zoom="1.6529315"
+     inkscape:cx="30.711714"
+     inkscape:cy="-110.22245"
+     inkscape:window-width="1728"
+     inkscape:window-height="1378"
+     inkscape:window-x="-7"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g1298">
+    <inkscape:grid
+       type="xygrid"
+       id="grid824"
+       spacingx="2.1166666"
+       spacingy="2.1166666" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid826"
+       color="#e17919"
+       opacity="0.1254902"
+       empcolor="#ea2b19"
+       empopacity="0.25098039" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1389">
+      <stop
+         style="stop-color:#b36803;stop-opacity:1"
+         offset="0"
+         id="stop1385" />
+      <stop
+         style="stop-color:#e4d22c;stop-opacity:1"
+         offset="1"
+         id="stop1387" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1379">
+      <stop
+         style="stop-color:#edd91c;stop-opacity:1"
+         offset="0"
+         id="stop1375" />
+      <stop
+         style="stop-color:#edd91c;stop-opacity:0"
+         offset="1"
+         id="stop1377" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1369"
+       inkscape:collect="always">
+      <stop
+         id="stop1365"
+         offset="0"
+         style="stop-color:#099912;stop-opacity:0" />
+      <stop
+         id="stop1367"
+         offset="1"
+         style="stop-color:#227309;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1333">
+      <stop
+         style="stop-color:#12aa1c;stop-opacity:1;"
+         offset="0"
+         id="stop1329" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop1331" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1259">
+      <stop
+         style="stop-color:#090502;stop-opacity:1"
+         offset="0"
+         id="stop1254" />
+      <stop
+         style="stop-color:#000303;stop-opacity:0"
+         offset="1"
+         id="stop1257" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1246">
+      <stop
+         style="stop-color:#1eebff;stop-opacity:1"
+         offset="0"
+         id="stop1242" />
+      <stop
+         style="stop-color:#1e43ff;stop-opacity:1"
+         offset="1"
+         id="stop1244" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1235">
+      <stop
+         style="stop-color:#cc8800;stop-opacity:1;"
+         offset="0"
+         id="stop1231" />
+      <stop
+         style="stop-color:#875900;stop-opacity:1"
+         offset="1"
+         id="stop1233" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1227">
+      <stop
+         style="stop-color:#cc8800;stop-opacity:1"
+         offset="0"
+         id="stop1223" />
+      <stop
+         style="stop-color:#6a4600;stop-opacity:1"
+         offset="1"
+         id="stop1225" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1219">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop1215" />
+      <stop
+         style="stop-color:#1ebaff;stop-opacity:1"
+         offset="1"
+         id="stop1217" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1207">
+      <stop
+         style="stop-color:#f0cd6a;stop-opacity:1"
+         offset="0"
+         id="stop1202" />
+      <stop
+         style="stop-color:#fddf7e;stop-opacity:1"
+         offset="1"
+         id="stop1205" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="101.6 : -67.733332 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="135.46666 : -67.733331 : 1"
+       inkscape:persp3d-origin="16.933333 : 11.288889 : 1"
+       id="perspective1492" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1270">
+      <stop
+         style="stop-color:#804000;stop-opacity:1"
+         offset="0"
+         id="stop1266" />
+      <stop
+         id="stop1274"
+         offset="0.59999979"
+         style="stop-color:#dca164;stop-opacity:1" />
+      <stop
+         style="stop-color:#aa7744;stop-opacity:1"
+         offset="1"
+         id="stop1268" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1260">
+      <stop
+         style="stop-color:#fedda9;stop-opacity:1"
+         offset="0"
+         id="stop1256" />
+      <stop
+         style="stop-color:#daa268;stop-opacity:1"
+         offset="1"
+         id="stop1258" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1250">
+      <stop
+         style="stop-color:#fedda9;stop-opacity:1"
+         offset="0"
+         id="stop1246" />
+      <stop
+         style="stop-color:#e0a466;stop-opacity:1"
+         offset="1"
+         id="stop1248" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1220">
+      <stop
+         style="stop-color:#934f02;stop-opacity:1"
+         offset="0"
+         id="stop1216" />
+      <stop
+         style="stop-color:#ae6904;stop-opacity:1"
+         offset="1"
+         id="stop1218" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1208">
+      <stop
+         style="stop-color:#dfad7a;stop-opacity:1"
+         offset="0"
+         id="stop1204" />
+      <stop
+         style="stop-color:#f5cb98;stop-opacity:1"
+         offset="1"
+         id="stop1206" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1198">
+      <stop
+         style="stop-color:#874401;stop-opacity:1"
+         offset="0"
+         id="stop1194" />
+      <stop
+         style="stop-color:#ae6904;stop-opacity:1"
+         offset="1"
+         id="stop1196" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient167342">
+      <stop
+         style="stop-color:#c4dcdc;stop-opacity:1"
+         offset="0"
+         id="stop167338" />
+      <stop
+         style="stop-color:#f7f3eb;stop-opacity:1"
+         offset="1"
+         id="stop167340" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient167336">
+      <stop
+         style="stop-color:#c4dcdc;stop-opacity:1"
+         offset="0"
+         id="stop167332" />
+      <stop
+         style="stop-color:#f7f3eb;stop-opacity:1"
+         offset="1"
+         id="stop167334" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient167330">
+      <stop
+         style="stop-color:#c4dcdc;stop-opacity:1"
+         offset="0"
+         id="stop167326" />
+      <stop
+         style="stop-color:#f7f3eb;stop-opacity:1"
+         offset="1"
+         id="stop167328" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient167324">
+      <stop
+         style="stop-color:#c4dcdc;stop-opacity:1"
+         offset="0"
+         id="stop167320" />
+      <stop
+         style="stop-color:#f7f3eb;stop-opacity:1"
+         offset="1"
+         id="stop167322" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient167318">
+      <stop
+         style="stop-color:#c4dcdc;stop-opacity:1"
+         offset="0"
+         id="stop167314" />
+      <stop
+         style="stop-color:#f7f3eb;stop-opacity:1"
+         offset="1"
+         id="stop167316" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient167312">
+      <stop
+         style="stop-color:#c4dcdc;stop-opacity:1"
+         offset="0"
+         id="stop167308" />
+      <stop
+         style="stop-color:#f7f3eb;stop-opacity:1"
+         offset="1"
+         id="stop167310" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1404">
+      <stop
+         style="stop-color:#c4dcdc;stop-opacity:1"
+         offset="0"
+         id="stop1400" />
+      <stop
+         style="stop-color:#f7f3eb;stop-opacity:1"
+         offset="1"
+         id="stop1402" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1404"
+       id="linearGradient1406"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167342"
+       id="linearGradient72752"
+       gradientUnits="userSpaceOnUse"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998"
+       gradientTransform="translate(33.866666)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167312"
+       id="linearGradient72762"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(67.733332)"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167330"
+       id="linearGradient72772"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(101.6)"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167318"
+       id="linearGradient72782"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(135.46667)"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167324"
+       id="linearGradient72792"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(6e-6,33.866666)"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167336"
+       id="linearGradient72802"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(203.2,-33.866668)"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1404"
+       id="linearGradient1156"
+       gradientUnits="userSpaceOnUse"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998"
+       gradientTransform="translate(0,67.733332)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1198"
+       id="linearGradient1200"
+       x1="31.749998"
+       y1="133.34999"
+       x2="2.1166666"
+       y2="112.18333"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.92857348,0,0,0.90000309,170.54285,-55.457076)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1208"
+       id="linearGradient1210"
+       x1="16.933332"
+       y1="132.29166"
+       x2="16.933332"
+       y2="111.125"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.76923081,0,0,0.79999985,3.9076923,25.400015)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1220"
+       id="linearGradient1222"
+       x1="29.633333"
+       y1="113.24166"
+       x2="4.2333331"
+       y2="113.24166"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.87500043,169.33333,-54.636498)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1250"
+       id="linearGradient1252"
+       x1="16.933332"
+       y1="113.24166"
+       x2="16.933332"
+       y2="131.23334"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(169.33333,-67.733338)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1260"
+       id="linearGradient1262"
+       x1="16.933332"
+       y1="113.24166"
+       x2="16.933332"
+       y2="104.775"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(169.33333,-67.733338)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1270"
+       id="linearGradient1272"
+       x1="16.933332"
+       y1="104.775"
+       x2="16.933332"
+       y2="119.59167"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.0714287,169.33333,-76.275615)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1404"
+       id="linearGradient1286"
+       gradientUnits="userSpaceOnUse"
+       x1="21.166668"
+       y1="9.5249996"
+       x2="6.3500018"
+       y2="30.691666"
+       gradientTransform="translate(-33.866668)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1207"
+       id="linearGradient1209"
+       x1="5.2916665"
+       y1="154.27242"
+       x2="26.634722"
+       y2="154.27243"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0909091,0,0,1.0833333,0.57727258,-12.61179)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1219"
+       id="linearGradient1221"
+       x1="24.341665"
+       y1="154.51666"
+       x2="24.341665"
+       y2="160.86667"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.74999998,0,0,1,10.054169,1.0583219)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1227"
+       id="linearGradient1229"
+       x1="6.3499999"
+       y1="137.58333"
+       x2="29.633333"
+       y2="162.98332"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1235"
+       id="linearGradient1237"
+       x1="6.3499999"
+       y1="137.58333"
+       x2="14.816667"
+       y2="167.21666"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1246"
+       id="radialGradient1248"
+       cx="47.624996"
+       cy="149.22499"
+       fx="47.624996"
+       fy="149.22499"
+       r="14.816665"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.31771025,1.1914153,-1.071428,0.28571368,192.37789,49.848218)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1259"
+       id="radialGradient1261"
+       cx="50.799999"
+       cy="167.21666"
+       fx="50.799999"
+       fy="167.21666"
+       r="11.641666"
+       gradientTransform="matrix(1,0,0,0.18181818,0,136.81363)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1333"
+       id="linearGradient1335"
+       x1="53.974998"
+       y1="144.99167"
+       x2="52.916664"
+       y2="139.7"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1369"
+       id="linearGradient1363"
+       gradientUnits="userSpaceOnUse"
+       x1="61.383331"
+       y1="152.39999"
+       x2="63.5"
+       y2="156.63333" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1379"
+       id="radialGradient1381"
+       cx="50.799999"
+       cy="151.03233"
+       fx="50.799999"
+       fy="151.03233"
+       r="8.4666665"
+       gradientTransform="matrix(1.375,-9.0578894e-7,6.587558e-7,1.0000003,-19.0501,0.30933774)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1389"
+       id="radialGradient1391"
+       cx="48.683334"
+       cy="160.33749"
+       fx="48.683334"
+       fy="160.33749"
+       r="5.2916665"
+       gradientTransform="matrix(0.74856146,-0.29942537,0.20000029,0.49999941,-19.826678,94.745866)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1404"
+       id="linearGradient1571"
+       gradientUnits="userSpaceOnUse"
+       x1="21.166666"
+       y1="9.5249996"
+       x2="6.3499999"
+       y2="30.691666" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167342"
+       id="linearGradient1587"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(33.866666)"
+       x1="21.166666"
+       y1="9.5249996"
+       x2="6.3499999"
+       y2="30.691666" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167312"
+       id="linearGradient1603"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(67.733332)"
+       x1="21.166666"
+       y1="9.5249996"
+       x2="6.349999"
+       y2="30.691666" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167330"
+       id="linearGradient1619"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(101.6)"
+       x1="21.166658"
+       y1="9.5249996"
+       x2="6.3499918"
+       y2="30.691666" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167318"
+       id="linearGradient1635"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(135.46667)"
+       x1="21.166658"
+       y1="9.5249996"
+       x2="6.3499937"
+       y2="30.691666" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167324"
+       id="linearGradient1651"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(169.33334)"
+       x1="21.166656"
+       y1="9.5249996"
+       x2="6.3499899"
+       y2="30.691666" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient167336"
+       id="linearGradient1667"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(203.2)"
+       x1="21.166662"
+       y1="9.5249996"
+       x2="6.3499961"
+       y2="30.691666" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1404"
+       id="linearGradient1691"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(237.06666,-2e-6)"
+       x1="21.166668"
+       y1="9.5250015"
+       x2="6.3500018"
+       y2="30.691668" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1404"
+       id="linearGradient1711"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(67.733332,101.6)"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998" />
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer9"
+     inkscape:label="World"
+     style="display:inline">
+    <g
+       id="World"
+       transform="translate(-67.733332,-33.866669)"
+       inkscape:label="#g1445">
+      <ellipse
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         ry="2.1166666"
+         rx="11.641666"
+         cy="167.21666"
+         cx="50.799999"
+         id="path1252"
+         style="fill:url(#radialGradient1261);fill-opacity:1;stroke:none;stroke-width:1.05833328;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <circle
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         r="14.816665"
+         cy="152.39999"
+         cx="50.799999"
+         id="path1240"
+         style="fill:url(#radialGradient1248);fill-opacity:1;stroke:none;stroke-width:1.05833328;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         y="135.46666"
+         x="33.866665"
+         height="33.866665"
+         width="33.866665"
+         id="rect1325"
+         style="fill:#12aa1c;fill-opacity:0;stroke:none;stroke-width:1.05833328;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         sodipodi:nodetypes="cccccccccccsccccccccccccccccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path1327"
+         d="m 57.149999,152.4 1.058333,1.05833 v 1.05833 l 1.058333,1.05834 1.058334,-1.05834 h 1.058333 l 1.058333,1.05834 v 1.05833 l -1.058333,1.05833 -1e-6,1.05834 -1.058332,1.05833 c 0,0 -1.058334,5.07907 1.058333,2.96241 2.645831,-2.64583 4.233333,-6.13741 4.233334,-10.37074 -10e-7,-8.46667 -6.350001,-14.81667 -14.816667,-14.81667 L 49.741666,139.7 v 1.05833 l 1.058333,1.05833 v 1.05834 l -1.058333,1.05833 v 1.05833 l 2.116667,2.11667 v 1.05833 l -1.058334,1.05834 h -1.058333 v 1.05833 h -1.058333 v 1.05833 L 49.741666,152.4 h 1.058333 l 1.058334,1.05833 h 1.058333 L 53.974999,152.4 v -1.05834 l 1.058334,-1.05833 h 1.058333 l 1.058333,1.05833 z"
+         style="fill:url(#linearGradient1335);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         style="fill:url(#linearGradient1363);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 57.149999,152.4 1.058333,1.05833 v 1.05833 l 1.058333,1.05834 1.058334,-1.05834 h 1.058333 l 1.058333,1.05834 v 1.05833 l -1.058333,1.05833 -1e-6,1.05834 -1.058332,1.05833 c 0,0 -1.058334,5.07907 1.058333,2.96241 2.645831,-2.64583 4.233333,-6.13741 4.233334,-10.37074 -10e-7,-8.46667 -6.350001,-14.81667 -14.816667,-14.81667 L 49.741666,139.7 v 1.05833 l 1.058333,1.05833 v 1.05834 l -1.058333,1.05833 v 1.05833 l 2.116667,2.11667 v 1.05833 l -1.058334,1.05834 h -1.058333 v 1.05833 h -1.058333 v 1.05833 L 49.741666,152.4 h 1.058333 l 1.058334,1.05833 h 1.058333 L 53.974999,152.4 v -1.05834 l 1.058334,-1.05833 h 1.058333 l 1.058333,1.05833 z"
+         id="path1361"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccccccsccccccccccccccccccccccccc" />
+      <path
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         sodipodi:nodetypes="cccccccccccsccccccccccccccccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path1371"
+         d="m 57.149999,152.4 1.058333,1.05833 v 1.05833 l 1.058333,1.05834 1.058334,-1.05834 h 1.058333 l 1.058333,1.05834 v 1.05833 l -1.058333,1.05833 -1e-6,1.05834 -1.058332,1.05833 c 0,0 -1.058334,5.07907 1.058333,2.96241 2.645831,-2.64583 4.233333,-6.13741 4.233334,-10.37074 -10e-7,-8.46667 -6.350001,-14.81667 -14.816667,-14.81667 L 49.741666,139.7 v 1.05833 l 1.058333,1.05833 v 1.05834 l -1.058333,1.05833 v 1.05833 l 2.116667,2.11667 v 1.05833 l -1.058334,1.05834 h -1.058333 v 1.05833 h -1.058333 v 1.05833 L 49.741666,152.4 h 1.058333 l 1.058334,1.05833 h 1.058333 L 53.974999,152.4 v -1.05834 l 1.058334,-1.05833 h 1.058333 l 1.058333,1.05833 z"
+         style="fill:url(#radialGradient1381);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         inkscape:connector-curvature="0"
+         id="path1383"
+         d="m 47.624999,157.69166 1.058334,-1.05833 h 2.116666 l 2.116667,1.05833 v 2.11667 l 1.058333,1.05833 v 1.05834 l -1.058333,1.05833 -1.058333,1.05833 h -2.116667 l -2.116667,-1.05833 H 45.508333 L 44.449999,161.925 v -1.05834 l -1.058333,-1.05833 v -2.11667 l 1.058333,-1.05833 h 1.058334 l 1.058333,1.05833 z"
+         style="fill:url(#radialGradient1391);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         inkscape:connector-curvature="0"
+         id="path1411"
+         d="m 39.158333,154.51666 h 1.058333 l 1.058333,-1.05833 h 1.058334 V 152.4 l -1.058334,-1.05834 H 39.158333 L 37.041666,152.4 v 1.05833 L 38.1,154.51666 Z"
+         style="fill:#12aa1c;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         inkscape:connector-curvature="0"
+         id="path1413"
+         d="m 43.391666,149.225 v -1.05834 h 1.058333 v 1.05834 z"
+         style="fill:#12aa1c;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         inkscape:connector-curvature="0"
+         id="path1415"
+         d="m 40.216666,146.05 2.116667,-1.05834 1.058333,1.05834 -1.058333,1.05833 h -1.058334 z"
+         style="fill:#0c7113;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12.000001"
+         inkscape:export-xdpi="12.000001"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\world_2.png"
+         sodipodi:nodetypes="ccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path1417"
+         d="m 45.303833,166.16083 1.257274,-0.002 1.063892,-1.05877 1.058333,1.05833 h 2.116667 L 51.858332,165.1 h 2.116667 l 1.058333,1.05833 1.274095,0.004 c -1.609691,0.61434 -3.320033,1.0717 -5.507428,1.12553 -2.091582,-0.10701 -4.042291,-0.52252 -5.496166,-1.12657 z"
+         style="fill:#f5fef5;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="g902"
+     inkscape:label="LongArrayTagAlt"
+     style="display:inline">
+    <g
+       id="LongArrayTagAlt"
+       transform="translate(4.4541016e-6,33.866668)"
+       inkscape:label="#g1550">
+      <text
+         transform="scale(1.0551363,0.94774486)"
+         id="text953"
+         y="64.767761"
+         x="139.35104"
+         style="font-weight:bold;font-stretch:condensed;font-size:23.38120079px;line-height:1.25;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';letter-spacing:0px;word-spacing:0px;display:inline;fill:#1274aa;fill-opacity:1;stroke-width:0.27399799"
+         xml:space="preserve"><tspan
+           y="64.767761"
+           x="139.35104"
+           style="font-size:23.38120079px;fill:#1274aa;fill-opacity:1;stroke-width:0.27399799"
+           id="tspan951"
+           sodipodi:role="line">L</tspan></text>
+      <rect
+         y="33.866665"
+         x="135.46666"
+         height="33.866665"
+         width="33.866665"
+         id="rect957"
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <text
+         transform="scale(1.0312705,0.96967771)"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         id="text1026"
+         y="63.930447"
+         x="132.49773"
+         style="font-style:normal;font-weight:normal;font-size:13.29096127px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33227402"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:28.35405159px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.33227402"
+           y="63.930447"
+           x="132.49773"
+           id="tspan1024"
+           sodipodi:role="line">&lt;</tspan></text>
+      <text
+         transform="scale(1.0312705,0.96967771)"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         id="text1030"
+         y="63.930447"
+         x="152.74568"
+         style="font-style:normal;font-weight:normal;font-size:13.29096127px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33227402"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:28.35405159px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.33227402"
+           y="63.930447"
+           x="152.74568"
+           id="tspan1028"
+           sodipodi:role="line">&gt;</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:label="IntArrayTagAlt"
+     id="g900"
+     inkscape:groupmode="layer"
+     style="display:inline">
+    <g
+       id="IntArrayTagAlt"
+       transform="translate(-4.7412109e-7,33.866667)"
+       inkscape:label="#g1532">
+      <text
+         transform="scale(1.1198267,0.89299532)"
+         id="text932"
+         y="68.738609"
+         x="103.24466"
+         style="font-style:normal;font-weight:normal;font-size:24.81459999px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ca0fc5;fill-opacity:1;stroke:none;stroke-width:0.290795"
+         xml:space="preserve"><tspan
+           y="68.738609"
+           x="103.24466"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24.81459999px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold';fill:#ca0fc5;fill-opacity:1;stroke-width:0.290795"
+           id="tspan930"
+           sodipodi:role="line">I</tspan></text>
+      <rect
+         y="33.866665"
+         x="101.6"
+         height="33.866665"
+         width="33.866665"
+         id="rect936"
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:13.29096127px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33227402"
+         x="99.657982"
+         y="63.930447"
+         id="text1014"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12"
+         transform="scale(1.0312705,0.9696777)"><tspan
+           sodipodi:role="line"
+           id="tspan1012"
+           x="99.657982"
+           y="63.930447"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:28.35405159px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.33227402">&lt;</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:13.29096127px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33227402"
+         x="119.90594"
+         y="63.930447"
+         id="text1018"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12"
+         transform="scale(1.0312705,0.9696777)"><tspan
+           sodipodi:role="line"
+           id="tspan1016"
+           x="119.90594"
+           y="63.930447"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:28.35405159px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.33227402">&gt;</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="ByteArrayTagAlt"
+     style="display:inline">
+    <g
+       id="ByteArrayTagAlt"
+       transform="translate(-33.86666,33.866668)"
+       inkscape:label="#g1518">
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         y="33.866665"
+         x="67.73333"
+         height="33.866665"
+         width="33.866665"
+         id="rect972"
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <text
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         transform="scale(1.0093965,0.99069097)"
+         id="text976"
+         y="61.960102"
+         x="78.657936"
+         style="font-style:normal;font-weight:normal;font-size:22.36759949px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#d9143c;fill-opacity:1;stroke:none;stroke-width:0.26212001"
+         xml:space="preserve"><tspan
+           y="61.960102"
+           x="78.657936"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:22.36759949px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';fill:#d9143c;fill-opacity:1;stroke-width:0.26212001"
+           id="tspan974"
+           sodipodi:role="line">B</tspan></text>
+      <text
+         transform="scale(1.0312705,0.9696777)"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         id="text990"
+         y="63.930447"
+         x="66.81823"
+         style="font-style:normal;font-weight:normal;font-size:13.29096127px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33227402"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:28.35405159px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.33227402"
+           y="63.930447"
+           x="66.81823"
+           id="tspan988"
+           sodipodi:role="line">&lt;</tspan></text>
+      <text
+         transform="scale(1.0312705,0.9696777)"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         id="text990-5"
+         y="63.930447"
+         x="87.066185"
+         style="font-style:normal;font-weight:normal;font-size:13.29096127px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33227402"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:28.35405159px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.33227402"
+           y="63.930447"
+           x="87.066185"
+           id="tspan988-8"
+           sodipodi:role="line">&gt;</tspan></text>
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     inkscape:label="Region"
+     id="g1298"
+     inkscape:groupmode="layer">
+    <g
+       id="Region"
+       transform="translate(1.875e-7,-1.1999995e-6)"
+       inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\128x128\Region2.png"
+       inkscape:export-xdpi="95.999992"
+       inkscape:export-ydpi="95.999992"
+       inkscape:label="#g1296">
+      <rect
+         style="fill:#ffffff;fill-opacity:0;stroke:none;stroke-width:1.05833328;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1275"
+         width="33.866665"
+         height="33.866665"
+         x="0"
+         y="67.73333" />
+      <path
+         style="fill:#46782c;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 24.341666,99.483332 -7.408333,-4.233333 v -8.466667 l 7.408333,4.233334 z"
+         id="path1277"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#629c44;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 24.341667,91.016666 31.75,86.783332 v 8.466667 l -7.408333,4.233333 z"
+         id="path1280"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#80bb61;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 16.933333,86.783332 24.341666,82.549999 31.75,86.783332 24.341666,91.016666 Z"
+         id="path1282"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#1274aa;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 16.933333,95.249999 9.5249997,99.483331 V 91.016666 L 16.933333,86.783332 Z"
+         id="path1284"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#11556f;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 9.5249997,91.016666 -7.4083331,-4.233334 1e-7,8.466667 7.408333,4.233332 z"
+         id="path1286"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#1393e5;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 16.933333,86.783332 9.5249997,82.549999 2.1166666,86.783332 9.5249997,91.016666 Z"
+         id="path1288"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#d9143c;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 16.933333,86.783333 v -8.466668 l 7.408333,-4.233333 V 82.55 Z"
+         id="path1290"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#9f112b;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 9.5249997,82.55 v -8.466668 l 7.4083333,4.233333 v 8.466668 z"
+         id="path1292"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#eb3d5f;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 9.5249997,74.083332 7.4083333,-4.233333 7.408333,4.233333 -7.408333,4.233332 z"
+         id="path1294"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="DirtBlock"
+     style="display:inline">
+    <g
+       id="DirtBlock"
+       transform="translate(-101.6,-67.733335)"
+       inkscape:label="#g1432">
+      <rect
+         y="135.46666"
+         x="67.73333"
+         height="33.866665"
+         width="33.866665"
+         id="rect1420"
+         style="fill:#ffffff;fill-opacity:0.00643089;stroke:none;stroke-width:1.05833328;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1422"
+         d="m 84.666666,167.21666 14.816666,-6.35 V 146.05 l -14.816666,6.35 z"
+         style="fill:#72543b;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1424"
+         d="m 84.666666,167.21666 -14.816667,-6.35 V 146.05 l 14.816667,6.35 z"
+         style="fill:#503928;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path1426"
+         d="m 69.849999,146.05 14.816667,6.35 14.816666,-6.35 -14.816666,-6.35 z"
+         style="fill:#4f7d2d;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="ListTag"
+     style="display:inline">
+    <g
+       id="ListTag"
+       transform="translate(169.33333,-67.733331)"
+       inkscape:label="#g1484">
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         y="101.6"
+         x="33.866665"
+         height="33.866665"
+         width="33.866665"
+         id="rect1041"
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <ellipse
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         ry="2.645834"
+         rx="2.6458333"
+         cy="119.59167"
+         cx="39.158333"
+         id="path1170"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.76416659;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+      <ellipse
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         ry="2.6458328"
+         rx="2.6458333"
+         cy="128.05833"
+         cx="39.158333"
+         id="path1172"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.76416683;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+      <ellipse
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         ry="2.6458328"
+         rx="2.6458333"
+         cy="111.125"
+         cx="39.158333"
+         id="path1174"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.76416683;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="1.0583333"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         cy="119.59167"
+         cx="39.158333"
+         id="path1178"
+         style="fill:#c0c0c0;fill-opacity:1;stroke:none;stroke-width:1.05850005;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="1.0583333"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         cy="111.125"
+         cx="39.158333"
+         id="path1180"
+         style="fill:#d0d0d0;fill-opacity:1;stroke:none;stroke-width:1.05850005;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         r="1.0583333"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         cy="128.05833"
+         cx="39.158333"
+         id="path1182"
+         style="fill:#b0b0b0;fill-opacity:1;stroke:none;stroke-width:1.05849993;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         y="109.5375"
+         x="46.566666"
+         height="3.175"
+         width="19.049999"
+         id="rect1184"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.83337569;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         y="118.00417"
+         x="46.566666"
+         height="3.175"
+         width="19.049999"
+         id="rect1186"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.83337569;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ListTagTest_4.png"
+         y="126.47083"
+         x="46.566666"
+         height="3.175"
+         width="19.049999"
+         id="rect1188"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.83337569;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="CompoundTag"
+     style="display:inline">
+    <g
+       id="CompoundTag"
+       inkscape:label="#g1892">
+      <rect
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect1037"
+         width="33.866665"
+         height="33.866665"
+         x="169.33333"
+         y="33.866669"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\CompoundTagTest.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12" />
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\CompoundTagTest.png"
+         y="45.508266"
+         x="172.50833"
+         height="19.050062"
+         width="27.516729"
+         id="rect1192"
+         style="fill:none;fill-opacity:1;stroke:url(#linearGradient1200);stroke-width:2.11660361;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\CompoundTagTest.png"
+         inkscape:connector-curvature="0"
+         id="path1254"
+         d="m 172.50833,45.508332 2.11667,-8.46667 h 23.28333 l 2.11667,8.46667 h -27.51667"
+         style="fill:url(#linearGradient1262);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\CompoundTagTest.png"
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="path1214"
+         d="m 172.50833,46.566666 v -2.116664 l 2.11667,-7.40833 h 23.28333 l 2.11667,7.40833 v 2.116664"
+         style="fill:none;stroke:url(#linearGradient1222);stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\CompoundTagTest.png"
+         y="45.508331"
+         x="173.56667"
+         height="17.991667"
+         width="25.4"
+         id="rect1244"
+         style="fill:url(#linearGradient1252);fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\CompoundTagTest.png"
+         sodipodi:nodetypes="ccccccccccccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path1264"
+         d="m 182.03333,45.054762 v 6.80357 h 1.05833 v -1.13394 H 184.15 v 1.13393 h 1.05833 v -1.13393 h 1.05833 v 1.13393 h 1.05834 v -1.13393 h 1.05833 v 1.13393 l 1.05833,10e-6 v -1.13394 H 190.5 v -5.66963 l -1.05834,-9.07144 h -6.35 l -1.05833,9.07144"
+         style="fill:url(#linearGradient1272);fill-opacity:1;stroke:none;stroke-width:0.27386978px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     inkscape:label="LongArrayTag"
+     id="g1078"
+     inkscape:groupmode="layer">
+    <g
+       id="LongArrayTag"
+       transform="translate(4.4541016e-6,-33.866659)"
+       inkscape:label="#g1559">
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-stretch:condensed;font-size:23.38120079px;line-height:1.25;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';letter-spacing:0px;word-spacing:0px;display:inline;fill:#1274aa;fill-opacity:1;stroke-width:0.27399799"
+         x="139.35104"
+         y="100.50171"
+         id="text1066"
+         transform="scale(1.0551363,0.94774486)"><tspan
+           sodipodi:role="line"
+           id="tspan1064"
+           style="font-size:23.38120079px;fill:#1274aa;fill-opacity:1;stroke-width:0.27399799"
+           x="139.35104"
+           y="100.50171">L</tspan></text>
+      <rect
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect1068"
+         width="33.866665"
+         height="33.866665"
+         x="135.46666"
+         y="67.73333" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:12.75654221px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31891355"
+         x="135.89688"
+         y="96.321999"
+         id="text1128"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12"
+         transform="scale(1.0195903,0.98078611)"><tspan
+           sodipodi:role="line"
+           id="tspan1126"
+           x="135.89688"
+           y="96.321999"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:24.378685px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.31891355">[</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:12.75654221px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31891355"
+         x="155.88072"
+         y="96.321999"
+         id="text1132"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12"
+         transform="scale(1.0195903,0.98078611)"><tspan
+           sodipodi:role="line"
+           id="tspan1130"
+           x="155.88072"
+           y="96.321999"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:24.378685px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.31891355">]</tspan></text>
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     inkscape:groupmode="layer"
+     id="g1094"
+     inkscape:label="IntArrayTag">
+    <g
+       id="IntArrayTag"
+       transform="translate(4.4541016e-6,-33.866659)"
+       inkscape:label="#g1541">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:24.81459999px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ca0fc5;fill-opacity:1;stroke:none;stroke-width:0.290795"
+         x="103.24466"
+         y="106.66341"
+         id="text1082"
+         transform="scale(1.1198267,0.89299532)"><tspan
+           sodipodi:role="line"
+           id="tspan1080"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24.81459999px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold';fill:#ca0fc5;fill-opacity:1;stroke-width:0.290795"
+           x="103.24466"
+           y="106.66341">I</tspan></text>
+      <rect
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect1084"
+         width="33.866665"
+         height="33.866665"
+         x="101.6"
+         y="67.73333" />
+      <text
+         transform="scale(1.0195903,0.98078612)"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         id="text1116"
+         y="96.321999"
+         x="102.68093"
+         style="font-style:normal;font-weight:normal;font-size:12.75654221px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31891355"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:24.378685px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.31891355"
+           y="96.321999"
+           x="102.68093"
+           id="tspan1114"
+           sodipodi:role="line">[</tspan></text>
+      <text
+         transform="scale(1.0195903,0.98078611)"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         id="text1120"
+         y="96.321999"
+         x="122.66477"
+         style="font-style:normal;font-weight:normal;font-size:12.75654221px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31891355"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:24.378685px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.31891355"
+           y="96.321999"
+           x="122.66477"
+           id="tspan1118"
+           sodipodi:role="line">]</tspan></text>
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     inkscape:label="ByteArrayTag"
+     id="g1062"
+     inkscape:groupmode="layer">
+    <g
+       id="ByteArrayTag"
+       transform="translate(-33.866664,-33.866659)"
+       inkscape:label="#g1509">
+      <rect
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect1048"
+         width="33.866665"
+         height="33.866665"
+         x="67.73333"
+         y="67.73333"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:22.36759949px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#d9143c;fill-opacity:1;stroke:none;stroke-width:0.26212001"
+         x="78.657936"
+         y="96.144997"
+         id="text1052"
+         transform="scale(1.0093965,0.99069097)"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12"><tspan
+           sodipodi:role="line"
+           id="tspan1050"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:22.36759949px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';fill:#d9143c;fill-opacity:1;stroke-width:0.26212001"
+           x="78.657936"
+           y="96.144997">B</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:12.75654221px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31891355"
+         x="69.464973"
+         y="96.321999"
+         id="text1056"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12"
+         transform="scale(1.0195903,0.98078613)"><tspan
+           sodipodi:role="line"
+           id="tspan1054"
+           x="69.464973"
+           y="96.321999"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:24.378685px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.31891355">[</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:12.75654221px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31891355"
+         x="89.448814"
+         y="96.321999"
+         id="text1056-3"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12"
+         transform="scale(1.0195903,0.98078611)"><tspan
+           sodipodi:role="line"
+           id="tspan1054-7"
+           x="89.448814"
+           y="96.321999"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:24.378685px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.31891355">]</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="Folder"
+     style="display:inline">
+    <g
+       id="Folder"
+       transform="translate(-1.3125e-6,-101.6)"
+       inkscape:label="#g1451">
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\folder-new-3.png"
+         y="135.46666"
+         x="0"
+         height="33.866665"
+         width="33.866665"
+         id="rect1198"
+         style="fill:#ffffff;fill-opacity:0;stroke:none;stroke-width:1.05833328;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\folder-new-3.png"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="path1200"
+         d="m 6.35,137.58333 1e-6,25.4 h 23.283333 l -1e-6,-8.46667 L 27.516667,152.4 v -14.81667 z"
+         style="fill:url(#linearGradient1209);fill-opacity:1;stroke:url(#linearGradient1229);stroke-width:1.05833328;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\folder-new-3.png"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="path1211"
+         d="m 6.3500001,137.58333 9.5250009,4.7625 v 14.2875 L 14.816668,158.75 v 8.46666 l -8.4666679,-4.23333 z"
+         style="fill:#ffe9a0;fill-opacity:1;stroke:url(#linearGradient1237);stroke-width:1.05833328;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\folder-new-3.png"
+         y="155.575"
+         x="27.516668"
+         height="6.3499999"
+         width="1.5875"
+         id="rect1213"
+         style="fill:url(#linearGradient1221);fill-opacity:1;stroke:none;stroke-width:0.91654408;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="Chunk"
+     style="display:inline">
+    <g
+       id="Chunk"
+       transform="translate(-135.46666,-67.733341)"
+       inkscape:label="#g1463">
+      <path
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\chunk.png"
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path1508"
+         d="M 118.53333,133.35 133.35,127 v -14.81667 l -14.81667,6.35 z"
+         style="fill:#a2a3a3;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\chunk.png"
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path1510"
+         d="m 118.53333,133.35 -14.81666,-6.35 -10e-6,-14.81667 14.81667,6.35 V 133.35"
+         style="fill:#727373;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\chunk.png"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="path1512"
+         d="m 111.125,109.00834 7.40833,-3.175 14.81667,6.35 -14.81667,6.35 -7.40833,-3.175 7.40833,-3.17501 z"
+         style="fill:#3bc71d;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\chunk.png"
+         inkscape:connector-curvature="0"
+         id="path1514"
+         d="m 125.94167,111.12499 7.40833,-3.175 -7.40833,-3.175 -7.40834,3.175 7.40834,3.175"
+         style="fill:#3bc71d;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\chunk.png"
+         inkscape:connector-curvature="0"
+         id="path1516"
+         d="M 125.94167,116.41667 V 111.125 L 133.35,107.95 v 5.29167 l -7.40833,3.175"
+         style="fill:#a2a3a3;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\chunk.png"
+         inkscape:connector-curvature="0"
+         id="path1518"
+         d="M 125.94167,115.35834 V 111.125 l -7.40834,-3.175 v 4.23334 l 7.40834,3.175"
+         style="fill:#727373;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\chunk.png"
+         inkscape:connector-curvature="0"
+         id="path1520"
+         d="m 103.71667,112.18334 7.40833,-3.175 7.40833,3.175 -7.40833,3.175 -7.40833,-3.175"
+         style="fill:#1274aa;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\chunk.png"
+         y="101.6"
+         x="101.6"
+         height="33.866665"
+         width="33.866665"
+         id="rect1530"
+         style="fill:#ffffff;fill-opacity:0;stroke:none;stroke-width:1.05833328;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1532"
+         d="m 118.53333,133.35 v -4.23333 l 14.81667,-6.35 V 127 Z"
+         style="fill:#606161;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1534"
+         d="m 103.71667,127 v -4.23333 l 14.81666,6.35 V 133.35 Z"
+         style="fill:#353636;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="StringTag"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <g
+       id="StringTag"
+       inkscape:label="#g1872">
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="path1150"
+         d="M 242.35833,2.1166643 V 31.749993 h 23.28333 V 8.4666643 l -6.35,-6.35 h -16.93333"
+         style="display:inline;fill:url(#linearGradient1691);fill-opacity:1;stroke:#000000;stroke-width:2.11699986;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path1152"
+         d="m 259.29166,8.4666643 h 6.35 l -6.35,-6.35 v 6.35"
+         style="display:inline;fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11699986;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect1045"
+         width="33.866665"
+         height="33.866665"
+         x="237.06665"
+         y="-4.2270508e-006"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12" />
+      <text
+         transform="scale(0.96008578,1.0415736)"
+         id="text1140"
+         y="26.418356"
+         x="255.35716"
+         style="font-style:normal;font-weight:normal;font-size:9.95989418px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.24899732"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:21.24777412px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.24899732"
+           y="26.418356"
+           x="255.35716"
+           id="tspan1138"
+           sodipodi:role="line">A</tspan></text>
+      <text
+         transform="scale(0.96377126,1.0375906)"
+         id="text1144"
+         y="26.479532"
+         x="264.95963"
+         style="font-style:normal;font-weight:normal;font-size:9.65672016px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.24141802"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:20.60100555px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.24141802"
+           y="26.479532"
+           x="264.95963"
+           id="tspan1142"
+           sodipodi:role="line">a</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="3.5938768"
+       y="86.04718"
+       id="text1148"><tspan
+         sodipodi:role="line"
+         id="tspan1146"
+         x="3.5938768"
+         y="95.702675"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:22.57777786px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332" /></text>
+  </g>
+  <g
+     inkscape:label="DoubleTag"
+     inkscape:groupmode="layer"
+     id="g72800"
+     style="display:inline">
+    <g
+       id="DoubleTag"
+       inkscape:label="#g1193">
+      <path
+         sodipodi:nodetypes="cccccc"
+         style="fill:url(#linearGradient1667);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 208.49166,2.1166663 V 31.75 H 231.775 V 8.4666663 l -6.35,-6.35 h -16.93334"
+         id="path72796"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="cccc"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 225.425,8.4666663 h 6.35 l -6.35,-6.35 v 6.35"
+         id="path72798"
+         inkscape:connector-curvature="0" />
+      <rect
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect72794"
+         width="33.866665"
+         height="33.866665"
+         x="203.2"
+         y="-1.1135254e-006" />
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-stretch:condensed;font-size:22.19486237px;line-height:1.25;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';letter-spacing:0px;word-spacing:0px;fill:#3bc71d;fill-opacity:1;stroke-width:0.26009598"
+         x="214.53589"
+         y="27.560741"
+         id="text160418"
+         transform="scale(1.0016024,0.99840017)"><tspan
+           sodipodi:role="line"
+           id="tspan160416"
+           style="font-size:22.19486237px;fill:#3bc71d;fill-opacity:1;stroke-width:0.26009598"
+           x="214.53589"
+           y="27.560741">D</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:label="FloatTag"
+     inkscape:groupmode="layer"
+     id="g72790"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <g
+       id="FloatTag"
+       inkscape:label="#g1844">
+      <path
+         sodipodi:nodetypes="cccccc"
+         style="fill:url(#linearGradient1651);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 174.625,2.1166663 V 31.75 h 23.28334 V 8.4666663 l -6.35,-6.35 H 174.625"
+         id="path72786"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="cccc"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 191.55834,8.4666663 h 6.35 l -6.35,-6.35 v 6.35"
+         id="path72788"
+         inkscape:connector-curvature="0" />
+      <rect
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect72784"
+         width="33.866665"
+         height="33.866665"
+         x="169.33333"
+         y="-1.1135254e-006" />
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-stretch:condensed;font-size:24.52169991px;line-height:1.25;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';letter-spacing:0px;word-spacing:0px;fill:#b49806;fill-opacity:1;stroke-width:0.28736299"
+         x="163.37193"
+         y="30.450001"
+         id="text150500"
+         transform="scale(1.1066028,0.9036666)"><tspan
+           sodipodi:role="line"
+           id="tspan150498"
+           style="font-size:24.52169991px;fill:#b49806;fill-opacity:1;stroke-width:0.28736299"
+           x="163.37193"
+           y="30.450001">F</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:label="LongTag"
+     inkscape:groupmode="layer"
+     id="g72780"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <g
+       id="LongTag"
+       inkscape:label="#g1832">
+      <rect
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect72774"
+         width="33.866665"
+         height="33.866665"
+         x="135.46666"
+         y="0" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         style="fill:url(#linearGradient1635);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 140.75833,2.1166666 V 31.75 h 23.28334 V 8.4666665 l -6.35,-6.3499999 h -16.93334"
+         id="path72776"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="cccc"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 157.69167,8.4666665 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         id="path72778"
+         inkscape:connector-curvature="0" />
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-stretch:condensed;font-size:23.38120079px;line-height:1.25;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';letter-spacing:0px;word-spacing:0px;fill:#1274aa;fill-opacity:1;stroke-width:0.27399799"
+         x="139.35104"
+         y="29.033813"
+         id="text133994"
+         transform="scale(1.0551363,0.94774485)"><tspan
+           sodipodi:role="line"
+           id="tspan133992"
+           style="font-size:23.38120079px;fill:#1274aa;fill-opacity:1;stroke-width:0.27399799"
+           x="139.35104"
+           y="29.033813">L</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:label="IntTag"
+     inkscape:groupmode="layer"
+     id="g72770"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <g
+       id="IntTag"
+       inkscape:label="#g1820">
+      <rect
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect72764"
+         width="33.866665"
+         height="33.866665"
+         x="101.60001"
+         y="0" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         style="fill:url(#linearGradient1619);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 106.89166,2.1166666 V 31.75 H 130.175 V 8.4666665 l -6.35,-6.3499999 h -16.93334"
+         id="path72766"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 123.825,8.4666666 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         id="path72768"
+         inkscape:connector-curvature="0" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:24.81459999px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ca0fc5;fill-opacity:1;stroke:none;stroke-width:0.290795"
+         x="103.24467"
+         y="30.813816"
+         id="text110256"
+         transform="scale(1.1198267,0.89299531)"><tspan
+           sodipodi:role="line"
+           id="tspan110254"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24.81459999px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold';fill:#ca0fc5;fill-opacity:1;stroke-width:0.290795"
+           x="103.24467"
+           y="30.813816">I</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:label="ShortTag"
+     inkscape:groupmode="layer"
+     id="g72760"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <g
+       id="ShortTag"
+       inkscape:label="#g1801">
+      <rect
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect72754"
+         width="33.866665"
+         height="33.866665"
+         x="67.73333"
+         y="0" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         style="fill:url(#linearGradient1603);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 73.024999,2.1166666 V 31.75 H 96.308332 V 8.4666665 l -6.35,-6.3499999 H 73.024999"
+         id="path72756"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="cccc"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 89.958332,8.4666665 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         id="path72758"
+         inkscape:connector-curvature="0" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:22.57430077px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#629c44;fill-opacity:1;stroke:none;stroke-width:0.26454201"
+         x="77.962906"
+         y="28.031881"
+         id="text102782"
+         transform="scale(1.0187245,0.98161967)"><tspan
+           sodipodi:role="line"
+           id="tspan102780"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:22.57430077px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';fill:#629c44;fill-opacity:1;stroke-width:0.26454201"
+           x="77.962906"
+           y="28.031881">S</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:label="ByteTag"
+     inkscape:groupmode="layer"
+     id="g72750"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <g
+       id="ByteTag"
+       inkscape:label="#g1808">
+      <rect
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect72744"
+         width="33.866665"
+         height="33.866665"
+         x="33.866665"
+         y="0" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         style="fill:url(#linearGradient1587);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 39.158333,2.1166666 V 31.749999 H 62.441666 V 8.4666665 l -6.35,-6.3499999 H 39.158333"
+         id="path72746"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="cccc"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 56.091666,8.4666664 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         id="path72748"
+         inkscape:connector-curvature="0" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:22.36759949px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#d9143c;fill-opacity:1;stroke:none;stroke-width:0.26212001"
+         x="45.106537"
+         y="27.775208"
+         id="text88666"
+         transform="scale(1.0093965,0.99069097)"><tspan
+           sodipodi:role="line"
+           id="tspan88664"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:22.36759949px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';fill:#d9143c;fill-opacity:1;stroke-width:0.26212001"
+           x="45.106537"
+           y="27.775208">B</tspan></text>
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     id="g1569"
+     inkscape:groupmode="layer"
+     inkscape:label="Original"
+     sodipodi:insensitive="true">
+    <g
+       id="EmptyFile"
+       inkscape:label="#g1780">
+      <rect
+         y="0"
+         x="0"
+         height="33.866665"
+         width="33.866665"
+         id="rect1561"
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="path1563"
+         d="M 5.2916666,2.1166666 V 31.749999 H 28.575 V 8.4666665 L 22.225,2.1166666 H 5.2916666"
+         style="fill:url(#linearGradient1571);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path1565"
+         d="m 22.225,8.4666667 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="NbtFile"
+     sodipodi:insensitive="true">
+    <g
+       id="NbtFile"
+       inkscape:label="#g1789">
+      <rect
+         inkscape:export-ydpi="24.000002"
+         inkscape:export-xdpi="24.000002"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+         y="-1.5258789e-006"
+         x="-33.866669"
+         height="33.866665"
+         width="33.866665"
+         id="rect1277"
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:export-ydpi="24.000002"
+         inkscape:export-xdpi="24.000002"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+         inkscape:connector-curvature="0"
+         id="path1279"
+         d="M -28.575001,2.1166633 V 31.749996 H -5.291668 V 8.4666633 l -6.35,-6.35 h -16.933333"
+         style="display:inline;fill:url(#linearGradient1286);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:export-ydpi="24.000002"
+         inkscape:export-xdpi="24.000002"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+         inkscape:connector-curvature="0"
+         id="path1281"
+         d="m -11.641668,8.4666635 h 6.35 l -6.35,-6.35 v 6.35"
+         style="display:inline;fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="24.000002"
+         inkscape:export-xdpi="24.000002"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+         y="7.4083395"
+         x="-25.400003"
+         height="8.4666653"
+         width="8.4666662"
+         id="rect1288"
+         style="fill:#d9143c;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="24.000002"
+         inkscape:export-xdpi="24.000002"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+         y="20.108328"
+         x="-25.400003"
+         height="8.4666653"
+         width="8.4666653"
+         id="rect1290"
+         style="fill:#1274aa;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="24.000002"
+         inkscape:export-xdpi="24.000002"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+         y="13.758324"
+         x="-16.933336"
+         height="8.4666653"
+         width="8.4666662"
+         id="rect1292"
+         style="fill:#629c44;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="24.000002"
+         inkscape:export-xdpi="24.000002"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+         y="15.874999"
+         x="-21.166666"
+         height="4.2333322"
+         width="4.2333331"
+         id="rect1294"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     inkscape:label="StringTag 16x16"
+     id="g1689"
+     inkscape:groupmode="layer">
+    <g
+       id="StringTag16"
+       transform="translate(237.06666,-101.59999)"
+       inkscape:label="#g1683">
+      <path
+         style="display:inline;fill:url(#linearGradient1156);fill-opacity:1;stroke:#000000;stroke-width:2.11699986;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 5.2916666,68.791665 V 100.54166 H 28.575 V 75.141665 l -6.35,-6.35 H 5.2916666"
+         id="path1669"
+         inkscape:connector-curvature="0" />
+      <path
+         style="display:inline;fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11699986;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 22.225,75.141665 h 6.35 l -6.35,-6.35 v 6.35"
+         id="path1671"
+         inkscape:connector-curvature="0" />
+      <rect
+         inkscape:export-ydpi="12"
+         inkscape:export-xdpi="12"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\ByteArrayTest16_2.png"
+         y="67.73333"
+         x="-2.2270508e-006"
+         height="33.866665"
+         width="33.866665"
+         id="rect1673"
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:9.95989418px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.24899732"
+         x="8.4347858"
+         y="91.448166"
+         id="text1677"
+         transform="scale(0.96008578,1.0415736)"><tspan
+           sodipodi:role="line"
+           id="tspan1675"
+           x="8.4347858"
+           y="91.448166"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:21.24777412px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.24899732">A</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:9.65672016px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.24141802"
+         x="18.981493"
+         y="91.758972"
+         id="text1681"
+         transform="scale(0.96377126,1.0375906)"><tspan
+           sodipodi:role="line"
+           id="tspan1679"
+           x="18.981493"
+           y="91.758972"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:20.60100555px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.24141802">a</tspan></text>
+    </g>
+    <text
+       id="text1687"
+       y="86.04718"
+       x="3.5938768"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:22.57777786px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB, Bold Condensed';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         y="95.702675"
+         x="3.5938768"
+         id="tspan1685"
+         sodipodi:role="line" /></text>
+  </g>
+  <g
+     style="display:inline"
+     id="g1665"
+     inkscape:groupmode="layer"
+     inkscape:label="DoubleTag 16x16">
+    <g
+       id="DoubleTag16"
+       inkscape:label="#g1181">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1653"
+         d="m 208.49166,-32.808335 v 31.75 H 231.775 v -25.4 l -6.35,-6.35 h -16.93334"
+         style="fill:url(#linearGradient72802);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1655"
+         d="m 225.425,-26.458335 h 6.35 l -6.35,-6.35 v 6.35"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="-33.866669"
+         x="203.2"
+         height="33.866665"
+         width="33.866665"
+         id="rect1657"
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <text
+         transform="scale(1.0016024,0.99840017)"
+         id="text1661"
+         y="-6.3601937"
+         x="214.53589"
+         style="font-weight:bold;font-stretch:condensed;font-size:22.19486237px;line-height:1.25;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';letter-spacing:0px;word-spacing:0px;fill:#3bc71d;fill-opacity:1;stroke-width:0.26009598"
+         xml:space="preserve"><tspan
+           y="-6.3601937"
+           x="214.53589"
+           style="font-size:22.19486237px;fill:#3bc71d;fill-opacity:1;stroke-width:0.26009598"
+           id="tspan1659"
+           sodipodi:role="line">D</tspan></text>
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     id="g1649"
+     inkscape:groupmode="layer"
+     inkscape:label="FloatTag 16x16">
+    <g
+       id="FloatTag16"
+       transform="translate(169.33333,-67.733334)"
+       inkscape:label="#g1647">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1637"
+         d="m 5.291666,34.924999 v 31.75 h 23.28334 v -25.4 l -6.35,-6.35 H 5.291666"
+         style="fill:url(#linearGradient72792);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1639"
+         d="m 22.225006,41.274999 h 6.35 l -6.35,-6.35 v 6.35"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="33.866665"
+         x="-4.4541016e-006"
+         height="33.866665"
+         width="33.866665"
+         id="rect1641"
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <text
+         transform="scale(1.1066028,0.9036666)"
+         id="text1645"
+         y="67.926949"
+         x="10.351063"
+         style="font-weight:bold;font-stretch:condensed;font-size:24.52169991px;line-height:1.25;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';letter-spacing:0px;word-spacing:0px;fill:#b49806;fill-opacity:1;stroke-width:0.28736299"
+         xml:space="preserve"><tspan
+           y="67.926949"
+           x="10.351063"
+           style="font-size:24.52169991px;fill:#b49806;fill-opacity:1;stroke-width:0.28736299"
+           id="tspan1643"
+           sodipodi:role="line">F</tspan></text>
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     id="g1633"
+     inkscape:groupmode="layer"
+     inkscape:label="LongTag 16x16">
+    <g
+       id="LongTag16"
+       transform="translate(-3.75e-8,-33.866666)"
+       inkscape:label="#g1631">
+      <rect
+         y="0"
+         x="135.46666"
+         height="33.866665"
+         width="33.866665"
+         id="rect1621"
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1623"
+         d="M 140.75833,1.0583333 V 32.808333 h 23.28334 V 7.4083332 l -6.35,-6.3499999 h -16.93334"
+         style="fill:url(#linearGradient72782);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1625"
+         d="m 157.69167,7.4083332 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         transform="scale(1.0551363,0.94774485)"
+         id="text1629"
+         y="29.033813"
+         x="139.35104"
+         style="font-weight:bold;font-stretch:condensed;font-size:23.38120079px;line-height:1.25;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';letter-spacing:0px;word-spacing:0px;fill:#1274aa;fill-opacity:1;stroke-width:0.27399799"
+         xml:space="preserve"><tspan
+           y="29.033813"
+           x="139.35104"
+           style="font-size:23.38120079px;fill:#1274aa;fill-opacity:1;stroke-width:0.27399799"
+           id="tspan1627"
+           sodipodi:role="line">L</tspan></text>
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     id="g1617"
+     inkscape:groupmode="layer"
+     inkscape:label="IntTag 16x16">
+    <g
+       id="IntTag16"
+       transform="translate(-3.75e-8,-33.866666)"
+       inkscape:label="#g1615">
+      <rect
+         y="0"
+         x="101.6"
+         height="33.866665"
+         width="33.866665"
+         id="rect1605"
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1607"
+         d="M 106.89166,1.0583333 V 32.808333 H 130.175 V 7.4083332 l -6.35,-6.3499999 h -16.93334"
+         style="fill:url(#linearGradient72772);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1609"
+         d="m 123.825,7.4083332 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         transform="scale(1.1198267,0.89299531)"
+         id="text1613"
+         y="30.813816"
+         x="103.24466"
+         style="font-style:normal;font-weight:normal;font-size:24.81459999px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ca0fc5;fill-opacity:1;stroke:none;stroke-width:0.290795"
+         xml:space="preserve"><tspan
+           y="30.813816"
+           x="103.24466"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24.81459999px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold';fill:#ca0fc5;fill-opacity:1;stroke-width:0.290795"
+           id="tspan1611"
+           sodipodi:role="line">I</tspan></text>
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     id="g1601"
+     inkscape:groupmode="layer"
+     inkscape:label="ShortTag 16x16">
+    <g
+       id="ShortTag16"
+       transform="translate(-3.75e-8,-33.866666)"
+       inkscape:label="#g1599">
+      <rect
+         y="0"
+         x="67.73333"
+         height="33.866665"
+         width="33.866665"
+         id="rect1589"
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1591"
+         d="M 73.024999,1.0583333 V 32.808333 H 96.308332 V 7.4083332 l -6.35,-6.3499999 H 73.024999"
+         style="fill:url(#linearGradient72762);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1593"
+         d="m 89.958332,7.4083332 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         transform="scale(1.0187245,0.98161967)"
+         id="text1597"
+         y="28.031881"
+         x="77.962906"
+         style="font-style:normal;font-weight:normal;font-size:22.57430077px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#629c44;fill-opacity:1;stroke:none;stroke-width:0.26454201"
+         xml:space="preserve"><tspan
+           y="28.031881"
+           x="77.962906"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:22.57430077px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';fill:#629c44;fill-opacity:1;stroke-width:0.26454201"
+           id="tspan1595"
+           sodipodi:role="line">S</tspan></text>
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     id="g1585"
+     inkscape:groupmode="layer"
+     inkscape:label="ByteTag 16x16">
+    <g
+       id="ByteTag16"
+       transform="translate(-3.75e-8,-33.866666)"
+       inkscape:label="#g1583">
+      <rect
+         y="0"
+         x="33.866665"
+         height="33.866665"
+         width="33.866665"
+         id="rect1573"
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1575"
+         d="M 39.158333,1.0583333 V 32.808333 H 62.441666 V 7.4083332 l -6.35,-6.3499999 H 39.158333"
+         style="fill:url(#linearGradient72752);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1577"
+         d="m 56.091666,7.4083332 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         transform="scale(1.0093965,0.99069097)"
+         id="text1581"
+         y="27.775208"
+         x="45.106537"
+         style="font-style:normal;font-weight:normal;font-size:22.36759949px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#d9143c;fill-opacity:1;stroke:none;stroke-width:0.26212001"
+         xml:space="preserve"><tspan
+           y="27.775208"
+           x="45.106537"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:condensed;font-size:22.36759949px;font-family:'Agency FB';-inkscape-font-specification:'Agency FB Bold Condensed';fill:#d9143c;fill-opacity:1;stroke-width:0.26212001"
+           id="tspan1579"
+           sodipodi:role="line">B</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:label="Original 16x16"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <g
+       id="EmptyFile16"
+       transform="translate(-3.75e-8,-33.866666)"
+       inkscape:label="#g1523">
+      <rect
+         style="fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect72497"
+         width="33.866665"
+         height="33.866665"
+         x="0"
+         y="0" />
+      <path
+         style="fill:url(#linearGradient1406);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 5.2916666,1.0583333 V 32.808333 H 28.575 V 7.4083332 L 22.225,1.0583333 H 5.2916666"
+         id="path861"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 22.225,7.4083332 h 6.35 l -6.35,-6.3499999 v 6.3499999"
+         id="path1162"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:label="NbtFile 16x16"
+     id="g1709"
+     inkscape:groupmode="layer"
+     style="display:inline">
+    <g
+       transform="translate(-101.6,-135.46666)"
+       id="NbtFile16"
+       inkscape:label="#g1707">
+      <rect
+         style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+         id="rect1693"
+         width="33.866665"
+         height="33.866665"
+         x="67.73333"
+         y="101.6"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+         inkscape:export-xdpi="11.999999"
+         inkscape:export-ydpi="11.999999" />
+      <path
+         style="display:inline;fill:url(#linearGradient1711);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 73.024999,102.65833 v 31.75 h 23.283333 v -25.4 l -6.35,-6.35 H 73.024999"
+         id="path1695"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+         inkscape:export-xdpi="11.999999"
+         inkscape:export-ydpi="11.999999" />
+      <path
+         style="display:inline;fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 89.958332,109.00833 h 6.35 l -6.35,-6.35 v 6.35"
+         id="path1697"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+         inkscape:export-xdpi="11.999999"
+         inkscape:export-ydpi="11.999999" />
+      <rect
+         style="fill:#d9143c;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1699"
+         width="8.4666662"
+         height="8.4666653"
+         x="76.199997"
+         y="110.06667"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+         inkscape:export-xdpi="11.999999"
+         inkscape:export-ydpi="11.999999" />
+      <rect
+         style="fill:#1274aa;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1701"
+         width="8.4666653"
+         height="8.4666653"
+         x="76.199997"
+         y="122.76666"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+         inkscape:export-xdpi="11.999999"
+         inkscape:export-ydpi="11.999999" />
+      <rect
+         style="fill:#629c44;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1703"
+         width="8.4666662"
+         height="8.4666653"
+         x="84.666664"
+         y="116.41666"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+         inkscape:export-xdpi="11.999999"
+         inkscape:export-ydpi="11.999999" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1705"
+         width="4.2333331"
+         height="4.2333322"
+         x="80.433334"
+         y="118.53333"
+         inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+         inkscape:export-xdpi="11.999999"
+         inkscape:export-ydpi="11.999999" />
+    </g>
+  </g>
+</svg>

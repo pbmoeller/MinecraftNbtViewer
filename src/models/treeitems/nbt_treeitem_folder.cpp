@@ -1,6 +1,7 @@
 // AwesomeNbtViewer
 #include "nbt_treeitem_folder.hpp"
 #include "nbt_treeitem_nbtfile.hpp"
+#include "nbt_treeitem_regionfile.hpp"
 #include "util/minecraft_util.hpp"
 
 // Qt
@@ -93,7 +94,7 @@ void NbtTreeItemFolder::readKnownFilesInDirectory(NbtTreeItemBase *parent,
             || fileInfo.suffix() == "schematic") {
             new NbtTreeItemNbtFile(parent, fileInfo.fileName(), directory);
         } else if(fileInfo.suffix() == "mca" || fileInfo.suffix() == "mcr") {
-            // Add Region File
+            new NbtTreeItemRegionFile(parent, fileInfo.fileName(), directory);
         } else if(fileInfo.suffix() == "json") {
             // Add JSON File
         }
