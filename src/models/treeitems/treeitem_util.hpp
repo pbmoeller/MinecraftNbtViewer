@@ -13,6 +13,9 @@ namespace anv
 void addNbtChild(NbtTreeItemBase *parentItem,
                  amc::AbstractTag *tag);
 
+bool treeItemNbtTagCompare(NbtTreeItemBase *left,
+                           NbtTreeItemBase *right);
+
 } // namespace anv
 
 #endif // AWESOMENBTVIEWER_MODELS_TREEITEMS_TREEITEM_UTIL_HPP

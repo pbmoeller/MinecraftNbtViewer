@@ -10,7 +10,6 @@ namespace anv
 void addNbtChild(NbtTreeItemBase *parentItem,
                  amc::AbstractTag *tag)
 {
-    
     switch(tag->getType())
     {
         case amc::TagType::Byte:
@@ -93,6 +92,45 @@ void addNbtChild(NbtTreeItemBase *parentItem,
     }
 
     return;
+}
+
+bool treeItemNbtTagCompare(NbtTreeItemBase *left,
+                           NbtTreeItemBase *right)
+{
+    if(!left || !right) {
+        return false;
+    }
+
+    NbtTreeItemNbtTag *leftTag = dynamic_cast<NbtTreeItemNbtTag*>(left);
+    NbtTreeItemNbtTag *rightTag = dynamic_cast<NbtTreeItemNbtTag*>(right);
+
+    if(leftTag != nullptr
+       && rightTag == nullptr) {
+        return true;
+    }
+    if(rightTag != nullptr
+       && leftTag == nullptr) {
+        return false;
+    }
+    if(leftTag->getTagType() == amc::TagType::Compound
+       && rightTag->getTagType() == amc::TagType::Compound) {
+        return leftTag->getName().toLower() < rightTag->getName().toLower();
+    } else if(leftTag->getTagType() == amc::TagType::Compound) {
+        return true;
+    } else if(rightTag->getTagType() == amc::TagType::Compound) {
+        return false;
+    } else {
+        if(leftTag->getTagType() == amc::TagType::List
+           && rightTag->getTagType() == amc::TagType::List) {
+            return leftTag->getName().toLower() < rightTag->getName().toLower();
+        } else if(leftTag->getTagType() == amc::TagType::List) {
+            return true;
+        } else if(rightTag->getTagType() == amc::TagType::List) {
+            return false;
+        }
+    }
+
+    return leftTag->getName().toLower() < rightTag->getName().toLower();
 }
 
 } // namespace anv

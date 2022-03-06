@@ -10,6 +10,7 @@ set(ANV_MODELS_HEADER
     "models/treeitems/nbt_treeitem_nbtfile.hpp"
     "models/treeitems/nbt_treeitem_nbttag.hpp"
     "models/treeitems/nbt_treeitem_regionfile.hpp"
+    "models/treeitems/nbt_treeitem_regionchunk.hpp"
     "models/treeitems/treeitem_util.hpp"
 )
 
@@ -40,6 +41,7 @@ set(ANV_MODELS_SOURCES
     "models/treeitems/nbt_treeitem_nbtfile.cpp"
     "models/treeitems/nbt_treeitem_nbttag.cpp"
     "models/treeitems/nbt_treeitem_regionfile.cpp"
+    "models/treeitems/nbt_treeitem_regionchunk.cpp"
     "models/treeitems/treeitem_util.cpp"
 )
 
