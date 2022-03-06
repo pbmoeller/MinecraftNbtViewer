@@ -5,7 +5,7 @@
 #include "nbt_treeitem_base.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/compound_tag.hpp>
+#include <AwesomeMC/anvil/region.hpp>
 
 // Qt
 #include <QString>
@@ -35,7 +35,7 @@ private:
     bool m_canFetchData;
     QString m_filename;
     QString m_pathToFile;
-    std::unique_ptr<amc::CompoundTag> m_nbtRootTag;
+    std::unique_ptr<amc::Region> m_region;
 };
 
 } // namespace anv

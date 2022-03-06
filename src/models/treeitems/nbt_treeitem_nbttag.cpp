@@ -1,5 +1,6 @@
 // AwesomeNbtViewer
 #include "nbt_treeitem_nbttag.hpp"
+#include "treeitem_util.hpp"
 
 // AwesomeMC
 #include <AwesomeMC/nbt/tags/tags.hpp>
@@ -42,43 +43,7 @@ void NbtTreeItemNbtTag::sort()
 {
     std::sort(m_children.begin(),
               m_children.end(),
-              [](NbtTreeItemBase *left,
-                 NbtTreeItemBase *right) {
-        if(!left || !right) {
-            return false;
-        }
-
-        NbtTreeItemNbtTag *leftTag = dynamic_cast<NbtTreeItemNbtTag*>(left);
-        NbtTreeItemNbtTag *rightTag = dynamic_cast<NbtTreeItemNbtTag*>(right);
-
-        if(leftTag != nullptr
-           && rightTag == nullptr) {
-            return true;
-        }
-        if(rightTag != nullptr
-           && leftTag == nullptr) {
-            return false;
-        }
-        if(leftTag->getTagType() == amc::TagType::Compound
-           && rightTag->getTagType() == amc::TagType::Compound) {
-            return leftTag->getName().toLower() < rightTag->getName().toLower();
-        } else if(leftTag->getTagType() == amc::TagType::Compound) {
-            return true;
-        } else if(rightTag->getTagType() == amc::TagType::Compound) {
-            return false;
-        } else {
-            if(leftTag->getTagType() == amc::TagType::List
-               && rightTag->getTagType() == amc::TagType::List) {
-                return leftTag->getName().toLower() < rightTag->getName().toLower();
-            } else if(leftTag->getTagType() == amc::TagType::List) {
-                return true;
-            } else if(rightTag->getTagType() == amc::TagType::List) {
-                return false;
-            }
-        }
-
-        return leftTag->getName().toLower() < rightTag->getName().toLower();
-    });
+              &treeItemNbtTagCompare);
 }
 
 NbtTreeItemByteTag::NbtTreeItemByteTag(NbtTreeItemBase *parentItem,
