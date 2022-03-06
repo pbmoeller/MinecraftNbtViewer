@@ -27,7 +27,7 @@ public slots:
 
     void openFile();
     void openFolder();
-
+    void openMinecraftFolder();
 
 private:
     bool userReallyWantsToQuit();
