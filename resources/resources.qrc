@@ -58,5 +58,29 @@
         <file>icons/16x16/Region.png</file>
         <file>icons/24x24/Region.png</file>
         <file>icons/32x32/Region.png</file>
+        <file>icons/16x16/Copy.png</file>
+        <file>icons/16x16/Cut.png</file>
+        <file>icons/16x16/Delete.png</file>
+        <file>icons/16x16/Edit.png</file>
+        <file>icons/16x16/OpenFile.png</file>
+        <file>icons/16x16/Paste.png</file>
+        <file>icons/16x16/Rename.png</file>
+        <file>icons/16x16/Save.png</file>
+        <file>icons/24x24/Copy.png</file>
+        <file>icons/24x24/Cut.png</file>
+        <file>icons/24x24/Delete.png</file>
+        <file>icons/24x24/Edit.png</file>
+        <file>icons/24x24/OpenFile.png</file>
+        <file>icons/24x24/Paste.png</file>
+        <file>icons/24x24/Rename.png</file>
+        <file>icons/24x24/Save.png</file>
+        <file>icons/32x32/Copy.png</file>
+        <file>icons/32x32/Cut.png</file>
+        <file>icons/32x32/Delete.png</file>
+        <file>icons/32x32/Edit.png</file>
+        <file>icons/32x32/OpenFile.png</file>
+        <file>icons/32x32/Paste.png</file>
+        <file>icons/32x32/Rename.png</file>
+        <file>icons/32x32/Save.png</file>
     </qresource>
 </RCC>
