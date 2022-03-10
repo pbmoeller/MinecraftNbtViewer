@@ -44,15 +44,15 @@
      showgrid="true"
      units="px"
      width="128px"
-     inkscape:zoom="1.1687991"
-     inkscape:cx="219.85645"
-     inkscape:cy="-503.41959"
-     inkscape:window-width="1728"
-     inkscape:window-height="1378"
-     inkscape:window-x="-7"
+     inkscape:zoom="0.82646577"
+     inkscape:cx="270.97993"
+     inkscape:cy="-463.19235"
+     inkscape:window-width="1582"
+     inkscape:window-height="1387"
+     inkscape:window-x="-8"
      inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g1288">
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer18">
     <inkscape:grid
        type="xygrid"
        id="grid824"
@@ -68,6 +68,30 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1411">
+      <stop
+         style="stop-color:#818181;stop-opacity:1"
+         offset="0"
+         id="stop1407" />
+      <stop
+         style="stop-color:#b1b1b1;stop-opacity:1"
+         offset="1"
+         id="stop1409" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1403">
+      <stop
+         style="stop-color:#818181;stop-opacity:1"
+         offset="0"
+         id="stop1398" />
+      <stop
+         style="stop-color:#b1b1b1;stop-opacity:1"
+         offset="1"
+         id="stop1401" />
+    </linearGradient>
     <linearGradient
        inkscape:collect="always"
        id="linearGradient2043">
@@ -923,7 +947,86 @@
        x2="6.7093606"
        y2="33.521931"
        gradientTransform="matrix(0.75048255,0,0,0.73368722,78.573076,176.48872)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1403"
+       id="linearGradient1405"
+       x1="111.125"
+       y1="185.20833"
+       x2="114.3"
+       y2="182.03333"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1411"
+       id="linearGradient1413"
+       x1="125.94167"
+       y1="185.20833"
+       x2="122.76666"
+       y2="182.03333"
+       gradientUnits="userSpaceOnUse" />
   </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer19"
+     inkscape:label="Refresh">
+    <rect
+       style="fill:#ffffff;fill-opacity:0;stroke:none;stroke-width:0.39687499;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1455"
+       width="33.866665"
+       height="33.866665"
+       x="135.46666"
+       y="169.33333" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer18"
+     inkscape:label="Cut"
+     style="display:inline">
+    <g
+       id="g1452"
+       inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\24x24\Cut.png"
+       inkscape:export-xdpi="18"
+       inkscape:export-ydpi="18">
+      <rect
+         y="169.33333"
+         x="101.6"
+         height="33.866665"
+         width="33.866665"
+         id="rect1326"
+         style="fill:#ffffff;fill-opacity:0;stroke:none;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="path1328"
+         d="m 118.53333,186.26666 12.7,-12.7 c 0,0 0.91692,5.50058 0,7.40834 -4.04842,5.17169 -10.57193,7.39921 -15.875,11.64166 L 114.3,190.5 Z"
+         style="fill:url(#linearGradient1413);fill-opacity:1;stroke:#414141;stroke-width:0.39687499;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="path1330"
+         d="m 118.53333,186.26666 -12.7,-12.7 c 0,0 -0.91692,5.50058 0,7.40834 4.04843,5.17169 10.57193,7.3992 15.875,11.64166 L 122.76666,190.5 Z"
+         style="fill:url(#linearGradient1405);fill-opacity:1;stroke:#414141;stroke-width:0.39687499;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccaaaaaaccsssss"
+         inkscape:connector-curvature="0"
+         id="path1365"
+         d="m 122.76667,190.5 -1.05834,2.11666 2.11667,2.11667 c 0,0 -0.54001,2.92964 0,4.23333 0.38184,0.92186 1.19481,1.73483 2.11667,2.11667 1.30369,0.54001 2.92963,0.54001 4.23333,0 0.92185,-0.38184 1.73482,-1.19481 2.11666,-2.11667 0.54001,-1.30369 0.54001,-2.92963 0,-4.23333 -0.38184,-0.92185 -1.19481,-1.73482 -2.11666,-2.11667 -1.3037,-0.54001 -4.23333,0 -4.23333,0 z m 5.29166,3.70416 c 1.75351,0 2.64584,0.89233 2.64584,2.64584 0,1.7535 -0.89233,2.64583 -2.64584,2.64583 -1.7535,0 -2.64583,-0.89233 -2.64583,-2.64583 0,-1.75351 0.89233,-2.64584 2.64583,-2.64584 z"
+         style="fill:#da2b5b;fill-opacity:1;stroke:#7b1631;stroke-width:0.39687499;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccaaaaaaccsssss"
+         inkscape:connector-curvature="0"
+         id="path1365-0"
+         d="m 114.29999,190.5 1.05833,2.11667 -2.11666,2.11666 c 0,0 0.54,2.92964 0,4.23334 -0.38185,0.92185 -1.19482,1.73482 -2.11667,2.11666 -1.3037,0.54001 -2.92964,0.54001 -4.23333,0 -0.92186,-0.38184 -1.73483,-1.19481 -2.11667,-2.11666 -0.54001,-1.3037 -0.54001,-2.92964 0,-4.23334 0.38184,-0.92185 1.19481,-1.73482 2.11667,-2.11666 1.30369,-0.54001 4.23333,0 4.23333,0 z m -5.29167,3.70417 c -1.7535,0 -2.64583,0.89233 -2.64583,2.64583 0,1.7535 0.89233,2.64583 2.64583,2.64583 1.75351,0 2.64584,-0.89233 2.64584,-2.64583 0,-1.7535 -0.89233,-2.64583 -2.64584,-2.64583 z"
+         style="fill:#da2b5b;fill-opacity:1;stroke:#7b1631;stroke-width:0.39687499;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <circle
+         r="1.058332"
+         cy="188.38333"
+         cx="118.53333"
+         id="path1416"
+         style="fill:#414141;fill-opacity:1;stroke:none;stroke-width:0.39687499;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer17"
