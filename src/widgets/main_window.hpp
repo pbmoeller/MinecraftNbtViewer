@@ -1,6 +1,9 @@
 #ifndef AWESOMENBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
 #define AWESOMENBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
 
+// AwesomeMC
+#include <AwesomeMC/nbt/tags/abstract_tag.hpp>
+
 // Qt
 #include <QMainWindow>
 
@@ -29,8 +32,24 @@ public slots:
     void openFolder();
     void openMinecraftFolder();
 
+    // Add NBT Tag
+    void addByteTag();
+    void addShortTag();
+    void addIntTag();
+    void addLongTag();
+    void addFloatTag();
+    void addDoubleTag();
+    void addStringTag();
+    void addByteArrayTag();
+    void addIntArrayTag();
+    void addLongArrayTag();
+    void addListTag();
+    void addCompoundTag();
+
 private:
+    void initConnections();
     bool userReallyWantsToQuit();
+    void addNbtTag(amc::TagType tagType);
 
 private:
     Ui::MainWindow *m_ui;

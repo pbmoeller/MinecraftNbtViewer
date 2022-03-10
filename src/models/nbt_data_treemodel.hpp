@@ -1,6 +1,9 @@
 #ifndef AWESOMENBTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
 #define AWESOMENBTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
 
+// AwesomeMC
+#include <AwesomeMC/nbt/tags/abstract_tag.hpp>
+
 // Qt
 #include <QAbstractItemModel>
 
@@ -21,6 +24,7 @@ public:
 
     NbtTreeItemBase* fromIndex(const QModelIndex &index) const;
     QModelIndex toIndex(NbtTreeItemBase *item, int column) const;
+    void addNbtTag(const QModelIndex& parent, amc::TagType type, const QString& name);
 
     // Reimplemented functions of QAbstractItemModel
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
