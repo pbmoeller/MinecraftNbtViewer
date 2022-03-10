@@ -77,6 +77,11 @@ QModelIndex NbtDataTreeModel::toIndex(NbtTreeItemBase *item, int column) const
     return createIndex(row, column, item);
 }
 
+void NbtDataTreeModel::addNbtTag(const QModelIndex& parent, amc::TagType type, const QString& name)
+{
+    qDebug() << "Want to add: " << name << " of Type: " << static_cast<int>(type);
+}
+
 QVariant NbtDataTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     Q_UNUSED(section);
