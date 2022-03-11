@@ -19,7 +19,11 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getName() const override;
+    virtual QString getLabel() const override;
     amc::TagType getTagType() const;
+
+    virtual bool canRename() const;
+    virtual void rename(const QString &name) override;
 
     void sort();
 
@@ -35,7 +39,7 @@ public:
     virtual ~NbtTreeItemByteTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemShortTag : public NbtTreeItemNbtTag
@@ -46,7 +50,7 @@ public:
     virtual ~NbtTreeItemShortTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemIntTag : public NbtTreeItemNbtTag
@@ -57,7 +61,7 @@ public:
     virtual ~NbtTreeItemIntTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemLongTag : public NbtTreeItemNbtTag
@@ -68,7 +72,7 @@ public:
     virtual ~NbtTreeItemLongTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemFloatTag : public NbtTreeItemNbtTag
@@ -79,7 +83,7 @@ public:
     virtual ~NbtTreeItemFloatTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemDoubleTag : public NbtTreeItemNbtTag
@@ -90,7 +94,7 @@ public:
     virtual ~NbtTreeItemDoubleTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemStringTag : public NbtTreeItemNbtTag
@@ -101,7 +105,7 @@ public:
     virtual ~NbtTreeItemStringTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemCompoundTag : public NbtTreeItemNbtTag
@@ -112,7 +116,7 @@ public:
     virtual ~NbtTreeItemCompoundTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemListTag : public NbtTreeItemNbtTag
@@ -123,7 +127,7 @@ public:
     virtual ~NbtTreeItemListTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemByteArrayTag : public NbtTreeItemNbtTag
@@ -134,7 +138,7 @@ public:
     virtual ~NbtTreeItemByteArrayTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemIntArrayTag : public NbtTreeItemNbtTag
@@ -145,7 +149,7 @@ public:
     virtual ~NbtTreeItemIntArrayTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 class NbtTreeItemLongArrayTag : public NbtTreeItemNbtTag
@@ -156,7 +160,7 @@ public:
     virtual ~NbtTreeItemLongArrayTag();
 
     virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
+    virtual QString getLabel() const override;
 };
 
 } // namespace anv

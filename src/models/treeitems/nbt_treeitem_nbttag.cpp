@@ -34,9 +34,26 @@ QString NbtTreeItemNbtTag::getName() const
     return QString(m_tag->getName().c_str());
 }
 
+QString NbtTreeItemNbtTag::getLabel() const
+{
+    return QString(m_tag->getName().c_str());
+}
+
 amc::TagType NbtTreeItemNbtTag::getTagType() const
 {
     return m_tag->getType();
+}
+
+bool NbtTreeItemNbtTag::canRename() const
+{
+    // Only Tags that are not children of ListTag can be renamed.
+    // (ListItems do not have names, however its theoretically possible to give them names.)
+    return (dynamic_cast<NbtTreeItemListTag*>(m_parent) == nullptr);
+}
+
+void NbtTreeItemNbtTag::rename(const QString &name)
+{
+    m_tag->setName(name.toStdString());
 }
 
 void NbtTreeItemNbtTag::sort()
@@ -63,7 +80,7 @@ QIcon NbtTreeItemByteTag::getIcon() const
     return QIcon(":/icons/16x16/ByteTag.png");
 }
 
-QString NbtTreeItemByteTag::getName() const
+QString NbtTreeItemByteTag::getLabel() const
 {
     amc::ByteTag *tag = amc::tag_cast<amc::ByteTag*>(m_tag);
     QString name;
@@ -92,7 +109,7 @@ QIcon NbtTreeItemShortTag::getIcon() const
     return QIcon(":/icons/16x16/ShortTag.png");
 }
 
-QString NbtTreeItemShortTag::getName() const
+QString NbtTreeItemShortTag::getLabel() const
 {
     amc::ShortTag *tag = amc::tag_cast<amc::ShortTag*>(m_tag);
     QString name;
@@ -121,7 +138,7 @@ QIcon NbtTreeItemIntTag::getIcon() const
     return QIcon(":/icons/16x16/IntTag.png");
 }
 
-QString NbtTreeItemIntTag::getName() const
+QString NbtTreeItemIntTag::getLabel() const
 {
     amc::IntTag *tag = amc::tag_cast<amc::IntTag*>(m_tag);
     QString name;
@@ -150,7 +167,7 @@ QIcon NbtTreeItemLongTag::getIcon() const
     return QIcon(":/icons/16x16/LongTag.png");
 }
 
-QString NbtTreeItemLongTag::getName() const
+QString NbtTreeItemLongTag::getLabel() const
 {
     amc::LongTag *tag = amc::tag_cast<amc::LongTag*>(m_tag);
     QString name;
@@ -179,7 +196,7 @@ QIcon NbtTreeItemFloatTag::getIcon() const
     return QIcon(":/icons/16x16/FloatTag.png");
 }
 
-QString NbtTreeItemFloatTag::getName() const
+QString NbtTreeItemFloatTag::getLabel() const
 {
     amc::FloatTag *tag = amc::tag_cast<amc::FloatTag*>(m_tag);
     QString name;
@@ -208,7 +225,7 @@ QIcon NbtTreeItemDoubleTag::getIcon() const
     return QIcon(":/icons/16x16/DoubleTag.png");
 }
 
-QString NbtTreeItemDoubleTag::getName() const
+QString NbtTreeItemDoubleTag::getLabel() const
 {
     amc::DoubleTag *tag = amc::tag_cast<amc::DoubleTag*>(m_tag);
     QString name;
@@ -237,7 +254,7 @@ QIcon NbtTreeItemStringTag::getIcon() const
     return QIcon(":/icons/16x16/StringTag.png");
 }
 
-QString NbtTreeItemStringTag::getName() const
+QString NbtTreeItemStringTag::getLabel() const
 {
     amc::StringTag *tag = amc::tag_cast<amc::StringTag*>(m_tag);
     QString name;
@@ -266,7 +283,7 @@ QIcon NbtTreeItemCompoundTag::getIcon() const
     return QIcon(":/icons/16x16/CompoundTag.png");
 }
 
-QString NbtTreeItemCompoundTag::getName() const
+QString NbtTreeItemCompoundTag::getLabel() const
 {
     return QString(QObject::tr("%1: %2 entries"))
                 .arg(m_tag->getName().c_str())
@@ -290,7 +307,7 @@ QIcon NbtTreeItemListTag::getIcon() const
     return QIcon(":/icons/16x16/ListTag.png");
 }
 
-QString NbtTreeItemListTag::getName() const
+QString NbtTreeItemListTag::getLabel() const
 {
     return QString(QObject::tr("%1: %2 entries"))
         .arg(m_tag->getName().c_str())
@@ -314,7 +331,7 @@ QIcon NbtTreeItemByteArrayTag::getIcon() const
     return QIcon(":/icons/16x16/ByteArrayTag.png");
 }
 
-QString NbtTreeItemByteArrayTag::getName() const
+QString NbtTreeItemByteArrayTag::getLabel() const
 {
     amc::ByteArrayTag *tag = amc::tag_cast<amc::ByteArrayTag*>(m_tag);
     QString name;
@@ -343,7 +360,7 @@ QIcon NbtTreeItemIntArrayTag::getIcon() const
     return QIcon(":/icons/16x16/IntArrayTag.png");
 }
 
-QString NbtTreeItemIntArrayTag::getName() const
+QString NbtTreeItemIntArrayTag::getLabel() const
 {
     amc::IntArrayTag *tag = amc::tag_cast<amc::IntArrayTag*>(m_tag);
     QString name;
@@ -372,7 +389,7 @@ QIcon NbtTreeItemLongArrayTag::getIcon() const
     return QIcon(":/icons/16x16/LongArrayTag.png");
 }
 
-QString NbtTreeItemLongArrayTag::getName() const
+QString NbtTreeItemLongArrayTag::getLabel() const
 {
     amc::LongArrayTag *tag = amc::tag_cast<amc::LongArrayTag*>(m_tag);
     QString name;

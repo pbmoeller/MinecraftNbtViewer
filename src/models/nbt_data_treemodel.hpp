@@ -26,6 +26,8 @@ public:
     QModelIndex toIndex(NbtTreeItemBase *item, int column) const;
     void addNbtTag(const QModelIndex& parent, amc::TagType type, const QString& name);
 
+    void renameTag(const QModelIndex &index, const QString &newName);
+
     // Reimplemented functions of QAbstractItemModel
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

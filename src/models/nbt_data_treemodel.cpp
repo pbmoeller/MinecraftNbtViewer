@@ -82,6 +82,13 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex& parent, amc::TagType type, c
     qDebug() << "Want to add: " << name << " of Type: " << static_cast<int>(type);
 }
 
+void NbtDataTreeModel::renameTag(const QModelIndex &index, const QString &newName)
+{
+    NbtTreeItemBase *treeItem = fromIndex(index);
+    treeItem->rename(newName);
+    dataChanged(index, index);
+}
+
 QVariant NbtDataTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     Q_UNUSED(section);
@@ -101,7 +108,7 @@ QVariant NbtDataTreeModel::data(const QModelIndex &index, int role) const
         switch(role) {
             case Qt::DisplayRole:
             {
-                QString s = item->getName();
+                QString s = item->getLabel();
                 return s;
             }
             case Qt::DecorationRole:

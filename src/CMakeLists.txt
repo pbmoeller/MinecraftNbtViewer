@@ -20,6 +20,7 @@ set(ANV_UTIL_HEADER
 
 set(ANV_WIDGETS_HEADER
     "widgets/main_window.hpp"
+    "widgets/rename_tag_dialog.hpp"
 )
 
 set(ANV_HEADER
@@ -51,6 +52,7 @@ set(ANV_UTIL_SOURCES
 
 set(ANV_WIDGETS_SOURCES
     "widgets/main_window.cpp"
+    "widgets/rename_tag_dialog.cpp"
 )
 
 set(ANV_SOURCES
@@ -64,6 +66,7 @@ set(ANV_SOURCES
 ### Ui
 set(ANV_WIDGETS_UI
     "widgets/main_window.ui"
+    "widgets/rename_tag_dialog.ui"
 )
 
 set(ANV_UI

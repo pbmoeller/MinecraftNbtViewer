@@ -23,6 +23,10 @@ public:
 
     virtual QIcon getIcon() const;
     virtual QString getName() const;
+    virtual QString getLabel() const;
+
+    virtual bool canRename() const;
+    virtual void rename(const QString &name);
 
     virtual bool canFetchMore() const;
     virtual void fetchMore();

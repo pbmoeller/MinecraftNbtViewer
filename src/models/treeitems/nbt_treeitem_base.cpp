@@ -51,7 +51,7 @@ void NbtTreeItemBase::sort()
            && dynamic_cast<NbtTreeItemFolder*>(left) == nullptr) {
             return false;
         }
-        return left->getName().toLower() < right->getName().toLower();
+        return left->getLabel().toLower() < right->getLabel().toLower();
     });
 }
 
@@ -72,6 +72,21 @@ QIcon NbtTreeItemBase::getIcon() const
 QString NbtTreeItemBase::getName() const
 {
     return QString();
+}
+
+QString NbtTreeItemBase::getLabel() const
+{
+    return QString();
+}
+
+bool NbtTreeItemBase::canRename() const
+{
+    return false;
+}
+
+void NbtTreeItemBase::rename(const QString &name)
+{
+    Q_UNUSED(name)
 }
 
 bool NbtTreeItemBase::canFetchMore() const
