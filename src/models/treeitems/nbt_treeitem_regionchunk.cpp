@@ -36,7 +36,7 @@ QIcon NbtTreeItemRegionChunk::getIcon() const
     return QIcon(":/icons/16x16/Chunk.png");
 }
 
-QString NbtTreeItemRegionChunk::getName() const
+QString NbtTreeItemRegionChunk::getLabel() const
 {
     auto [chunkX, chunkZ] = amc::xzFromChunkIndex(m_index);
     int wX;

@@ -26,7 +26,7 @@ QIcon NbtTreeItemRegionFile::getIcon() const
     return QIcon(":/icons/16x16/Region.png");
 }
 
-QString NbtTreeItemRegionFile::getName() const
+QString NbtTreeItemRegionFile::getLabel() const
 {
     return m_filename;
 }

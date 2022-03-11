@@ -27,10 +27,24 @@ public:
 
 public slots:
     void closeEvent(QCloseEvent *event);
+    void treeviewCurrentItemChanged(const QModelIndex &current, 
+                                    const QModelIndex &previous);
 
+    /// Slots to Actions
+    // File Menu
     void openFile();
     void openFolder();
     void openMinecraftFolder();
+    void openInExplorer();
+    void save();
+
+    // Edit Menu
+    void cutTag();
+    void copyTag();
+    void pasteTag();
+    void renameTag();
+    void editTag();
+    void deleteTag();
 
     // Add NBT Tag
     void addByteTag();
@@ -50,6 +64,7 @@ private:
     void initConnections();
     bool userReallyWantsToQuit();
     void addNbtTag(amc::TagType tagType);
+    void updateActions();
 
 private:
     Ui::MainWindow *m_ui;

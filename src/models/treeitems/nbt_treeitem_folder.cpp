@@ -43,7 +43,7 @@ QIcon NbtTreeItemFolder::getIcon() const
     return QIcon(":/icons/16x16/Folder.png");
 }
 
-QString NbtTreeItemFolder::getName() const
+QString NbtTreeItemFolder::getLabel() const
 {
     return m_folderName;
 }

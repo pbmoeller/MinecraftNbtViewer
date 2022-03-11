@@ -2,6 +2,7 @@
 #include "ui_main_window.h"
 #include "models/nbt_data_treemodel.hpp"
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
+#include "rename_tag_dialog.hpp"
 
 // Qt
 #include <QCloseEvent>
@@ -43,6 +44,14 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
+void MainWindow::treeviewCurrentItemChanged(const QModelIndex &current,
+                                            const QModelIndex &previous)
+{
+    Q_UNUSED(current);
+    Q_UNUSED(previous);
+    updateActions();
+}
+
 void MainWindow::openFile()
 {
     QString filename = QFileDialog::getOpenFileName(this, tr("Open File"), m_currentDirectory);
@@ -70,6 +79,57 @@ void MainWindow::openMinecraftFolder()
         m_currentDirectory = mcDirectory;
         m_nbtTreeModel->load(m_currentDirectory);
     }
+}
+
+void MainWindow::openInExplorer()
+{
+
+}
+
+void MainWindow::save()
+{
+
+}
+
+void MainWindow::cutTag()
+{
+
+}
+
+void MainWindow::copyTag()
+{
+
+}
+
+void MainWindow::pasteTag()
+{
+
+}
+
+void MainWindow::renameTag()
+{
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        QString currentName = m_nbtTreeModel->fromIndex(index)->getName();
+
+        RenameTagDialog renameTagDialog(currentName);
+        if(renameTagDialog.exec() == QDialog::Accepted) {
+            QString newName = renameTagDialog.getName();
+            if(newName != currentName) {
+                m_nbtTreeModel->renameTag(index, newName);
+            }
+        }
+    }
+}
+
+void MainWindow::editTag()
+{
+
+}
+
+void MainWindow::deleteTag()
+{
+
 }
 
 void MainWindow::addByteTag()
@@ -134,23 +194,30 @@ void MainWindow::addCompoundTag()
 
 void MainWindow::initConnections()
 {
-    /// Menu
+    /// General UI
+    connect(m_ui->nbtDataTreeView->selectionModel(), &QItemSelectionModel::currentChanged,
+            this, &MainWindow::treeviewCurrentItemChanged);
+
+    /// Actions
     // File Menu
     connect(m_ui->actionOpen_File,                  &QAction::triggered, this, &MainWindow::openFile);
     connect(m_ui->actionOpen_Folder,                &QAction::triggered, this, &MainWindow::openFolder);
     connect(m_ui->actionOpen_Minecraft_Save_Folder, &QAction::triggered, this, &MainWindow::openMinecraftFolder);
+    connect(m_ui->actionOpen_in_Explorer,           &QAction::triggered, this, &MainWindow::openInExplorer);
+    connect(m_ui->actionSave,                       &QAction::triggered, this, &MainWindow::save);
     connect(m_ui->actionQuit,                       &QAction::triggered, this, &MainWindow::close);
 
     // Edit Menu
+    connect(m_ui->actionCut,    &QAction::triggered, this, &MainWindow::cutTag);
+    connect(m_ui->actionCopy,   &QAction::triggered, this, &MainWindow::copyTag);
+    connect(m_ui->actionPaste,  &QAction::triggered, this, &MainWindow::pasteTag);
+    connect(m_ui->actionRename, &QAction::triggered, this, &MainWindow::renameTag);
+    connect(m_ui->actionEdit,   &QAction::triggered, this, &MainWindow::editTag);
+    connect(m_ui->actionDelete, &QAction::triggered, this, &MainWindow::deleteTag);
 
     // Help Menu
 
-    /// Toolbar
-    // File
-
-    // Edit
-
-    // Add Tags
+    // Toolbar Add Tags
     connect(m_ui->actionAdd_ByteTag,        &QAction::triggered, this, &MainWindow::addByteTag);
     connect(m_ui->actionAdd_ShortTag,       &QAction::triggered, this, &MainWindow::addShortTag);
     connect(m_ui->actionAdd_IntTag,         &QAction::triggered, this, &MainWindow::addIntTag);
@@ -181,6 +248,15 @@ void MainWindow::addNbtTag(amc::TagType tagType)
         } else {
             qDebug() << "Launch Dialog for new Tag!";
         }
+    }
+}
+
+void MainWindow::updateActions()
+{
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    NbtTreeItemBase *treeItem = m_nbtTreeModel->fromIndex(index);
+    if(treeItem) {
+        m_ui->actionRename->setEnabled(treeItem->canRename());
     }
 }
 

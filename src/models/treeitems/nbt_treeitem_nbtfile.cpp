@@ -30,7 +30,7 @@ QIcon NbtTreeItemNbtFile::getIcon() const
     return QIcon(":/icons/16x16/NbtFile.png");
 }
 
-QString NbtTreeItemNbtFile::getName() const
+QString NbtTreeItemNbtFile::getLabel() const
 {
     return m_filename;
 }
