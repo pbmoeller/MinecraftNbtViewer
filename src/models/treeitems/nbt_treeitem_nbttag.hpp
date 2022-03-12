@@ -117,6 +117,8 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
+
+    virtual bool canAddNbtTag(amc::TagType type) const override;
 };
 
 class NbtTreeItemListTag : public NbtTreeItemNbtTag
@@ -128,6 +130,8 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
+
+    virtual bool canAddNbtTag(amc::TagType type) const override;
 };
 
 class NbtTreeItemByteArrayTag : public NbtTreeItemNbtTag

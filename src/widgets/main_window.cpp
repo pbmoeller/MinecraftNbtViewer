@@ -257,6 +257,19 @@ void MainWindow::updateActions()
     NbtTreeItemBase *treeItem = m_nbtTreeModel->fromIndex(index);
     if(treeItem) {
         m_ui->actionRename->setEnabled(treeItem->canRename());
+
+        m_ui->actionAdd_ByteTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Byte));
+        m_ui->actionAdd_ShortTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Short));
+        m_ui->actionAdd_IntTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Int));
+        m_ui->actionAdd_LongTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Long));
+        m_ui->actionAdd_FloatTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Float));
+        m_ui->actionAdd_DoubleTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Double));
+        m_ui->actionAdd_StringTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::String));
+        m_ui->actionAdd_ByteArrayTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::ByteArray));
+        m_ui->actionAdd_IntArrayTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::IntArray));
+        m_ui->actionAdd_LongArrayTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::LongArray));
+        m_ui->actionAdd_ListTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::List));
+        m_ui->actionAdd_CompoundTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Compound));
     }
 }
 

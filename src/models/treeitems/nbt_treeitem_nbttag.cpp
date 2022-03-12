@@ -290,6 +290,12 @@ QString NbtTreeItemCompoundTag::getLabel() const
                 .arg(amc::tag_cast<amc::CompoundTag*>(m_tag)->size());
 }
 
+bool NbtTreeItemCompoundTag::canAddNbtTag(amc::TagType type) const
+{
+    Q_UNUSED(type);
+    return true;
+}
+
 NbtTreeItemListTag::NbtTreeItemListTag(NbtTreeItemBase *parentItem,
                                        amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -312,6 +318,18 @@ QString NbtTreeItemListTag::getLabel() const
     return QString(QObject::tr("%1: %2 entries"))
         .arg(m_tag->getName().c_str())
         .arg(amc::tag_cast<amc::ListTag*>(m_tag)->size());
+}
+
+bool NbtTreeItemListTag::canAddNbtTag(amc::TagType type) const
+{
+    if(m_children.size() > 0) {
+        amc::ListTag *listTag = amc::tag_cast<amc::ListTag*>(m_tag);
+        if(listTag && listTag->getListType() == type) {
+            return true;
+        }
+        return false;
+    }
+    return true;
 }
 
 NbtTreeItemByteArrayTag::NbtTreeItemByteArrayTag(NbtTreeItemBase *parentItem,

@@ -1,6 +1,9 @@
 #ifndef AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP
 #define AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP
 
+// AwesomeMC
+#include <AwesomeMC/nbt/tags/abstract_tag.hpp>
+
 // Qt
 #include <QVector>
 #include <QString>
@@ -27,6 +30,8 @@ public:
 
     virtual bool canRename() const;
     virtual void rename(const QString &name);
+
+    virtual bool canAddNbtTag(amc::TagType type) const;
 
     virtual bool canFetchMore() const;
     virtual void fetchMore();
