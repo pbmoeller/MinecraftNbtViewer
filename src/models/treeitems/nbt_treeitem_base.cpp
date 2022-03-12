@@ -86,7 +86,13 @@ bool NbtTreeItemBase::canRename() const
 
 void NbtTreeItemBase::rename(const QString &name)
 {
-    Q_UNUSED(name)
+    Q_UNUSED(name);
+}
+
+bool NbtTreeItemBase::canAddNbtTag(amc::TagType type) const
+{
+    Q_UNUSED(type);
+    return false;
 }
 
 bool NbtTreeItemBase::canFetchMore() const
