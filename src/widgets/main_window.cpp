@@ -9,6 +9,7 @@
 #include <QCloseEvent>
 #include <QFileDialog>
 #include <QStandardPaths>
+#include <QDesktopServices>
 
 namespace anv
 {
@@ -84,7 +85,12 @@ void MainWindow::openMinecraftFolder()
 
 void MainWindow::openInExplorer()
 {
-
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        NbtTreeItemBase *treeItem = m_nbtTreeModel->fromIndex(index);
+        QString path = treeItem->getPath();
+        QDesktopServices::openUrl(QUrl("file:///" + path, QUrl::TolerantMode));
+    }
 }
 
 void MainWindow::save()
@@ -271,6 +277,8 @@ void MainWindow::updateActions()
     QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
     NbtTreeItemBase *treeItem = m_nbtTreeModel->fromIndex(index);
     if(treeItem) {
+        m_ui->actionOpen_in_Explorer->setEnabled(treeItem->canOpenInExplorer());
+
         m_ui->actionRename->setEnabled(treeItem->canRename());
         m_ui->actionDelete->setEnabled(treeItem->canDelete());
 

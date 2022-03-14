@@ -48,6 +48,16 @@ QString NbtTreeItemFolder::getLabel() const
     return m_folderName;
 }
 
+bool NbtTreeItemFolder::canOpenInExplorer() const
+{
+    return true;
+}
+
+QString NbtTreeItemFolder::getPath() const
+{
+    return m_pathToFolder + '/' + m_folderName;
+}
+
 bool NbtTreeItemFolder::canFetchMore() const
 {
     return m_canFetchData;
@@ -55,7 +65,7 @@ bool NbtTreeItemFolder::canFetchMore() const
 
 void NbtTreeItemFolder::fetchMore()
 {
-    m_canFetchData= false;
+    m_canFetchData = false;
     readKnownFilesInDirectory(this, m_pathToFolder + '/' + m_folderName);
     sort();
 }
