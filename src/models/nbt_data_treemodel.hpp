@@ -11,6 +11,7 @@ namespace anv
 {
 
 class NbtTreeItemBase;
+class NbtTreeItemNbtTag;
 
 class NbtDataTreeModel : public QAbstractItemModel
 {
@@ -24,7 +25,7 @@ public:
 
     NbtTreeItemBase* fromIndex(const QModelIndex &index) const;
     QModelIndex toIndex(NbtTreeItemBase *item, int column) const;
-    void addNbtTag(const QModelIndex& parent, amc::TagType type, const QString& name);
+    void addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item, amc::TagType type, const QString& name, int size = 0);
 
     void renameTag(const QModelIndex &index, const QString &newName);
 

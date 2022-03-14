@@ -20,6 +20,7 @@ public:
 
     NbtTreeItemBase*& getParent();
     QVector<NbtTreeItemBase*>& getChildren();
+    bool hasChildWithName(const QString &name) const;
 
     void sort();
     void clear();

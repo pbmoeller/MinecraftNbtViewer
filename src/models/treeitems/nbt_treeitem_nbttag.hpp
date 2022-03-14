@@ -21,6 +21,7 @@ public:
     virtual QString getName() const override;
     virtual QString getLabel() const override;
     amc::TagType getTagType() const;
+    amc::AbstractTag* getTag();
 
     virtual bool canRename() const;
     virtual void rename(const QString &name) override;

@@ -44,6 +44,11 @@ amc::TagType NbtTreeItemNbtTag::getTagType() const
     return m_tag->getType();
 }
 
+amc::AbstractTag* NbtTreeItemNbtTag::getTag()
+{
+    return m_tag;
+}
+
 bool NbtTreeItemNbtTag::canRename() const
 {
     // Only Tags that are not children of ListTag can be renamed.

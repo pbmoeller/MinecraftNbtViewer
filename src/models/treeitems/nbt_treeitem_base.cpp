@@ -34,6 +34,16 @@ QVector<NbtTreeItemBase*>& NbtTreeItemBase::getChildren()
     return m_children;
 }
 
+bool NbtTreeItemBase::hasChildWithName(const QString &name) const
+{
+    for(int i = 0; i < m_children.size(); ++i) {
+        if(m_children[i]->getName() == name) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void NbtTreeItemBase::sort()
 {
     std::sort(m_children.begin(),
