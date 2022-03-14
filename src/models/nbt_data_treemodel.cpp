@@ -152,6 +152,28 @@ void NbtDataTreeModel::renameTag(const QModelIndex &index, const QString &newNam
     dataChanged(index, index);
 }
 
+void NbtDataTreeModel::deleteTag(const QModelIndex &index)
+{
+    NbtTreeItemNbtTag *treeItem = dynamic_cast<NbtTreeItemNbtTag*>(fromIndex(index));
+    NbtTreeItemNbtTag *parentTreeItem = dynamic_cast<NbtTreeItemNbtTag*>(treeItem->getParent());
+    if(!treeItem) {
+        return;
+    }
+
+    beginRemoveRows(index.parent(), index.row(), index.row());
+    // If the parent exists, let it delete the NBT item, since it keeps the ownership.
+    if(parentTreeItem) {
+        parentTreeItem->deleteChildTag(treeItem->getTag());
+    } else {
+        // TODO: Check if this can happen, this should only happen if the parent is NbtFile
+        // See possible Bug with missing root Tag.
+        treeItem->deleteTag();
+    }
+
+    delete treeItem;
+    endRemoveRows();
+}
+
 QVariant NbtDataTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     Q_UNUSED(section);

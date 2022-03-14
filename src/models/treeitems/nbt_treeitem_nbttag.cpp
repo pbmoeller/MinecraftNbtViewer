@@ -61,6 +61,22 @@ void NbtTreeItemNbtTag::rename(const QString &name)
     m_tag->setName(name.toStdString());
 }
 
+bool NbtTreeItemNbtTag::canDelete() const
+{
+    return true;
+}
+
+void NbtTreeItemNbtTag::deleteTag()
+{
+    delete m_tag;
+    m_tag = nullptr;
+}
+
+void NbtTreeItemNbtTag::deleteChildTag(amc::AbstractTag *tag)
+{
+    Q_UNUSED(tag);
+}
+
 void NbtTreeItemNbtTag::sort()
 {
     std::sort(m_children.begin(),
@@ -301,6 +317,11 @@ bool NbtTreeItemCompoundTag::canAddNbtTag(amc::TagType type) const
     return true;
 }
 
+void NbtTreeItemCompoundTag::deleteChildTag(amc::AbstractTag *tag)
+{
+    tag_cast<amc::CompoundTag*>(m_tag)->erase(tag);
+}
+
 NbtTreeItemListTag::NbtTreeItemListTag(NbtTreeItemBase *parentItem,
                                        amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -335,6 +356,11 @@ bool NbtTreeItemListTag::canAddNbtTag(amc::TagType type) const
         return false;
     }
     return true;
+}
+
+void NbtTreeItemListTag::deleteChildTag(amc::AbstractTag *tag)
+{
+    tag_cast<amc::ListTag*>(m_tag)->erase(tag);
 }
 
 NbtTreeItemByteArrayTag::NbtTreeItemByteArrayTag(NbtTreeItemBase *parentItem,

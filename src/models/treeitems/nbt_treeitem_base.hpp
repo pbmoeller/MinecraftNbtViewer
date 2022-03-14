@@ -32,6 +32,8 @@ public:
     virtual bool canRename() const;
     virtual void rename(const QString &name);
 
+    virtual bool canDelete() const;
+
     virtual bool canAddNbtTag(amc::TagType type) const;
 
     virtual bool canFetchMore() const;
