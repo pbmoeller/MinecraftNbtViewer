@@ -28,6 +28,7 @@ public:
     void addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item, amc::TagType type, const QString& name, int size = 0);
 
     void renameTag(const QModelIndex &index, const QString &newName);
+    void deleteTag(const QModelIndex &index);
 
     // Reimplemented functions of QAbstractItemModel
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;

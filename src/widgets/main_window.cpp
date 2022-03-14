@@ -130,7 +130,10 @@ void MainWindow::editTag()
 
 void MainWindow::deleteTag()
 {
-
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        m_nbtTreeModel->deleteTag(index);
+    }
 }
 
 void MainWindow::addByteTag()
@@ -269,6 +272,7 @@ void MainWindow::updateActions()
     NbtTreeItemBase *treeItem = m_nbtTreeModel->fromIndex(index);
     if(treeItem) {
         m_ui->actionRename->setEnabled(treeItem->canRename());
+        m_ui->actionDelete->setEnabled(treeItem->canDelete());
 
         m_ui->actionAdd_ByteTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Byte));
         m_ui->actionAdd_ShortTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Short));

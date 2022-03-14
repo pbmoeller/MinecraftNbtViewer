@@ -26,6 +26,10 @@ public:
     virtual bool canRename() const;
     virtual void rename(const QString &name) override;
 
+    virtual bool canDelete() const override;
+    virtual void deleteTag();
+    virtual void deleteChildTag(amc::AbstractTag *tag);
+
     void sort();
 
 protected:
@@ -120,6 +124,7 @@ public:
     virtual QString getLabel() const override;
 
     virtual bool canAddNbtTag(amc::TagType type) const override;
+    virtual void deleteChildTag(amc::AbstractTag *tag) override;
 };
 
 class NbtTreeItemListTag : public NbtTreeItemNbtTag
@@ -133,6 +138,7 @@ public:
     virtual QString getLabel() const override;
 
     virtual bool canAddNbtTag(amc::TagType type) const override;
+    virtual void deleteChildTag(amc::AbstractTag *tag) override;
 };
 
 class NbtTreeItemByteArrayTag : public NbtTreeItemNbtTag
