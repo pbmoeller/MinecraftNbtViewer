@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>RenameTagDialog</class>
- <widget class="QDialog" name="RenameTagDialog">
+ <class>NewTagDialog</class>
+ <widget class="QDialog" name="NewTagDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>260</width>
-    <height>74</height>
+    <height>102</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Rename Tag</string>
+   <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="nameEdit"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="sizeLabel">
+       <property name="text">
+        <string>Size:</string>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="nameLabel">
        <property name="text">
         <string>Name:</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="nameEdit"/>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="sizeEdit">
+       <property name="maximumSize">
+        <size>
+         <width>60</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
      </item>
-     <item row="1" column="0" colspan="2">
+     <item row="2" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <spacer name="horizontalSpacer">
@@ -67,39 +84,37 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../../resources/resources.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>buttonOk</sender>
    <signal>clicked()</signal>
-   <receiver>RenameTagDialog</receiver>
+   <receiver>NewTagDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>203</x>
-     <y>50</y>
+     <x>211</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
-     <x>125</x>
-     <y>36</y>
+     <x>129</x>
+     <y>50</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>buttonCancel</sender>
    <signal>clicked()</signal>
-   <receiver>RenameTagDialog</receiver>
+   <receiver>NewTagDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>122</x>
-     <y>50</y>
+     <x>130</x>
+     <y>78</y>
     </hint>
     <hint type="destinationlabel">
-     <x>125</x>
-     <y>36</y>
+     <x>129</x>
+     <y>50</y>
     </hint>
    </hints>
   </connection>

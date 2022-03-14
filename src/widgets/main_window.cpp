@@ -3,6 +3,7 @@
 #include "models/nbt_data_treemodel.hpp"
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
 #include "rename_tag_dialog.hpp"
+#include "new_tag_dialog.hpp"
 
 // Qt
 #include <QCloseEvent>
@@ -243,10 +244,21 @@ void MainWindow::addNbtTag(amc::TagType tagType)
     QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
     if(index.isValid()) {
         NbtTreeItemBase *item = m_nbtTreeModel->fromIndex(index);
-        if(dynamic_cast<NbtTreeItemListTag*>(item) != nullptr) {
-            m_nbtTreeModel->addNbtTag(index, tagType, QString());
+        NbtTreeItemNbtTag *tagItem = dynamic_cast<NbtTreeItemNbtTag*>(item);
+        if(!tagItem) {
+            return;
+        }
+
+        if(tagItem->getTagType() == amc::TagType::List) {
+            m_nbtTreeModel->addNbtTag(index, tagItem, tagType, QString());
         } else {
             qDebug() << "Launch Dialog for new Tag!";
+            NewTagDialog newTagDialog(tagItem);
+            if(newTagDialog.exec() == QDialog::Accepted) {
+                QString tagName = newTagDialog.getName();
+                int size = newTagDialog.getSize();
+                m_nbtTreeModel->addNbtTag(index, tagItem, tagType, tagName, size);
+            }
         }
     }
 }

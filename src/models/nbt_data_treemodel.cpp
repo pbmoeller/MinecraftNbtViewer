@@ -2,7 +2,12 @@
 #include "nbt_data_treemodel.hpp"
 #include "treeitems/nbt_treeitem_base.hpp"
 #include "treeitems/nbt_treeitem_folder.hpp"
+#include "treeitems/nbt_treeitem_nbttag.hpp"
+#include "treeitems/treeitem_util.hpp"
 #include "util/minecraft_util.hpp"
+
+// AwesomeMC
+#include <AwesomeMC/nbt/tags/tags.hpp>
 
 // Qt
 #include <QDir>
@@ -77,9 +82,67 @@ QModelIndex NbtDataTreeModel::toIndex(NbtTreeItemBase *item, int column) const
     return createIndex(row, column, item);
 }
 
-void NbtDataTreeModel::addNbtTag(const QModelIndex& parent, amc::TagType type, const QString& name)
+void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item, amc::TagType type, const QString& name, int size)
 {
-    qDebug() << "Want to add: " << name << " of Type: " << static_cast<int>(type);
+    amc::AbstractVectorTag *vectorTag = dynamic_cast<amc::AbstractVectorTag*>(item->getTag());
+    if(vectorTag == nullptr) {
+        return;
+    }
+
+    amc::AbstractTag *newTag = nullptr;
+    switch(type) {
+        case amc::TagType::Byte:
+            newTag = new amc::ByteTag(name.toStdString());
+            break;
+        case amc::TagType::Short:
+            newTag = new amc::ShortTag(name.toStdString());
+            break;
+        case amc::TagType::Int:
+            newTag = new amc::IntTag(name.toStdString());
+            break;
+        case amc::TagType::Long:
+            newTag = new amc::LongTag(name.toStdString());
+            break;
+        case amc::TagType::Float:
+            newTag = new amc::FloatTag(name.toStdString());
+            break;
+        case amc::TagType::Double:
+            newTag = new amc::DoubleTag(name.toStdString());
+            break;
+        case amc::TagType::ByteArray:
+            newTag = new amc::ByteArrayTag(name.toStdString(), std::vector<int8_t>(size, 0));
+            break;
+        case amc::TagType::String:
+            newTag = new amc::StringTag(name.toStdString());
+            break;
+        case amc::TagType::List:
+            newTag = new amc::ListTag(name.toStdString());
+            break;
+        case amc::TagType::Compound:
+            newTag = new amc::CompoundTag(name.toStdString());
+            break;
+        case amc::TagType::IntArray:
+            newTag = new amc::IntArrayTag(name.toStdString(), std::vector<int32_t>(size, 0));
+            break;
+        case amc::TagType::LongArray:
+            newTag = new amc::LongArrayTag(name.toStdString(), std::vector<int64_t>(size, 0));
+            break;
+    }
+    if(newTag == nullptr) {
+        return;
+    }
+
+    if(vectorTag->getType() == amc::TagType::List) {
+        tag_cast<amc::ListTag*>(vectorTag)->setListType(newTag->getType());
+    }
+    vectorTag->pushBack(newTag);
+
+    // Add to model
+    NbtTreeItemBase *treeitem = fromIndex(index);
+    int pos = treeitem->getChildren().size();
+    beginInsertRows(index, pos, pos);
+    addNbtChild(treeitem, newTag);
+    endInsertRows();
 }
 
 void NbtDataTreeModel::renameTag(const QModelIndex &index, const QString &newName)
