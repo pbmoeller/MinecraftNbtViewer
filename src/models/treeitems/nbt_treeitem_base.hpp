@@ -36,6 +36,9 @@ public:
 
     virtual bool canAddNbtTag(amc::TagType type) const;
 
+    virtual bool canOpenInExplorer() const;
+    virtual QString getPath() const;
+
     virtual bool canFetchMore() const;
     virtual void fetchMore();
 

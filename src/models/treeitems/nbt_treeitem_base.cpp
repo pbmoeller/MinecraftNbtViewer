@@ -110,6 +110,16 @@ bool NbtTreeItemBase::canAddNbtTag(amc::TagType type) const
     return false;
 }
 
+bool NbtTreeItemBase::canOpenInExplorer() const
+{
+    return false;
+}
+
+QString NbtTreeItemBase::getPath() const
+{
+    return QString();
+}
+
 bool NbtTreeItemBase::canFetchMore() const
 {
     return false;

@@ -40,6 +40,16 @@ bool NbtTreeItemNbtFile::canFetchMore() const
     return m_canFetchData;
 }
 
+bool NbtTreeItemNbtFile::canOpenInExplorer() const
+{
+    return true;
+}
+
+QString NbtTreeItemNbtFile::getPath() const
+{
+    return m_pathToFile;
+}
+
 void NbtTreeItemNbtFile::fetchMore()
 {
     m_canFetchData = false;

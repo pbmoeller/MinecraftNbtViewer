@@ -31,6 +31,16 @@ QString NbtTreeItemRegionFile::getLabel() const
     return m_filename;
 }
 
+bool NbtTreeItemRegionFile::canOpenInExplorer() const
+{
+    return true;
+}
+
+QString NbtTreeItemRegionFile::getPath() const
+{
+    return m_pathToFile;
+}
+
 bool NbtTreeItemRegionFile::canFetchMore() const
 {
     return m_canFetchData;
