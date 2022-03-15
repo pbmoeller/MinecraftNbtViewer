@@ -59,9 +59,10 @@ void NbtTreeItemNbtFile::fetchMore()
     m_nbtRootTag = amc::readNbtFile(filename);
     if(m_nbtRootTag) {
         amc::CompoundTag *tag = amc::tag_cast<amc::CompoundTag*>(m_nbtRootTag.get());
-        for(amc::AbstractTag *childTag : tag->getValue()) {
+        addNbtChild(this, tag);
+        /*for(amc::AbstractTag *childTag : tag->getValue()) {
             addNbtChild(this, childTag);
-        }
+        }*/
 
         sort();
     }
