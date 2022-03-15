@@ -44,15 +44,15 @@
      showgrid="true"
      units="px"
      width="128px"
-     inkscape:zoom="0.82646577"
-     inkscape:cx="270.97993"
-     inkscape:cy="-463.19235"
-     inkscape:window-width="1582"
+     inkscape:zoom="4.6751964"
+     inkscape:cx="-63.738487"
+     inkscape:cy="-694.43162"
+     inkscape:window-width="1590"
      inkscape:window-height="1387"
      inkscape:window-x="-8"
-     inkscape:window-y="0"
+     inkscape:window-y="-8"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer18">
+     inkscape:current-layer="layer20">
     <inkscape:grid
        type="xygrid"
        id="grid824"
@@ -68,6 +68,18 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1362">
+      <stop
+         style="stop-color:#80c92f;stop-opacity:1;"
+         offset="0"
+         id="stop1358" />
+      <stop
+         style="stop-color:#64b113;stop-opacity:1"
+         offset="1"
+         id="stop1360" />
+    </linearGradient>
     <linearGradient
        inkscape:collect="always"
        id="linearGradient1411">
@@ -965,11 +977,71 @@
        x2="122.76666"
        y2="182.03333"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1362"
+       id="linearGradient1364"
+       x1="-23.283333"
+       y1="218.54582"
+       x2="-23.283333"
+       y2="219.60416"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:groupmode="layer"
+     id="layer20"
+     inkscape:label="Quit">
+    <g
+       id="g1373"
+       inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\32x32\Exit.png"
+       inkscape:export-xdpi="24"
+       inkscape:export-ydpi="24">
+      <rect
+         y="203.2"
+         x="-33.866665"
+         height="33.866665"
+         width="33.866665"
+         id="rect1344"
+         style="fill:#ffffff;fill-opacity:0;stroke:none;stroke-width:4.23333311;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1346"
+         d="m -2.1166666,232.83333 v -27.51667 l -2.1166667,2.11667 H -23.283333 v 25.4 z"
+         style="fill:#415560;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1348"
+         d="m -25.399999,232.83333 v -27.51667 h 23.2833324 l -2.1166667,2.11667 H -23.283333 v 25.4 z"
+         style="fill:#889aa2;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1350"
+         d="m -4.2333333,207.43333 -6.3499997,-3.175 v 31.75 l 6.3499997,-3.175 z"
+         style="fill:#d9143c;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1352"
+         d="M -10.583333,236.00833 H -12.7 v -31.75 h 2.116667 z"
+         style="fill:#f16581;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1" />
+      <path
+         sodipodi:nodetypes="aaaaaa"
+         inkscape:connector-curvature="0"
+         id="path1354"
+         d="m -9.5249999,221.19166 c -0.4989011,-0.4989 -0.4989011,-1.61776 0,-2.11666 0.4989032,-0.4989 1.8466628,-0.65185 2.1166667,0 0.1909213,0.46093 -0.8674113,0.5974 -1.0583334,1.05833 -0.135002,0.32592 0.2494508,0.80888 0,1.05833 -0.2494515,0.24945 -0.8088817,0.24945 -1.0583333,0 z"
+         style="fill:#edf298;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1356"
+         d="m -29.633333,215.90002 h 6.35 v -4.23334 l 7.408333,7.40833 -7.408333,7.40833 v -4.23333 h -6.35 z"
+         style="fill:url(#linearGradient1364);fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:nodetypes="cccccccc" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer19"
-     inkscape:label="Refresh">
+     inkscape:label="Refresh"
+     sodipodi:insensitive="true">
     <rect
        style="fill:#ffffff;fill-opacity:0;stroke:none;stroke-width:0.39687499;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect1455"
@@ -982,7 +1054,8 @@
      inkscape:groupmode="layer"
      id="layer18"
      inkscape:label="Cut"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <g
        id="g1452"
        inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\24x24\Cut.png"
@@ -1030,12 +1103,14 @@
   <g
      inkscape:groupmode="layer"
      id="layer17"
-     inkscape:label="Paste" />
+     inkscape:label="Paste"
+     sodipodi:insensitive="true" />
   <g
      inkscape:groupmode="layer"
      id="layer16"
      inkscape:label="Copy"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <rect
        y="222.24998"
        x="31.749998"
@@ -1082,8 +1157,7 @@
        id="Paste"
        inkscape:label="#g2199">
       <g
-         id="g2130"
-         style="">
+         id="g2130">
         <rect
            style="fill:#ffffff;fill-opacity:0.00322583;stroke:none;stroke-width:1.05833328;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect2017"
@@ -1131,7 +1205,8 @@
      inkscape:groupmode="layer"
      id="layer15"
      inkscape:label="Save"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <g
        id="Save"
        inkscape:label="#g1767">
@@ -1200,7 +1275,8 @@
      inkscape:groupmode="layer"
      id="layer14"
      inkscape:label="OpenFile"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <g
        id="OpenFile"
        inkscape:label="#g1679">
@@ -1330,7 +1406,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer13"
-     inkscape:label="Delete">
+     inkscape:label="Delete"
+     sodipodi:insensitive="true">
     <g
        id="Delete"
        inkscape:label="#g2177">
@@ -1352,7 +1429,8 @@
      inkscape:groupmode="layer"
      id="layer12"
      inkscape:label="Edit"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <g
        id="Edit"
        inkscape:label="#g1437">
@@ -1448,7 +1526,8 @@
      style="display:inline"
      inkscape:label="RenameAlt"
      id="g1288"
-     inkscape:groupmode="layer">
+     inkscape:groupmode="layer"
+     sodipodi:insensitive="true">
     <g
        id="RenameAlt"
        inkscape:label="#g2173">
@@ -1574,7 +1653,8 @@
      inkscape:groupmode="layer"
      id="layer11"
      inkscape:label="Rename"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <g
        id="Rename"
        inkscape:label="#g2153">
@@ -2493,7 +2573,8 @@
      inkscape:groupmode="layer"
      id="layer7"
      inkscape:label="Folder"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <g
        id="Folder"
        transform="translate(-1.3125e-6,-101.6)"
@@ -2636,7 +2717,8 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="StringTag"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <path
        style="display:inline;fill:url(#linearGradient1691);fill-opacity:1;stroke:#000000;stroke-width:2.11699986;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 242.35833,2.1166643 V 31.749993 h 23.28333 V 8.4666643 l -6.35,-6.35 h -16.93333"
@@ -2979,7 +3061,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer6"
-     inkscape:label="NbtFile">
+     inkscape:label="NbtFile"
+     sodipodi:insensitive="true">
     <g
        id="NbtFile"
        inkscape:label="#g1789">

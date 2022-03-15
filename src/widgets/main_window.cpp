@@ -30,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Load default Minecraft directory
     openMinecraftFolder();
+
+    updateActions();
 }
 
 MainWindow::~MainWindow()

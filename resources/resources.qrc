@@ -82,5 +82,8 @@
         <file>icons/32x32/Paste.png</file>
         <file>icons/32x32/Rename.png</file>
         <file>icons/32x32/Save.png</file>
+        <file>icons/24x24/Exit.png</file>
+        <file>icons/16x16/Exit.png</file>
+        <file>icons/32x32/Exit.png</file>
     </qresource>
 </RCC>

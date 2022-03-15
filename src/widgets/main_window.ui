@@ -144,6 +144,10 @@
    </property>
   </action>
   <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="../../resources/resources.qrc">
+     <normaloff>:/icons/16x16/Exit.png</normaloff>:/icons/16x16/Exit.png</iconset>
+   </property>
    <property name="text">
     <string>Quit</string>
    </property>
