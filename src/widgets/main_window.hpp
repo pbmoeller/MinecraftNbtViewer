@@ -32,6 +32,7 @@ public slots:
 
     /// Slots to Actions
     // File Menu
+    void newNbtFile();
     void openFile();
     void openFolder();
     void openMinecraftFolder();

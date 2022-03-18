@@ -1,6 +1,9 @@
 #ifndef AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP
 #define AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP
 
+// AwesomeNbtViewer
+#include "models/nbt_data_treemodel.hpp"
+
 // AwesomeMC
 #include <AwesomeMC/nbt/tags/abstract_tag.hpp>
 
@@ -31,6 +34,9 @@ public:
 
     virtual bool canRename() const;
     virtual void rename(const QString &name);
+
+    virtual bool canEdit() const;
+    virtual void openEditDialog(NbtDataTreeModel *model);
 
     virtual bool canDelete() const;
 

@@ -52,6 +52,7 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionNew_NBT_File"/>
     <addaction name="actionOpen_File"/>
     <addaction name="actionOpen_Folder"/>
     <addaction name="actionOpen_Minecraft_Save_Folder"/>
@@ -100,6 +101,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionNew_NBT_File"/>
    <addaction name="actionOpen_File"/>
    <addaction name="actionOpen_Folder"/>
    <addaction name="actionSave"/>
@@ -331,6 +333,15 @@
    </property>
    <property name="text">
     <string>Add CompoundTag</string>
+   </property>
+  </action>
+  <action name="actionNew_NBT_File">
+   <property name="icon">
+    <iconset resource="../../resources/resources.qrc">
+     <normaloff>:/icons/16x16/NewNbtFile.png</normaloff>:/icons/16x16/NewNbtFile.png</iconset>
+   </property>
+   <property name="text">
+    <string>New NBT File</string>
    </property>
   </action>
  </widget>

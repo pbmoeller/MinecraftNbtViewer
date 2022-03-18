@@ -56,6 +56,11 @@ void MainWindow::treeviewCurrentItemChanged(const QModelIndex &current,
     updateActions();
 }
 
+void MainWindow::newNbtFile()
+{
+
+}
+
 void MainWindow::openFile()
 {
     QString filename = QFileDialog::getOpenFileName(this, tr("Open File"), m_currentDirectory);
@@ -133,7 +138,10 @@ void MainWindow::renameTag()
 
 void MainWindow::editTag()
 {
-
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        m_nbtTreeModel->editTag(index);
+    }
 }
 
 void MainWindow::deleteTag()
@@ -212,6 +220,7 @@ void MainWindow::initConnections()
 
     /// Actions
     // File Menu
+    connect(m_ui->actionNew_NBT_File,               &QAction::triggered, this, &MainWindow::newNbtFile);
     connect(m_ui->actionOpen_File,                  &QAction::triggered, this, &MainWindow::openFile);
     connect(m_ui->actionOpen_Folder,                &QAction::triggered, this, &MainWindow::openFolder);
     connect(m_ui->actionOpen_Minecraft_Save_Folder, &QAction::triggered, this, &MainWindow::openMinecraftFolder);
@@ -282,6 +291,7 @@ void MainWindow::updateActions()
         m_ui->actionOpen_in_Explorer->setEnabled(treeItem->canOpenInExplorer());
 
         m_ui->actionRename->setEnabled(treeItem->canRename());
+        m_ui->actionEdit->setEnabled(treeItem->canEdit());
         m_ui->actionDelete->setEnabled(treeItem->canDelete());
 
         m_ui->actionAdd_ByteTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Byte));
