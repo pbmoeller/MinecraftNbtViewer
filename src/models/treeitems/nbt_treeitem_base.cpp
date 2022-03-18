@@ -1,6 +1,7 @@
 // AwesomeNbtViewer
 #include "nbt_treeitem_base.hpp"
 #include "nbt_treeitem_folder.hpp"
+#include "models/nbt_data_treemodel.hpp"
 
 // Qt
 #include <QDebug>
@@ -97,6 +98,16 @@ bool NbtTreeItemBase::canRename() const
 void NbtTreeItemBase::rename(const QString &name)
 {
     Q_UNUSED(name);
+}
+
+bool NbtTreeItemBase::canEdit() const
+{
+    return false;
+}
+
+void NbtTreeItemBase::openEditDialog(NbtDataTreeModel *model)
+{
+    Q_UNUSED(model);
 }
 
 bool NbtTreeItemBase::canDelete() const

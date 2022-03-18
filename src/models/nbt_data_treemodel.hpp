@@ -24,11 +24,14 @@ public:
     void load(const QString &directory);
 
     NbtTreeItemBase* fromIndex(const QModelIndex &index) const;
-    QModelIndex toIndex(NbtTreeItemBase *item, int column) const;
+    QModelIndex toIndex(NbtTreeItemBase *item, int column = 0) const;
     void addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item, amc::TagType type, const QString& name, int size = 0);
 
     void renameTag(const QModelIndex &index, const QString &newName);
+    void editTag(const QModelIndex &index);
     void deleteTag(const QModelIndex &index);
+
+    void itemChanged(NbtTreeItemBase* item);
 
     // Reimplemented functions of QAbstractItemModel
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;

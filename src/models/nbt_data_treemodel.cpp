@@ -152,6 +152,11 @@ void NbtDataTreeModel::renameTag(const QModelIndex &index, const QString &newNam
     dataChanged(index, index);
 }
 
+void NbtDataTreeModel::editTag(const QModelIndex &index)
+{
+    fromIndex(index)->openEditDialog(this);
+}
+
 void NbtDataTreeModel::deleteTag(const QModelIndex &index)
 {
     NbtTreeItemNbtTag *treeItem = dynamic_cast<NbtTreeItemNbtTag*>(fromIndex(index));
@@ -172,6 +177,12 @@ void NbtDataTreeModel::deleteTag(const QModelIndex &index)
 
     delete treeItem;
     endRemoveRows();
+}
+
+void NbtDataTreeModel::itemChanged(NbtTreeItemBase* item)
+{
+    QModelIndex index = toIndex(item);
+    emit dataChanged(index, index);
 }
 
 QVariant NbtDataTreeModel::headerData(int section, Qt::Orientation orientation, int role) const

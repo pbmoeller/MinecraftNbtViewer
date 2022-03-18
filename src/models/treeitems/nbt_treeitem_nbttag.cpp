@@ -1,6 +1,8 @@
 // AwesomeNbtViewer
 #include "nbt_treeitem_nbttag.hpp"
 #include "treeitem_util.hpp"
+#include "models/nbt_data_treemodel.hpp"
+#include "widgets/edit_value_dialog.hpp"
 
 // AwesomeMC
 #include <AwesomeMC/nbt/tags/tags.hpp>
@@ -61,6 +63,11 @@ void NbtTreeItemNbtTag::rename(const QString &name)
     m_tag->setName(name.toStdString());
 }
 
+bool NbtTreeItemNbtTag::canEdit() const
+{
+    return true;
+}
+
 bool NbtTreeItemNbtTag::canDelete() const
 {
     return true;
@@ -84,6 +91,7 @@ void NbtTreeItemNbtTag::sort()
               &treeItemNbtTagCompare);
 }
 
+/// ByteTag
 NbtTreeItemByteTag::NbtTreeItemByteTag(NbtTreeItemBase *parentItem,
                                        amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -113,6 +121,13 @@ QString NbtTreeItemByteTag::getLabel() const
     return name;
 }
 
+void NbtTreeItemByteTag::openEditDialog(NbtDataTreeModel *model)
+{
+    EditValueDialog editValueDialog(this, model);
+    editValueDialog.exec();
+}
+
+/// ShortTag
 NbtTreeItemShortTag::NbtTreeItemShortTag(NbtTreeItemBase *parentItem,
                                          amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -142,6 +157,13 @@ QString NbtTreeItemShortTag::getLabel() const
     return name;
 }
 
+void NbtTreeItemShortTag::openEditDialog(NbtDataTreeModel *model)
+{
+    EditValueDialog editValueDialog(this, model);
+    editValueDialog.exec();
+}
+
+/// IntTag
 NbtTreeItemIntTag::NbtTreeItemIntTag(NbtTreeItemBase *parentItem,
                                      amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -171,6 +193,13 @@ QString NbtTreeItemIntTag::getLabel() const
     return name;
 }
 
+void NbtTreeItemIntTag::openEditDialog(NbtDataTreeModel *model)
+{
+    EditValueDialog editValueDialog(this, model);
+    editValueDialog.exec();
+}
+
+/// LongTag
 NbtTreeItemLongTag::NbtTreeItemLongTag(NbtTreeItemBase *parentItem,
                                        amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -200,6 +229,13 @@ QString NbtTreeItemLongTag::getLabel() const
     return name;
 }
 
+void NbtTreeItemLongTag::openEditDialog(NbtDataTreeModel *model)
+{
+    EditValueDialog editValueDialog(this, model);
+    editValueDialog.exec();
+}
+
+/// FloatTag
 NbtTreeItemFloatTag::NbtTreeItemFloatTag(NbtTreeItemBase *parentItem,
                                          amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -229,6 +265,13 @@ QString NbtTreeItemFloatTag::getLabel() const
     return name;
 }
 
+void NbtTreeItemFloatTag::openEditDialog(NbtDataTreeModel *model)
+{
+    EditValueDialog editValueDialog(this, model);
+    editValueDialog.exec();
+}
+
+/// DoubleTag
 NbtTreeItemDoubleTag::NbtTreeItemDoubleTag(NbtTreeItemBase *parentItem,
                                            amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -258,6 +301,13 @@ QString NbtTreeItemDoubleTag::getLabel() const
     return name;
 }
 
+void NbtTreeItemDoubleTag::openEditDialog(NbtDataTreeModel *model)
+{
+    EditValueDialog editValueDialog(this, model);
+    editValueDialog.exec();
+}
+
+/// StringTag
 NbtTreeItemStringTag::NbtTreeItemStringTag(NbtTreeItemBase *parentItem,
                                            amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -287,6 +337,13 @@ QString NbtTreeItemStringTag::getLabel() const
     return name;
 }
 
+void NbtTreeItemStringTag::openEditDialog(NbtDataTreeModel *model)
+{
+    EditValueDialog editValueDialog(this, model);
+    editValueDialog.exec();
+}
+
+/// CompoundTag
 NbtTreeItemCompoundTag::NbtTreeItemCompoundTag(NbtTreeItemBase *parentItem,
                                                amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -322,6 +379,12 @@ void NbtTreeItemCompoundTag::deleteChildTag(amc::AbstractTag *tag)
     tag_cast<amc::CompoundTag*>(m_tag)->erase(tag);
 }
 
+bool NbtTreeItemCompoundTag::canEdit() const
+{
+    return false;
+}
+
+/// ListTag
 NbtTreeItemListTag::NbtTreeItemListTag(NbtTreeItemBase *parentItem,
                                        amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -363,6 +426,12 @@ void NbtTreeItemListTag::deleteChildTag(amc::AbstractTag *tag)
     tag_cast<amc::ListTag*>(m_tag)->erase(tag);
 }
 
+bool NbtTreeItemListTag::canEdit() const
+{
+    return false;
+}
+
+/// ByteArrayTag
 NbtTreeItemByteArrayTag::NbtTreeItemByteArrayTag(NbtTreeItemBase *parentItem,
                                                  amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -392,6 +461,12 @@ QString NbtTreeItemByteArrayTag::getLabel() const
     return name;
 }
 
+void NbtTreeItemByteArrayTag::openEditDialog(NbtDataTreeModel *model)
+{
+    Q_UNUSED(model);
+}
+
+/// IntArrayTag
 NbtTreeItemIntArrayTag::NbtTreeItemIntArrayTag(NbtTreeItemBase *parentItem,
                                                amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -421,6 +496,12 @@ QString NbtTreeItemIntArrayTag::getLabel() const
     return name;
 }
 
+void NbtTreeItemIntArrayTag::openEditDialog(NbtDataTreeModel *model)
+{
+    Q_UNUSED(model);
+}
+
+/// LongArrayTag
 NbtTreeItemLongArrayTag::NbtTreeItemLongArrayTag(NbtTreeItemBase *parentItem,
                                                  amc::AbstractTag *tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -448,6 +529,11 @@ QString NbtTreeItemLongArrayTag::getLabel() const
     name += QString("%1 Long Integers").arg(tag->size());
 
     return name;
+}
+
+void NbtTreeItemLongArrayTag::openEditDialog(NbtDataTreeModel *model)
+{
+    Q_UNUSED(model);
 }
 
 } // namespace anv
