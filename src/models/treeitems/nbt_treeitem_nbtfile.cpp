@@ -5,6 +5,7 @@
 
 // AwesomeMC
 #include <AwesomeMC/nbt/nbt_read.hpp>
+#include <AwesomeMC/nbt/nbt_write.hpp>
 
 namespace anv
 {
@@ -33,6 +34,17 @@ QIcon NbtTreeItemNbtFile::getIcon() const
 QString NbtTreeItemNbtFile::getLabel() const
 {
     return m_filename;
+}
+
+bool NbtTreeItemNbtFile::canSave() const
+{
+    return true;
+}
+
+void NbtTreeItemNbtFile::save()
+{
+    std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
+    amc::writeNbtFile(filename, m_nbtRootTag.get(), true);
 }
 
 bool NbtTreeItemNbtFile::canFetchMore() const

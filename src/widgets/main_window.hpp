@@ -39,6 +39,8 @@ public slots:
     void openMinecraftFolder();
     void openInExplorer();
     void save();
+    void saveAs();
+    void saveAll();
 
     // Edit Menu
     void cutTag();

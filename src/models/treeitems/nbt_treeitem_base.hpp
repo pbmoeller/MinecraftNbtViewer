@@ -32,6 +32,10 @@ public:
     virtual QString getName() const;
     virtual QString getLabel() const;
 
+    virtual bool canSave() const;
+    virtual void save();
+    virtual void saveAs();
+
     virtual bool canRename() const;
     virtual void rename(const QString &name);
 

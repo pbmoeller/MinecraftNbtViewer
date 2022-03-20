@@ -119,7 +119,22 @@ void MainWindow::openInExplorer()
 
 void MainWindow::save()
 {
+    qDebug() << "Save";
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        m_nbtTreeModel->save(index);
+    }
+}
 
+void MainWindow::saveAs()
+{
+    qDebug() << "Save As ...";
+}
+
+void MainWindow::saveAll()
+{
+    qDebug() << "Save All";
+    m_nbtTreeModel->saveAll();
 }
 
 void MainWindow::cutTag()
@@ -245,6 +260,8 @@ void MainWindow::initConnections()
     connect(m_ui->actionOpen_Minecraft_Save_Folder, &QAction::triggered, this, &MainWindow::openMinecraftFolder);
     connect(m_ui->actionOpen_in_Explorer,           &QAction::triggered, this, &MainWindow::openInExplorer);
     connect(m_ui->actionSave,                       &QAction::triggered, this, &MainWindow::save);
+    connect(m_ui->actionSaveAs,                     &QAction::triggered, this, &MainWindow::saveAs);
+    connect(m_ui->actionSaveAll,                    &QAction::triggered, this, &MainWindow::saveAll);
     connect(m_ui->actionQuit,                       &QAction::triggered, this, &MainWindow::close);
 
     // Edit Menu
@@ -319,6 +336,7 @@ void MainWindow::updateActions()
     if(treeItem) {
         m_ui->actionNew_NBT_File->setEnabled(treeItem->canAddNbtFile());
         m_ui->actionOpen_in_Explorer->setEnabled(treeItem->canOpenInExplorer());
+        m_ui->actionSave->setEnabled(treeItem->canSave());
 
         m_ui->actionRename->setEnabled(treeItem->canRename());
         m_ui->actionEdit->setEnabled(treeItem->canEdit());

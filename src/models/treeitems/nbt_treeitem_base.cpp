@@ -90,6 +90,21 @@ QString NbtTreeItemBase::getLabel() const
     return QString();
 }
 
+bool NbtTreeItemBase::canSave() const
+{
+    return false;
+}
+
+void NbtTreeItemBase::save()
+{
+
+}
+
+void NbtTreeItemBase::saveAs()
+{
+
+}
+
 bool NbtTreeItemBase::canRename() const
 {
     return false;

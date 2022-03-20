@@ -60,6 +60,8 @@
     <addaction name="actionOpen_in_Explorer"/>
     <addaction name="separator"/>
     <addaction name="actionSave"/>
+    <addaction name="actionSaveAs"/>
+    <addaction name="actionSaveAll"/>
     <addaction name="separator"/>
     <addaction name="actionQuit"/>
    </widget>
@@ -342,6 +344,24 @@
    </property>
    <property name="text">
     <string>New NBT File</string>
+   </property>
+  </action>
+  <action name="actionSaveAs">
+   <property name="icon">
+    <iconset resource="../../resources/resources.qrc">
+     <normaloff>:/icons/16x16/Save.png</normaloff>:/icons/16x16/Save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save As ...</string>
+   </property>
+  </action>
+  <action name="actionSaveAll">
+   <property name="icon">
+    <iconset resource="../../resources/resources.qrc">
+     <normaloff>:/icons/16x16/Save.png</normaloff>:/icons/16x16/Save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save All</string>
    </property>
   </action>
  </widget>
