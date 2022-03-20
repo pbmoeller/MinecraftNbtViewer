@@ -3,6 +3,7 @@
 #include "treeitems/nbt_treeitem_base.hpp"
 #include "treeitems/nbt_treeitem_folder.hpp"
 #include "treeitems/nbt_treeitem_nbttag.hpp"
+#include "treeitems/nbt_treeitem_nbtfile.hpp"
 #include "treeitems/treeitem_util.hpp"
 #include "util/minecraft_util.hpp"
 
@@ -142,6 +143,19 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *it
     int pos = treeitem->getChildren().size();
     beginInsertRows(index, pos, pos);
     addNbtChild(treeitem, newTag);
+    endInsertRows();
+}
+
+void NbtDataTreeModel::addNewNbtFile(const QModelIndex &index)
+{
+    NbtTreeItemFolder *treeitemFolder = dynamic_cast<NbtTreeItemFolder*>(fromIndex(index));
+    if(!treeitemFolder) {
+        return;
+    }
+
+    int pos = treeitemFolder->getChildren().size();
+    beginInsertRows(index, pos, pos);
+    NbtTreeItemNbtFile::createNewNbtFile(treeitemFolder, treeitemFolder->getPath());
     endInsertRows();
 }
 

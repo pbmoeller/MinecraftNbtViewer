@@ -115,6 +115,11 @@ bool NbtTreeItemBase::canDelete() const
     return false;
 }
 
+bool NbtTreeItemBase::canAddNbtFile() const
+{
+    return false;
+}
+
 bool NbtTreeItemBase::canAddNbtTag(amc::TagType type) const
 {
     Q_UNUSED(type);

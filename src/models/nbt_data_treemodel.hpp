@@ -26,6 +26,7 @@ public:
     NbtTreeItemBase* fromIndex(const QModelIndex &index) const;
     QModelIndex toIndex(NbtTreeItemBase *item, int column = 0) const;
     void addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item, amc::TagType type, const QString& name, int size = 0);
+    void addNewNbtFile(const QModelIndex &index);
 
     void renameTag(const QModelIndex &index, const QString &newName);
     void editTag(const QModelIndex &index);

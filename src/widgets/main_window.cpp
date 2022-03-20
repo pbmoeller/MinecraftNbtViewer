@@ -58,7 +58,10 @@ void MainWindow::treeviewCurrentItemChanged(const QModelIndex &current,
 
 void MainWindow::newNbtFile()
 {
-
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        m_nbtTreeModel->addNewNbtFile(index);
+    }
 }
 
 void MainWindow::openFile()
@@ -288,6 +291,7 @@ void MainWindow::updateActions()
     QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
     NbtTreeItemBase *treeItem = m_nbtTreeModel->fromIndex(index);
     if(treeItem) {
+        m_ui->actionNew_NBT_File->setEnabled(treeItem->canAddNbtFile());
         m_ui->actionOpen_in_Explorer->setEnabled(treeItem->canOpenInExplorer());
 
         m_ui->actionRename->setEnabled(treeItem->canRename());

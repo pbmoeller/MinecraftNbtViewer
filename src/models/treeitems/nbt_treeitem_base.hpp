@@ -40,6 +40,7 @@ public:
 
     virtual bool canDelete() const;
 
+    virtual bool canAddNbtFile() const;
     virtual bool canAddNbtTag(amc::TagType type) const;
 
     virtual bool canOpenInExplorer() const;
