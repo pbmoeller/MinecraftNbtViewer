@@ -59,6 +59,26 @@ void NbtDataTreeModel::load(const QString &directory)
     endResetModel();
 }
 
+void NbtDataTreeModel::save(const QModelIndex &index)
+{
+    NbtTreeItemBase *treeItem = fromIndex(index);
+    if(treeItem) {
+        treeItem->save();
+        m_dirtyItems.remove(treeItem);
+        emit modified();
+    }
+}
+
+void NbtDataTreeModel::saveAll()
+{
+    for(NbtTreeItemBase *treeItem : m_dirtyItems) {
+        treeItem->save();
+    }
+    m_dirtyItems.clear();
+
+    emit modified();
+}
+
 bool NbtDataTreeModel::isModified() const
 {
     return !m_dirtyItems.isEmpty();

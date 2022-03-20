@@ -27,6 +27,9 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
+
+    virtual bool canSave() const;
+    virtual void save() override;
     
     virtual bool canOpenInExplorer() const override;
     virtual QString getPath() const override;

@@ -23,6 +23,8 @@ public:
 
     void clear();
     void load(const QString &directory);
+    void save(const QModelIndex &index);
+    void saveAll();
     bool isModified() const;
 
     NbtTreeItemBase* fromIndex(const QModelIndex &index) const;
