@@ -43,12 +43,20 @@ bool NbtTreeItemNbtFile::canSave() const
 
 void NbtTreeItemNbtFile::save()
 {
+    // Fetch data first if not already done or the root tag is empty.
+    if(canFetchMore()) {
+        fetchMore();
+    }
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
     amc::writeNbtFile(filename, m_nbtRootTag.get(), true);
 }
 
 void NbtTreeItemNbtFile::saveAs(const QString &filename)
 {
+    // Fetch data first if not already done or the root tag is empty.
+    if(canFetchMore()) {
+        fetchMore();
+    }
     amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get(), true);
 }
 
