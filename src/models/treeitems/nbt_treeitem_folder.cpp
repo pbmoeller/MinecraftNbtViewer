@@ -95,6 +95,7 @@ void NbtTreeItemFolder::readKnownFilesInDirectory(NbtTreeItemBase *parent,
     // Files
     for(QString filename : dir.entryList(QStringList()
                                             << "*.dat"
+                                            << "*.nbt"
                                             << "*.mca"
                                             << "*.mcr"
                                             << "*.json"
@@ -104,6 +105,7 @@ void NbtTreeItemFolder::readKnownFilesInDirectory(NbtTreeItemBase *parent,
                                          QDir::Files)) {
         QFileInfo fileInfo(filename);
         if(fileInfo.suffix() == "dat"
+            || fileInfo.suffix() == "nbt"
             || fileInfo.suffix() == "dat_old"
             || fileInfo.suffix() == "dat_mcr"
             || fileInfo.suffix() == "schematic") {
