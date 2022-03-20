@@ -34,6 +34,8 @@ public:
 
     void sort();
 
+    virtual NbtTreeItemBase* markItemDirty() override;
+
 protected:
     amc::AbstractTag *m_tag;
 };

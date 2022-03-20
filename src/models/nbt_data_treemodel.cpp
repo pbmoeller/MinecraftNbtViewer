@@ -59,6 +59,11 @@ void NbtDataTreeModel::load(const QString &directory)
     endResetModel();
 }
 
+bool NbtDataTreeModel::isModified() const
+{
+    return !m_dirtyItems.isEmpty();
+}
+
 NbtTreeItemBase* NbtDataTreeModel::fromIndex(const QModelIndex &index) const
 {
     if(!index.isValid()) {
@@ -139,11 +144,13 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *it
     vectorTag->pushBack(newTag);
 
     // Add to model
-    NbtTreeItemBase *treeitem = fromIndex(index);
-    int pos = treeitem->getChildren().size();
+    NbtTreeItemBase *treeItem = fromIndex(index);
+    int pos = treeItem->getChildren().size();
     beginInsertRows(index, pos, pos);
-    addNbtChild(treeitem, newTag);
+    addNbtChild(treeItem, newTag);
     endInsertRows();
+
+    markItemDirty(treeItem);
 }
 
 void NbtDataTreeModel::addNewNbtFile(const QModelIndex &index)
@@ -155,8 +162,10 @@ void NbtDataTreeModel::addNewNbtFile(const QModelIndex &index)
 
     int pos = treeitemFolder->getChildren().size();
     beginInsertRows(index, pos, pos);
-    NbtTreeItemNbtFile::createNewNbtFile(treeitemFolder, treeitemFolder->getPath());
+    NbtTreeItemNbtFile* nbtFile = NbtTreeItemNbtFile::createNewNbtFile(treeitemFolder, treeitemFolder->getPath());
     endInsertRows();
+
+    markItemDirty(nbtFile);
 }
 
 void NbtDataTreeModel::renameTag(const QModelIndex &index, const QString &newName)
@@ -164,6 +173,8 @@ void NbtDataTreeModel::renameTag(const QModelIndex &index, const QString &newNam
     NbtTreeItemBase *treeItem = fromIndex(index);
     treeItem->rename(newName);
     dataChanged(index, index);
+
+    markItemDirty(treeItem);
 }
 
 void NbtDataTreeModel::editTag(const QModelIndex &index)
@@ -191,12 +202,26 @@ void NbtDataTreeModel::deleteTag(const QModelIndex &index)
 
     delete treeItem;
     endRemoveRows();
+
+    markItemDirty(parentTreeItem);
 }
 
 void NbtDataTreeModel::itemChanged(NbtTreeItemBase* item)
 {
     QModelIndex index = toIndex(item);
+    markItemDirty(item);
     emit dataChanged(index, index);
+}
+
+void NbtDataTreeModel::markItemDirty(NbtTreeItemBase *treeItem)
+{
+    if(treeItem) {
+        NbtTreeItemBase *dirtyItem = treeItem->markItemDirty();
+        if(dirtyItem) {
+            m_dirtyItems.insert(dirtyItem);
+            emit modified();
+        }
+    }
 }
 
 QVariant NbtDataTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -219,6 +244,9 @@ QVariant NbtDataTreeModel::data(const QModelIndex &index, int role) const
             case Qt::DisplayRole:
             {
                 QString s = item->getLabel();
+                if(m_dirtyItems.contains(item)) {
+                    s = "* " + s;
+                }
                 return s;
             }
             case Qt::DecorationRole:

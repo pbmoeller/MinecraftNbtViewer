@@ -49,6 +49,8 @@ public:
     virtual bool canFetchMore() const;
     virtual void fetchMore();
 
+    virtual NbtTreeItemBase* markItemDirty();
+
 protected:
     NbtTreeItemBase *m_parent;
     QVector<NbtTreeItemBase*> m_children;

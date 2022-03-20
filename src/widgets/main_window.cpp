@@ -7,6 +7,7 @@
 
 // Qt
 #include <QCloseEvent>
+#include <QMessageBox>
 #include <QFileDialog>
 #include <QStandardPaths>
 #include <QDesktopServices>
@@ -17,9 +18,10 @@ namespace anv
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , m_ui(new Ui::MainWindow)
+    , m_baseWindowTitle(QApplication::applicationName())
 {
     m_ui->setupUi(this);
-    this->setWindowTitle(QApplication::applicationName());
+    this->setWindowTitle(m_baseWindowTitle);
 
     m_nbtTreeModel = new NbtDataTreeModel();
     m_ui->nbtDataTreeView->setModel(m_nbtTreeModel);
@@ -53,6 +55,18 @@ void MainWindow::treeviewCurrentItemChanged(const QModelIndex &current,
 {
     Q_UNUSED(current);
     Q_UNUSED(previous);
+    updateActions();
+}
+
+void MainWindow::modifiedModel()
+{
+    QString windowTitle = m_baseWindowTitle;
+    if(m_nbtTreeModel->isModified()) {
+        windowTitle += " [*]";
+    }
+    setWindowTitle(windowTitle);
+    setWindowModified(m_nbtTreeModel->isModified());
+
     updateActions();
 }
 
@@ -220,6 +234,8 @@ void MainWindow::initConnections()
     /// General UI
     connect(m_ui->nbtDataTreeView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &MainWindow::treeviewCurrentItemChanged);
+    connect(this->m_nbtTreeModel, &NbtDataTreeModel::modified,
+            this, &MainWindow::modifiedModel);
 
     /// Actions
     // File Menu
@@ -258,7 +274,17 @@ void MainWindow::initConnections()
 
 bool MainWindow::userReallyWantsToQuit()
 {
-    // Ask user here, if settings should be saved before quit.
+    if(m_nbtTreeModel->isModified()) {
+        QMessageBox::StandardButton btn;
+        btn = QMessageBox::warning(this, m_baseWindowTitle, tr("The application has unsaved changes.\n"
+                                                               "Do you want to save your changes?"),
+                                   QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
+                                   QMessageBox::Yes);
+        if(btn == QMessageBox::Yes || btn == QMessageBox::Cancel) {
+            return false;
+        }
+    }
+
     return true;
 }
 
