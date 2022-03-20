@@ -2,6 +2,7 @@
 #include "ui_main_window.h"
 #include "models/nbt_data_treemodel.hpp"
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
+#include "models/treeitems/nbt_treeitem_nbtfile.hpp"
 #include "rename_tag_dialog.hpp"
 #include "new_tag_dialog.hpp"
 
@@ -129,6 +130,20 @@ void MainWindow::save()
 void MainWindow::saveAs()
 {
     qDebug() << "Save As ...";
+
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        NbtTreeItemNbtFile *treeItem = dynamic_cast<NbtTreeItemNbtFile*>(m_nbtTreeModel->fromIndex(index));
+        if(!treeItem) {
+            return;
+        }
+
+        QString currentFilename = treeItem->getName();
+        QString path = treeItem->getPath();
+        QString filename = QFileDialog::getSaveFileName(this, tr("Save %1 as...").arg(currentFilename), path);
+
+        m_nbtTreeModel->saveAs(index, filename);
+    }
 }
 
 void MainWindow::saveAll()

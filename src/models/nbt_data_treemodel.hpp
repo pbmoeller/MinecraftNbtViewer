@@ -24,6 +24,7 @@ public:
     void clear();
     void load(const QString &directory);
     void save(const QModelIndex &index);
+    void saveAs(const QModelIndex &index, const QString &saveFilename);
     void saveAll();
     bool isModified() const;
 
