@@ -48,6 +48,11 @@ QString NbtTreeItemFolder::getLabel() const
     return m_folderName;
 }
 
+bool NbtTreeItemFolder::canAddNbtFile() const
+{
+    return true;
+}
+
 bool NbtTreeItemFolder::canOpenInExplorer() const
 {
     return true;

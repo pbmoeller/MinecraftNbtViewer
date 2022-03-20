@@ -68,4 +68,17 @@ void NbtTreeItemNbtFile::fetchMore()
     }
 }
 
+void NbtTreeItemNbtFile::createNewNbtFile(NbtTreeItemBase *parentItem,
+                                          const QString &pathToFile)
+{
+    if(!parentItem) {
+        return;
+    }
+
+    NbtTreeItemNbtFile *newItem = new NbtTreeItemNbtFile(parentItem, QString(), pathToFile);
+    newItem->m_canFetchData = false;
+    newItem->m_nbtRootTag = std::make_unique<amc::CompoundTag>();
+    addNbtChild(newItem, newItem->m_nbtRootTag.get());
+}
+
 } // namespace anv

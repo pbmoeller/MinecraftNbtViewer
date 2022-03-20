@@ -44,15 +44,15 @@
      showgrid="true"
      units="px"
      width="128px"
-     inkscape:zoom="4.6751964"
-     inkscape:cx="-63.738487"
-     inkscape:cy="-694.43162"
+     inkscape:zoom="2.3375982"
+     inkscape:cx="-120.10202"
+     inkscape:cy="159.18591"
      inkscape:window-width="1590"
      inkscape:window-height="1387"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="layer20">
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1372">
     <inkscape:grid
        type="xygrid"
        id="grid824"
@@ -986,6 +986,26 @@
        x2="-23.283333"
        y2="219.60416"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1404"
+       id="linearGradient1374"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(67.733332,101.6)"
+       x1="21.166666"
+       y1="8.4666662"
+       x2="6.3499999"
+       y2="31.749998" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1404"
+       id="linearGradient1395"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-33.866668)"
+       x1="21.166668"
+       y1="9.5249996"
+       x2="6.3500018"
+       y2="30.691666" />
   </defs>
   <g
      inkscape:groupmode="layer"
@@ -3062,7 +3082,8 @@
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="NbtFile"
-     sodipodi:insensitive="true">
+     sodipodi:insensitive="true"
+     style="display:inline">
     <g
        id="NbtFile"
        inkscape:label="#g1789">
@@ -3134,6 +3155,102 @@
          width="4.2333331"
          id="rect1294"
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:label="NewNbtFile"
+     id="g1393"
+     inkscape:groupmode="layer"
+     style="display:inline">
+    <g
+       id="g1521"
+       inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\32x32\NewNbtFile.png"
+       inkscape:export-xdpi="24.000002"
+       inkscape:export-ydpi="24.000002">
+      <g
+         transform="translate(-33.866662,1.0625122e-5)"
+         id="g1391"
+         inkscape:label="#g1789">
+        <rect
+           inkscape:export-ydpi="24.000002"
+           inkscape:export-xdpi="24.000002"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+           y="-1.5258789e-006"
+           x="-33.866669"
+           height="33.866665"
+           width="33.866665"
+           id="rect1376"
+           style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel" />
+        <path
+           sodipodi:nodetypes="cccccc"
+           inkscape:export-ydpi="24.000002"
+           inkscape:export-xdpi="24.000002"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+           inkscape:connector-curvature="0"
+           id="path1378"
+           d="M -28.575001,2.1166633 V 31.749996 H -5.291668 V 8.4666633 l -6.35,-6.35 h -16.933333"
+           style="display:inline;fill:url(#linearGradient1395);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="cccc"
+           inkscape:export-ydpi="24.000002"
+           inkscape:export-xdpi="24.000002"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+           inkscape:connector-curvature="0"
+           id="path1381"
+           d="m -11.641668,8.4666635 h 6.35 l -6.35,-6.35 v 6.35"
+           style="display:inline;fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="24.000002"
+           inkscape:export-xdpi="24.000002"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+           y="7.4083395"
+           x="-25.400003"
+           height="8.4666653"
+           width="8.4666662"
+           id="rect1383"
+           style="fill:#d9143c;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="24.000002"
+           inkscape:export-xdpi="24.000002"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+           y="20.108328"
+           x="-25.400003"
+           height="8.4666653"
+           width="8.4666653"
+           id="rect1385"
+           style="fill:#1274aa;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="24.000002"
+           inkscape:export-xdpi="24.000002"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+           y="13.758324"
+           x="-16.933336"
+           height="8.4666653"
+           width="8.4666662"
+           id="rect1387"
+           style="fill:#629c44;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           inkscape:export-ydpi="24.000002"
+           inkscape:export-xdpi="24.000002"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest_32_2.png"
+           y="15.874999"
+           x="-21.166666"
+           height="4.2333322"
+           width="4.2333331"
+           id="rect1389"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <circle
+         style="display:inline;fill:#f0b613;fill-opacity:1;stroke:none;stroke-width:4.23333311;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle1423"
+         cx="-39.158329"
+         cy="28.575001"
+         r="5.2916665" />
+      <path
+         style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -42.333331,27.516668 h 2.116666 v -2.116667 h 2.116667 v 2.116667 h 2.116666 v 2.116666 h -2.116666 v 2.116667 h -2.116667 v -2.116667 h -2.116666 z"
+         id="path1425"
+         inkscape:connector-curvature="0" />
     </g>
   </g>
   <g
@@ -3553,6 +3670,100 @@
          inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
          inkscape:export-xdpi="11.999999"
          inkscape:export-ydpi="11.999999" />
+    </g>
+  </g>
+  <g
+     style="display:inline"
+     inkscape:groupmode="layer"
+     id="g1372"
+     inkscape:label="NewNbtFile 16x16">
+    <g
+       id="g1499"
+       inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\16x16\NewNbtFile.png"
+       inkscape:export-xdpi="11.999999"
+       inkscape:export-ydpi="11.999999">
+      <g
+         transform="translate(-135.46666,-135.46666)"
+         id="g1370"
+         inkscape:label="#g1707">
+        <rect
+           style="display:inline;fill:#ffffff;fill-opacity:0;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel"
+           id="rect1356"
+           width="33.866665"
+           height="33.866665"
+           x="67.73333"
+           y="101.6"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+           inkscape:export-xdpi="11.999999"
+           inkscape:export-ydpi="11.999999" />
+        <path
+           style="display:inline;fill:url(#linearGradient1374);fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 73.024999,102.65833 v 31.75 h 23.283333 v -25.4 l -6.35,-6.35 H 73.024999"
+           id="path1358"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+           inkscape:export-xdpi="11.999999"
+           inkscape:export-ydpi="11.999999" />
+        <path
+           style="display:inline;fill:#f7f3eb;fill-opacity:1;stroke:#000000;stroke-width:2.11666989;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 89.958332,109.00833 h 6.35 l -6.35,-6.35 v 6.35"
+           id="path1360"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+           inkscape:export-xdpi="11.999999"
+           inkscape:export-ydpi="11.999999" />
+        <rect
+           style="fill:#d9143c;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1362"
+           width="8.4666662"
+           height="8.4666653"
+           x="76.199997"
+           y="110.06667"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+           inkscape:export-xdpi="11.999999"
+           inkscape:export-ydpi="11.999999" />
+        <rect
+           style="fill:#1274aa;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1364"
+           width="8.4666653"
+           height="8.4666653"
+           x="76.199997"
+           y="122.76666"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+           inkscape:export-xdpi="11.999999"
+           inkscape:export-ydpi="11.999999" />
+        <rect
+           style="fill:#629c44;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1366"
+           width="8.4666662"
+           height="8.4666653"
+           x="84.666664"
+           y="116.41666"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+           inkscape:export-xdpi="11.999999"
+           inkscape:export-ydpi="11.999999" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1368"
+           width="4.2333331"
+           height="4.2333322"
+           x="80.433334"
+           y="118.53333"
+           inkscape:export-filename="E:\Coding\Projects\Minecraft\AwesomeNbtViewer\resources\icons\NbtFileTest.png"
+           inkscape:export-xdpi="11.999999"
+           inkscape:export-ydpi="11.999999" />
+      </g>
+      <circle
+         r="5.2916665"
+         cy="-5.2916679"
+         cx="-39.158329"
+         id="path1397"
+         style="display:inline;fill:#f0b613;fill-opacity:1;stroke:none;stroke-width:4.23333311;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1399"
+         d="m -42.333331,-6.3499998 h 2.116666 v -2.1166671 h 2.116667 v 2.1166671 h 2.116666 v 2.116666 h -2.116666 v 2.116667 h -2.116667 v -2.116667 h -2.116666 z"
+         style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     </g>
   </g>
 </svg>
