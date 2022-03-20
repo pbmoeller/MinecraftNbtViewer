@@ -34,8 +34,10 @@ public:
     virtual bool canFetchMore() const override;
     virtual void fetchMore() override;
 
-    static void createNewNbtFile(NbtTreeItemBase *parentItem,
-                                 const QString &pathToFile);
+    virtual NbtTreeItemBase* markItemDirty() override;
+
+    static NbtTreeItemNbtFile* createNewNbtFile(NbtTreeItemBase *parentItem,
+                                                const QString &pathToFile);
 
 private:
     bool m_canFetchData;

@@ -1,5 +1,7 @@
 // AwesomeNbtViewer
 #include "nbt_treeitem_nbttag.hpp"
+#include "nbt_treeitem_nbtfile.hpp"
+#include "nbt_treeitem_regionfile.hpp"
 #include "treeitem_util.hpp"
 #include "models/nbt_data_treemodel.hpp"
 #include "widgets/edit_value_dialog.hpp"
@@ -89,6 +91,23 @@ void NbtTreeItemNbtTag::sort()
     std::sort(m_children.begin(),
               m_children.end(),
               &treeItemNbtTagCompare);
+}
+
+NbtTreeItemBase* NbtTreeItemNbtTag::markItemDirty()
+{
+    NbtTreeItemBase *item = this;
+
+    // Walk up the tree until we find a TreeItem which is not a NBT tag.
+    while(item != nullptr) {
+        if(dynamic_cast<NbtTreeItemNbtFile*>(item)) {
+            return item;
+        }
+        if(dynamic_cast<NbtTreeItemRegionFile*>(item)) {
+            return item;
+        }
+        item = item->getParent();
+    }
+    return nullptr;
 }
 
 /// ByteTag

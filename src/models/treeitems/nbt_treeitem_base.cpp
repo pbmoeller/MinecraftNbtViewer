@@ -146,4 +146,9 @@ void NbtTreeItemBase::fetchMore()
 
 }
 
+NbtTreeItemBase* NbtTreeItemBase::markItemDirty()
+{
+    return nullptr;
+}
+
 } // namespace anv

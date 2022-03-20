@@ -2,9 +2,10 @@
 #define AWESOMENBTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/abstract_tag.hpp>
+#include <AwesomeMC/nbt/tags/tag_type.hpp>
 
 // Qt
+#include <QSet>
 #include <QAbstractItemModel>
 
 namespace anv
@@ -22,6 +23,7 @@ public:
 
     void clear();
     void load(const QString &directory);
+    bool isModified() const;
 
     NbtTreeItemBase* fromIndex(const QModelIndex &index) const;
     QModelIndex toIndex(NbtTreeItemBase *item, int column = 0) const;
@@ -34,6 +36,13 @@ public:
 
     void itemChanged(NbtTreeItemBase* item);
 
+private:
+    void markItemDirty(NbtTreeItemBase *treeItem);
+
+signals:
+    void modified();
+
+public:
     // Reimplemented functions of QAbstractItemModel
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -50,6 +59,7 @@ public:
 
 private:
     NbtTreeItemBase *m_rootItem;
+    QSet<NbtTreeItemBase*> m_dirtyItems;
 
     static const int ColumnCount = 1;
 };

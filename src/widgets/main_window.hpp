@@ -29,6 +29,7 @@ public slots:
     void closeEvent(QCloseEvent *event);
     void treeviewCurrentItemChanged(const QModelIndex &current, 
                                     const QModelIndex &previous);
+    void modifiedModel();
 
     /// Slots to Actions
     // File Menu
@@ -71,6 +72,7 @@ private:
     Ui::MainWindow *m_ui;
 
     QString m_currentDirectory;
+    QString m_baseWindowTitle;
 
     NbtDataTreeModel *m_nbtTreeModel;
 };
