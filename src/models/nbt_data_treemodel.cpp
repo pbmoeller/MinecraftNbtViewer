@@ -69,6 +69,16 @@ void NbtDataTreeModel::save(const QModelIndex &index)
     }
 }
 
+void NbtDataTreeModel::saveAs(const QModelIndex &index, const QString &saveFilename)
+{
+    NbtTreeItemBase *treeItem = fromIndex(index);
+    if(treeItem) {
+        treeItem->saveAs(saveFilename);
+        m_dirtyItems.remove(treeItem);
+        emit modified();
+    }
+}
+
 void NbtDataTreeModel::saveAll()
 {
     for(NbtTreeItemBase *treeItem : m_dirtyItems) {

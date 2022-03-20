@@ -100,9 +100,9 @@ void NbtTreeItemBase::save()
 
 }
 
-void NbtTreeItemBase::saveAs()
+void NbtTreeItemBase::saveAs(const QString &filename)
 {
-
+    Q_UNUSED(filename);
 }
 
 bool NbtTreeItemBase::canRename() const

@@ -47,6 +47,11 @@ void NbtTreeItemNbtFile::save()
     amc::writeNbtFile(filename, m_nbtRootTag.get(), true);
 }
 
+void NbtTreeItemNbtFile::saveAs(const QString &filename)
+{
+    amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get(), true);
+}
+
 bool NbtTreeItemNbtFile::canFetchMore() const
 {
     return m_canFetchData;
