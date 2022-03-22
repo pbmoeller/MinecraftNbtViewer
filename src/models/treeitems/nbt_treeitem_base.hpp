@@ -46,6 +46,10 @@ public:
 
     virtual bool canDelete() const;
 
+    virtual bool canCut() const;
+    virtual bool canCopy() const;
+    virtual bool canPaste() const;
+
     virtual bool canAddNbtFile() const;
     virtual bool canAddNbtTag(amc::TagType type) const;
 

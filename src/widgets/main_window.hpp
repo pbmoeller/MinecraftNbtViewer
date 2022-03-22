@@ -71,6 +71,9 @@ private:
     void addNbtTag(amc::TagType tagType);
     void updateActions();
 
+private slots:
+    void showCustomContextMenu(const QPoint &pos);
+
 private:
     Ui::MainWindow *m_ui;
 
