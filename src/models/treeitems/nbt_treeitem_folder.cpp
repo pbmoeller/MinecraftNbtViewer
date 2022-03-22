@@ -48,6 +48,11 @@ QString NbtTreeItemFolder::getLabel() const
     return m_folderName;
 }
 
+bool NbtTreeItemFolder::canRefresh() const
+{
+    return true;
+}
+
 bool NbtTreeItemFolder::canAddNbtFile() const
 {
     return true;

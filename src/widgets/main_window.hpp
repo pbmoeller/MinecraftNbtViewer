@@ -41,6 +41,7 @@ public slots:
     void save();
     void saveAs();
     void saveAll();
+    void refresh();
 
     // Edit Menu
     void cutTag();
