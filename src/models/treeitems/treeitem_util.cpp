@@ -114,7 +114,7 @@ bool treeItemNbtTagCompare(NbtTreeItemBase *left,
     }
     if(leftTag->getTagType() == amc::TagType::Compound
        && rightTag->getTagType() == amc::TagType::Compound) {
-        return leftTag->getLabel().toLower() < rightTag->getLabel().toLower();
+        return leftTag->getName().toLower() < rightTag->getName().toLower();
     } else if(leftTag->getTagType() == amc::TagType::Compound) {
         return true;
     } else if(rightTag->getTagType() == amc::TagType::Compound) {
@@ -122,7 +122,7 @@ bool treeItemNbtTagCompare(NbtTreeItemBase *left,
     } else {
         if(leftTag->getTagType() == amc::TagType::List
            && rightTag->getTagType() == amc::TagType::List) {
-            return leftTag->getLabel().toLower() < rightTag->getLabel().toLower();
+            return leftTag->getName().toLower() < rightTag->getName().toLower();
         } else if(leftTag->getTagType() == amc::TagType::List) {
             return true;
         } else if(rightTag->getTagType() == amc::TagType::List) {
@@ -130,7 +130,7 @@ bool treeItemNbtTagCompare(NbtTreeItemBase *left,
         }
     }
 
-    return leftTag->getLabel().toLower() < rightTag->getLabel().toLower();
+    return leftTag->getName().toLower() < rightTag->getName().toLower();
 }
 
 } // namespace anv
