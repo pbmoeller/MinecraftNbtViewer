@@ -135,6 +135,21 @@ bool NbtTreeItemBase::canDelete() const
     return false;
 }
 
+bool NbtTreeItemBase::canCut() const
+{
+    return false;
+}
+
+bool NbtTreeItemBase::canCopy() const
+{
+    return false;
+}
+
+bool NbtTreeItemBase::canPaste() const
+{
+    return false;
+}
+
 bool NbtTreeItemBase::canAddNbtFile() const
 {
     return false;

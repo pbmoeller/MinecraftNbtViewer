@@ -3,6 +3,7 @@
 #include "models/nbt_data_treemodel.hpp"
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
 #include "models/treeitems/nbt_treeitem_nbtfile.hpp"
+#include "models/treeitems/nbt_treeitem_folder.hpp"
 #include "rename_tag_dialog.hpp"
 #include "new_tag_dialog.hpp"
 
@@ -28,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_ui->nbtDataTreeView->setModel(m_nbtTreeModel);
     m_ui->nbtDataTreeView->setHeaderHidden(true);
     m_ui->nbtDataTreeView->setIconSize(QSize(16, 16));
+    m_ui->nbtDataTreeView->setContextMenuPolicy(Qt::CustomContextMenu);
 
     initConnections();
 
@@ -287,6 +289,8 @@ void MainWindow::initConnections()
     /// General UI
     connect(m_ui->nbtDataTreeView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &MainWindow::treeviewCurrentItemChanged);
+    connect(m_ui->nbtDataTreeView, &QTreeView::customContextMenuRequested,
+            this, &MainWindow::showCustomContextMenu);
     connect(this->m_nbtTreeModel, &NbtDataTreeModel::modified,
             this, &MainWindow::modifiedModel);
 
@@ -395,6 +399,105 @@ void MainWindow::updateActions()
         m_ui->actionAdd_ListTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::List));
         m_ui->actionAdd_CompoundTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Compound));
     }
+}
+
+void MainWindow::showCustomContextMenu(const QPoint &pos)
+{
+    Q_UNUSED(pos);
+
+    QMenu *contextMenu = new QMenu(this);
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    NbtTreeItemBase *treeItem = m_nbtTreeModel->fromIndex(index);
+    
+    if(!treeItem) {
+        return;
+    }
+
+    // Folder
+    if(dynamic_cast<NbtTreeItemFolder*>(treeItem)) {
+        contextMenu->addAction(m_ui->actionOpen_in_Explorer);
+    }
+    if(treeItem->canRefresh()) {
+        contextMenu->addAction(m_ui->actionRefresh);
+    }
+
+    // Rename - Edit - Delete
+    QList<QAction*> renameEditDeleteActions;
+    if(treeItem->canRename()) {
+        renameEditDeleteActions.append(m_ui->actionRename);
+    }
+    if(treeItem->canEdit()) {
+        renameEditDeleteActions.append(m_ui->actionEdit);
+    }
+    if(treeItem->canDelete()) {
+        renameEditDeleteActions.append(m_ui->actionDelete);
+    }
+    if(!renameEditDeleteActions.isEmpty()) {
+        contextMenu->addSeparator();
+        contextMenu->addActions(renameEditDeleteActions);
+    }
+
+    // Cut - Copy - Paste
+    QList<QAction*> cutCopyPasteActions;
+    if(treeItem->canCut()) {
+        cutCopyPasteActions.append(m_ui->actionCut);
+    }
+    if(treeItem->canCut()) {
+        cutCopyPasteActions.append(m_ui->actionCut);
+    }
+    if(treeItem->canCut()) {
+        cutCopyPasteActions.append(m_ui->actionCut);
+    }
+    if(!cutCopyPasteActions.isEmpty()) {
+        contextMenu->addSeparator();
+        contextMenu->addActions(cutCopyPasteActions);
+    }
+
+    // Add Tags
+    QList<QAction*> addTagActions;
+    if(treeItem->canAddNbtTag(amc::TagType::Byte)) {
+        addTagActions.append(m_ui->actionAdd_ByteTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::Short)) {
+        addTagActions.append(m_ui->actionAdd_ShortTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::Int)) {
+        addTagActions.append(m_ui->actionAdd_IntTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::Long)) {
+        addTagActions.append(m_ui->actionAdd_LongTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::Float)) {
+        addTagActions.append(m_ui->actionAdd_FloatTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::Double)) {
+        addTagActions.append(m_ui->actionAdd_DoubleTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::String)) {
+        addTagActions.append(m_ui->actionAdd_StringTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::ByteArray)) {
+        addTagActions.append(m_ui->actionAdd_ByteArrayTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::IntArray)) {
+        addTagActions.append(m_ui->actionAdd_IntTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::LongArray)) {
+        addTagActions.append(m_ui->actionAdd_LongTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::List)) {
+        addTagActions.append(m_ui->actionAdd_ListTag);
+    }
+    if(treeItem->canAddNbtTag(amc::TagType::Compound)) {
+        addTagActions.append(m_ui->actionAdd_CompoundTag);
+    }
+    if(!addTagActions.isEmpty()) {
+        contextMenu->addSeparator();
+        contextMenu->addActions(addTagActions);
+    }
+
+    // Show Menu
+    contextMenu->popup(m_ui->nbtDataTreeView->viewport()->mapToGlobal(pos));
 }
 
 } // namespace anv
