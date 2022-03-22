@@ -60,6 +60,11 @@ void NbtTreeItemNbtFile::saveAs(const QString &filename)
     amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get(), true);
 }
 
+bool NbtTreeItemNbtFile::canRefresh() const
+{
+    return true;
+}
+
 bool NbtTreeItemNbtFile::canFetchMore() const
 {
     return m_canFetchData;

@@ -89,9 +89,32 @@ void NbtDataTreeModel::saveAll()
     emit modified();
 }
 
+void NbtDataTreeModel::refresh(const QModelIndex &index)
+{
+    NbtTreeItemBase *treeItem = fromIndex(index);
+
+    clearDirtyItems(treeItem);
+    emit modified();
+
+    qsizetype size = treeItem->getChildren().size();
+    if(size > 0) {
+        beginRemoveRows(index, 0, size - 1);
+        treeItem->clear();
+        endRemoveRows();
+    }
+
+    treeItem->fetchMore();
+}
+
 bool NbtDataTreeModel::isModified() const
 {
     return !m_dirtyItems.isEmpty();
+}
+
+bool NbtDataTreeModel::isDirty(const QModelIndex &index)
+{
+    NbtTreeItemBase *treeItem = fromIndex(index);
+    return treeItem && m_dirtyItems.contains(treeItem);
 }
 
 NbtTreeItemBase* NbtDataTreeModel::fromIndex(const QModelIndex &index) const
@@ -254,6 +277,16 @@ void NbtDataTreeModel::markItemDirty(NbtTreeItemBase *treeItem)
     }
 }
 
+void NbtDataTreeModel::clearDirtyItems(NbtTreeItemBase *treeItem)
+{
+    if(m_dirtyItems.contains(treeItem)) {
+        m_dirtyItems.remove(treeItem);
+    }
+    for(NbtTreeItemBase *child : treeItem->getChildren()) {
+        clearDirtyItems(child);
+    }
+}
+
 QVariant NbtDataTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     Q_UNUSED(section);
@@ -336,7 +369,7 @@ int NbtDataTreeModel::rowCount(const QModelIndex &parent) const
     }
 
     if(!parent.isValid()) {
-        m_rootItem->getChildren().count();
+        return m_rootItem->getChildren().count();
     }
 
     NbtTreeItemBase *parentItem = fromIndex(parent);

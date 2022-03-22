@@ -31,6 +31,8 @@ public:
     virtual bool canSave() const;
     virtual void save() override;
     virtual void saveAs(const QString &filename) override;
+
+    virtual bool canRefresh() const override;
     
     virtual bool canOpenInExplorer() const override;
     virtual QString getPath() const override;

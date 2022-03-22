@@ -152,6 +152,29 @@ void MainWindow::saveAll()
     m_nbtTreeModel->saveAll();
 }
 
+void MainWindow::refresh()
+{
+    qDebug() << "Refresh";
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        if(m_nbtTreeModel->isDirty(index)) {
+            QMessageBox::StandardButton btn;
+            btn = QMessageBox::warning(this,
+                                       tr("%1 - Unsaved Changes").arg(m_baseWindowTitle),
+                                       tr("The file has unsaved changes.\n\n"
+                                          "Are you sure to continue without saving?\n"
+                                          "Your changes will be discarded."),
+                                       QMessageBox::Yes | QMessageBox::No,
+                                       QMessageBox::No);
+            if(btn == QMessageBox::No) {
+                return;
+            }
+        }
+
+        m_nbtTreeModel->refresh(index);
+    }
+}
+
 void MainWindow::cutTag()
 {
 
@@ -277,6 +300,7 @@ void MainWindow::initConnections()
     connect(m_ui->actionSave,                       &QAction::triggered, this, &MainWindow::save);
     connect(m_ui->actionSaveAs,                     &QAction::triggered, this, &MainWindow::saveAs);
     connect(m_ui->actionSaveAll,                    &QAction::triggered, this, &MainWindow::saveAll);
+    connect(m_ui->actionRefresh,                    &QAction::triggered, this, &MainWindow::refresh);
     connect(m_ui->actionQuit,                       &QAction::triggered, this, &MainWindow::close);
 
     // Edit Menu
@@ -352,6 +376,7 @@ void MainWindow::updateActions()
         m_ui->actionNew_NBT_File->setEnabled(treeItem->canAddNbtFile());
         m_ui->actionOpen_in_Explorer->setEnabled(treeItem->canOpenInExplorer());
         m_ui->actionSave->setEnabled(treeItem->canSave());
+        m_ui->actionRefresh->setEnabled(treeItem->canRefresh());
 
         m_ui->actionRename->setEnabled(treeItem->canRename());
         m_ui->actionEdit->setEnabled(treeItem->canEdit());

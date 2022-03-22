@@ -26,7 +26,9 @@ public:
     void save(const QModelIndex &index);
     void saveAs(const QModelIndex &index, const QString &saveFilename);
     void saveAll();
+    void refresh(const QModelIndex &index);
     bool isModified() const;
+    bool isDirty(const QModelIndex &index);
 
     NbtTreeItemBase* fromIndex(const QModelIndex &index) const;
     QModelIndex toIndex(NbtTreeItemBase *item, int column = 0) const;
@@ -41,6 +43,7 @@ public:
 
 private:
     void markItemDirty(NbtTreeItemBase *treeItem);
+    void clearDirtyItems(NbtTreeItemBase *treeItem);
 
 signals:
     void modified();

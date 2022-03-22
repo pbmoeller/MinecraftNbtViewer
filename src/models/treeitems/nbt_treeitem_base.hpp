@@ -36,6 +36,8 @@ public:
     virtual void save();
     virtual void saveAs(const QString &filename);
 
+    virtual bool canRefresh() const;
+
     virtual bool canRename() const;
     virtual void rename(const QString &name);
 

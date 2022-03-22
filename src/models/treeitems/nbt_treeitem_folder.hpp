@@ -21,6 +21,8 @@ public:
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
 
+    virtual bool canRefresh() const override;
+
     virtual bool canAddNbtFile() const override;
 
     virtual bool canOpenInExplorer() const override;
