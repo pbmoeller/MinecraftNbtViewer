@@ -39,6 +39,10 @@ public:
     void editTag(const QModelIndex &index);
     void deleteTag(const QModelIndex &index);
 
+    void cutTag(const QModelIndex &index);
+    void copyTag(const QModelIndex &index);
+    void pasteTag(const QModelIndex &index);
+
     void itemChanged(NbtTreeItemBase* item);
 
 private:

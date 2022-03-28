@@ -49,7 +49,7 @@ set(AwesomeNbtViewer_INSTALL_ADDITIONAL_FILES_DIR "share/AwesomeNbtViewer")
 
 ### Search and include necessary packages
 find_package(Qt6 REQUIRED COMPONENTS Widgets Core)
-find_package(AwesomeMC 0.2.1 REQUIRED)
+find_package(AwesomeMC 0.3.1 REQUIRED)
 
 ### AwesomeNbtViewer
 add_subdirectory(src)

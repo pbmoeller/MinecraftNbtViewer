@@ -48,7 +48,7 @@ void NbtTreeItemNbtFile::save()
         fetchMore();
     }
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    amc::writeNbtFile(filename, m_nbtRootTag.get(), true);
+    amc::writeNbtFile(filename, m_nbtRootTag.get()); // TODO : Which Compression? Maybe from saved state
 }
 
 void NbtTreeItemNbtFile::saveAs(const QString &filename)
@@ -57,7 +57,7 @@ void NbtTreeItemNbtFile::saveAs(const QString &filename)
     if(canFetchMore()) {
         fetchMore();
     }
-    amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get(), true);
+    amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get()); // TODO : Which Compression? Maybe from saved state
 }
 
 bool NbtTreeItemNbtFile::canRefresh() const

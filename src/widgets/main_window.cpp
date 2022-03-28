@@ -179,17 +179,29 @@ void MainWindow::refresh()
 
 void MainWindow::cutTag()
 {
-
+    qDebug() << "Cut";
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        m_nbtTreeModel->cutTag(index);
+    }
 }
 
 void MainWindow::copyTag()
 {
-
+    qDebug() << "Copy";
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        m_nbtTreeModel->copyTag(index);
+    }
 }
 
 void MainWindow::pasteTag()
 {
-
+    qDebug() << "Paste";
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        m_nbtTreeModel->pasteTag(index);
+    }
 }
 
 void MainWindow::renameTag()
@@ -386,6 +398,10 @@ void MainWindow::updateActions()
         m_ui->actionEdit->setEnabled(treeItem->canEdit());
         m_ui->actionDelete->setEnabled(treeItem->canDelete());
 
+        m_ui->actionCut->setEnabled(treeItem->canCut());
+        m_ui->actionCopy->setEnabled(treeItem->canCopy());
+        m_ui->actionPaste->setEnabled(treeItem->canPaste());
+
         m_ui->actionAdd_ByteTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Byte));
         m_ui->actionAdd_ShortTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Short));
         m_ui->actionAdd_IntTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Int));
@@ -442,11 +458,11 @@ void MainWindow::showCustomContextMenu(const QPoint &pos)
     if(treeItem->canCut()) {
         cutCopyPasteActions.append(m_ui->actionCut);
     }
-    if(treeItem->canCut()) {
-        cutCopyPasteActions.append(m_ui->actionCut);
+    if(treeItem->canCopy()) {
+        cutCopyPasteActions.append(m_ui->actionCopy);
     }
-    if(treeItem->canCut()) {
-        cutCopyPasteActions.append(m_ui->actionCut);
+    if(treeItem->canPaste()) {
+        cutCopyPasteActions.append(m_ui->actionPaste);
     }
     if(!cutCopyPasteActions.isEmpty()) {
         contextMenu->addSeparator();

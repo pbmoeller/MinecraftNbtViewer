@@ -4,6 +4,7 @@
 #include "nbt_treeitem_regionfile.hpp"
 #include "treeitem_util.hpp"
 #include "models/nbt_data_treemodel.hpp"
+#include "util/tag_mime_data.hpp"
 #include "widgets/edit_value_dialog.hpp"
 
 // AwesomeMC
@@ -11,6 +12,8 @@
 
 // Qt
 #include <QObject>
+#include <QApplication>
+#include <QClipboard>
 
 namespace anv
 {
@@ -84,6 +87,55 @@ void NbtTreeItemNbtTag::deleteTag()
 void NbtTreeItemNbtTag::deleteChildTag(amc::AbstractTag *tag)
 {
     Q_UNUSED(tag);
+}
+
+bool NbtTreeItemNbtTag::canCut() const
+{
+    return true;
+}
+
+void NbtTreeItemNbtTag::cut()
+{
+    NbtTreeItemBase *parentItem = getParent();
+    amc::AbstractTag *tag = nullptr;
+
+    // Check if parent is ListTag or CompoundTag
+    // If one of these Items take NbtTag
+    NbtTreeItemListTag *parentListTag = dynamic_cast<NbtTreeItemListTag*>(parentItem);
+    NbtTreeItemCompoundTag *parentCompoundTag = dynamic_cast<NbtTreeItemCompoundTag*>(parentItem);
+    if(parentListTag) {
+        amc::ListTag *listTag = dynamic_cast<amc::ListTag*>(parentListTag->getTag());
+        tag = listTag->take(m_tag);
+    } else if(parentCompoundTag) {
+        amc::CompoundTag *compoundTag = dynamic_cast<amc::CompoundTag*>(parentCompoundTag->getTag());
+        tag = compoundTag->take(m_tag);
+    } else {
+        return;
+    }
+
+    // Item to clipboard
+    std::shared_ptr<amc::AbstractTag> data(tag);
+
+    TagMimeData *mimeData = new TagMimeData();
+    mimeData->setData(TagMimeData::TagMimeType, data);
+    qApp->clipboard()->setMimeData(mimeData);
+
+    // delete this object
+    delete this;
+}
+
+bool NbtTreeItemNbtTag::canCopy() const
+{
+    return true;
+}
+
+void NbtTreeItemNbtTag::copy()
+{
+    std::shared_ptr<amc::AbstractTag> data(m_tag->clone());
+
+    TagMimeData *mimeData = new TagMimeData();
+    mimeData->setData(TagMimeData::TagMimeType, data);
+    qApp->clipboard()->setMimeData(mimeData);
 }
 
 void NbtTreeItemNbtTag::sort()
@@ -398,6 +450,31 @@ void NbtTreeItemCompoundTag::deleteChildTag(amc::AbstractTag *tag)
     tag_cast<amc::CompoundTag*>(m_tag)->erase(tag);
 }
 
+bool NbtTreeItemCompoundTag::canPaste() const
+{
+    const QMimeData *mimeData = qApp->clipboard()->mimeData();
+    return mimeData->hasFormat(TagMimeData::TagMimeType);
+}
+
+void NbtTreeItemCompoundTag::paste()
+{
+    const QMimeData *mimeData = qApp->clipboard()->mimeData();
+    const TagMimeData *tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
+    amc::CompoundTag *compoundTag = dynamic_cast<amc::CompoundTag*>(m_tag);
+    if(tagMimeData && tagMimeData->hasFormat(TagMimeData::TagMimeType)) {
+        std::shared_ptr<amc::AbstractTag> tagData = tagMimeData->toTagData();
+        if(tagData && compoundTag) {
+            // Create a new ownership and transfer it to CompoundTag.
+            // This is necessary when pasting again and if the shared_ptr get deleted.
+            amc::AbstractTag *newTag = tagData->clone();
+            compoundTag->pushBack(newTag);
+
+            // Now cerate new TreeItems from new data
+            addNbtChild(this, newTag);
+        }
+    }
+}
+
 bool NbtTreeItemCompoundTag::canEdit() const
 {
     return false;
@@ -443,6 +520,47 @@ bool NbtTreeItemListTag::canAddNbtTag(amc::TagType type) const
 void NbtTreeItemListTag::deleteChildTag(amc::AbstractTag *tag)
 {
     tag_cast<amc::ListTag*>(m_tag)->erase(tag);
+}
+
+bool NbtTreeItemListTag::canPaste() const
+{
+    const QMimeData *mimeData = qApp->clipboard()->mimeData();
+    const TagMimeData *tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
+    if(mimeData && mimeData->hasFormat(TagMimeData::TagMimeType)) {
+        amc::ListTag *listTag = dynamic_cast<amc::ListTag*>(m_tag);
+        if(listTag) {
+            if(listTag->size() == 0) {
+                return true;
+            }
+            if(tagMimeData) {
+                std::shared_ptr<amc::AbstractTag> tagData = tagMimeData->toTagData();
+                if(tagData && listTag->getListType() == tagData->getType()) {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
+void NbtTreeItemListTag::paste()
+{
+    const QMimeData *mimeData =  qApp->clipboard()->mimeData();
+    const TagMimeData *tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
+    amc::ListTag *listTag = dynamic_cast<amc::ListTag*>(m_tag);
+    if(tagMimeData && tagMimeData->hasFormat(TagMimeData::TagMimeType)) {
+        std::shared_ptr<amc::AbstractTag> tagData = tagMimeData->toTagData();
+        if(tagData && listTag) {
+            // Create a new ownership and transfer it to ListTag.
+            // This is necessary when pasting again and if the shared_ptr get deleted.
+            amc::AbstractTag *newTag = tagData->clone();
+            listTag->pushBack(newTag);
+            
+            // Now cerate new TreeItems from new data
+            addNbtChild(this, newTag);
+        }
+    }
 }
 
 bool NbtTreeItemListTag::canEdit() const

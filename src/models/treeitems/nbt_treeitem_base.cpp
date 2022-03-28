@@ -140,14 +140,29 @@ bool NbtTreeItemBase::canCut() const
     return false;
 }
 
+void NbtTreeItemBase::cut()
+{
+
+}
+
 bool NbtTreeItemBase::canCopy() const
 {
     return false;
 }
 
+void NbtTreeItemBase::copy()
+{
+
+}
+
 bool NbtTreeItemBase::canPaste() const
 {
     return false;
+}
+
+void NbtTreeItemBase::paste()
+{
+
 }
 
 bool NbtTreeItemBase::canAddNbtFile() const
