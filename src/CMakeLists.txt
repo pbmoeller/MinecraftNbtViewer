@@ -16,6 +16,7 @@ set(ANV_MODELS_HEADER
 
 set(ANV_UTIL_HEADER
     "util/minecraft_util.hpp"
+    "util/tag_mime_data.hpp"
 )
 
 set(ANV_WIDGETS_HEADER
@@ -50,6 +51,7 @@ set(ANV_MODELS_SOURCES
 
 set(ANV_UTIL_SOURCES
     "util/minecraft_util.cpp"
+    "util/tag_mime_data.cpp"
 )
 
 set(ANV_WIDGETS_SOURCES
