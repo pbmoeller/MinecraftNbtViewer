@@ -259,6 +259,42 @@ void NbtDataTreeModel::deleteTag(const QModelIndex &index)
     markItemDirty(parentTreeItem);
 }
 
+void NbtDataTreeModel::cutTag(const QModelIndex &index)
+{
+    NbtTreeItemBase *item = fromIndex(index);
+    NbtTreeItemBase *parentItem = item->getParent();
+
+    if(item && item->canCut() && parentItem) {
+        beginRemoveRows(index.parent(), index.row(), index.row());
+        item->cut();
+        endRemoveRows();
+
+        markItemDirty(parentItem);
+    }
+}
+
+void NbtDataTreeModel::copyTag(const QModelIndex &index)
+{
+    NbtTreeItemBase *item = fromIndex(index);
+    if(item && item->canCopy()) {
+        item->copy();
+    }
+}
+
+void NbtDataTreeModel::pasteTag(const QModelIndex &index)
+{
+    NbtTreeItemBase *item = fromIndex(index);
+    qsizetype pos = item->getChildren().size();
+
+    if(item && item->canPaste()) {
+        beginInsertRows(index, pos, pos);
+        item->paste();
+        endInsertRows();
+
+        markItemDirty(item);
+    }
+}
+
 void NbtDataTreeModel::itemChanged(NbtTreeItemBase* item)
 {
     QModelIndex index = toIndex(item);
