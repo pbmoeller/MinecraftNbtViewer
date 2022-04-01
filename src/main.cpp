@@ -3,6 +3,9 @@
 #include "util/tag_mime_data.hpp"
 #include "version.hpp"
 
+// AwesomeMC
+#include <AwesomeMC/version.hpp>
+
 // Qt
 #include <QApplication>
 
@@ -11,7 +14,8 @@
 
 int main(int argc, char **argv)
 {
-    std::cout << "Hello world!" << std::endl;
+    std::cout << "AwesomeMC Version: " << amc::getVersion() << std::endl;
+    std::cout << "AwesomeNbtViewer Version: " << anv::getVersion() << std::endl;
     qRegisterMetaType<std::shared_ptr<amc::AbstractTag>>();
 
     QCoreApplication::setApplicationName("Awesome Nbt Viewer");
