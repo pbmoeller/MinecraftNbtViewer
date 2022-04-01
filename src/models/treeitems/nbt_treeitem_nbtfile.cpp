@@ -17,6 +17,7 @@ NbtTreeItemNbtFile::NbtTreeItemNbtFile(NbtTreeItemBase *parentItem,
     , m_canFetchData(true)
     , m_filename(filename)
     , m_pathToFile(pathToFile)
+    , m_compressionType(amc::CompressionType::GZip)
 {
 
 }
@@ -33,7 +34,22 @@ QIcon NbtTreeItemNbtFile::getIcon() const
 
 QString NbtTreeItemNbtFile::getLabel() const
 {
-    return m_filename;
+    QString label = m_filename;
+    if(!m_canFetchData) {
+        switch(m_compressionType) {
+            case amc::CompressionType::GZip:
+                label += " (GZip)";
+                break;
+            case amc::CompressionType::Zlib:
+                label += " (Zlib)";
+                break;
+            case amc::CompressionType::Uncompressed:
+                label += " (No compression)";
+                break;
+        }
+    }
+
+    return label;
 }
 
 bool NbtTreeItemNbtFile::canSave() const
@@ -48,7 +64,7 @@ void NbtTreeItemNbtFile::save()
         fetchMore();
     }
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    amc::writeNbtFile(filename, m_nbtRootTag.get()); // TODO : Which Compression? Maybe from saved state
+    amc::writeNbtFile(filename, m_nbtRootTag.get(), m_compressionType);
 }
 
 void NbtTreeItemNbtFile::saveAs(const QString &filename)
@@ -57,7 +73,7 @@ void NbtTreeItemNbtFile::saveAs(const QString &filename)
     if(canFetchMore()) {
         fetchMore();
     }
-    amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get()); // TODO : Which Compression? Maybe from saved state
+    amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get(), m_compressionType);
 }
 
 bool NbtTreeItemNbtFile::canRefresh() const
@@ -86,7 +102,7 @@ void NbtTreeItemNbtFile::fetchMore()
 
     // Read NBT data
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    m_nbtRootTag = amc::readNbtFile(filename);
+    m_nbtRootTag = amc::readNbtFile(filename, m_compressionType);
     if(m_nbtRootTag) {
         amc::CompoundTag *tag = amc::tag_cast<amc::CompoundTag*>(m_nbtRootTag.get());
         addNbtChild(this, tag);
@@ -112,6 +128,7 @@ NbtTreeItemNbtFile* NbtTreeItemNbtFile::createNewNbtFile(NbtTreeItemBase *parent
 
     NbtTreeItemNbtFile *newItem = new NbtTreeItemNbtFile(parentItem, QString(), pathToFile);
     newItem->m_canFetchData = false;
+    newItem->m_compressionType = amc::CompressionType::Uncompressed;
     newItem->m_nbtRootTag = std::make_unique<amc::CompoundTag>();
     addNbtChild(newItem, newItem->m_nbtRootTag.get());
 

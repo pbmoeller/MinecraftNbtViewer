@@ -6,6 +6,7 @@
 
 // AwesomeMC
 #include <AwesomeMC/nbt/tags/compound_tag.hpp>
+#include <AwesomeMC/util/compression.hpp>
 
 // Qt
 #include <QString>
@@ -50,6 +51,7 @@ private:
     QString m_filename;
     QString m_pathToFile;
     std::unique_ptr<amc::CompoundTag> m_nbtRootTag;
+    amc::CompressionType m_compressionType;
 };
 
 } // namespace anv
