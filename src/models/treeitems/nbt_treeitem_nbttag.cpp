@@ -414,6 +414,26 @@ void NbtTreeItemStringTag::openEditDialog(NbtDataTreeModel *model)
     editValueDialog.exec();
 }
 
+/// ListTag & CompoundTag Helper
+void pasteHelper(NbtTreeItemNbtTag *item)
+{
+    const QMimeData *mimeData = qApp->clipboard()->mimeData();
+    const TagMimeData *tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
+    if(tagMimeData && tagMimeData->hasFormat(TagMimeData::TagMimeType)) {
+        std::shared_ptr<amc::AbstractTag> tagData = tagMimeData->toTagData();
+        amc::AbstractVectorTag *vectorTag = dynamic_cast<amc::AbstractVectorTag*>(item->getTag());
+        if(tagData && vectorTag) {
+            // Create a new ownership and transfer it to CompoundTag.
+            // This is necessary when pasting again and if the shared_ptr get deleted.
+            amc::AbstractTag *newTag = tagData->clone();
+            vectorTag->pushBack(newTag);
+
+            // Now cerate new TreeItems from new data
+            addNbtChild(item, newTag);
+        }
+    }
+}
+
 /// CompoundTag
 NbtTreeItemCompoundTag::NbtTreeItemCompoundTag(NbtTreeItemBase *parentItem,
                                                amc::AbstractTag *tag)
@@ -458,21 +478,7 @@ bool NbtTreeItemCompoundTag::canPaste() const
 
 void NbtTreeItemCompoundTag::paste()
 {
-    const QMimeData *mimeData = qApp->clipboard()->mimeData();
-    const TagMimeData *tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
-    amc::CompoundTag *compoundTag = dynamic_cast<amc::CompoundTag*>(m_tag);
-    if(tagMimeData && tagMimeData->hasFormat(TagMimeData::TagMimeType)) {
-        std::shared_ptr<amc::AbstractTag> tagData = tagMimeData->toTagData();
-        if(tagData && compoundTag) {
-            // Create a new ownership and transfer it to CompoundTag.
-            // This is necessary when pasting again and if the shared_ptr get deleted.
-            amc::AbstractTag *newTag = tagData->clone();
-            compoundTag->pushBack(newTag);
-
-            // Now cerate new TreeItems from new data
-            addNbtChild(this, newTag);
-        }
-    }
+    pasteHelper(this);
 }
 
 bool NbtTreeItemCompoundTag::canEdit() const
@@ -546,21 +552,7 @@ bool NbtTreeItemListTag::canPaste() const
 
 void NbtTreeItemListTag::paste()
 {
-    const QMimeData *mimeData =  qApp->clipboard()->mimeData();
-    const TagMimeData *tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
-    amc::ListTag *listTag = dynamic_cast<amc::ListTag*>(m_tag);
-    if(tagMimeData && tagMimeData->hasFormat(TagMimeData::TagMimeType)) {
-        std::shared_ptr<amc::AbstractTag> tagData = tagMimeData->toTagData();
-        if(tagData && listTag) {
-            // Create a new ownership and transfer it to ListTag.
-            // This is necessary when pasting again and if the shared_ptr get deleted.
-            amc::AbstractTag *newTag = tagData->clone();
-            listTag->pushBack(newTag);
-            
-            // Now cerate new TreeItems from new data
-            addNbtChild(this, newTag);
-        }
-    }
+    pasteHelper(this);
 }
 
 bool NbtTreeItemListTag::canEdit() const
