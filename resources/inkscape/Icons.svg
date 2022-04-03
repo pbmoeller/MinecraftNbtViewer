@@ -44,15 +44,15 @@
      showgrid="true"
      units="px"
      width="128px"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="485.95054"
-     inkscape:cy="-569.2899"
+     inkscape:zoom="2"
+     inkscape:cx="504.82454"
+     inkscape:cy="-464.91143"
      inkscape:window-width="2560"
      inkscape:window-height="1387"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g1449"
+     inkscape:current-layer="g5134"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-grids="true">
@@ -71,6 +71,22 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5110">
+      <stop
+         style="stop-color:#1934da;stop-opacity:1"
+         offset="0"
+         id="stop5106" />
+      <stop
+         id="stop5122"
+         offset="0.40625006"
+         style="stop-color:#19a4da;stop-opacity:1" />
+      <stop
+         style="stop-color:#1934da;stop-opacity:1"
+         offset="1"
+         id="stop5108" />
+    </linearGradient>
     <linearGradient
        id="linearGradient1617"
        inkscape:collect="always">
@@ -1053,6 +1069,24 @@
        x2="716"
        y2="760"
        gradientTransform="matrix(-0.26458333,0,0,-0.26458333,372.53334,372.53333)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5110"
+       id="linearGradient5112"
+       x1="105.83333"
+       y1="152.39999"
+       x2="139.7"
+       y2="137.58333"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5110"
+       id="linearGradient5136"
+       gradientUnits="userSpaceOnUse"
+       x1="105.83333"
+       y1="152.39999"
+       x2="139.7"
+       y2="137.58333" />
   </defs>
   <g
      inkscape:groupmode="layer"
@@ -1518,8 +1552,54 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer19"
+     inkscape:label="MoveUp">
+    <g
+       id="MoveUp"
+       inkscape:label="#g5126">
+      <rect
+         y="135.46666"
+         x="101.6"
+         height="33.866665"
+         width="33.866665"
+         id="rect5102"
+         style="fill:#fff6ff;fill-opacity:0;stroke:none;stroke-width:1.05833328;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cccccccc"
+         inkscape:connector-curvature="0"
+         id="path5104"
+         d="m 114.56458,166.95208 h 7.9375 v -14.81667 h 8.46667 l -12.43542,-14.2875 -12.43542,14.2875 h 8.46667 z"
+         style="fill:url(#linearGradient5112);fill-opacity:1;stroke:#190782;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:label="MoveDown"
+     id="g5134"
+     inkscape:groupmode="layer">
+    <g
+       id="MoveDown"
+       transform="rotate(-180,135.46666,152.39999)"
+       inkscape:label="#g5132">
+      <rect
+         style="fill:#fff6ff;fill-opacity:0;stroke:none;stroke-width:1.05833328;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5128"
+         width="33.866665"
+         height="33.866665"
+         x="101.6"
+         y="135.46666" />
+      <path
+         style="fill:url(#linearGradient5136);fill-opacity:1;stroke:#190782;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 114.56458,166.95208 h 7.9375 v -14.81667 h 8.46667 l -12.43542,-14.2875 -12.43542,14.2875 h 8.46667 z"
+         id="path5130"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccccc" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer13"
      inkscape:label="Delete"
+     style="display:inline"
      sodipodi:insensitive="true">
     <g
        id="Delete"
