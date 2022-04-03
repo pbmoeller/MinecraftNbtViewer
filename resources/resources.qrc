@@ -91,5 +91,11 @@
         <file>icons/16x16/Refresh.png</file>
         <file>icons/24x24/Refresh.png</file>
         <file>icons/32x32/Refresh.png</file>
+        <file>icons/16x16/MoveDown.png</file>
+        <file>icons/16x16/MoveUp.png</file>
+        <file>icons/24x24/MoveDown.png</file>
+        <file>icons/24x24/MoveUp.png</file>
+        <file>icons/32x32/MoveDown.png</file>
+        <file>icons/32x32/MoveUp.png</file>
     </qresource>
 </RCC>
