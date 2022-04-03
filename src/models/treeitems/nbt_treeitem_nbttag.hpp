@@ -33,9 +33,12 @@ public:
     virtual void deleteChildTag(amc::AbstractTag *tag);
 
     virtual bool canCut() const override;
-    virtual void cut();
+    virtual void cut() override;
     virtual bool canCopy() const override;
-    virtual void copy();
+    virtual void copy() override;
+
+    virtual bool canMoveUp() const override;
+    virtual bool canMoveDown() const override;
 
     void sort();
 
@@ -152,7 +155,7 @@ public:
     virtual void deleteChildTag(amc::AbstractTag *tag) override;
 
     virtual bool canPaste() const override;
-    virtual void paste();
+    virtual void paste() override;
 };
 
 class NbtTreeItemListTag : public NbtTreeItemNbtTag
@@ -167,11 +170,13 @@ public:
 
     virtual bool canEdit() const override;
 
+    virtual void swap(int indexA, int indexB) override;
+
     virtual bool canAddNbtTag(amc::TagType type) const override;
     virtual void deleteChildTag(amc::AbstractTag *tag) override;
 
     virtual bool canPaste() const override;
-    virtual void paste();
+    virtual void paste() override;
 };
 
 class NbtTreeItemByteArrayTag : public NbtTreeItemNbtTag
