@@ -53,6 +53,10 @@ public:
     virtual bool canPaste() const;
     virtual void paste();
 
+    virtual bool canMoveUp() const;
+    virtual bool canMoveDown() const;
+    virtual void swap(int indexA, int indexB);
+
     virtual bool canAddNbtFile() const;
     virtual bool canAddNbtTag(amc::TagType type) const;
 

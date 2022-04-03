@@ -165,6 +165,22 @@ void NbtTreeItemBase::paste()
 
 }
 
+bool NbtTreeItemBase::canMoveUp() const
+{
+    return false;
+}
+
+bool NbtTreeItemBase::canMoveDown() const
+{
+    return false;
+}
+
+void NbtTreeItemBase::swap(int indexA, int indexB)
+{
+    Q_UNUSED(indexA);
+    Q_UNUSED(indexB);
+}
+
 bool NbtTreeItemBase::canAddNbtFile() const
 {
     return false;

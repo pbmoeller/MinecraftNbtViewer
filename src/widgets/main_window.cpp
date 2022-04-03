@@ -236,6 +236,22 @@ void MainWindow::deleteTag()
     }
 }
 
+void MainWindow::moveUp()
+{
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        m_nbtTreeModel->moveUp(index);
+    }
+}
+
+void MainWindow::moveDown()
+{
+    QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
+    if(index.isValid()) {
+        m_nbtTreeModel->moveDown(index);
+    }
+}
+
 void MainWindow::addByteTag()
 {
     addNbtTag(amc::TagType::Byte);
@@ -320,12 +336,14 @@ void MainWindow::initConnections()
     connect(m_ui->actionQuit,                       &QAction::triggered, this, &MainWindow::close);
 
     // Edit Menu
-    connect(m_ui->actionCut,    &QAction::triggered, this, &MainWindow::cutTag);
-    connect(m_ui->actionCopy,   &QAction::triggered, this, &MainWindow::copyTag);
-    connect(m_ui->actionPaste,  &QAction::triggered, this, &MainWindow::pasteTag);
-    connect(m_ui->actionRename, &QAction::triggered, this, &MainWindow::renameTag);
-    connect(m_ui->actionEdit,   &QAction::triggered, this, &MainWindow::editTag);
-    connect(m_ui->actionDelete, &QAction::triggered, this, &MainWindow::deleteTag);
+    connect(m_ui->actionCut,        &QAction::triggered, this, &MainWindow::cutTag);
+    connect(m_ui->actionCopy,       &QAction::triggered, this, &MainWindow::copyTag);
+    connect(m_ui->actionPaste,      &QAction::triggered, this, &MainWindow::pasteTag);
+    connect(m_ui->actionRename,     &QAction::triggered, this, &MainWindow::renameTag);
+    connect(m_ui->actionEdit,       &QAction::triggered, this, &MainWindow::editTag);
+    connect(m_ui->actionDelete,     &QAction::triggered, this, &MainWindow::deleteTag);
+    connect(m_ui->actionMoveUp,     &QAction::triggered, this, &MainWindow::moveUp);
+    connect(m_ui->actionMoveDown,   &QAction::triggered, this, &MainWindow::moveDown);
 
     // Help Menu
 
@@ -402,6 +420,9 @@ void MainWindow::updateActions()
         m_ui->actionCopy->setEnabled(treeItem->canCopy());
         m_ui->actionPaste->setEnabled(treeItem->canPaste());
 
+        m_ui->actionMoveUp->setEnabled(treeItem->canMoveUp());
+        m_ui->actionMoveDown->setEnabled(treeItem->canMoveDown());
+
         m_ui->actionAdd_ByteTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Byte));
         m_ui->actionAdd_ShortTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Short));
         m_ui->actionAdd_IntTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Int));
@@ -467,6 +488,19 @@ void MainWindow::showCustomContextMenu(const QPoint &pos)
     if(!cutCopyPasteActions.isEmpty()) {
         contextMenu->addSeparator();
         contextMenu->addActions(cutCopyPasteActions);
+    }
+
+    // Moving
+    QList<QAction*> moveActions;
+    if(treeItem->canMoveUp()) {
+        moveActions.append(m_ui->actionMoveUp);
+    }
+    if(treeItem->canMoveDown()) {
+        moveActions.append(m_ui->actionMoveDown);
+    }
+    if(!moveActions.isEmpty()) {
+        contextMenu->addSeparator();
+        contextMenu->addActions(moveActions);
     }
 
     // Add Tags

@@ -43,6 +43,9 @@ public:
     void copyTag(const QModelIndex &index);
     void pasteTag(const QModelIndex &index);
 
+    void moveUp(const QModelIndex &index);
+    void moveDown(const QModelIndex &index);
+
     void itemChanged(NbtTreeItemBase* item);
 
 private:

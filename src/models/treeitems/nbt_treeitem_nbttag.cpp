@@ -138,6 +138,45 @@ void NbtTreeItemNbtTag::copy()
     qApp->clipboard()->setMimeData(mimeData);
 }
 
+bool NbtTreeItemNbtTag::canMoveUp() const
+{
+    // Check if we have a parent
+    NbtTreeItemNbtTag *parentItem = dynamic_cast<NbtTreeItemNbtTag*>(m_parent);
+    if(parentItem) {
+        // Check if tag is valid and is of type List
+        amc::AbstractTag *parentTag = parentItem->getTag();
+        if(parentTag && parentTag->getType() == amc::TagType::List) {
+            amc::ListTag *listTag = tag_cast<amc::ListTag*>(parentTag);
+
+            // Now check if the moving makes sense
+            if(listTag->indexOf(m_tag) > 0) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool NbtTreeItemNbtTag::canMoveDown() const
+{
+    // Check if we have a parent
+    NbtTreeItemNbtTag *parentItem = dynamic_cast<NbtTreeItemNbtTag*>(m_parent);
+    if(parentItem) {
+        // Check if tag is valid and is of type List
+        amc::AbstractTag *parentTag = parentItem->getTag();
+        if(parentTag && parentTag->getType() == amc::TagType::List) {
+            amc::ListTag *listTag = tag_cast<amc::ListTag*>(parentTag);
+
+            // Now check if the moving makes sense
+            int64_t idx = listTag->indexOf(m_tag);
+            if(idx >= 0 && idx < (listTag->size() - 1)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 void NbtTreeItemNbtTag::sort()
 {
     std::sort(m_children.begin(),
@@ -511,6 +550,22 @@ QString NbtTreeItemListTag::getLabel() const
         .arg(amc::tag_cast<amc::ListTag*>(m_tag)->size());
 }
 
+bool NbtTreeItemListTag::canEdit() const
+{
+    return false;
+}
+
+void NbtTreeItemListTag::swap(int indexA, int indexB)
+{
+    amc::ListTag *listTag = dynamic_cast<amc::ListTag*>(m_tag);
+    if(listTag) {
+        assert(indexA >= 0 && indexA < listTag->size());
+        assert(indexB >= 0 && indexB < listTag->size());
+        listTag->swap(indexA, indexB);
+        m_children.swapItemsAt(indexA, indexB);
+    }
+}
+
 bool NbtTreeItemListTag::canAddNbtTag(amc::TagType type) const
 {
     if(m_children.size() > 0) {
@@ -553,11 +608,6 @@ bool NbtTreeItemListTag::canPaste() const
 void NbtTreeItemListTag::paste()
 {
     pasteHelper(this);
-}
-
-bool NbtTreeItemListTag::canEdit() const
-{
-    return false;
 }
 
 /// ByteArrayTag

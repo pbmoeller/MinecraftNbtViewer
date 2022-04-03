@@ -295,6 +295,38 @@ void NbtDataTreeModel::pasteTag(const QModelIndex &index)
     }
 }
 
+void NbtDataTreeModel::moveUp(const QModelIndex &index)
+{
+    int sourceRowIndex = index.row();
+    int targetRowIndex = index.row() - 1;
+    QModelIndex sourceParent = index.parent();
+    QModelIndex targetParent = index.parent();
+
+    beginMoveRows(sourceParent, sourceRowIndex, sourceRowIndex, targetParent, targetRowIndex);
+    NbtTreeItemBase *item = fromIndex(index);
+    NbtTreeItemListTag *parentItem = dynamic_cast<NbtTreeItemListTag*>(item->getParent());
+    parentItem->swap(sourceRowIndex, targetRowIndex);
+    endMoveRows();
+
+    markItemDirty(parentItem);
+}
+
+void NbtDataTreeModel::moveDown(const QModelIndex &index)
+{
+    int sourceRowIndex = index.row() + 1;
+    int targetRowIndex = index.row();
+    QModelIndex sourceParent = index.parent();
+    QModelIndex targetParent = index.parent();
+
+    beginMoveRows(sourceParent, sourceRowIndex, sourceRowIndex, targetParent, targetRowIndex);
+    NbtTreeItemBase *item = fromIndex(index);
+    NbtTreeItemListTag *parentItem = dynamic_cast<NbtTreeItemListTag*>(item->getParent());
+    parentItem->swap(sourceRowIndex, targetRowIndex);
+    endMoveRows();
+
+    markItemDirty(parentItem);
+}
+
 void NbtDataTreeModel::itemChanged(NbtTreeItemBase* item)
 {
     QModelIndex index = toIndex(item);

@@ -50,6 +50,8 @@ public slots:
     void renameTag();
     void editTag();
     void deleteTag();
+    void moveUp();
+    void moveDown();
 
     // Add NBT Tag
     void addByteTag();

@@ -78,6 +78,9 @@
     <addaction name="actionRename"/>
     <addaction name="actionEdit"/>
     <addaction name="actionDelete"/>
+    <addaction name="separator"/>
+    <addaction name="actionMoveUp"/>
+    <addaction name="actionMoveDown"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -382,6 +385,24 @@
    </property>
    <property name="text">
     <string>Refresh</string>
+   </property>
+  </action>
+  <action name="actionMoveUp">
+   <property name="icon">
+    <iconset resource="../../resources/resources.qrc">
+     <normaloff>:/icons/16x16/MoveUp.png</normaloff>:/icons/16x16/MoveUp.png</iconset>
+   </property>
+   <property name="text">
+    <string>Move Up</string>
+   </property>
+  </action>
+  <action name="actionMoveDown">
+   <property name="icon">
+    <iconset resource="../../resources/resources.qrc">
+     <normaloff>:/icons/16x16/MoveDown.png</normaloff>:/icons/16x16/MoveDown.png</iconset>
+   </property>
+   <property name="text">
+    <string>Move Down</string>
    </property>
   </action>
  </widget>
