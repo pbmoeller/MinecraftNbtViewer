@@ -1,0 +1,63 @@
+#ifndef AWESOMENBTVIEWER_WIDGETS_EDIT_DIALOG_HPP
+#define AWESOMENBTVIEWER_WIDGETS_EDIT_DIALOG_HPP
+
+// AwesomeMC
+#include <AwesomeMC/nbt/tags/tag_type.hpp>
+
+// Qt
+#include <QDialog>
+#include <QString>
+
+class QLabel;
+class QLineEdit;
+class QTextEdit;
+class QPushButton;
+
+namespace anv
+{
+
+// Forward declarations
+class NbtTreeItemNbtTag;
+class NbtDataTreeModel;
+
+class EditDialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    enum class EditFunction
+    {
+        Rename,
+        EditValue,
+    };
+
+public:
+    EditDialog(NbtTreeItemNbtTag *treeItem,
+               NbtDataTreeModel *model,
+               EditFunction function = EditFunction::Rename,
+               QWidget *parent = nullptr);
+    virtual ~EditDialog();
+
+protected slots:
+    virtual void accept() override;
+
+private:
+    void setupUi(EditFunction function);
+    QString valueToString() const;
+
+private:
+    // Data
+    NbtTreeItemNbtTag *m_treeItem;
+    NbtDataTreeModel *m_model;
+    bool m_hasRenameField;
+    bool m_hasEditField;
+
+    // Ui elements
+    QLineEdit *m_lineEditName;
+    QLineEdit *m_lineEditValue;
+    QTextEdit *m_textEdit;
+};
+
+} // namespace anv
+
+#endif // AWESOMENBTVIEWER_WIDGETS_EDIT_DIALOG_HPP

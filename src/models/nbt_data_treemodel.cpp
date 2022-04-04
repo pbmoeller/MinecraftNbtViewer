@@ -221,13 +221,9 @@ void NbtDataTreeModel::addNewNbtFile(const QModelIndex &index)
     markItemDirty(nbtFile);
 }
 
-void NbtDataTreeModel::renameTag(const QModelIndex &index, const QString &newName)
+void NbtDataTreeModel::renameTag(const QModelIndex &index)
 {
-    NbtTreeItemBase *treeItem = fromIndex(index);
-    treeItem->rename(newName);
-    dataChanged(index, index);
-
-    markItemDirty(treeItem);
+    fromIndex(index)->openRenameDialog(this);
 }
 
 void NbtDataTreeModel::editTag(const QModelIndex &index)

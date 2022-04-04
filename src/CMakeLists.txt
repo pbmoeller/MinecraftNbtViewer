@@ -17,13 +17,14 @@ set(ANV_MODELS_HEADER
 set(ANV_UTIL_HEADER
     "util/minecraft_util.hpp"
     "util/tag_mime_data.hpp"
+    "util/iconprovider.hpp"
 )
 
 set(ANV_WIDGETS_HEADER
     "widgets/main_window.hpp"
-    "widgets/rename_tag_dialog.hpp"
     "widgets/new_tag_dialog.hpp"
     "widgets/edit_value_dialog.hpp"
+    "widgets/edit_dialog.hpp"
 )
 
 set(ANV_HEADER
@@ -52,13 +53,14 @@ set(ANV_MODELS_SOURCES
 set(ANV_UTIL_SOURCES
     "util/minecraft_util.cpp"
     "util/tag_mime_data.cpp"
+    "util/iconprovider.cpp"
 )
 
 set(ANV_WIDGETS_SOURCES
     "widgets/main_window.cpp"
-    "widgets/rename_tag_dialog.cpp"
     "widgets/new_tag_dialog.cpp"
     "widgets/edit_value_dialog.cpp"
+    "widgets/edit_dialog.cpp"
 )
 
 set(ANV_SOURCES
@@ -72,7 +74,6 @@ set(ANV_SOURCES
 ### Ui
 set(ANV_WIDGETS_UI
     "widgets/main_window.ui"
-    "widgets/rename_tag_dialog.ui"
     "widgets/new_tag_dialog.ui"
     "widgets/edit_value_dialog.ui"
 )

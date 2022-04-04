@@ -40,6 +40,7 @@ public:
 
     virtual bool canRename() const;
     virtual void rename(const QString &name);
+    virtual void openRenameDialog(NbtDataTreeModel *model);
 
     virtual bool canEdit() const;
     virtual void openEditDialog(NbtDataTreeModel *model);

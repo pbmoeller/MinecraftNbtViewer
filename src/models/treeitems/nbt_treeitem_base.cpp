@@ -120,6 +120,11 @@ void NbtTreeItemBase::rename(const QString &name)
     Q_UNUSED(name);
 }
 
+void NbtTreeItemBase::openRenameDialog(NbtDataTreeModel *model)
+{
+    Q_UNUSED(model);
+}
+
 bool NbtTreeItemBase::canEdit() const
 {
     return false;

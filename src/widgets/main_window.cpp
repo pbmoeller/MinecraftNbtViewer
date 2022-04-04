@@ -4,7 +4,6 @@
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
 #include "models/treeitems/nbt_treeitem_nbtfile.hpp"
 #include "models/treeitems/nbt_treeitem_folder.hpp"
-#include "rename_tag_dialog.hpp"
 #include "new_tag_dialog.hpp"
 
 // Qt
@@ -208,15 +207,7 @@ void MainWindow::renameTag()
 {
     QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
     if(index.isValid()) {
-        QString currentName = m_nbtTreeModel->fromIndex(index)->getName();
-
-        RenameTagDialog renameTagDialog(currentName);
-        if(renameTagDialog.exec() == QDialog::Accepted) {
-            QString newName = renameTagDialog.getName();
-            if(newName != currentName) {
-                m_nbtTreeModel->renameTag(index, newName);
-            }
-        }
+        m_nbtTreeModel->renameTag(index);
     }
 }
 
