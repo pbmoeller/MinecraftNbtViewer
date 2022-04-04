@@ -35,7 +35,7 @@ public:
     void addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item, amc::TagType type, const QString& name, int size = 0);
     void addNewNbtFile(const QModelIndex &index);
 
-    void renameTag(const QModelIndex &index, const QString &newName);
+    void renameTag(const QModelIndex &index);
     void editTag(const QModelIndex &index);
     void deleteTag(const QModelIndex &index);
 

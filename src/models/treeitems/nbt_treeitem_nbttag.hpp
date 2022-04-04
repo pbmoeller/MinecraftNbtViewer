@@ -25,8 +25,10 @@ public:
 
     virtual bool canRename() const;
     virtual void rename(const QString &name) override;
+    virtual void openRenameDialog(NbtDataTreeModel *model) override;
 
     virtual bool canEdit() const override;
+    virtual void openEditDialog(NbtDataTreeModel *model) override;
 
     virtual bool canDelete() const override;
     virtual void deleteTag();
@@ -57,8 +59,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 class NbtTreeItemShortTag : public NbtTreeItemNbtTag
@@ -70,8 +70,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 class NbtTreeItemIntTag : public NbtTreeItemNbtTag
@@ -83,8 +81,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 class NbtTreeItemLongTag : public NbtTreeItemNbtTag
@@ -96,8 +92,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 class NbtTreeItemFloatTag : public NbtTreeItemNbtTag
@@ -109,8 +103,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 class NbtTreeItemDoubleTag : public NbtTreeItemNbtTag
@@ -122,8 +114,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 class NbtTreeItemStringTag : public NbtTreeItemNbtTag
@@ -135,8 +125,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 class NbtTreeItemCompoundTag : public NbtTreeItemNbtTag
@@ -148,8 +136,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual bool canEdit() const override;
 
     virtual bool canAddNbtTag(amc::TagType type) const override;
     virtual void deleteChildTag(amc::AbstractTag *tag) override;
@@ -167,8 +153,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual bool canEdit() const override;
 
     virtual void swap(int indexA, int indexB) override;
 
@@ -188,8 +172,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 class NbtTreeItemIntArrayTag : public NbtTreeItemNbtTag
@@ -201,8 +183,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 class NbtTreeItemLongArrayTag : public NbtTreeItemNbtTag
@@ -214,8 +194,6 @@ public:
 
     virtual QIcon getIcon() const override;
     virtual QString getLabel() const override;
-
-    virtual void openEditDialog(NbtDataTreeModel *model) override;
 };
 
 } // namespace anv
