@@ -15,6 +15,10 @@ set(ANV_MODELS_HEADER
 )
 
 set(ANV_UTIL_HEADER
+    "util/validators/int8_validator.hpp"
+    "util/validators/int16_validator.hpp"
+    "util/validators/int32_validator.hpp"
+    "util/validators/int64_validator.hpp"
     "util/minecraft_util.hpp"
     "util/tag_mime_data.hpp"
     "util/iconprovider.hpp"
@@ -51,6 +55,10 @@ set(ANV_MODELS_SOURCES
 )
 
 set(ANV_UTIL_SOURCES
+    "util/validators/int8_validator.cpp"
+    "util/validators/int16_validator.cpp"
+    "util/validators/int32_validator.cpp"
+    "util/validators/int64_validator.cpp"
     "util/minecraft_util.cpp"
     "util/tag_mime_data.cpp"
     "util/iconprovider.cpp"
