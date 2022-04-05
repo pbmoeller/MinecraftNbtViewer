@@ -3,6 +3,10 @@
 #include "models/nbt_data_treemodel.hpp"
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
 #include "util/iconprovider.hpp"
+#include "util/validators/int8_validator.hpp"
+#include "util/validators/int16_validator.hpp"
+#include "util/validators/int32_validator.hpp"
+#include "util/validators/int64_validator.hpp"
 
 // AwesomeMC
 #include <AwesomeMC/nbt/tags/tags.hpp>
@@ -19,6 +23,21 @@
 
 namespace anv
 {
+
+QValidator* createValidator(amc::TagType tagType)
+{
+    if(tagType == amc::TagType::Byte) {
+        return new Int8Validator();
+    } else if(tagType == amc::TagType::Short) {
+        return new Int16Validator();
+    } else if(tagType == amc::TagType::Int) {
+        return new Int32Validator();
+    } else if(tagType == amc::TagType::Long) {
+        return new Int64Validator();
+    }
+    
+    return nullptr;
+}
 
 EditDialog::EditDialog(NbtTreeItemNbtTag *treeItem,
                        NbtDataTreeModel *model,
@@ -100,6 +119,7 @@ void EditDialog::setupUi(EditFunction function)
         } else if(amc::isValueTag(tagType)) {
             m_lineEditValue = new QLineEdit();
             m_lineEditValue->setText(valueToString());
+            m_lineEditValue->setValidator(createValidator(tagType));
 
             gLayout->addWidget(m_lineEditValue, currentRow, 1);
         } else if(amc::isArrayTag(tagType)) {
