@@ -310,6 +310,8 @@ void MainWindow::initConnections()
             this, &MainWindow::treeviewCurrentItemChanged);
     connect(m_ui->nbtDataTreeView, &QTreeView::customContextMenuRequested,
             this, &MainWindow::showCustomContextMenu);
+    connect(m_ui->nbtDataTreeView, &QTreeView::doubleClicked,
+            this, &MainWindow::editTag);
     connect(this->m_nbtTreeModel, &NbtDataTreeModel::modified,
             this, &MainWindow::modifiedModel);
 
