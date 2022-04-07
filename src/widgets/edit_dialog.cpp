@@ -3,6 +3,7 @@
 #include "models/nbt_data_treemodel.hpp"
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
 #include "util/iconprovider.hpp"
+#include "util/validators/float_validator.hpp"
 #include "util/validators/int8_validator.hpp"
 #include "util/validators/int16_validator.hpp"
 #include "util/validators/int32_validator.hpp"
@@ -34,6 +35,12 @@ QValidator* createValidator(amc::TagType tagType)
         return new Int32Validator();
     } else if(tagType == amc::TagType::Long) {
         return new Int64Validator();
+    } else if(tagType == amc::TagType::Float) {
+        return new FloatValidator();
+    } else if(tagType == amc::TagType::Double) {
+        return new QDoubleValidator();
+    } else {
+
     }
     
     return nullptr;

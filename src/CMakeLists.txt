@@ -15,6 +15,7 @@ set(ANV_MODELS_HEADER
 )
 
 set(ANV_UTIL_HEADER
+    "util/validators/float_validator.hpp"
     "util/validators/int8_validator.hpp"
     "util/validators/int16_validator.hpp"
     "util/validators/int32_validator.hpp"
@@ -55,6 +56,7 @@ set(ANV_MODELS_SOURCES
 )
 
 set(ANV_UTIL_SOURCES
+    "util/validators/float_validator.cpp"
     "util/validators/int8_validator.cpp"
     "util/validators/int16_validator.cpp"
     "util/validators/int32_validator.cpp"
