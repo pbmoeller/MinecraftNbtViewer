@@ -1,6 +1,10 @@
 // AwesomeNbtViewer
 #include "new_tag_dialog.hpp"
 #include "ui_new_tag_dialog.h"
+#include "util/iconprovider.hpp"
+
+// AwesomeMC
+#include <AwesomeMC/nbt/tags/tag_type.hpp>
 
 // Qt
 #include <QMessageBox>
@@ -11,22 +15,6 @@
 
 namespace anv
 {
-
-QString tagNames[14] = {
-    "End",
-    "Byte",
-    "Short",
-    "Int",
-    "Long",
-    "Float",
-    "Double",
-    "ByteArray",
-    "String",
-    "List",
-    "Compound",
-    "IntArray",
-    "LongArray"
-};
 
 NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem,
                            amc::TagType newItemTagType, 
@@ -47,7 +35,8 @@ NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem,
         m_ui->sizeEdit->setEnabled(false);
     }
 
-    setWindowTitle(QString("Add %1 Tag").arg(tagNames[static_cast<int>(newItemTagType)]));
+    setWindowIcon(IconProvider::icon(newItemTagType, IconProvider::Size16));
+    setWindowTitle(QString("Add %1").arg(amc::getTagName(newItemTagType).c_str()));
 }
 
 NewTagDialog::~NewTagDialog()
