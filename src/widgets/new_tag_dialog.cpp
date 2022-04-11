@@ -28,7 +28,9 @@ QString tagNames[14] = {
     "LongArray"
 };
 
-NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem, QWidget *parent)
+NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem,
+                           amc::TagType newItemTagType, 
+                           QWidget *parent)
     : QDialog(parent)
     , m_ui(new Ui::NewTagDialog)
     , m_parentItem(parentItem)
@@ -37,15 +39,15 @@ NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem, QWidget *parent)
     m_ui->sizeEdit->setValidator(new QIntValidator(0, std::numeric_limits<int>::max(), this));
     m_ui->sizeEdit->setText("0");
 
-    if(!(parentItem->getTagType() == amc::TagType::ByteArray
-         || parentItem->getTagType() == amc::TagType::IntArray
-         || parentItem->getTagType() == amc::TagType::LongArray))
+    if(!(newItemTagType == amc::TagType::ByteArray
+         || newItemTagType == amc::TagType::IntArray
+         || newItemTagType == amc::TagType::LongArray))
     {
         m_ui->sizeLabel->setEnabled(false);
         m_ui->sizeEdit->setEnabled(false);
     }
 
-    setWindowTitle(QString("Add %1 Tag").arg(tagNames[static_cast<int>(parentItem->getTagType())]));
+    setWindowTitle(QString("Add %1 Tag").arg(tagNames[static_cast<int>(newItemTagType)]));
 }
 
 NewTagDialog::~NewTagDialog()
