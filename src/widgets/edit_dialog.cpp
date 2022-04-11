@@ -184,8 +184,8 @@ void EditDialog::setupUi(EditFunction function)
 
     QHBoxLayout *hLayout = new QHBoxLayout();
     hLayout->addStretch();
-    hLayout->addWidget(buttonCancel);
     hLayout->addWidget(buttonOk);
+    hLayout->addWidget(buttonCancel);
 
     gLayout->addLayout(hLayout, currentRow, 0, 1, 2);
 
