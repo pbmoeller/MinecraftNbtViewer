@@ -523,10 +523,10 @@ void MainWindow::showCustomContextMenu(const QPoint &pos)
         addTagActions.append(m_ui->actionAdd_ByteArrayTag);
     }
     if(treeItem->canAddNbtTag(amc::TagType::IntArray)) {
-        addTagActions.append(m_ui->actionAdd_IntTag);
+        addTagActions.append(m_ui->actionAdd_IntArrayTag);
     }
     if(treeItem->canAddNbtTag(amc::TagType::LongArray)) {
-        addTagActions.append(m_ui->actionAdd_LongTag);
+        addTagActions.append(m_ui->actionAdd_LongArrayTag);
     }
     if(treeItem->canAddNbtTag(amc::TagType::List)) {
         addTagActions.append(m_ui->actionAdd_ListTag);
