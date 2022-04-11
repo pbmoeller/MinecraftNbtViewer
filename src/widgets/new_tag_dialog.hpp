@@ -21,7 +21,9 @@ class NewTagDialog : public QDialog
     Q_OBJECT
 
 public:
-    NewTagDialog(NbtTreeItemNbtTag *parentItem, QWidget *parent = nullptr);
+    NewTagDialog(NbtTreeItemNbtTag *parentItem,
+                 amc::TagType newItemTagType,
+                 QWidget *parent = nullptr);
     ~NewTagDialog();
 
     QString getName() const;

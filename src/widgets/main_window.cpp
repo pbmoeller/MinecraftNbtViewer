@@ -385,7 +385,7 @@ void MainWindow::addNbtTag(amc::TagType tagType)
             m_nbtTreeModel->addNbtTag(index, tagItem, tagType, QString());
         } else {
             qDebug() << "Launch Dialog for new Tag!";
-            NewTagDialog newTagDialog(tagItem);
+            NewTagDialog newTagDialog(tagItem, tagType);
             if(newTagDialog.exec() == QDialog::Accepted) {
                 QString tagName = newTagDialog.getName();
                 int size = newTagDialog.getSize();
