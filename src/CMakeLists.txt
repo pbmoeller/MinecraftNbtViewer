@@ -28,7 +28,6 @@ set(ANV_UTIL_HEADER
 set(ANV_WIDGETS_HEADER
     "widgets/main_window.hpp"
     "widgets/new_tag_dialog.hpp"
-    "widgets/edit_value_dialog.hpp"
     "widgets/edit_dialog.hpp"
 )
 
@@ -69,7 +68,6 @@ set(ANV_UTIL_SOURCES
 set(ANV_WIDGETS_SOURCES
     "widgets/main_window.cpp"
     "widgets/new_tag_dialog.cpp"
-    "widgets/edit_value_dialog.cpp"
     "widgets/edit_dialog.cpp"
 )
 
@@ -85,7 +83,6 @@ set(ANV_SOURCES
 set(ANV_WIDGETS_UI
     "widgets/main_window.ui"
     "widgets/new_tag_dialog.ui"
-    "widgets/edit_value_dialog.ui"
 )
 
 set(ANV_UI
