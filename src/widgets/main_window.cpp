@@ -5,6 +5,7 @@
 #include "models/treeitems/nbt_treeitem_nbtfile.hpp"
 #include "models/treeitems/nbt_treeitem_folder.hpp"
 #include "new_tag_dialog.hpp"
+#include "compression_dialog.hpp"
 
 // Qt
 #include <QCloseEvent>
@@ -142,9 +143,13 @@ void MainWindow::saveAs()
         QString currentFilename = treeItem->getName();
         QString path = treeItem->getPath();
         QString filename = QFileDialog::getSaveFileName(this, tr("Save %1 as...").arg(currentFilename), path);
-
-        if (!filename.isNull()) {
-            m_nbtTreeModel->saveAs(index, filename);
+        
+        if(!filename.isNull()) {
+            CompressionDialog compressionDiag(treeItem->getCompression());
+            compressionDiag.exec();
+            if(compressionDiag.result() == QDialog::Accepted) {
+                m_nbtTreeModel->saveAs(index, filename, compressionDiag.getSelectedCompressionType());
+            }
         }
     }
 }

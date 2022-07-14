@@ -31,7 +31,7 @@ public:
 
     virtual bool canSave() const;
     virtual void save() override;
-    virtual void saveAs(const QString &filename) override;
+    virtual void saveAs(const QString &filename, const amc::CompressionType compression) override;
 
     virtual bool canRefresh() const override;
     
@@ -45,6 +45,8 @@ public:
 
     static NbtTreeItemNbtFile* createNewNbtFile(NbtTreeItemBase *parentItem,
                                                 const QString &pathToFile);
+
+    amc::CompressionType getCompression() const;
 
 private:
     bool m_canFetchData;

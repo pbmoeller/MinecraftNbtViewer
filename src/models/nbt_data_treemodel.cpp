@@ -69,11 +69,13 @@ void NbtDataTreeModel::save(const QModelIndex &index)
     }
 }
 
-void NbtDataTreeModel::saveAs(const QModelIndex &index, const QString &saveFilename)
+void NbtDataTreeModel::saveAs(const QModelIndex &index,
+                              const QString &saveFilename,
+                              const amc::CompressionType compression)
 {
     NbtTreeItemBase *treeItem = fromIndex(index);
     if(treeItem) {
-        treeItem->saveAs(saveFilename);
+        treeItem->saveAs(saveFilename, compression);
         m_dirtyItems.remove(treeItem);
         emit modified();
     }

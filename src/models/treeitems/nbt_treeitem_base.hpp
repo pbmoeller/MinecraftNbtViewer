@@ -6,6 +6,7 @@
 
 // AwesomeMC
 #include <AwesomeMC/nbt/tags/abstract_tag.hpp>
+#include <AwesomeMC/util/compression.hpp>
 
 // Qt
 #include <QVector>
@@ -34,7 +35,7 @@ public:
 
     virtual bool canSave() const;
     virtual void save();
-    virtual void saveAs(const QString &filename);
+    virtual void saveAs(const QString &filename, const amc::CompressionType compression);
 
     virtual bool canRefresh() const;
 

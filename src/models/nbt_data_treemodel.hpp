@@ -3,6 +3,7 @@
 
 // AwesomeMC
 #include <AwesomeMC/nbt/tags/tag_type.hpp>
+#include <AwesomeMC/util/compression.hpp>
 
 // Qt
 #include <QSet>
@@ -24,7 +25,7 @@ public:
     void clear();
     void load(const QString &directory);
     void save(const QModelIndex &index);
-    void saveAs(const QModelIndex &index, const QString &saveFilename);
+    void saveAs(const QModelIndex &index, const QString &saveFilename, const amc::CompressionType compression);
     void saveAll();
     void refresh(const QModelIndex &index);
     bool isModified() const;
