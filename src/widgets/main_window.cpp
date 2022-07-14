@@ -143,7 +143,9 @@ void MainWindow::saveAs()
         QString path = treeItem->getPath();
         QString filename = QFileDialog::getSaveFileName(this, tr("Save %1 as...").arg(currentFilename), path);
 
-        m_nbtTreeModel->saveAs(index, filename);
+        if (!filename.isNull()) {
+            m_nbtTreeModel->saveAs(index, filename);
+        }
     }
 }
 
