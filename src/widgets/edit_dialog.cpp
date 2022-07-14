@@ -72,6 +72,7 @@ EditDialog::~EditDialog()
 
 void EditDialog::accept()
 {
+    bool nameChanged = false;
     bool dataChanged = false;
 
     // Check the name if present
@@ -91,7 +92,7 @@ void EditDialog::accept()
 
             qDebug() << "Name changed";
             m_treeItem->rename(m_lineEditName->text());
-            dataChanged = true;
+            nameChanged = true;
         }
     }
 
@@ -117,7 +118,7 @@ void EditDialog::accept()
     }
 
     // Check if data has changed and we need to notify the model
-    if(dataChanged) {
+    if(nameChanged || dataChanged) {
         m_model->itemChanged(m_treeItem);
     }
     QDialog::accept();
