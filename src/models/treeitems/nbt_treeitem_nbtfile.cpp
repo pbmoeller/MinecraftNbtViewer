@@ -67,13 +67,13 @@ void NbtTreeItemNbtFile::save()
     amc::writeNbtFile(filename, m_nbtRootTag.get(), m_compressionType);
 }
 
-void NbtTreeItemNbtFile::saveAs(const QString &filename)
+void NbtTreeItemNbtFile::saveAs(const QString &filename, const amc::CompressionType compression)
 {
     // Fetch data first if not already done or the root tag is empty.
     if(canFetchMore()) {
         fetchMore();
     }
-    amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get(), m_compressionType);
+    amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get(), compression);
 }
 
 bool NbtTreeItemNbtFile::canRefresh() const
@@ -133,6 +133,11 @@ NbtTreeItemNbtFile* NbtTreeItemNbtFile::createNewNbtFile(NbtTreeItemBase *parent
     addNbtChild(newItem, newItem->m_nbtRootTag.get());
 
     return newItem;
+}
+
+amc::CompressionType NbtTreeItemNbtFile::getCompression() const
+{
+    return m_compressionType;
 }
 
 } // namespace anv

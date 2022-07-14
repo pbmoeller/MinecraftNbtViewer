@@ -100,9 +100,10 @@ void NbtTreeItemBase::save()
 
 }
 
-void NbtTreeItemBase::saveAs(const QString &filename)
+void NbtTreeItemBase::saveAs(const QString &filename, const amc::CompressionType compression)
 {
     Q_UNUSED(filename);
+    Q_UNUSED(compression);
 }
 
 bool NbtTreeItemBase::canRefresh() const
