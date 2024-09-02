@@ -22,7 +22,7 @@ class NewTagDialog : public QDialog
 
 public:
     NewTagDialog(NbtTreeItemNbtTag *parentItem,
-                 amc::TagType newItemTagType,
+                 anvil::TagType newItemTagType,
                  QWidget *parent = nullptr);
     ~NewTagDialog();
 

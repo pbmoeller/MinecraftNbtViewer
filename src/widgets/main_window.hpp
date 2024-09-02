@@ -2,7 +2,7 @@
 #define AWESOMENBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/abstract_tag.hpp>
+#include <cpp-anvil/nbt/types.hpp>
 
 // Qt
 #include <QMainWindow>
@@ -70,7 +70,7 @@ public slots:
 private:
     void initConnections();
     bool userReallyWantsToQuit();
-    void addNbtTag(amc::TagType tagType);
+    void addNbtTag(anvil::TagType tagType);
     void updateActions();
 
 private slots:

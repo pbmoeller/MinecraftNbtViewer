@@ -2,90 +2,90 @@
 #include "treeitem_util.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/tags.hpp>
+#include <cpp-anvil/nbt.hpp>
 
 namespace anv
 {
 
 void addNbtChild(NbtTreeItemBase *parentItem,
-                 amc::AbstractTag *tag)
+                 anvil::BasicTag *tag)
 {
-    switch(tag->getType())
+    switch(tag->type())
     {
-        case amc::TagType::Byte:
+        case anvil::TagType::Byte:
         {
             new NbtTreeItemByteTag(parentItem, tag);
             break;
         }
-        case amc::TagType::Short:
+        case anvil::TagType::Short:
         {
             new NbtTreeItemShortTag(parentItem, tag);
             break;
         }
-        case amc::TagType::Int:
+        case anvil::TagType::Int:
         {
             new NbtTreeItemIntTag(parentItem, tag);
             break;
         }
-        case amc::TagType::Long:
+        case anvil::TagType::Long:
         {
             new NbtTreeItemLongTag(parentItem, tag);
             break;
         }
-        case amc::TagType::Float:
+        case anvil::TagType::Float:
         {
             new NbtTreeItemFloatTag(parentItem, tag);
             break;
         }
-        case amc::TagType::Double:
+        case anvil::TagType::Double:
         {
             new NbtTreeItemDoubleTag(parentItem, tag);
             break;
         }
-        case amc::TagType::String:
+        case anvil::TagType::String:
         {
             new NbtTreeItemStringTag(parentItem, tag);
             break;
         }
-        case amc::TagType::List:
+        case anvil::TagType::List:
         {
             NbtTreeItemListTag *treeItem = new NbtTreeItemListTag(parentItem, tag);
-            for(amc::AbstractTag *childTag : amc::tag_cast<amc::ListTag*>(tag)->getValue()) {
-                addNbtChild(treeItem, childTag);
+            for(std::unique_ptr<anvil::BasicTag> &childTag : anvil::tag_cast<anvil::ListTag*>(tag)->value()) {
+                addNbtChild(treeItem, childTag.get());
             }
             treeItem->sort();
             break;
         }
-        case amc::TagType::Compound:
+        case anvil::TagType::Compound:
         {
             NbtTreeItemCompoundTag *treeItem = new NbtTreeItemCompoundTag(parentItem, tag);
-            for(amc::AbstractTag *childTag : amc::tag_cast<amc::CompoundTag*>(tag)->getValue()) {
-                addNbtChild(treeItem, childTag);
+            for(std::unique_ptr<anvil::BasicTag> &childTag : anvil::tag_cast<anvil::CompoundTag*>(tag)->value()) {
+                addNbtChild(treeItem, childTag.get());
             }
             treeItem->sort();
             break;
         }
-        case amc::TagType::ByteArray:
+        case anvil::TagType::ByteArray:
         {
             new NbtTreeItemByteArrayTag(parentItem, tag);
             break;
         }
-        case amc::TagType::IntArray:
+        case anvil::TagType::IntArray:
         {
             new NbtTreeItemIntArrayTag(parentItem, tag);
             break;
         }
-        case amc::TagType::LongArray:
+        case anvil::TagType::LongArray:
         {
             new NbtTreeItemLongArrayTag(parentItem, tag);
             break;
         }
-        case amc::TagType::End:
+        case anvil::TagType::End:
         {
             break;
         }
         default:
-        case amc::TagType::Unknown:
+        case anvil::TagType::Unknown:
         {
             break;
         }
@@ -112,20 +112,20 @@ bool treeItemNbtTagCompare(NbtTreeItemBase *left,
        && leftTag == nullptr) {
         return false;
     }
-    if(leftTag->getTagType() == amc::TagType::Compound
-       && rightTag->getTagType() == amc::TagType::Compound) {
+    if(leftTag->getTagType() == anvil::TagType::Compound
+       && rightTag->getTagType() == anvil::TagType::Compound) {
         return leftTag->getName().toLower() < rightTag->getName().toLower();
-    } else if(leftTag->getTagType() == amc::TagType::Compound) {
+    } else if(leftTag->getTagType() == anvil::TagType::Compound) {
         return true;
-    } else if(rightTag->getTagType() == amc::TagType::Compound) {
+    } else if(rightTag->getTagType() == anvil::TagType::Compound) {
         return false;
     } else {
-        if(leftTag->getTagType() == amc::TagType::List
-           && rightTag->getTagType() == amc::TagType::List) {
+        if(leftTag->getTagType() == anvil::TagType::List
+           && rightTag->getTagType() == anvil::TagType::List) {
             return leftTag->getName().toLower() < rightTag->getName().toLower();
-        } else if(leftTag->getTagType() == amc::TagType::List) {
+        } else if(leftTag->getTagType() == anvil::TagType::List) {
             return true;
-        } else if(rightTag->getTagType() == amc::TagType::List) {
+        } else if(rightTag->getTagType() == anvil::TagType::List) {
             return false;
         }
     }

@@ -100,7 +100,7 @@ void NbtTreeItemBase::save()
 
 }
 
-void NbtTreeItemBase::saveAs(const QString &filename, const amc::CompressionType compression)
+void NbtTreeItemBase::saveAs(const QString &filename, const anvil::CompressionType compression)
 {
     Q_UNUSED(filename);
     Q_UNUSED(compression);
@@ -192,7 +192,7 @@ bool NbtTreeItemBase::canAddNbtFile() const
     return false;
 }
 
-bool NbtTreeItemBase::canAddNbtTag(amc::TagType type) const
+bool NbtTreeItemBase::canAddNbtTag(anvil::TagType type) const
 {
     Q_UNUSED(type);
     return false;

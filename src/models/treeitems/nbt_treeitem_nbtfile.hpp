@@ -5,8 +5,8 @@
 #include "nbt_treeitem_base.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/compound_tag.hpp>
-#include <AwesomeMC/util/compression.hpp>
+#include <cpp-anvil/nbt/compound_tag.hpp>
+#include <cpp-anvil/util/compression.hpp>
 
 // Qt
 #include <QString>
@@ -31,7 +31,7 @@ public:
 
     virtual bool canSave() const;
     virtual void save() override;
-    virtual void saveAs(const QString &filename, const amc::CompressionType compression) override;
+    virtual void saveAs(const QString &filename, const anvil::CompressionType compression) override;
 
     virtual bool canRefresh() const override;
     
@@ -46,14 +46,14 @@ public:
     static NbtTreeItemNbtFile* createNewNbtFile(NbtTreeItemBase *parentItem,
                                                 const QString &pathToFile);
 
-    amc::CompressionType getCompression() const;
+    anvil::CompressionType getCompression() const;
 
 private:
     bool m_canFetchData;
     QString m_filename;
     QString m_pathToFile;
-    std::unique_ptr<amc::CompoundTag> m_nbtRootTag;
-    amc::CompressionType m_compressionType;
+    std::unique_ptr<anvil::CompoundTag> m_nbtRootTag;
+    anvil::CompressionType m_compressionType;
 };
 
 } // namespace anv

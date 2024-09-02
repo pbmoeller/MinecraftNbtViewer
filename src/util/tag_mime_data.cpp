@@ -36,14 +36,14 @@ QVariant TagMimeData::retrieveData(const QString &mimeType, QMetaType type) cons
     }
 }
 
-void TagMimeData::setData(const QString &mimeType, std::shared_ptr<amc::AbstractTag> &data)
+void TagMimeData::setData(const QString &mimeType, std::shared_ptr<anvil::BasicTag> &data)
 {
     if(mimeType == TagMimeType) {
         m_tag = data;
     }
 }
 
-std::shared_ptr<amc::AbstractTag> TagMimeData::toTagData() const
+std::shared_ptr<anvil::BasicTag> TagMimeData::toTagData() const
 {
     return m_tag;
 }

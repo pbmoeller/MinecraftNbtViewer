@@ -8,7 +8,7 @@
 #include "util/minecraft_util.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/tags.hpp>
+#include <cpp-anvil/nbt.hpp>
 
 // Qt
 #include <QDir>
@@ -71,7 +71,7 @@ void NbtDataTreeModel::save(const QModelIndex &index)
 
 void NbtDataTreeModel::saveAs(const QModelIndex &index,
                               const QString &saveFilename,
-                              const amc::CompressionType compression)
+                              const anvil::CompressionType compression)
 {
     NbtTreeItemBase *treeItem = fromIndex(index);
     if(treeItem) {
@@ -143,66 +143,69 @@ QModelIndex NbtDataTreeModel::toIndex(NbtTreeItemBase *item, int column) const
     return createIndex(row, column, item);
 }
 
-void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item, amc::TagType type, const QString& name, int size)
+void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item,
+                                 anvil::TagType type, const QString& name, int size)
 {
-    amc::AbstractVectorTag *vectorTag = dynamic_cast<amc::AbstractVectorTag*>(item->getTag());
-    if(vectorTag == nullptr) {
+    if(!anvil::isContainerTag(item->getTagType())) {
         return;
     }
 
-    amc::AbstractTag *newTag = nullptr;
+    // TODO: Maybe check  the list type in advance, so that it is not cerated if it cannot be added.
+
+    std::unique_ptr<anvil::BasicTag> newTag;
     switch(type) {
-        case amc::TagType::Byte:
-            newTag = new amc::ByteTag(name.toStdString());
+        case anvil::TagType::Byte:
+            newTag = std::make_unique<anvil::ByteTag>(name.toStdString());
             break;
-        case amc::TagType::Short:
-            newTag = new amc::ShortTag(name.toStdString());
+        case anvil::TagType::Short:
+            newTag = std::make_unique<anvil::ShortTag>(name.toStdString());
             break;
-        case amc::TagType::Int:
-            newTag = new amc::IntTag(name.toStdString());
+        case anvil::TagType::Int:
+            newTag = std::make_unique<anvil::IntTag>(name.toStdString());
             break;
-        case amc::TagType::Long:
-            newTag = new amc::LongTag(name.toStdString());
+        case anvil::TagType::Long:
+            newTag = std::make_unique<anvil::LongTag>(name.toStdString());
             break;
-        case amc::TagType::Float:
-            newTag = new amc::FloatTag(name.toStdString());
+        case anvil::TagType::Float:
+            newTag = std::make_unique<anvil::FloatTag>(name.toStdString());
             break;
-        case amc::TagType::Double:
-            newTag = new amc::DoubleTag(name.toStdString());
+        case anvil::TagType::Double:
+            newTag = std::make_unique<anvil::DoubleTag>(name.toStdString());
             break;
-        case amc::TagType::ByteArray:
-            newTag = new amc::ByteArrayTag(name.toStdString(), std::vector<int8_t>(size, 0));
+        case anvil::TagType::ByteArray:
+            newTag = std::make_unique<anvil::ByteArrayTag>(name.toStdString(), std::vector<int8_t>(size, 0));
             break;
-        case amc::TagType::String:
-            newTag = new amc::StringTag(name.toStdString());
+        case anvil::TagType::String:
+            newTag = std::make_unique<anvil::StringTag>(name.toStdString());
             break;
-        case amc::TagType::List:
-            newTag = new amc::ListTag(name.toStdString());
+        case anvil::TagType::List:
+            newTag = std::make_unique<anvil::ListTag>(name.toStdString());
             break;
-        case amc::TagType::Compound:
-            newTag = new amc::CompoundTag(name.toStdString());
+        case anvil::TagType::Compound:
+            newTag = std::make_unique<anvil::CompoundTag>(name.toStdString());
             break;
-        case amc::TagType::IntArray:
-            newTag = new amc::IntArrayTag(name.toStdString(), std::vector<int32_t>(size, 0));
+        case anvil::TagType::IntArray:
+            newTag = std::make_unique<anvil::IntArrayTag>(name.toStdString(), std::vector<int32_t>(size, 0));
             break;
-        case amc::TagType::LongArray:
-            newTag = new amc::LongArrayTag(name.toStdString(), std::vector<int64_t>(size, 0));
+        case anvil::TagType::LongArray:
+            newTag = std::make_unique<anvil::LongArrayTag>(name.toStdString(), std::vector<int64_t>(size, 0));
             break;
     }
-    if(newTag == nullptr) {
+    if(!newTag) {
         return;
     }
 
-    if(vectorTag->getType() == amc::TagType::List) {
-        tag_cast<amc::ListTag*>(vectorTag)->setListType(newTag->getType());
+    if(item->getTagType() == anvil::TagType::List) {
+        anvil::tag_cast<anvil::ListTag*>(item->getTag())->push_back(std::move(newTag));
+    } else if(item->getTagType() == anvil::TagType::Compound) {
+        anvil::tag_cast<anvil::CompoundTag*>(item->getTag())->push_back(std::move(newTag));
     }
-    vectorTag->pushBack(newTag);
 
     // Add to model
     NbtTreeItemBase *treeItem = fromIndex(index);
     int pos = treeItem->getChildren().size();
     beginInsertRows(index, pos, pos);
-    addNbtChild(treeItem, newTag);
+    addNbtChild(treeItem, newTag.get());
     endInsertRows();
 
     markItemDirty(treeItem);

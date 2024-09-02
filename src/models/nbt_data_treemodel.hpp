@@ -2,8 +2,8 @@
 #define AWESOMENBTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/tag_type.hpp>
-#include <AwesomeMC/util/compression.hpp>
+#include <cpp-anvil/nbt/types.hpp>
+#include <cpp-anvil/util/compression.hpp>
 
 // Qt
 #include <QSet>
@@ -25,7 +25,7 @@ public:
     void clear();
     void load(const QString &directory);
     void save(const QModelIndex &index);
-    void saveAs(const QModelIndex &index, const QString &saveFilename, const amc::CompressionType compression);
+    void saveAs(const QModelIndex &index, const QString &saveFilename, const anvil::CompressionType compression);
     void saveAll();
     void refresh(const QModelIndex &index);
     bool isModified() const;
@@ -33,7 +33,8 @@ public:
 
     NbtTreeItemBase* fromIndex(const QModelIndex &index) const;
     QModelIndex toIndex(NbtTreeItemBase *item, int column = 0) const;
-    void addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item, amc::TagType type, const QString& name, int size = 0);
+    void addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item,
+                   anvil::TagType type, const QString& name, int size = 0);
     void addNewNbtFile(const QModelIndex &index);
 
     void renameTag(const QModelIndex &index);
