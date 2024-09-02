@@ -10,7 +10,7 @@
 #include "util/validators/int64_validator.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/tags.hpp>
+#include <cpp-anvil/nbt.hpp>
 
 // Qt
 #include <QByteArray>
@@ -28,19 +28,19 @@
 namespace anv
 {
 
-QValidator* createValidator(amc::TagType tagType)
+QValidator* createValidator(anvil::TagType tagType)
 {
-    if(tagType == amc::TagType::Byte) {
+    if(tagType == anvil::TagType::Byte) {
         return new Int8Validator();
-    } else if(tagType == amc::TagType::Short) {
+    } else if(tagType == anvil::TagType::Short) {
         return new Int16Validator();
-    } else if(tagType == amc::TagType::Int) {
+    } else if(tagType == anvil::TagType::Int) {
         return new Int32Validator();
-    } else if(tagType == amc::TagType::Long) {
+    } else if(tagType == anvil::TagType::Long) {
         return new Int64Validator();
-    } else if(tagType == amc::TagType::Float) {
+    } else if(tagType == anvil::TagType::Float) {
         return new FloatValidator();
-    } else if(tagType == amc::TagType::Double) {
+    } else if(tagType == anvil::TagType::Double) {
         return new QDoubleValidator();
     } else {
 
@@ -98,19 +98,19 @@ void EditDialog::accept()
 
     // Check the value if present
     if(m_hasEditField) {
-        amc::TagType tagType = m_treeItem->getTag()->getType();
-        if(tagType == amc::TagType::String) {
+        anvil::TagType tagType = m_treeItem->getTag()->type();
+        if(tagType == anvil::TagType::String) {
             QString value = m_textEdit->toPlainText();
-            amc::StringTag *stringTag = tag_cast<amc::StringTag*>(m_treeItem->getTag());
-            if(stringTag && value.toStdString() != stringTag->getValue()) {
+            anvil::StringTag *stringTag = tag_cast<anvil::StringTag*>(m_treeItem->getTag());
+            if(stringTag && value.toStdString() != stringTag->value()) {
                 stringTag->setValue(value.toStdString());
                 dataChanged = true;
             }
-        } else if(amc::isValueTag(tagType)) {
+        } else if(anvil::isValueTag(tagType)) {
             QString value = m_lineEditValue->text();
 
             dataChanged = checkAndSetValue(value, m_treeItem->getTag());
-        } else if(amc::isArrayTag(tagType)) {
+        } else if(anvil::isArrayTag(tagType)) {
             QString value = m_textEdit->toPlainText();
 
             dataChanged = checkAndSetArrayValue(value, m_treeItem->getTag());
@@ -127,9 +127,9 @@ void EditDialog::accept()
 void EditDialog::setupUi(EditFunction function)
 {
     int currentRow          = 0;
-    amc::TagType tagType    = m_treeItem->getTag()->getType();
+    anvil::TagType tagType    = m_treeItem->getTag()->type();
     m_hasRenameField        = m_treeItem->canRename();
-    m_hasEditField          = m_treeItem->canEdit() && !amc::isContainerTag(tagType);
+    m_hasEditField          = m_treeItem->canEdit() && !anvil::isContainerTag(tagType);
 
     QGridLayout *gLayout = new QGridLayout(this);
 
@@ -138,7 +138,7 @@ void EditDialog::setupUi(EditFunction function)
         QLabel *labelName = new QLabel(tr("Name:"));
         labelName->setAlignment(Qt::AlignLeft | Qt::AlignTop);
         m_lineEditName = new QLineEdit();
-        m_lineEditName->setText(m_treeItem->getTag()->getName().c_str());
+        m_lineEditName->setText(m_treeItem->getTag()->name().c_str());
 
         gLayout->addWidget(labelName, currentRow, 0);
         gLayout->addWidget(m_lineEditName, currentRow, 1);
@@ -152,18 +152,18 @@ void EditDialog::setupUi(EditFunction function)
         labelValue->setAlignment(Qt::AlignLeft | Qt::AlignTop);
         gLayout->addWidget(labelValue, currentRow, 0);
 
-        if(tagType == amc::TagType::String) {
+        if(tagType == anvil::TagType::String) {
             m_textEdit = new QTextEdit();
             m_textEdit->setText(valueToString());
 
             gLayout->addWidget(m_textEdit, currentRow, 1);
-        } else if(amc::isValueTag(tagType)) {
+        } else if(anvil::isValueTag(tagType)) {
             m_lineEditValue = new QLineEdit();
             m_lineEditValue->setText(valueToString());
             m_lineEditValue->setValidator(createValidator(tagType));
 
             gLayout->addWidget(m_lineEditValue, currentRow, 1);
-        } else if(amc::isArrayTag(tagType)) {
+        } else if(anvil::isArrayTag(tagType)) {
             m_textEdit = new QTextEdit();
             m_textEdit->setText(arrayToString());
 
@@ -198,20 +198,20 @@ void EditDialog::setupUi(EditFunction function)
         m_lineEditName->setFocus(Qt::OtherFocusReason);
         m_lineEditName->selectAll();
     } else if(m_hasEditField && function == EditFunction::EditValue) {
-        if(tagType == amc::TagType::String) {
+        if(tagType == anvil::TagType::String) {
             m_textEdit->setFocus(Qt::OtherFocusReason);
             m_textEdit->selectAll();
-        } else if(amc::isValueTag(tagType)) {
+        } else if(anvil::isValueTag(tagType)) {
             m_lineEditValue->setFocus(Qt::OtherFocusReason);
             m_lineEditValue->selectAll();
-        } else if(amc::isContainerTag(tagType)) {
+        } else if(anvil::isContainerTag(tagType)) {
             m_lineEditName->setFocus(Qt::OtherFocusReason);
             m_lineEditName->selectAll();
         }
     }
 
     // Set WindowTitle and Icon
-    setWindowTitle(tr("Edit %1 value").arg(amc::getTagName(tagType).c_str()));
+    setWindowTitle(tr("Edit %1 value").arg(anvil::getTagName(tagType).data()));
     setWindowIcon(IconProvider::icon(tagType, IconProvider::Size16));
 
     // Set thw window size.
@@ -227,21 +227,21 @@ void EditDialog::setupUi(EditFunction function)
 
 QString EditDialog::valueToString() const
 {
-    switch(m_treeItem->getTag()->getType()) {
-        case amc::TagType::Byte:
-            return QString::number(tag_cast<amc::ByteTag*>(m_treeItem->getTag())->getValue());
-        case amc::TagType::Short:
-            return QString::number(tag_cast<amc::ShortTag*>(m_treeItem->getTag())->getValue());
-        case amc::TagType::Int:
-            return QString::number(tag_cast<amc::IntTag*>(m_treeItem->getTag())->getValue());
-        case amc::TagType::Long:
-            return QString::number(tag_cast<amc::LongTag*>(m_treeItem->getTag())->getValue());
-        case amc::TagType::Float:
-            return QString::number(tag_cast<amc::FloatTag*>(m_treeItem->getTag())->getValue(), 'g', 6);
-        case amc::TagType::Double:
-            return QString::number(tag_cast<amc::DoubleTag*>(m_treeItem->getTag())->getValue(), 'g', 16);
-        case amc::TagType::String:
-            return QString(tag_cast<amc::StringTag*>(m_treeItem->getTag())->getValue().c_str());
+    switch(m_treeItem->getTag()->type()) {
+        case anvil::TagType::Byte:
+            return QString::number(tag_cast<anvil::ByteTag*>(m_treeItem->getTag())->value());
+        case anvil::TagType::Short:
+            return QString::number(tag_cast<anvil::ShortTag*>(m_treeItem->getTag())->value());
+        case anvil::TagType::Int:
+            return QString::number(tag_cast<anvil::IntTag*>(m_treeItem->getTag())->value());
+        case anvil::TagType::Long:
+            return QString::number(tag_cast<anvil::LongTag*>(m_treeItem->getTag())->value());
+        case anvil::TagType::Float:
+            return QString::number(tag_cast<anvil::FloatTag*>(m_treeItem->getTag())->value(), 'g', 6);
+        case anvil::TagType::Double:
+            return QString::number(tag_cast<anvil::DoubleTag*>(m_treeItem->getTag())->value(), 'g', 16);
+        case anvil::TagType::String:
+            return QString(tag_cast<anvil::StringTag*>(m_treeItem->getTag())->value().c_str());
         default:
             break;
     }
@@ -251,11 +251,11 @@ QString EditDialog::valueToString() const
 QString EditDialog::arrayToString() const
 {
     QByteArray out;
-    switch(m_treeItem->getTag()->getType()) {
-        case amc::TagType::ByteArray:
+    switch(m_treeItem->getTag()->type()) {
+        case anvil::TagType::ByteArray:
         {
             int numbersPerLine = 16;
-            amc::ByteArrayTag *byteArray = tag_cast<amc::ByteArrayTag*>(m_treeItem->getTag());
+            anvil::ByteArrayTag *byteArray = tag_cast<anvil::ByteArrayTag*>(m_treeItem->getTag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>((*byteArray)[i]), 10) + "  ";
 
@@ -266,10 +266,10 @@ QString EditDialog::arrayToString() const
 
             break;
         }
-        case amc::TagType::IntArray:
+        case anvil::TagType::IntArray:
         {
             int numbersPerLine = 4;
-            amc::IntArrayTag *byteArray = tag_cast<amc::IntArrayTag*>(m_treeItem->getTag());
+            anvil::IntArrayTag *byteArray = tag_cast<anvil::IntArrayTag*>(m_treeItem->getTag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>(((*byteArray)[i])), 10) + "  ";
 
@@ -280,10 +280,10 @@ QString EditDialog::arrayToString() const
 
             break;
         }
-        case amc::TagType::LongArray:
+        case anvil::TagType::LongArray:
         {
             int numbersPerLine = 2;
-            amc::LongArrayTag *byteArray = tag_cast<amc::LongArrayTag*>(m_treeItem->getTag());
+            anvil::LongArrayTag *byteArray = tag_cast<anvil::LongArrayTag*>(m_treeItem->getTag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>((*byteArray)[i]), 10) + "  ";
 
@@ -299,66 +299,66 @@ QString EditDialog::arrayToString() const
     return out;
 }
 
-bool EditDialog::checkAndSetValue(const QString &value, amc::AbstractTag *tag)
+bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
 {
     bool ok = false;
     bool dataChanged = false;
-    switch(tag->getType()) {
-        case amc::TagType::Byte:
+    switch(tag->type()) {
+        case anvil::TagType::Byte:
         {
             int8_t newValue = static_cast<int8_t>(value.toInt(&ok));
-            amc::ByteTag *byteTag = amc::tag_cast<amc::ByteTag*>(tag);
-            if(ok && byteTag->getValue() != newValue) {
+            anvil::ByteTag *byteTag = anvil::tag_cast<anvil::ByteTag*>(tag);
+            if(ok && byteTag->value() != newValue) {
                 byteTag->setValue(newValue);
                 dataChanged = true;
             }
             break;
         }
-        case amc::TagType::Short:
+        case anvil::TagType::Short:
         {
             int16_t newValue = value.toShort(&ok);
-            amc::ShortTag *shortTag = amc::tag_cast<amc::ShortTag*>(tag);
-            if(ok && shortTag->getValue() != newValue) {
+            anvil::ShortTag *shortTag = anvil::tag_cast<anvil::ShortTag*>(tag);
+            if(ok && shortTag->value() != newValue) {
                 shortTag->setValue(newValue);
                 dataChanged = true;
             }
             break;
         }
-        case amc::TagType::Int:
+        case anvil::TagType::Int:
         {
             int32_t newValue = value.toInt(&ok);
-            amc::IntTag *intTag = amc::tag_cast<amc::IntTag*>(tag);
-            if(ok && intTag->getValue() != newValue) {
+            anvil::IntTag *intTag = anvil::tag_cast<anvil::IntTag*>(tag);
+            if(ok && intTag->value() != newValue) {
                 intTag->setValue(newValue);
                 dataChanged = true;
             }
             break;
         }
-        case amc::TagType::Long:
+        case anvil::TagType::Long:
         {
             int64_t newValue = value.toLongLong(&ok);
-            amc::LongTag *longTag = amc::tag_cast<amc::LongTag*>(tag);
-            if(ok && longTag->getValue() != newValue) {
+            anvil::LongTag *longTag = anvil::tag_cast<anvil::LongTag*>(tag);
+            if(ok && longTag->value() != newValue) {
                 longTag->setValue(newValue);
                 dataChanged = true;
             }
             break;
         }
-        case amc::TagType::Float:
+        case anvil::TagType::Float:
         {
             float newValue = value.toFloat(&ok);
-            amc::FloatTag *floatTag = amc::tag_cast<amc::FloatTag*>(tag);
-            if(ok && floatTag->getValue() != newValue) {
+            anvil::FloatTag *floatTag = anvil::tag_cast<anvil::FloatTag*>(tag);
+            if(ok && floatTag->value() != newValue) {
                 floatTag->setValue(newValue);
                 dataChanged = true;
             }
             break;
         }
-        case amc::TagType::Double:
+        case anvil::TagType::Double:
         {
             double newValue = value.toDouble(&ok);
-            amc::DoubleTag *doubleTag = amc::tag_cast<amc::DoubleTag*>(tag);
-            if(ok && doubleTag->getValue() != newValue) {
+            anvil::DoubleTag *doubleTag = anvil::tag_cast<anvil::DoubleTag*>(tag);
+            if(ok && doubleTag->value() != newValue) {
                 doubleTag->setValue(newValue);
                 dataChanged = true;
             }
@@ -373,15 +373,15 @@ bool EditDialog::checkAndSetValue(const QString &value, amc::AbstractTag *tag)
     return dataChanged;
 }
 
-bool EditDialog::checkAndSetArrayValue(const QString &value, amc::AbstractTag *tag)
+bool EditDialog::checkAndSetArrayValue(const QString &value, anvil::BasicTag *tag)
 {
     bool dataChanged = false;
     bool setNewValues = true;
     bool oneOrMoreInvalidValues = false;
-    switch(tag->getType()) {
-        case amc::TagType::ByteArray:
+    switch(tag->type()) {
+        case anvil::TagType::ByteArray:
         {
-            amc::ByteArrayTag *arrTag = dynamic_cast<amc::ByteArrayTag*>(tag);
+            anvil::ByteArrayTag *arrTag = dynamic_cast<anvil::ByteArrayTag*>(tag);
             if(!arrTag) {
                 return false;
             }
@@ -406,16 +406,16 @@ bool EditDialog::checkAndSetArrayValue(const QString &value, amc::AbstractTag *t
                 }
             }
 
-            if(setNewValues && arrTag->getValue() != byteArray) {
+            if(setNewValues && arrTag->value() != byteArray) {
                 arrTag->setValue(byteArray);
                 dataChanged = true;
             }
 
             break;
         }
-        case amc::TagType::IntArray:
+        case anvil::TagType::IntArray:
         {
-            amc::IntArrayTag *arrTag = dynamic_cast<amc::IntArrayTag*>(tag);
+            anvil::IntArrayTag *arrTag = dynamic_cast<anvil::IntArrayTag*>(tag);
             if(!arrTag) {
                 return false;
             }
@@ -440,16 +440,16 @@ bool EditDialog::checkAndSetArrayValue(const QString &value, amc::AbstractTag *t
                 }
             }
 
-            if(setNewValues && arrTag->getValue() != intArray) {
+            if(setNewValues && arrTag->value() != intArray) {
                 arrTag->setValue(intArray);
                 dataChanged = true;
             }
 
             break;
         }
-        case amc::TagType::LongArray:
+        case anvil::TagType::LongArray:
         {
-            amc::LongArrayTag *arrTag = dynamic_cast<amc::LongArrayTag*>(tag);
+            anvil::LongArrayTag *arrTag = dynamic_cast<anvil::LongArrayTag*>(tag);
             if(!arrTag) {
                 return false;
             }
@@ -474,7 +474,7 @@ bool EditDialog::checkAndSetArrayValue(const QString &value, amc::AbstractTag *t
                 }
             }
 
-            if(setNewValues && arrTag->getValue() != longArray) {
+            if(setNewValues && arrTag->value() != longArray) {
                 arrTag->setValue(longArray);
                 dataChanged = true;
             }

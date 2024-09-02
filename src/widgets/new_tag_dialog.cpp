@@ -4,7 +4,7 @@
 #include "util/iconprovider.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/tag_type.hpp>
+#include <cpp-anvil/nbt/types.hpp>
 
 // Qt
 #include <QMessageBox>
@@ -17,7 +17,7 @@ namespace anv
 {
 
 NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem,
-                           amc::TagType newItemTagType, 
+                           anvil::TagType newItemTagType,
                            QWidget *parent)
     : QDialog(parent)
     , m_ui(new Ui::NewTagDialog)
@@ -27,16 +27,16 @@ NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem,
     m_ui->sizeEdit->setValidator(new QIntValidator(0, std::numeric_limits<int>::max(), this));
     m_ui->sizeEdit->setText("0");
 
-    if(!(newItemTagType == amc::TagType::ByteArray
-         || newItemTagType == amc::TagType::IntArray
-         || newItemTagType == amc::TagType::LongArray))
+    if(!(newItemTagType == anvil::TagType::ByteArray
+         || newItemTagType == anvil::TagType::IntArray
+         || newItemTagType == anvil::TagType::LongArray))
     {
         m_ui->sizeLabel->setEnabled(false);
         m_ui->sizeEdit->setEnabled(false);
     }
 
     setWindowIcon(IconProvider::icon(newItemTagType, IconProvider::Size16));
-    setWindowTitle(QString("Add %1").arg(amc::getTagName(newItemTagType).c_str()));
+    setWindowTitle(QString("Add %1").arg(anvil::getTagName(newItemTagType).data()));
 }
 
 NewTagDialog::~NewTagDialog()

@@ -4,8 +4,7 @@
 #include "treeitem_util.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/nbt/nbt_read.hpp>
-#include <AwesomeMC/nbt/nbt_write.hpp>
+#include <cpp-anvil/nbt/io.hpp>
 
 namespace anv
 {
@@ -17,7 +16,7 @@ NbtTreeItemNbtFile::NbtTreeItemNbtFile(NbtTreeItemBase *parentItem,
     , m_canFetchData(true)
     , m_filename(filename)
     , m_pathToFile(pathToFile)
-    , m_compressionType(amc::CompressionType::GZip)
+    , m_compressionType(anvil::CompressionType::Gzip)
 {
 
 }
@@ -37,13 +36,13 @@ QString NbtTreeItemNbtFile::getLabel() const
     QString label = m_filename;
     if(!m_canFetchData) {
         switch(m_compressionType) {
-            case amc::CompressionType::GZip:
-                label += " (GZip)";
+            case anvil::CompressionType::Gzip:
+                label += " (Gzip)";
                 break;
-            case amc::CompressionType::Zlib:
+            case anvil::CompressionType::Zlib:
                 label += " (Zlib)";
                 break;
-            case amc::CompressionType::Uncompressed:
+            case anvil::CompressionType::Uncompressed:
                 label += " (No compression)";
                 break;
         }
@@ -64,16 +63,16 @@ void NbtTreeItemNbtFile::save()
         fetchMore();
     }
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    amc::writeNbtFile(filename, m_nbtRootTag.get(), m_compressionType);
+    anvil::saveToFile(filename, m_nbtRootTag.get(), m_compressionType);
 }
 
-void NbtTreeItemNbtFile::saveAs(const QString &filename, const amc::CompressionType compression)
+void NbtTreeItemNbtFile::saveAs(const QString &filename, const anvil::CompressionType compression)
 {
     // Fetch data first if not already done or the root tag is empty.
     if(canFetchMore()) {
         fetchMore();
     }
-    amc::writeNbtFile(filename.toStdString(), m_nbtRootTag.get(), compression);
+    anvil::saveToFile(filename.toStdString(), m_nbtRootTag.get(), compression);
 }
 
 bool NbtTreeItemNbtFile::canRefresh() const
@@ -102,9 +101,9 @@ void NbtTreeItemNbtFile::fetchMore()
 
     // Read NBT data
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    m_nbtRootTag = amc::readNbtFile(filename, m_compressionType);
+    m_nbtRootTag = anvil::loadFromFile(filename, m_compressionType);
     if(m_nbtRootTag) {
-        amc::CompoundTag *tag = amc::tag_cast<amc::CompoundTag*>(m_nbtRootTag.get());
+        anvil::CompoundTag *tag = anvil::tag_cast<anvil::CompoundTag*>(m_nbtRootTag.get());
         addNbtChild(this, tag);
         /*for(amc::AbstractTag *childTag : tag->getValue()) {
             addNbtChild(this, childTag);
@@ -128,14 +127,14 @@ NbtTreeItemNbtFile* NbtTreeItemNbtFile::createNewNbtFile(NbtTreeItemBase *parent
 
     NbtTreeItemNbtFile *newItem = new NbtTreeItemNbtFile(parentItem, QString(), pathToFile);
     newItem->m_canFetchData = false;
-    newItem->m_compressionType = amc::CompressionType::Uncompressed;
-    newItem->m_nbtRootTag = std::make_unique<amc::CompoundTag>();
+    newItem->m_compressionType = anvil::CompressionType::Uncompressed;
+    newItem->m_nbtRootTag = std::make_unique<anvil::CompoundTag>();
     addNbtChild(newItem, newItem->m_nbtRootTag.get());
 
     return newItem;
 }
 
-amc::CompressionType NbtTreeItemNbtFile::getCompression() const
+anvil::CompressionType NbtTreeItemNbtFile::getCompression() const
 {
     return m_compressionType;
 }

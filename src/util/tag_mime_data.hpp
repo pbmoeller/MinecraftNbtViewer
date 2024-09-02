@@ -2,7 +2,7 @@
 #define AWESOMENBTVIEWER_UTIL_TAG_MIME_DATA_HPP
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/abstract_tag.hpp>
+#include <cpp-anvil/nbt/basic_tag.hpp>
 
 // Qt
 #include <QMetaType>
@@ -12,7 +12,7 @@
 #include <memory>
 
 Q_DECLARE_SMART_POINTER_METATYPE(std::shared_ptr);
-Q_DECLARE_METATYPE(std::shared_ptr<amc::AbstractTag>);
+Q_DECLARE_METATYPE(std::shared_ptr<anvil::BasicTag>);
 
 namespace anv
 {
@@ -29,11 +29,11 @@ public:
     virtual QStringList formats() const;
     virtual bool hasFormat(const QString &mimeType) const;
     virtual QVariant retrieveData(const QString &mimeType, QMetaType type) const;
-    void setData(const QString &mimeType, std::shared_ptr<amc::AbstractTag> &data);
-    std::shared_ptr<amc::AbstractTag> toTagData() const;
+    void setData(const QString &mimeType, std::shared_ptr<anvil::BasicTag> &data);
+    std::shared_ptr<anvil::BasicTag> toTagData() const;
 
 private:
-    std::shared_ptr<amc::AbstractTag> m_tag;
+    std::shared_ptr<anvil::BasicTag> m_tag;
     QStringList m_formats;
 };
 

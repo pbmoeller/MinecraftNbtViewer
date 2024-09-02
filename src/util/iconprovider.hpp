@@ -2,7 +2,7 @@
 #define AWESOMENBTVIEWER_UTIL_ICONPROVIDER_HPP
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/tag_type.hpp>
+#include <cpp-anvil/nbt/types.hpp>
 
 // Qt
 #include <QIcon>
@@ -60,7 +60,7 @@ public:
     IconProvider();
 
     static QIcon icon(IconType iconType, IconSize iconSize = Size16);
-    static QIcon icon(amc::TagType tagType, IconSize iconSize = Size16);
+    static QIcon icon(anvil::TagType tagType, IconSize iconSize = Size16);
 };
 
 } // namespace anv

@@ -57,12 +57,11 @@ void NbtTreeItemRegionFile::fetchMore()
 
     // Initialize Region
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    m_region = std::make_unique<amc::Region>();
+    m_region = std::make_unique<anvil::Region>();
     m_region->loadPartiallyFromFile(filename);
-    for(unsigned int index = 0; index < amc::ChunkCount; ++index)
+    for(unsigned int index = 0; index < anvil::Region::Chunks; ++index)
     {
-        amc::ChunkInfo &info = m_region->getRegionHeader().getChunkInfoAt(index);
-        if(!info.isEmpty()) {
+        if(m_region->isChunkLoadable(index)) {
             new NbtTreeItemRegionChunk(this, m_region.get(), index);
         }
     }

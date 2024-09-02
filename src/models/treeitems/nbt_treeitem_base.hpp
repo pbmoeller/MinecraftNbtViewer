@@ -5,8 +5,8 @@
 #include "models/nbt_data_treemodel.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/abstract_tag.hpp>
-#include <AwesomeMC/util/compression.hpp>
+#include <cpp-anvil/nbt/types.hpp>
+#include <cpp-anvil/util/compression.hpp>
 
 // Qt
 #include <QVector>
@@ -35,7 +35,7 @@ public:
 
     virtual bool canSave() const;
     virtual void save();
-    virtual void saveAs(const QString &filename, const amc::CompressionType compression);
+    virtual void saveAs(const QString &filename, const anvil::CompressionType compression);
 
     virtual bool canRefresh() const;
 
@@ -60,7 +60,7 @@ public:
     virtual void swap(int indexA, int indexB);
 
     virtual bool canAddNbtFile() const;
-    virtual bool canAddNbtTag(amc::TagType type) const;
+    virtual bool canAddNbtTag(anvil::TagType type) const;
 
     virtual bool canOpenInExplorer() const;
     virtual QString getPath() const;
