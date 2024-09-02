@@ -5,7 +5,7 @@
 #include "nbt_treeitem_base.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/anvil/region.hpp>
+#include <cpp-anvil/anvil/region.hpp>
 
 // Qt
 #include <QString>
@@ -40,7 +40,7 @@ private:
     bool m_canFetchData;
     QString m_filename;
     QString m_pathToFile;
-    std::unique_ptr<amc::Region> m_region;
+    std::unique_ptr<anvil::Region> m_region;
 };
 
 } // namespace anv

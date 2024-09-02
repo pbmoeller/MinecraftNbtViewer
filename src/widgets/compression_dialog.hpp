@@ -2,7 +2,7 @@
 #define AWESOMENBTVIEWER_COMPRESSION_DIALOG_HPP
 
 // AwesomeMC
-#include <AwesomeMC/util/compression.hpp>
+#include <cpp-anvil/util/compression.hpp>
 
 // Qt
 #include <QDialog>
@@ -20,11 +20,11 @@ class CompressionDialog : public QDialog
     Q_OBJECT
 
 public:
-    CompressionDialog(const amc::CompressionType compression,
+    CompressionDialog(const anvil::CompressionType compression,
                       QWidget *parent = nullptr);
     virtual ~CompressionDialog();
 
-    amc::CompressionType getSelectedCompressionType() const;
+    anvil::CompressionType getSelectedCompressionType() const;
 
 private:
     Ui::CompressionDialog *m_ui;

@@ -3,13 +3,14 @@
 #include "treeitem_util.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/util/conversion.hpp>
+#include <cpp-anvil/anvil/coordinates.hpp>
+//#include <AwesomeMC/util/conversion.hpp>
 
 namespace anv
 {
 
 NbtTreeItemRegionChunk::NbtTreeItemRegionChunk(NbtTreeItemBase *parentItem,
-                                               amc::Region *region,
+                                               anvil::Region *region,
                                                unsigned int index)
     : NbtTreeItemBase(parentItem)
     , m_canFetchData(true)
@@ -38,12 +39,12 @@ QIcon NbtTreeItemRegionChunk::getIcon() const
 
 QString NbtTreeItemRegionChunk::getLabel() const
 {
-    auto [chunkX, chunkZ] = amc::xzFromChunkIndex(m_index);
-    int wX;
-    int wZ;
-    amc::convertChunkRegion2ChunkWorld(chunkX, chunkZ, m_parentRegion->getX(), m_parentRegion->getZ(), wX, wZ);
+    anvil::Vec2 chunkCoord = m_parentRegion->fromIndex(m_index);
+    anvil::Vec2 regionCoord = m_parentRegion->xz();
+    anvil::Vec2 worldCoord = anvil::chunkRegion2ChunkWorld(chunkCoord, regionCoord);
 
-    return QString("Chunk [%1, %2]    -> in world (%3, %4)").arg(chunkX).arg(chunkZ).arg(wX).arg(wZ);
+    return QString("Chunk [%1, %2]    -> in world (%3, %4)")
+        .arg(chunkCoord.x).arg(chunkCoord.z).arg(worldCoord.x).arg(worldCoord.z);
 }
 
 bool NbtTreeItemRegionChunk::canFetchMore() const
@@ -57,11 +58,11 @@ void NbtTreeItemRegionChunk::fetchMore()
 
     // Load Chunk in Region
     m_parentRegion->loadChunkAt(m_index);
-    amc::Chunk &chunk = m_parentRegion->getChunkAt(m_index);
-    amc::CompoundTag *tag = chunk.getRootTag();
+    anvil::Chunk &chunk = m_parentRegion->chunkAt(m_index);
+    anvil::CompoundTag *tag = chunk.getRootTag();
     if(tag) {
-        for(amc::AbstractTag *childTag : tag->getValue()) {
-            addNbtChild(this, childTag);
+        for(std::unique_ptr<anvil::BasicTag> &childTag : tag->value()) {
+            addNbtChild(this, childTag.get());
         }
         sort();
     }

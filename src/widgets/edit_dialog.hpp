@@ -2,8 +2,7 @@
 #define AWESOMENBTVIEWER_WIDGETS_EDIT_DIALOG_HPP
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/tag_type.hpp>
-#include <AwesomeMC/nbt/tags/abstract_tag.hpp>
+#include <cpp-anvil/nbt/basic_tag.hpp>
 
 // Qt
 #include <QDialog>
@@ -46,8 +45,8 @@ private:
     void setupUi(EditFunction function);
     QString valueToString() const;
     QString arrayToString() const;
-    bool checkAndSetValue(const QString &value, amc::AbstractTag *tag);
-    bool checkAndSetArrayValue(const QString &value, amc::AbstractTag *tag);
+    bool checkAndSetValue(const QString &value, anvil::BasicTag *tag);
+    bool checkAndSetArrayValue(const QString &value, anvil::BasicTag *tag);
 
 private:
     // Data

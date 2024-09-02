@@ -4,7 +4,7 @@
 #include "version.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/version.hpp>
+#include <cpp-anvil/version.hpp>
 
 // Qt
 #include <QApplication>
@@ -14,9 +14,9 @@
 
 int main(int argc, char **argv)
 {
-    std::cout << "AwesomeMC Version: " << amc::getVersion() << std::endl;
+    std::cout << "AwesomeMC Version: " << anvil::getCppAnvilVersion() << std::endl;
     std::cout << "AwesomeNbtViewer Version: " << anv::getVersion() << std::endl;
-    qRegisterMetaType<std::shared_ptr<amc::AbstractTag>>();
+    qRegisterMetaType<std::shared_ptr<anvil::BasicTag>>();
 
     QCoreApplication::setApplicationName("Awesome Nbt Viewer");
     QCoreApplication::setApplicationVersion(anv::getVersion());

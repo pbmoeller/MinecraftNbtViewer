@@ -252,62 +252,62 @@ void MainWindow::moveDown()
 
 void MainWindow::addByteTag()
 {
-    addNbtTag(amc::TagType::Byte);
+    addNbtTag(anvil::TagType::Byte);
 }
 
 void MainWindow::addShortTag()
 {
-    addNbtTag(amc::TagType::Short);
+    addNbtTag(anvil::TagType::Short);
 }
 
 void MainWindow::addIntTag()
 {
-    addNbtTag(amc::TagType::Int);
+    addNbtTag(anvil::TagType::Int);
 }
 
 void MainWindow::addLongTag()
 {
-    addNbtTag(amc::TagType::Long);
+    addNbtTag(anvil::TagType::Long);
 }
 
 void MainWindow::addFloatTag()
 {
-    addNbtTag(amc::TagType::Float);
+    addNbtTag(anvil::TagType::Float);
 }
 
 void MainWindow::addDoubleTag()
 {
-    addNbtTag(amc::TagType::Double);
+    addNbtTag(anvil::TagType::Double);
 }
 
 void MainWindow::addStringTag()
 {
-    addNbtTag(amc::TagType::String);
+    addNbtTag(anvil::TagType::String);
 }
 
 void MainWindow::addByteArrayTag()
 {
-    addNbtTag(amc::TagType::ByteArray);
+    addNbtTag(anvil::TagType::ByteArray);
 }
 
 void MainWindow::addIntArrayTag()
 {
-    addNbtTag(amc::TagType::IntArray);
+    addNbtTag(anvil::TagType::IntArray);
 }
 
 void MainWindow::addLongArrayTag()
 {
-    addNbtTag(amc::TagType::LongArray);
+    addNbtTag(anvil::TagType::LongArray);
 }
 
 void MainWindow::addListTag()
 {
-    addNbtTag(amc::TagType::List);
+    addNbtTag(anvil::TagType::List);
 }
 
 void MainWindow::addCompoundTag()
 {
-    addNbtTag(amc::TagType::Compound);
+    addNbtTag(anvil::TagType::Compound);
 }
 
 void MainWindow::initConnections()
@@ -378,7 +378,7 @@ bool MainWindow::userReallyWantsToQuit()
     return true;
 }
 
-void MainWindow::addNbtTag(amc::TagType tagType)
+void MainWindow::addNbtTag(anvil::TagType tagType)
 {
     QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
     if(index.isValid()) {
@@ -388,7 +388,7 @@ void MainWindow::addNbtTag(amc::TagType tagType)
             return;
         }
 
-        if(tagItem->getTagType() == amc::TagType::List) {
+        if(tagItem->getTagType() == anvil::TagType::List) {
             m_nbtTreeModel->addNbtTag(index, tagItem, tagType, QString());
         } else {
             qDebug() << "Launch Dialog for new Tag!";
@@ -423,18 +423,18 @@ void MainWindow::updateActions()
         m_ui->actionMoveUp->setEnabled(treeItem->canMoveUp());
         m_ui->actionMoveDown->setEnabled(treeItem->canMoveDown());
 
-        m_ui->actionAdd_ByteTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Byte));
-        m_ui->actionAdd_ShortTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Short));
-        m_ui->actionAdd_IntTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Int));
-        m_ui->actionAdd_LongTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Long));
-        m_ui->actionAdd_FloatTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Float));
-        m_ui->actionAdd_DoubleTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Double));
-        m_ui->actionAdd_StringTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::String));
-        m_ui->actionAdd_ByteArrayTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::ByteArray));
-        m_ui->actionAdd_IntArrayTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::IntArray));
-        m_ui->actionAdd_LongArrayTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::LongArray));
-        m_ui->actionAdd_ListTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::List));
-        m_ui->actionAdd_CompoundTag->setEnabled(treeItem->canAddNbtTag(amc::TagType::Compound));
+        m_ui->actionAdd_ByteTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Byte));
+        m_ui->actionAdd_ShortTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Short));
+        m_ui->actionAdd_IntTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Int));
+        m_ui->actionAdd_LongTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Long));
+        m_ui->actionAdd_FloatTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Float));
+        m_ui->actionAdd_DoubleTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Double));
+        m_ui->actionAdd_StringTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::String));
+        m_ui->actionAdd_ByteArrayTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::ByteArray));
+        m_ui->actionAdd_IntArrayTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::IntArray));
+        m_ui->actionAdd_LongArrayTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::LongArray));
+        m_ui->actionAdd_ListTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::List));
+        m_ui->actionAdd_CompoundTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Compound));
     }
 }
 
@@ -505,40 +505,40 @@ void MainWindow::showCustomContextMenu(const QPoint &pos)
 
     // Add Tags
     QList<QAction*> addTagActions;
-    if(treeItem->canAddNbtTag(amc::TagType::Byte)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::Byte)) {
         addTagActions.append(m_ui->actionAdd_ByteTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::Short)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::Short)) {
         addTagActions.append(m_ui->actionAdd_ShortTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::Int)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::Int)) {
         addTagActions.append(m_ui->actionAdd_IntTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::Long)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::Long)) {
         addTagActions.append(m_ui->actionAdd_LongTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::Float)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::Float)) {
         addTagActions.append(m_ui->actionAdd_FloatTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::Double)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::Double)) {
         addTagActions.append(m_ui->actionAdd_DoubleTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::String)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::String)) {
         addTagActions.append(m_ui->actionAdd_StringTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::ByteArray)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::ByteArray)) {
         addTagActions.append(m_ui->actionAdd_ByteArrayTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::IntArray)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::IntArray)) {
         addTagActions.append(m_ui->actionAdd_IntArrayTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::LongArray)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::LongArray)) {
         addTagActions.append(m_ui->actionAdd_LongArrayTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::List)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::List)) {
         addTagActions.append(m_ui->actionAdd_ListTag);
     }
-    if(treeItem->canAddNbtTag(amc::TagType::Compound)) {
+    if(treeItem->canAddNbtTag(anvil::TagType::Compound)) {
         addTagActions.append(m_ui->actionAdd_CompoundTag);
     }
     if(!addTagActions.isEmpty()) {

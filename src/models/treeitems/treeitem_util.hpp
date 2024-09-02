@@ -5,13 +5,13 @@
 #include "nbt_treeitem_nbttag.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/nbt/tags/abstract_tag.hpp>
+#include <cpp-anvil/nbt/basic_tag.hpp>
 
 namespace anv
 {
 
 void addNbtChild(NbtTreeItemBase *parentItem,
-                 amc::AbstractTag *tag);
+                 anvil::BasicTag *tag);
 
 bool treeItemNbtTagCompare(NbtTreeItemBase *left,
                            NbtTreeItemBase *right);

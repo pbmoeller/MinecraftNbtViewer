@@ -5,7 +5,7 @@
 #include "nbt_treeitem_base.hpp"
 
 // AwesomeMC
-#include <AwesomeMC/anvil/region.hpp>
+#include <cpp-anvil/anvil/region.hpp>
 
 // Qt
 #include <QString>
@@ -21,7 +21,7 @@ class NbtTreeItemRegionChunk : public NbtTreeItemBase
 {
 public:
     NbtTreeItemRegionChunk(NbtTreeItemBase *parentItem,
-                           amc::Region *region,
+                           anvil::Region *region,
                            unsigned int index);
     ~NbtTreeItemRegionChunk();
 
@@ -36,7 +36,7 @@ public:
 private:
     bool m_canFetchData;
     unsigned int m_index;
-    amc::Region *m_parentRegion;
+    anvil::Region *m_parentRegion;
 };
 
 } // namespace anv

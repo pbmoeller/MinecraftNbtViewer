@@ -112,7 +112,7 @@ target_include_directories(AwesomeNbtViewer
 )
 
 target_link_libraries(AwesomeNbtViewer 
-    PRIVATE AwesomeMC
+    PRIVATE cppAnvil::cppAnvil
     PRIVATE Qt6::Widgets Qt6::Core
 )
 

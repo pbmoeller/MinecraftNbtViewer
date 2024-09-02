@@ -217,35 +217,35 @@ QIcon IconProvider::icon(IconType iconType, IconSize iconSize)
     return QIcon();
 }
 
-QIcon IconProvider::icon(amc::TagType tagType, IconSize iconSize)
+QIcon IconProvider::icon(anvil::TagType tagType, IconSize iconSize)
 {
     switch(tagType) {
-        case amc::TagType::Byte:
+        case anvil::TagType::Byte:
             return icon(ByteTag, iconSize);
-        case amc::TagType::Short:
+        case anvil::TagType::Short:
             return icon(ShortTag, iconSize);
-        case amc::TagType::Int:
+        case anvil::TagType::Int:
             return icon(IntTag, iconSize);
-        case amc::TagType::Long:
+        case anvil::TagType::Long:
             return icon(LongTag, iconSize);
-        case amc::TagType::Float:
+        case anvil::TagType::Float:
             return icon(FloatTag, iconSize);
-        case amc::TagType::Double:
+        case anvil::TagType::Double:
             return icon(DoubleTag, iconSize);
-        case amc::TagType::ByteArray:
+        case anvil::TagType::ByteArray:
             return icon(ByteArrayTag, iconSize);
-        case amc::TagType::String:
+        case anvil::TagType::String:
             return icon(StringTag, iconSize);
-        case amc::TagType::List:
+        case anvil::TagType::List:
             return icon(ListTag, iconSize);
-        case amc::TagType::Compound:
+        case anvil::TagType::Compound:
             return icon(CompoundTag, iconSize);
-        case amc::TagType::IntArray:
+        case anvil::TagType::IntArray:
             return icon(IntArrayTag, iconSize);
-        case amc::TagType::LongArray:
+        case anvil::TagType::LongArray:
             return icon(LongArrayTag, iconSize);
-        case amc::TagType::End:
-        case amc::TagType::Unknown:
+        case anvil::TagType::End:
+        case anvil::TagType::Unknown:
         default:
             return icon(EmptyFile, iconSize);
     }
