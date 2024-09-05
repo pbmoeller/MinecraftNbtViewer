@@ -1,9 +1,14 @@
-### Includes
-set(ANV_CORE_HEADER
-    "core/minecraft_nbt_viewer_app.hpp"
+
+configure_file(
+    "version.cpp.in"
+    "version.cpp"
+    @ONLY
 )
 
-set(ANV_MODELS_HEADER
+### Includes
+set(ANV_HEADER
+    "core/minecraft_nbt_viewer_app.hpp"
+
     "models/nbt_data_treemodel.hpp"
     "models/treeitems/nbt_treeitem_base.hpp"
     "models/treeitems/nbt_treeitem_folder.hpp"
@@ -12,9 +17,7 @@ set(ANV_MODELS_HEADER
     "models/treeitems/nbt_treeitem_regionfile.hpp"
     "models/treeitems/nbt_treeitem_regionchunk.hpp"
     "models/treeitems/treeitem_util.hpp"
-)
 
-set(ANV_UTIL_HEADER
     "util/validators/float_validator.hpp"
     "util/validators/int8_validator.hpp"
     "util/validators/int16_validator.hpp"
@@ -23,28 +26,19 @@ set(ANV_UTIL_HEADER
     "util/minecraft_util.hpp"
     "util/tag_mime_data.hpp"
     "util/iconprovider.hpp"
-)
 
-set(ANV_WIDGETS_HEADER
     "widgets/main_window.hpp"
     "widgets/new_tag_dialog.hpp"
     "widgets/edit_dialog.hpp"
     "widgets/compression_dialog.hpp"
-)
 
-set(ANV_HEADER
-    ${ANV_CORE_HEADER}
-    ${ANV_MODELS_HEADER}
-    ${ANV_UTIL_HEADER}
-    ${ANV_WIDGETS_HEADER}
+    "version.hpp"
 )
 
 ### Sources
-set(ANV_CORE_SOURCES
+set(ANV_SOURCES
     "core/minecraft_nbt_viewer_app.cpp"
-)
 
-set(ANV_MODELS_SOURCES
     "models/nbt_data_treemodel.cpp"
     "models/treeitems/nbt_treeitem_base.cpp"
     "models/treeitems/nbt_treeitem_folder.cpp"
@@ -53,9 +47,7 @@ set(ANV_MODELS_SOURCES
     "models/treeitems/nbt_treeitem_regionfile.cpp"
     "models/treeitems/nbt_treeitem_regionchunk.cpp"
     "models/treeitems/treeitem_util.cpp"
-)
 
-set(ANV_UTIL_SOURCES
     "util/validators/float_validator.cpp"
     "util/validators/int8_validator.cpp"
     "util/validators/int16_validator.cpp"
@@ -64,32 +56,21 @@ set(ANV_UTIL_SOURCES
     "util/minecraft_util.cpp"
     "util/tag_mime_data.cpp"
     "util/iconprovider.cpp"
-)
 
-set(ANV_WIDGETS_SOURCES
     "widgets/main_window.cpp"
     "widgets/new_tag_dialog.cpp"
     "widgets/edit_dialog.cpp"
     "widgets/compression_dialog.cpp"
-)
 
-set(ANV_SOURCES
-    ${ANV_CORE_SOURCES}
-    ${ANV_MODELS_SOURCES}
-    ${ANV_UTIL_SOURCES}
-    ${ANV_WIDGETS_SOURCES}
     "main.cpp"
+    "${PROJECT_BINARY_DIR}/src/version.cpp"
 )
 
 ### Ui
-set(ANV_WIDGETS_UI
+set(ANV_UI
     "widgets/main_window.ui"
     "widgets/new_tag_dialog.ui"
     "widgets/compression_dialog.ui"
-)
-
-set(ANV_UI
-    ${ANV_WIDGETS_UI}
 )
 
 ### Resources
@@ -106,6 +87,8 @@ add_executable(MinecraftNbtViewerApp
 )
 
 target_include_directories(MinecraftNbtViewerApp
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}
     PUBLIC 
         $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
         $<BUILD_INTERFACE:${MinecraftNbtViewer_SOURCE_DIR}/src>

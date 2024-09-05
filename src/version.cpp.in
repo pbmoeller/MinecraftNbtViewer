@@ -1,0 +1,36 @@
+// MinecraftNbtViewer
+#include "version.hpp"
+
+namespace anv {
+
+int getVersionMajor()
+{
+    return @MINECRAFTNBTVIEWER_VERSION_MAJOR@;
+}
+
+int getVersionMinor()
+{
+    return @MINECRAFTNBTVIEWER_VERSION_MINOR@;
+}
+
+int getVersionPatch()
+{
+    return @MINECRAFTNBTVIEWER_VERSION_PATCH@;
+}
+
+const char * getVersion()
+{
+    return "@MINECRAFTNBTVIEWER_VERSION@";
+}
+
+const char * getGitBranch()
+{
+    return "@MINECRAFTNBTVIEWER_GIT_BRANCH@";
+}
+
+const char * getGitHash()
+{
+    return "@MINECRAFTNBTVIEWER_GIT_HASH@";
+}
+
+} // namespace anv

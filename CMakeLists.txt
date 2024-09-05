@@ -30,11 +30,6 @@ execute_process(
   ERROR_QUIET
 )
 
-configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/version.hpp.in
-    ${PROJECT_BINARY_DIR}/version.hpp
-)
-
 ### Qt Stuff
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
