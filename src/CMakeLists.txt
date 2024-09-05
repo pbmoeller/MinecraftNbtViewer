@@ -1,6 +1,6 @@
 ### Includes
 set(ANV_CORE_HEADER
-    "core/awesome_nbt_viewer_app.hpp"
+    "core/minecraft_nbt_viewer_app.hpp"
 )
 
 set(ANV_MODELS_HEADER
@@ -41,7 +41,7 @@ set(ANV_HEADER
 
 ### Sources
 set(ANV_CORE_SOURCES
-    "core/awesome_nbt_viewer_app.cpp"
+    "core/minecraft_nbt_viewer_app.cpp"
 )
 
 set(ANV_MODELS_SOURCES

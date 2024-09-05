@@ -1,5 +1,5 @@
 // MinecraftNbtViewer
-#include "awesome_nbt_viewer_app.hpp"
+#include "minecraft_nbt_viewer_app.hpp"
 
 namespace anv
 {

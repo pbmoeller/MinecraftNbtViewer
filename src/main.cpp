@@ -1,5 +1,5 @@
 // MinecraftNbtViewer
-#include "core/awesome_nbt_viewer_app.hpp"
+#include "core/minecraft_nbt_viewer_app.hpp"
 #include "util/tag_mime_data.hpp"
 #include "version.hpp"
 
