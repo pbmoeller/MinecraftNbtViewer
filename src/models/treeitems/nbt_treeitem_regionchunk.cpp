@@ -59,7 +59,7 @@ void NbtTreeItemRegionChunk::fetchMore()
     // Load Chunk in Region
     m_parentRegion->loadChunkAt(m_index);
     anvil::Chunk &chunk = m_parentRegion->chunkAt(m_index);
-    anvil::CompoundTag *tag = chunk.getRootTag();
+    anvil::CompoundTag *tag = chunk.rootTag();
     if(tag) {
         for(std::unique_ptr<anvil::BasicTag> &childTag : tag->value()) {
             addNbtChild(this, childTag.get());
