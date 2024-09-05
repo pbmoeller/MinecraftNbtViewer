@@ -1,16 +1,17 @@
+// MinecraftNbtViewer
 #include "awesome_nbt_viewer_app.hpp"
 
 namespace anv
 {
 
-AwesomeNbtViewerApp::AwesomeNbtViewerApp(QObject *parent)
+MinecraftNbtViewerApp::MinecraftNbtViewerApp(QObject *parent)
     : QObject(parent)
     , m_mainWindow()
 {
 
 }
 
-void AwesomeNbtViewerApp::create()
+void MinecraftNbtViewerApp::create()
 {
     m_mainWindow.show();
 }

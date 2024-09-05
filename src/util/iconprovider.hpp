@@ -1,14 +1,13 @@
-#ifndef AWESOMENBTVIEWER_UTIL_ICONPROVIDER_HPP
-#define AWESOMENBTVIEWER_UTIL_ICONPROVIDER_HPP
+#ifndef MINECRAFTNBTVIEWER_UTIL_ICONPROVIDER_HPP
+#define MINECRAFTNBTVIEWER_UTIL_ICONPROVIDER_HPP
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/types.hpp>
 
 // Qt
 #include <QIcon>
 
-namespace anv
-{
+namespace anv {
 
 class IconProvider
 {
@@ -65,4 +64,5 @@ public:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_UTIL_ICONPROVIDER_HPP
+#endif // MINECRAFTNBTVIEWER_UTIL_ICONPROVIDER_HPP
+

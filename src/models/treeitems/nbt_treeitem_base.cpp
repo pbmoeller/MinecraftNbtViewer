@@ -1,4 +1,4 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_base.hpp"
 #include "nbt_treeitem_folder.hpp"
 #include "models/nbt_data_treemodel.hpp"
@@ -6,8 +6,7 @@
 // Qt
 #include <QDebug>
 
-namespace anv
-{
+namespace anv {
 
 NbtTreeItemBase::NbtTreeItemBase(NbtTreeItemBase *parentItem)
     : m_parent(parentItem)

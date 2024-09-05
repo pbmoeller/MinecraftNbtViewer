@@ -1,9 +1,9 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "core/awesome_nbt_viewer_app.hpp"
 #include "util/tag_mime_data.hpp"
 #include "version.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/version.hpp>
 
 // Qt
@@ -14,16 +14,16 @@
 
 int main(int argc, char **argv)
 {
-    std::cout << "AwesomeMC Version: " << anvil::getCppAnvilVersion() << std::endl;
-    std::cout << "AwesomeNbtViewer Version: " << anv::getVersion() << std::endl;
+    std::cout << "cpp-anvil Version: " << anvil::getCppAnvilVersion() << std::endl;
+    std::cout << "MinecraftNbtViewer Version: " << anv::getVersion() << std::endl;
     qRegisterMetaType<std::shared_ptr<anvil::BasicTag>>();
 
-    QCoreApplication::setApplicationName("Awesome Nbt Viewer");
+    QCoreApplication::setApplicationName("MinecraftNbtViewer");
     QCoreApplication::setApplicationVersion(anv::getVersion());
 
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/icons/grass_block_64x64.png"));
-    anv::AwesomeNbtViewerApp awesomeApp;
-    awesomeApp.create();
+    anv::MinecraftNbtViewerApp mApp;
+    mApp.create();
     return app.exec();
 }

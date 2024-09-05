@@ -1,4 +1,4 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "float_validator.hpp"
 
 // Qt
@@ -7,8 +7,7 @@
 // STL
 #include <climits>
 
-namespace anv
-{
+namespace anv {
 
 template<typename T>
 static inline bool convertDoubleTo(double v, T *value, bool allow_precision_upgrade = true)
@@ -36,7 +35,7 @@ static inline bool convertDoubleTo(double v, T *value, bool allow_precision_upgr
         supremum = -2.0 * std::numeric_limits<ST>::min();   // -2 * (-2^63) = 2^64, exact (for T = quint64)
         v = fabs(v);
     }
-    if(std::is_integral<T>::value && sizeof(T) > 4 && !allow_precision_upgrade) {
+    if constexpr(std::is_integral<T>::value && sizeof(T) > 4 && !allow_precision_upgrade) {
         if(v > double(Q_INT64_C(1) << 53) || v < double(-((Q_INT64_C(1) << 53) + 1)))
             return false;
     }

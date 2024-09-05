@@ -1,4 +1,4 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_data_treemodel.hpp"
 #include "treeitems/nbt_treeitem_base.hpp"
 #include "treeitems/nbt_treeitem_folder.hpp"
@@ -7,7 +7,7 @@
 #include "treeitems/treeitem_util.hpp"
 #include "util/minecraft_util.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt.hpp>
 
 // Qt

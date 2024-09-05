@@ -1,11 +1,10 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "int16_validator.hpp"
 
 // STL
 #include <climits>
 
-namespace anv
-{
+namespace anv {
 
 Int16Validator::Int16Validator(QObject *parent)
     : Int16Validator(std::numeric_limits<int16_t>::min(),

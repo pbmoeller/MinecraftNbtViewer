@@ -1,10 +1,10 @@
-#ifndef AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP
-#define AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP
+#ifndef MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP
+#define MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP
 
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "models/nbt_data_treemodel.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/types.hpp>
 #include <cpp-anvil/util/compression.hpp>
 
@@ -77,4 +77,4 @@ protected:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP
+#endif // MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP

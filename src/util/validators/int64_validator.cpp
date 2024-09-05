@@ -1,11 +1,10 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "int64_validator.hpp"
 
 // STL
 #include <climits>
 
-namespace anv
-{
+namespace anv {
 
 Int64Validator::Int64Validator(QObject *parent)
     : Int64Validator(std::numeric_limits<int64_t>::min(),

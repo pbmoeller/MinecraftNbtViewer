@@ -1,4 +1,4 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_folder.hpp"
 #include "nbt_treeitem_nbtfile.hpp"
 #include "nbt_treeitem_regionfile.hpp"
@@ -9,8 +9,7 @@
 #include <QFileInfo>
 #include <QString>
 
-namespace anv
-{
+namespace anv {
 
 const QStringList KnownFilesFilter = QStringList({
     "*.dat"
@@ -145,4 +144,4 @@ QIcon NbtTreeItemFolderWorld::getIcon() const
     return QIcon(":/icons/16x16/World.png");
 }
 
-} // namespace anv;
+} // namespace anv

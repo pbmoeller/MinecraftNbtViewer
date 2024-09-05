@@ -1,4 +1,4 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_nbttag.hpp"
 #include "nbt_treeitem_nbtfile.hpp"
 #include "nbt_treeitem_regionfile.hpp"
@@ -7,15 +7,12 @@
 #include "util/tag_mime_data.hpp"
 #include "widgets/edit_dialog.hpp"
 
-// AwesomeMC
-
 // Qt
 #include <QObject>
 #include <QApplication>
 #include <QClipboard>
 
-namespace anv
-{
+namespace anv {
 
 NbtTreeItemNbtTag::NbtTreeItemNbtTag(NbtTreeItemBase *parentItem,
                                      anvil::BasicTag *tag)

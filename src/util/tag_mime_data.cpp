@@ -1,8 +1,7 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "tag_mime_data.hpp"
 
-namespace anv
-{
+namespace anv {
 
 const QString TagMimeData::TagMimeType = "application/x.amc.nbttag";
 

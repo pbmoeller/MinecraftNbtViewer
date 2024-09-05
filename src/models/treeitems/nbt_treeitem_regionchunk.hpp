@@ -1,10 +1,10 @@
-#ifndef AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_REGIONCHUNK_HPP
-#define AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_REGIONCHUNK_HPP
+#ifndef MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_REGIONCHUNK_HPP
+#define MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_REGIONCHUNK_HPP
 
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_base.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/anvil/region.hpp>
 
 // Qt
@@ -14,8 +14,7 @@
 // STL
 #include <memory>
 
-namespace anv
-{
+namespace anv {
 
 class NbtTreeItemRegionChunk : public NbtTreeItemBase
 {
@@ -41,4 +40,4 @@ private:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_REGIONCHUNK_HPP
+#endif // MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_REGIONCHUNK_HPP

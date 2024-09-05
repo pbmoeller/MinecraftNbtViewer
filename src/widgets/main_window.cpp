@@ -1,3 +1,4 @@
+// MinecraftNbtViewer
 #include "main_window.hpp"
 #include "ui_main_window.h"
 #include "models/nbt_data_treemodel.hpp"
@@ -14,8 +15,7 @@
 #include <QStandardPaths>
 #include <QDesktopServices>
 
-namespace anv
-{
+namespace anv {
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

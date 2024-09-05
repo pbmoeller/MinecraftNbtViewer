@@ -1,7 +1,7 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "util/minecraft_util.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/io.hpp>
 
 // Qt

@@ -1,11 +1,10 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "treeitem_util.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt.hpp>
 
-namespace anv
-{
+namespace anv {
 
 void addNbtChild(NbtTreeItemBase *parentItem,
                  anvil::BasicTag *tag)

@@ -1,9 +1,9 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "new_tag_dialog.hpp"
 #include "ui_new_tag_dialog.h"
 #include "util/iconprovider.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/types.hpp>
 
 // Qt
@@ -13,8 +13,7 @@
 // STL
 #include <climits>
 
-namespace anv
-{
+namespace anv {
 
 NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem,
                            anvil::TagType newItemTagType,

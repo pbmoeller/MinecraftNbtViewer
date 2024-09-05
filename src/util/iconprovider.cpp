@@ -1,8 +1,7 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "iconprovider.hpp"
 
-namespace anv
-{
+namespace anv {
 
 IconProvider::IconProvider()
 {

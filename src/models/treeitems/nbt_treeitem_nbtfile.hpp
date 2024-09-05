@@ -1,10 +1,10 @@
-#ifndef AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTFILE_HPP
-#define AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTFILE_HPP
+#ifndef MINECRAFTBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTFILE_HPP
+#define MINECRAFTBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTFILE_HPP
 
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_base.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/compound_tag.hpp>
 #include <cpp-anvil/util/compression.hpp>
 
@@ -15,8 +15,7 @@
 // STL
 #include <memory>
 
-namespace anv
-{
+namespace anv {
 
 class NbtTreeItemNbtFile : public NbtTreeItemBase
 {
@@ -58,4 +57,4 @@ private:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTFILE_HPP
+#endif // MINECRAFTBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTFILE_HPP

@@ -1,19 +1,17 @@
-#ifndef AWESOMENBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
-#define AWESOMENBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
+#ifndef MINECRAFTNBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
+#define MINECRAFTNBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/types.hpp>
 
 // Qt
 #include <QMainWindow>
 
-namespace Ui
-{
+namespace Ui {
 class MainWindow;
 }
 
-namespace anv
-{
+namespace anv {
 
 class NbtDataTreeModel;
 
@@ -87,4 +85,4 @@ private:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
+#endif // MINECRAFTNBTVIEWER_WIDGETS_MAIN_WINDOW_HPP

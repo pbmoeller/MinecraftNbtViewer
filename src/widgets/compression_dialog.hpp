@@ -1,19 +1,17 @@
-#ifndef AWESOMENBTVIEWER_COMPRESSION_DIALOG_HPP
-#define AWESOMENBTVIEWER_COMPRESSION_DIALOG_HPP
+#ifndef MINECRAFTNBTVIEWER_COMPRESSION_DIALOG_HPP
+#define MINECRAFTNBTVIEWER_COMPRESSION_DIALOG_HPP
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/util/compression.hpp>
 
 // Qt
 #include <QDialog>
 
-namespace Ui
-{
+namespace Ui {
 class CompressionDialog;
 }
 
-namespace anv
-{
+namespace anv {
 
 class CompressionDialog : public QDialog
 {

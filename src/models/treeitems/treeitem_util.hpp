@@ -1,14 +1,13 @@
-#ifndef AWESOMENBTVIEWER_MODELS_TREEITEMS_TREEITEM_UTIL_HPP
-#define AWESOMENBTVIEWER_MODELS_TREEITEMS_TREEITEM_UTIL_HPP
+#ifndef MINECRAFTNBTVIEWER_MODELS_TREEITEMS_TREEITEM_UTIL_HPP
+#define MINECRAFTNBTVIEWER_MODELS_TREEITEMS_TREEITEM_UTIL_HPP
 
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_nbttag.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/basic_tag.hpp>
 
-namespace anv
-{
+namespace anv {
 
 void addNbtChild(NbtTreeItemBase *parentItem,
                  anvil::BasicTag *tag);
@@ -18,4 +17,4 @@ bool treeItemNbtTagCompare(NbtTreeItemBase *left,
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_MODELS_TREEITEMS_TREEITEM_UTIL_HPP
+#endif // MINECRAFTNBTVIEWER_MODELS_TREEITEMS_TREEITEM_UTIL_HPP

@@ -1,7 +1,7 @@
-#ifndef AWESOMENBTVIEWER_WIDGETS_EDIT_DIALOG_HPP
-#define AWESOMENBTVIEWER_WIDGETS_EDIT_DIALOG_HPP
+#ifndef MINECRAFTNBTVIEWER_WIDGETS_EDIT_DIALOG_HPP
+#define MINECRAFTNBTVIEWER_WIDGETS_EDIT_DIALOG_HPP
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/basic_tag.hpp>
 
 // Qt
@@ -13,8 +13,7 @@ class QLineEdit;
 class QTextEdit;
 class QPushButton;
 
-namespace anv
-{
+namespace anv {
 
 // Forward declarations
 class NbtTreeItemNbtTag;
@@ -63,4 +62,4 @@ private:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_WIDGETS_EDIT_DIALOG_HPP
+#endif // MINECRAFTNBTVIEWER_WIDGETS_EDIT_DIALOG_HPP

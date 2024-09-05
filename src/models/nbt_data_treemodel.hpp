@@ -1,7 +1,7 @@
-#ifndef AWESOMENBTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
-#define AWESOMENBTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
+#ifndef MINECRAFTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
+#define MINECRAFTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/types.hpp>
 #include <cpp-anvil/util/compression.hpp>
 
@@ -81,4 +81,4 @@ private:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
+#endif // MINECRAFTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP

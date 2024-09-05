@@ -1,13 +1,12 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_nbtfile.hpp"
 #include "nbt_treeitem_nbttag.hpp"
 #include "treeitem_util.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/io.hpp>
 
-namespace anv
-{
+namespace anv {
 
 NbtTreeItemNbtFile::NbtTreeItemNbtFile(NbtTreeItemBase *parentItem,
                                        const QString &filename,

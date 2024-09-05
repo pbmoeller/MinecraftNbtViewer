@@ -1,11 +1,10 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "int8_validator.hpp"
 
 // STL
 #include <climits>
 
-namespace anv
-{
+namespace anv {
 
 Int8Validator::Int8Validator(QObject *parent)
     : Int8Validator(std::numeric_limits<int8_t>::min(),

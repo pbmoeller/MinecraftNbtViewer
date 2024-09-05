@@ -1,7 +1,7 @@
-#ifndef AWESOMENBTVIEWER_UTIL_TAG_MIME_DATA_HPP
-#define AWESOMENBTVIEWER_UTIL_TAG_MIME_DATA_HPP
+#ifndef MINECRAFTNBTVIEWER_UTIL_TAG_MIME_DATA_HPP
+#define MINECRAFTNBTVIEWER_UTIL_TAG_MIME_DATA_HPP
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt/basic_tag.hpp>
 
 // Qt
@@ -14,8 +14,7 @@
 Q_DECLARE_SMART_POINTER_METATYPE(std::shared_ptr);
 Q_DECLARE_METATYPE(std::shared_ptr<anvil::BasicTag>);
 
-namespace anv
-{
+namespace anv {
 
 class TagMimeData : public QMimeData
 {
@@ -39,4 +38,4 @@ private:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_UTIL_TAG_MIME_DATA_HPP
+#endif // MINECRAFTNBTVIEWER_UTIL_TAG_MIME_DATA_HPP

@@ -1,20 +1,18 @@
-#ifndef AWESOMENBTVIEWER_WIDGETS_NEW_TAG_DIALOG_HPP
-#define AWESOMENBTVIEWER_WIDGETS_NEW_TAG_DIALOG_HPP
+#ifndef MINECRAFTNBTVIEWER_WIDGETS_NEW_TAG_DIALOG_HPP
+#define MINECRAFTNBTVIEWER_WIDGETS_NEW_TAG_DIALOG_HPP
 
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
 
 // Qt
 #include <QDialog>
 #include <QString>
 
-namespace Ui
-{
+namespace Ui {
 class NewTagDialog;
 }
 
-namespace anv
-{
+namespace anv {
 
 class NewTagDialog : public QDialog
 {
@@ -39,4 +37,4 @@ private:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_WIDGETS_NEW_TAG_DIALOG_HPP
+#endif // MINECRAFTNBTVIEWER_WIDGETS_NEW_TAG_DIALOG_HPP

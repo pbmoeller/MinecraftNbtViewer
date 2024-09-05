@@ -1,14 +1,13 @@
-#ifndef AWESOMENBTVIEWER_UTIL_MINECRAFT_UTIL_HPP
-#define AWESOMENBTVIEWER_UTIL_MINECRAFT_UTIL_HPP
+#ifndef MINECRAFTNBTVIEWER_UTIL_MINECRAFT_UTIL_HPP
+#define MINECRAFTNBTVIEWER_UTIL_MINECRAFT_UTIL_HPP
 
 // Qt
 #include <QString>
 
-namespace anv
-{
+namespace anv {
 
 bool isMinecraftWorldDirectory(const QString &directory);
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_UTIL_MINECRAFT_UTIL_HPP
+#endif // MINECRAFTNBTVIEWER_UTIL_MINECRAFT_UTIL_HPP

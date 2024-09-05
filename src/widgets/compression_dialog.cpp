@@ -1,9 +1,8 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "compression_dialog.hpp"
 #include "ui_compression_dialog.h"
 
-namespace anv
-{
+namespace anv {
 
 CompressionDialog::CompressionDialog(const anvil::CompressionType compression,
                                      QWidget *parent)

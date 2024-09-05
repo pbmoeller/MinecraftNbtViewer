@@ -1,9 +1,8 @@
-//AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_regionfile.hpp"
 #include "nbt_treeitem_regionchunk.hpp"
 
-namespace anv
-{
+namespace anv {
 
 NbtTreeItemRegionFile::NbtTreeItemRegionFile(NbtTreeItemBase *parentItem,
                                              const QString &filename,

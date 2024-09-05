@@ -1,7 +1,7 @@
-#ifndef AWESOMENBTVIEWER_CORE_AWESOME_NBT_VIEWER_APP_HPP
-#define AWESOMENBTVIEWER_CORE_AWESOME_NBT_VIEWER_APP_HPP
+#ifndef MINECRAFTNBTVIEWER_CORE_MINECRAFT_NBT_VIEWER_APP_HPP
+#define MINECRAFTNBTVIEWER_CORE_MINECRAFT_NBT_VIEWER_APP_HPP
 
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "widgets/main_window.hpp"
 
 // Qt
@@ -10,10 +10,10 @@
 namespace anv
 {
 
-class AwesomeNbtViewerApp : public QObject
+class MinecraftNbtViewerApp : public QObject
 {
 public:
-    AwesomeNbtViewerApp(QObject *parent = nullptr);
+    MinecraftNbtViewerApp(QObject *parent = nullptr);
 
     void create();
 
@@ -23,4 +23,4 @@ private:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_CORE_AWESOME_NBT_VIEWER_APP_HPP
+#endif // MINECRAFTNBTVIEWER_CORE_MINECRAFT_NBT_VIEWER_APP_HPP

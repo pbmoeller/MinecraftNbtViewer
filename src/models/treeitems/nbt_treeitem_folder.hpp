@@ -1,14 +1,13 @@
-#ifndef AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_FOLDER_HPP
-#define AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_FOLDER_HPP
+#ifndef MINECRAFTBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_FOLDER_HPP
+#define MINECRAFTBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_FOLDER_HPP
 
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_base.hpp"
 
 // Qt
 #include <QString>
 
-namespace anv
-{
+namespace anv {
 
 class NbtTreeItemFolder : public NbtTreeItemBase
 {
@@ -54,4 +53,4 @@ public:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_FOLDER_HPP
+#endif // MINECRAFTBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_FOLDER_HPP

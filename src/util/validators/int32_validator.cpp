@@ -1,11 +1,10 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "int32_validator.hpp"
 
 // STL
 #include <climits>
 
-namespace anv
-{
+namespace anv {
 
 Int32Validator::Int32Validator(QObject *parent)
     : Int32Validator(std::numeric_limits<int32_t>::min(),

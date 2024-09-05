@@ -1,4 +1,4 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "edit_dialog.hpp"
 #include "models/nbt_data_treemodel.hpp"
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
@@ -9,7 +9,7 @@
 #include "util/validators/int32_validator.hpp"
 #include "util/validators/int64_validator.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt.hpp>
 
 // Qt
@@ -25,8 +25,7 @@
 #include <QMessageBox>
 #include <QRegularExpression>
 
-namespace anv
-{
+namespace anv {
 
 QValidator* createValidator(anvil::TagType tagType)
 {

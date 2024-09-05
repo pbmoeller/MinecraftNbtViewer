@@ -1,13 +1,11 @@
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_regionchunk.hpp"
 #include "treeitem_util.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/anvil/coordinates.hpp>
-//#include <AwesomeMC/util/conversion.hpp>
 
-namespace anv
-{
+namespace anv {
 
 NbtTreeItemRegionChunk::NbtTreeItemRegionChunk(NbtTreeItemBase *parentItem,
                                                anvil::Region *region,
@@ -68,4 +66,4 @@ void NbtTreeItemRegionChunk::fetchMore()
     }
 }
 
-}
+} // namespace anv

@@ -1,14 +1,13 @@
-#ifndef AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTTAG_HPP
-#define AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTTAG_HPP
+#ifndef MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTTAG_HPP
+#define MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTTAG_HPP
 
-// AwesomeNbtViewer
+// MinecraftNbtViewer
 #include "nbt_treeitem_base.hpp"
 
-// AwesomeMC
+// cpp-anvil
 #include <cpp-anvil/nbt.hpp>
 
-namespace anv
-{
+namespace anv {
 
 class NbtTreeItemNbtTag : public NbtTreeItemBase
 {
@@ -198,4 +197,4 @@ public:
 
 } // namespace anv
 
-#endif // AWESOMENBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTTAG_HPP
+#endif // MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTTAG_HPP
