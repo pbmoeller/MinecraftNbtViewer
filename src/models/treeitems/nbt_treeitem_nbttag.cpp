@@ -176,8 +176,8 @@ bool NbtTreeItemNbtTag::canMoveDown() const
             anvil::ListTag *listTag = tag_cast<anvil::ListTag*>(parentTag);
 
             // Now check if the moving makes sense
-            int64_t idx = listTag->indexOf(m_tag);
-            if(idx >= 0 && idx < (listTag->size() - 1)) {
+            size_t idx = listTag->indexOf(m_tag);
+            if(idx < (listTag->size() - 1)) {
                 return true;
             }
         }
