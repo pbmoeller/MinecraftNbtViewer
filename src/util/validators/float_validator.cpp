@@ -97,6 +97,8 @@ FloatValidator::~FloatValidator()
 
 QValidator::State FloatValidator::validate(QString &input, int &pos) const
 {
+    ((void)pos);
+
     if(input.isEmpty()) {
         return QValidator::Intermediate;
     }
