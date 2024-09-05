@@ -94,31 +94,32 @@ set(ANV_UI
 
 ### Resources
 set(ANV_RESOURCES
-    "${AwesomeNbtViewer_SOURCE_DIR}/resources/resources.qrc"
+    "${MinecraftNbtViewer_SOURCE_DIR}/resources/resources.qrc"
 )
 
 ### Target
-add_executable(AwesomeNbtViewer 
+add_executable(MinecraftNbtViewerApp
     ${ANV_HEADER}
     ${ANV_SOURCES}
     ${ANV_UI}
     ${ANV_RESOURCES}
 )
 
-target_include_directories(AwesomeNbtViewer
-    PUBLIC $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
-           $<BUILD_INTERFACE:${AwesomeNbtViewer_SOURCE_DIR}/src>
-           $<INSTALL_INTERFACE:${AwesomeNbtViewer_INSTALL_INCLUDE_DIR}>
+target_include_directories(MinecraftNbtViewerApp
+    PUBLIC 
+        $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
+        $<BUILD_INTERFACE:${MinecraftNbtViewer_SOURCE_DIR}/src>
+        $<INSTALL_INTERFACE:${MinecraftNbtViewer_INSTALL_INCLUDE_DIR}>
 )
 
-target_link_libraries(AwesomeNbtViewer 
+target_link_libraries(MinecraftNbtViewerApp 
     PRIVATE cppAnvil::cppAnvil
     PRIVATE Qt6::Widgets Qt6::Core
 )
 
-set_target_properties(AwesomeNbtViewer PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
+set_target_properties(MinecraftNbtViewerApp PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 
-target_compile_options(AwesomeNbtViewer PRIVATE
+target_compile_options(MinecraftNbtViewerApp PRIVATE
      $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>:
           -std=c++20 -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Woverloaded-virtual -Wpedantic>
      $<$<CXX_COMPILER_ID:MSVC>:
@@ -138,4 +139,11 @@ endif()
 
 
 ### Install
-install(TARGETS AwesomeNbtViewer EXPORT AwesomeNbtViewer DESTINATION "${AwesomeNbtViewer_INSTALL_BINARY_DIR}")
+install(
+    TARGETS 
+        MinecraftNbtViewerApp
+    EXPORT
+        MinecraftNbtViewerApp
+    DESTINATION
+        "${MinecraftNbtViewer_INSTALL_BINARY_DIR}"
+)

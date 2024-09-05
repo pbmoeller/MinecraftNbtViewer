@@ -1,4 +1,4 @@
-# AwesomeNbtViewer
+# MinecraftNbtViewer
 
-AwesomeNbtViewer is an open source graphical tool so view and edit Minecraft NBT data.
-It is based on libAwesomeMC.
+MinecraftNbtViewer is an open source graphical tool so view and edit Minecraft NBT data.
+It is based on libCppAnvil.
