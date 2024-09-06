@@ -18,12 +18,9 @@ CompressionDialog::CompressionDialog(const anvil::CompressionType compression,
     m_ui->compressionCombo->setCurrentIndex(m_ui->compressionCombo->findData(static_cast<int>(compression)));
 }
 
-CompressionDialog::~CompressionDialog()
-{
+CompressionDialog::~CompressionDialog() = default;
 
-}
-
-anvil::CompressionType CompressionDialog::getSelectedCompressionType() const
+anvil::CompressionType CompressionDialog::selectedCompressionType() const
 {
     return static_cast<anvil::CompressionType>(m_ui->compressionCombo->currentData().toInt());
 }

@@ -23,7 +23,7 @@ public:
                       QWidget *parent = nullptr);
     virtual ~CompressionDialog();
 
-    anvil::CompressionType getSelectedCompressionType() const;
+    anvil::CompressionType selectedCompressionType() const;
 
 private:
     Ui::CompressionDialog *m_ui;

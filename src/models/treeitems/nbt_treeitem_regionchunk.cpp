@@ -19,10 +19,7 @@ NbtTreeItemRegionChunk::NbtTreeItemRegionChunk(NbtTreeItemBase *parentItem,
 
 }
 
-NbtTreeItemRegionChunk::~NbtTreeItemRegionChunk()
-{
-
-}
+NbtTreeItemRegionChunk::~NbtTreeItemRegionChunk() = default;
 
 void NbtTreeItemRegionChunk::sort()
 {
@@ -31,12 +28,12 @@ void NbtTreeItemRegionChunk::sort()
               &treeItemNbtTagCompare);
 }
 
-QIcon NbtTreeItemRegionChunk::getIcon() const
+QIcon NbtTreeItemRegionChunk::icon() const
 {
     return QIcon(":/icons/16x16/Chunk.png");
 }
 
-QString NbtTreeItemRegionChunk::getLabel() const
+QString NbtTreeItemRegionChunk::label() const
 {
     anvil::Vec2 chunkCoord = m_parentRegion->fromIndex(m_index);
     anvil::Vec2 regionCoord = m_parentRegion->xz();

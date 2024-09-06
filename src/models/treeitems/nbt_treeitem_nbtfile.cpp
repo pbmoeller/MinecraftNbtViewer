@@ -21,17 +21,14 @@ NbtTreeItemNbtFile::NbtTreeItemNbtFile(NbtTreeItemBase *parentItem,
 
 }
 
-NbtTreeItemNbtFile::~NbtTreeItemNbtFile()
-{
+NbtTreeItemNbtFile::~NbtTreeItemNbtFile() = default;
 
-}
-
-QIcon NbtTreeItemNbtFile::getIcon() const
+QIcon NbtTreeItemNbtFile::icon() const
 {
     return QIcon(":/icons/16x16/NbtFile.png");
 }
 
-QString NbtTreeItemNbtFile::getLabel() const
+QString NbtTreeItemNbtFile::label() const
 {
     QString label = m_filename;
     if(!m_canFetchData) {
@@ -90,7 +87,7 @@ bool NbtTreeItemNbtFile::canOpenInExplorer() const
     return true;
 }
 
-QString NbtTreeItemNbtFile::getPath() const
+QString NbtTreeItemNbtFile::path() const
 {
     return m_pathToFile;
 }

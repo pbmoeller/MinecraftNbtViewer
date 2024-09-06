@@ -13,24 +13,24 @@ NbtTreeItemBase::NbtTreeItemBase(NbtTreeItemBase *parentItem)
     : m_parent(parentItem)
 {
     if(m_parent) {
-        m_parent->getChildren().append(this);
+        m_parent->children().append(this);
     }
 }
 
 NbtTreeItemBase::~NbtTreeItemBase()
 {
     if(m_parent) {
-        m_parent->getChildren().removeOne(this);
+        m_parent->children().removeOne(this);
     }
     clear();
 }
 
-NbtTreeItemBase*& NbtTreeItemBase::getParent()
+NbtTreeItemBase*& NbtTreeItemBase::parent()
 {
     return m_parent;
 }
 
-QVector<NbtTreeItemBase*>& NbtTreeItemBase::getChildren()
+QVector<NbtTreeItemBase*>& NbtTreeItemBase::children()
 {
     return m_children;
 }
@@ -38,7 +38,7 @@ QVector<NbtTreeItemBase*>& NbtTreeItemBase::getChildren()
 bool NbtTreeItemBase::hasChildWithName(const QString &name) const
 {
     for(int i = 0; i < m_children.size(); ++i) {
-        if(m_children[i]->getName() == name) {
+        if(m_children[i]->name() == name) {
             return true;
         }
     }
@@ -62,30 +62,30 @@ void NbtTreeItemBase::sort()
            && dynamic_cast<NbtTreeItemFolder*>(left) == nullptr) {
             return false;
         }
-        return left->getLabel().toLower() < right->getLabel().toLower();
+        return left->label().toLower() < right->label().toLower();
     });
 }
 
 void NbtTreeItemBase::clear()
 {
     for(qsizetype i = 0; i < m_children.size(); ++i) {
-        m_children[i]->getParent() = nullptr;
+        m_children[i]->parent() = nullptr;
         delete m_children[i];
     }
     m_children.clear();
 }
 
-QIcon NbtTreeItemBase::getIcon() const
+QIcon NbtTreeItemBase::icon() const
 {
     return QIcon();
 }
 
-QString NbtTreeItemBase::getName() const
+QString NbtTreeItemBase::name() const
 {
     return QString();
 }
 
-QString NbtTreeItemBase::getLabel() const
+QString NbtTreeItemBase::label() const
 {
     return QString();
 }
@@ -203,7 +203,7 @@ bool NbtTreeItemBase::canOpenInExplorer() const
     return false;
 }
 
-QString NbtTreeItemBase::getPath() const
+QString NbtTreeItemBase::path() const
 {
     return QString();
 }

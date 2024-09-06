@@ -25,8 +25,8 @@ public:
                  QWidget *parent = nullptr);
     ~NewTagDialog();
 
-    QString getName() const;
-    int getSize() const;
+    QString name() const;
+    int size() const;
 
 protected slots:
     virtual void accept() override;

@@ -17,11 +17,11 @@ public:
                       anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemNbtTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getName() const override;
-    virtual QString getLabel() const override;
-    anvil::TagType getTagType() const;
-    anvil::BasicTag* getTag();
+    virtual QIcon icon() const override;
+    virtual QString name() const override;
+    virtual QString label() const override;
+    anvil::TagType tagType() const;
+    anvil::BasicTag* tag();
 
     virtual bool canRename() const;
     virtual void rename(const QString &name) override;
@@ -57,8 +57,8 @@ public:
                        anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemByteTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 class NbtTreeItemShortTag : public NbtTreeItemNbtTag
@@ -68,8 +68,8 @@ public:
                         anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemShortTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 class NbtTreeItemIntTag : public NbtTreeItemNbtTag
@@ -79,8 +79,8 @@ public:
                       anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemIntTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 class NbtTreeItemLongTag : public NbtTreeItemNbtTag
@@ -90,8 +90,8 @@ public:
                        anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemLongTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 class NbtTreeItemFloatTag : public NbtTreeItemNbtTag
@@ -101,8 +101,8 @@ public:
                         anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemFloatTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 class NbtTreeItemDoubleTag : public NbtTreeItemNbtTag
@@ -112,8 +112,8 @@ public:
                          anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemDoubleTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 class NbtTreeItemStringTag : public NbtTreeItemNbtTag
@@ -123,8 +123,8 @@ public:
                          anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemStringTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 class NbtTreeItemCompoundTag : public NbtTreeItemNbtTag
@@ -134,8 +134,8 @@ public:
                            anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemCompoundTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 
     virtual bool canAddNbtTag(anvil::TagType type) const override;
     virtual void deleteChildTag(anvil::BasicTag *tag) override;
@@ -151,8 +151,8 @@ public:
                        anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemListTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 
     virtual void swap(int indexA, int indexB) override;
 
@@ -170,8 +170,8 @@ public:
                             anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemByteArrayTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 class NbtTreeItemIntArrayTag : public NbtTreeItemNbtTag
@@ -181,8 +181,8 @@ public:
                            anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemIntArrayTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 class NbtTreeItemLongArrayTag : public NbtTreeItemNbtTag
@@ -192,8 +192,8 @@ public:
                             anvil::BasicTag *tag = nullptr);
     virtual ~NbtTreeItemLongArrayTag();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 };
 
 } // namespace nbt

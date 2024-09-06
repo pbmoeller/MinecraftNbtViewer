@@ -22,16 +22,16 @@ public:
     NbtTreeItemBase(NbtTreeItemBase *parentItem = nullptr);
     virtual ~NbtTreeItemBase();
 
-    NbtTreeItemBase*& getParent();
-    QVector<NbtTreeItemBase*>& getChildren();
+    NbtTreeItemBase*& parent();
+    QVector<NbtTreeItemBase*>& children();
     bool hasChildWithName(const QString &name) const;
 
     void sort();
     void clear();
 
-    virtual QIcon getIcon() const;
-    virtual QString getName() const;
-    virtual QString getLabel() const;
+    virtual QIcon icon() const;
+    virtual QString name() const;
+    virtual QString label() const;
 
     virtual bool canSave() const;
     virtual void save();
@@ -63,7 +63,7 @@ public:
     virtual bool canAddNbtTag(anvil::TagType type) const;
 
     virtual bool canOpenInExplorer() const;
-    virtual QString getPath() const;
+    virtual QString path() const;
 
     virtual bool canFetchMore() const;
     virtual void fetchMore();

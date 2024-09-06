@@ -65,10 +65,7 @@ EditDialog::EditDialog(NbtTreeItemNbtTag *treeItem,
     setupUi(function);
 }
 
-EditDialog::~EditDialog()
-{
-
-}
+EditDialog::~EditDialog() = default;
 
 void EditDialog::accept()
 {
@@ -78,11 +75,11 @@ void EditDialog::accept()
     // Check the name if present
     if(m_hasRenameField) {
         QString newName = m_lineEditName->text();
-        if(m_treeItem->getName() != newName) {
+        if(m_treeItem->name() != newName) {
             // Check if there is already a sibling with the same name
-            NbtTreeItemBase *parentTreeItem = m_treeItem->getParent();
-            for(NbtTreeItemBase *child : parentTreeItem->getChildren()) {
-                if(newName == child->getName()) {
+            NbtTreeItemBase *parentTreeItem = m_treeItem->parent();
+            for(NbtTreeItemBase *child : parentTreeItem->children()) {
+                if(newName == child->name()) {
                     QMessageBox::information(this, windowTitle(), tr("There is already a sibling with this name. Please choose a diffrent."));
                     m_lineEditName->setFocus(Qt::OtherFocusReason);
                     m_lineEditName->selectAll();
@@ -98,10 +95,10 @@ void EditDialog::accept()
 
     // Check the value if present
     if(m_hasEditField) {
-        anvil::TagType tagType = m_treeItem->getTag()->type();
+        anvil::TagType tagType = m_treeItem->tag()->type();
         if(tagType == anvil::TagType::String) {
             QString value = m_textEdit->toPlainText();
-            anvil::StringTag *stringTag = tag_cast<anvil::StringTag*>(m_treeItem->getTag());
+            anvil::StringTag *stringTag = tag_cast<anvil::StringTag*>(m_treeItem->tag());
             if(stringTag && value.toStdString() != stringTag->value()) {
                 stringTag->setValue(value.toStdString());
                 dataChanged = true;
@@ -109,11 +106,11 @@ void EditDialog::accept()
         } else if(anvil::isValueTag(tagType)) {
             QString value = m_lineEditValue->text();
 
-            dataChanged = checkAndSetValue(value, m_treeItem->getTag());
+            dataChanged = checkAndSetValue(value, m_treeItem->tag());
         } else if(anvil::isArrayTag(tagType)) {
             QString value = m_textEdit->toPlainText();
 
-            dataChanged = checkAndSetArrayValue(value, m_treeItem->getTag());
+            dataChanged = checkAndSetArrayValue(value, m_treeItem->tag());
         }
     }
 
@@ -127,7 +124,7 @@ void EditDialog::accept()
 void EditDialog::setupUi(EditFunction function)
 {
     int currentRow          = 0;
-    anvil::TagType tagType    = m_treeItem->getTag()->type();
+    anvil::TagType tagType    = m_treeItem->tag()->type();
     m_hasRenameField        = m_treeItem->canRename();
     m_hasEditField          = m_treeItem->canEdit() && !anvil::isContainerTag(tagType);
 
@@ -138,7 +135,7 @@ void EditDialog::setupUi(EditFunction function)
         QLabel *labelName = new QLabel(tr("Name:"));
         labelName->setAlignment(Qt::AlignLeft | Qt::AlignTop);
         m_lineEditName = new QLineEdit();
-        m_lineEditName->setText(m_treeItem->getTag()->name().c_str());
+        m_lineEditName->setText(m_treeItem->tag()->name().c_str());
 
         gLayout->addWidget(labelName, currentRow, 0);
         gLayout->addWidget(m_lineEditName, currentRow, 1);
@@ -227,21 +224,21 @@ void EditDialog::setupUi(EditFunction function)
 
 QString EditDialog::valueToString() const
 {
-    switch(m_treeItem->getTag()->type()) {
+    switch(m_treeItem->tag()->type()) {
         case anvil::TagType::Byte:
-            return QString::number(tag_cast<anvil::ByteTag*>(m_treeItem->getTag())->value());
+            return QString::number(tag_cast<anvil::ByteTag*>(m_treeItem->tag())->value());
         case anvil::TagType::Short:
-            return QString::number(tag_cast<anvil::ShortTag*>(m_treeItem->getTag())->value());
+            return QString::number(tag_cast<anvil::ShortTag*>(m_treeItem->tag())->value());
         case anvil::TagType::Int:
-            return QString::number(tag_cast<anvil::IntTag*>(m_treeItem->getTag())->value());
+            return QString::number(tag_cast<anvil::IntTag*>(m_treeItem->tag())->value());
         case anvil::TagType::Long:
-            return QString::number(tag_cast<anvil::LongTag*>(m_treeItem->getTag())->value());
+            return QString::number(tag_cast<anvil::LongTag*>(m_treeItem->tag())->value());
         case anvil::TagType::Float:
-            return QString::number(tag_cast<anvil::FloatTag*>(m_treeItem->getTag())->value(), 'g', 6);
+            return QString::number(tag_cast<anvil::FloatTag*>(m_treeItem->tag())->value(), 'g', 6);
         case anvil::TagType::Double:
-            return QString::number(tag_cast<anvil::DoubleTag*>(m_treeItem->getTag())->value(), 'g', 16);
+            return QString::number(tag_cast<anvil::DoubleTag*>(m_treeItem->tag())->value(), 'g', 16);
         case anvil::TagType::String:
-            return QString(tag_cast<anvil::StringTag*>(m_treeItem->getTag())->value().c_str());
+            return QString(tag_cast<anvil::StringTag*>(m_treeItem->tag())->value().c_str());
         default:
             break;
     }
@@ -251,11 +248,11 @@ QString EditDialog::valueToString() const
 QString EditDialog::arrayToString() const
 {
     QByteArray out;
-    switch(m_treeItem->getTag()->type()) {
+    switch(m_treeItem->tag()->type()) {
         case anvil::TagType::ByteArray:
         {
             int numbersPerLine = 16;
-            anvil::ByteArrayTag *byteArray = tag_cast<anvil::ByteArrayTag*>(m_treeItem->getTag());
+            anvil::ByteArrayTag *byteArray = tag_cast<anvil::ByteArrayTag*>(m_treeItem->tag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>((*byteArray)[i]), 10) + "  ";
 
@@ -269,7 +266,7 @@ QString EditDialog::arrayToString() const
         case anvil::TagType::IntArray:
         {
             int numbersPerLine = 4;
-            anvil::IntArrayTag *byteArray = tag_cast<anvil::IntArrayTag*>(m_treeItem->getTag());
+            anvil::IntArrayTag *byteArray = tag_cast<anvil::IntArrayTag*>(m_treeItem->tag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>(((*byteArray)[i])), 10) + "  ";
 
@@ -283,7 +280,7 @@ QString EditDialog::arrayToString() const
         case anvil::TagType::LongArray:
         {
             int numbersPerLine = 2;
-            anvil::LongArrayTag *byteArray = tag_cast<anvil::LongArrayTag*>(m_treeItem->getTag());
+            anvil::LongArrayTag *byteArray = tag_cast<anvil::LongArrayTag*>(m_treeItem->tag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>((*byteArray)[i]), 10) + "  ";
 

@@ -25,13 +25,13 @@ public:
                           const QString &pathToFile);
     ~NbtTreeItemRegionFile();
 
-    virtual QIcon getIcon() const override;
-    virtual QString getLabel() const override;
+    virtual QIcon icon() const override;
+    virtual QString label() const override;
 
     virtual bool canRefresh() const override;
 
     virtual bool canOpenInExplorer() const override;
-    virtual QString getPath() const override;
+    virtual QString path() const override;
 
     virtual bool canFetchMore() const override;
     virtual void fetchMore() override;

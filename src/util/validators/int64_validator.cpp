@@ -23,10 +23,7 @@ Int64Validator::Int64Validator(int64_t bottom, int64_t top, QObject *parent)
 
 }
 
-Int64Validator::~Int64Validator()
-{
-
-}
+Int64Validator::~Int64Validator() = default;
 
 QValidator::State Int64Validator::validate(QString &input, int &pos) const
 {

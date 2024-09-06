@@ -4,7 +4,7 @@
 namespace minecraft {
 namespace nbt {
 
-const QString TagMimeData::TagMimeType = "application/x.amc.nbttag";
+const QString TagMimeData::TagMimeType = "application/x.cpp-anvil.nbttag";
 
 TagMimeData::TagMimeData()
     : QMimeData()
@@ -12,10 +12,7 @@ TagMimeData::TagMimeData()
     m_formats << TagMimeType;
 }
 
-TagMimeData::~TagMimeData()
-{
-
-}
+TagMimeData::~TagMimeData() = default;
 
 QStringList TagMimeData::formats() const
 {

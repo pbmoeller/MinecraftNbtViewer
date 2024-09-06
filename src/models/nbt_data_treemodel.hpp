@@ -18,6 +18,7 @@ class NbtTreeItemNbtTag;
 class NbtDataTreeModel : public QAbstractItemModel
 {
     Q_OBJECT
+
 public:
     explicit NbtDataTreeModel(QObject *parent = nullptr);
     virtual ~NbtDataTreeModel();
@@ -25,7 +26,9 @@ public:
     void clear();
     void load(const QString &directory);
     void save(const QModelIndex &index);
-    void saveAs(const QModelIndex &index, const QString &saveFilename, const anvil::CompressionType compression);
+    void saveAs(const QModelIndex &index,
+                const QString &saveFilename,
+                const anvil::CompressionType compression);
     void saveAll();
     void refresh(const QModelIndex &index);
     bool isModified() const;
@@ -59,10 +62,14 @@ signals:
 
 public:
     // Reimplemented functions of QAbstractItemModel
-    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    virtual QVariant headerData(int section,
+                                Qt::Orientation orientation,
+                                int role = Qt::DisplayRole) const override;
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+    virtual QModelIndex index(int row,
+                              int column,
+                              const QModelIndex &parent = QModelIndex()) const override;
     virtual QModelIndex parent(const QModelIndex &index) const override;
 
     virtual int columnCount(const QModelIndex &parent = QModelIndex()) const override;

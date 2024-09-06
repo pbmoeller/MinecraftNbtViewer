@@ -16,17 +16,14 @@ NbtTreeItemRegionFile::NbtTreeItemRegionFile(NbtTreeItemBase *parentItem,
 
 }
 
-NbtTreeItemRegionFile::~NbtTreeItemRegionFile()
-{
+NbtTreeItemRegionFile::~NbtTreeItemRegionFile() = default;
 
-}
-
-QIcon NbtTreeItemRegionFile::getIcon() const
+QIcon NbtTreeItemRegionFile::icon() const
 {
     return QIcon(":/icons/16x16/Region.png");
 }
 
-QString NbtTreeItemRegionFile::getLabel() const
+QString NbtTreeItemRegionFile::label() const
 {
     return m_filename;
 }
@@ -41,7 +38,7 @@ bool NbtTreeItemRegionFile::canOpenInExplorer() const
     return true;
 }
 
-QString NbtTreeItemRegionFile::getPath() const
+QString NbtTreeItemRegionFile::path() const
 {
     return m_pathToFile;
 }

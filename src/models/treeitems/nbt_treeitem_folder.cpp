@@ -33,17 +33,14 @@ NbtTreeItemFolder::NbtTreeItemFolder(NbtTreeItemBase *parentItem,
 
 }
 
-NbtTreeItemFolder::~NbtTreeItemFolder()
-{
+NbtTreeItemFolder::~NbtTreeItemFolder() = default;
 
-}
-
-QIcon NbtTreeItemFolder::getIcon() const
+QIcon NbtTreeItemFolder::icon() const
 {
     return QIcon(":/icons/16x16/Folder.png");
 }
 
-QString NbtTreeItemFolder::getLabel() const
+QString NbtTreeItemFolder::label() const
 {
     return m_folderName;
 }
@@ -63,7 +60,7 @@ bool NbtTreeItemFolder::canOpenInExplorer() const
     return true;
 }
 
-QString NbtTreeItemFolder::getPath() const
+QString NbtTreeItemFolder::path() const
 {
     return m_pathToFolder + '/' + m_folderName;
 }
@@ -135,12 +132,9 @@ NbtTreeItemFolderWorld::NbtTreeItemFolderWorld(NbtTreeItemBase *parentItem,
 
 }
 
-NbtTreeItemFolderWorld::~NbtTreeItemFolderWorld()
-{
+NbtTreeItemFolderWorld::~NbtTreeItemFolderWorld() = default;
 
-}
-
-QIcon NbtTreeItemFolderWorld::getIcon() const
+QIcon NbtTreeItemFolderWorld::icon() const
 {
     return QIcon(":/icons/16x16/World.png");
 }

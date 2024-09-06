@@ -91,10 +91,7 @@ FloatValidator::FloatValidator(float bottom, float top, int decimals, QObject *p
 
 }
 
-FloatValidator::~FloatValidator()
-{
-
-}
+FloatValidator::~FloatValidator() = default;
 
 QValidator::State FloatValidator::validate(QString &input, int &pos) const
 {

@@ -23,10 +23,7 @@ Int8Validator::Int8Validator(int8_t bottom, int8_t top, QObject *parent)
 
 }
 
-Int8Validator::~Int8Validator()
-{
-
-}
+Int8Validator::~Int8Validator() = default;
 
 QValidator::State Int8Validator::validate(QString &input, int &pos) const
 {

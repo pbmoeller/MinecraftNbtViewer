@@ -23,10 +23,7 @@ Int32Validator::Int32Validator(int32_t bottom, int32_t top, QObject *parent)
 
 }
 
-Int32Validator::~Int32Validator()
-{
-
-}
+Int32Validator::~Int32Validator() = default;
 
 QValidator::State Int32Validator::validate(QString &input, int &pos) const
 {

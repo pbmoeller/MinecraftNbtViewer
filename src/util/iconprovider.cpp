@@ -4,10 +4,7 @@
 namespace minecraft {
 namespace nbt {
 
-IconProvider::IconProvider()
-{
-
-}
+IconProvider::IconProvider() = default;
 
 QIcon IconProvider::icon(IconType iconType, IconSize iconSize)
 {

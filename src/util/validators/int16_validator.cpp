@@ -23,10 +23,7 @@ Int16Validator::Int16Validator(int16_t bottom, int16_t top, QObject *parent)
 
 }
 
-Int16Validator::~Int16Validator()
-{
-
-}
+Int16Validator::~Int16Validator() = default;
 
 QValidator::State Int16Validator::validate(QString &input, int &pos) const
 {

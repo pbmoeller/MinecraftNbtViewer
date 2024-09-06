@@ -116,7 +116,7 @@ void MainWindow::openInExplorer()
     QModelIndex index = m_ui->nbtDataTreeView->currentIndex();
     if(index.isValid()) {
         NbtTreeItemBase *treeItem = m_nbtTreeModel->fromIndex(index);
-        QString path = treeItem->getPath();
+        QString path = treeItem->path();
         QDesktopServices::openUrl(QUrl("file:///" + path, QUrl::TolerantMode));
     }
 }
@@ -141,15 +141,15 @@ void MainWindow::saveAs()
             return;
         }
 
-        QString currentFilename = treeItem->getName();
-        QString path = treeItem->getPath();
+        QString currentFilename = treeItem->name();
+        QString path = treeItem->path();
         QString filename = QFileDialog::getSaveFileName(this, tr("Save %1 as...").arg(currentFilename), path);
         
         if(!filename.isNull()) {
             CompressionDialog compressionDiag(treeItem->getCompression());
             compressionDiag.exec();
             if(compressionDiag.result() == QDialog::Accepted) {
-                m_nbtTreeModel->saveAs(index, filename, compressionDiag.getSelectedCompressionType());
+                m_nbtTreeModel->saveAs(index, filename, compressionDiag.selectedCompressionType());
             }
         }
     }
@@ -389,14 +389,14 @@ void MainWindow::addNbtTag(anvil::TagType tagType)
             return;
         }
 
-        if(tagItem->getTagType() == anvil::TagType::List) {
+        if(tagItem->tagType() == anvil::TagType::List) {
             m_nbtTreeModel->addNbtTag(index, tagItem, tagType, QString());
         } else {
             qDebug() << "Launch Dialog for new Tag!";
             NewTagDialog newTagDialog(tagItem, tagType);
             if(newTagDialog.exec() == QDialog::Accepted) {
-                QString tagName = newTagDialog.getName();
-                int size = newTagDialog.getSize();
+                QString tagName = newTagDialog.name();
+                int size = newTagDialog.size();
                 m_nbtTreeModel->addNbtTag(index, tagItem, tagType, tagName, size);
             }
         }

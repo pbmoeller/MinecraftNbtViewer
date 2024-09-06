@@ -44,12 +44,12 @@ NewTagDialog::~NewTagDialog()
     delete m_ui;
 }
 
-QString NewTagDialog::getName() const
+QString NewTagDialog::name() const
 {
     return m_ui->nameEdit->text();
 }
 
-int NewTagDialog::getSize() const
+int NewTagDialog::size() const
 {
     return m_ui->sizeEdit->text().toInt();
 }

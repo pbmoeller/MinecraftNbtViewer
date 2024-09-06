@@ -84,8 +84,8 @@ void addNbtChild(NbtTreeItemBase *parentItem,
         {
             break;
         }
-        default:
         case anvil::TagType::Unknown:
+        default:
         {
             break;
         }
@@ -112,25 +112,25 @@ bool treeItemNbtTagCompare(NbtTreeItemBase *left,
        && leftTag == nullptr) {
         return false;
     }
-    if(leftTag->getTagType() == anvil::TagType::Compound
-       && rightTag->getTagType() == anvil::TagType::Compound) {
-        return leftTag->getName().toLower() < rightTag->getName().toLower();
-    } else if(leftTag->getTagType() == anvil::TagType::Compound) {
+    if(leftTag->tagType() == anvil::TagType::Compound
+       && rightTag->tagType() == anvil::TagType::Compound) {
+        return leftTag->name().toLower() < rightTag->name().toLower();
+    } else if(leftTag->tagType() == anvil::TagType::Compound) {
         return true;
-    } else if(rightTag->getTagType() == anvil::TagType::Compound) {
+    } else if(rightTag->tagType() == anvil::TagType::Compound) {
         return false;
     } else {
-        if(leftTag->getTagType() == anvil::TagType::List
-           && rightTag->getTagType() == anvil::TagType::List) {
-            return leftTag->getName().toLower() < rightTag->getName().toLower();
-        } else if(leftTag->getTagType() == anvil::TagType::List) {
+        if(leftTag->tagType() == anvil::TagType::List
+           && rightTag->tagType() == anvil::TagType::List) {
+            return leftTag->name().toLower() < rightTag->name().toLower();
+        } else if(leftTag->tagType() == anvil::TagType::List) {
             return true;
-        } else if(rightTag->getTagType() == anvil::TagType::List) {
+        } else if(rightTag->tagType() == anvil::TagType::List) {
             return false;
         }
     }
 
-    return leftTag->getName().toLower() < rightTag->getName().toLower();
+    return leftTag->name().toLower() < rightTag->name().toLower();
 }
 
 } // namespace nbt
