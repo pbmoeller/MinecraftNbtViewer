@@ -4,7 +4,8 @@
 // cpp-anvil
 #include <cpp-anvil/nbt.hpp>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 void addNbtChild(NbtTreeItemBase *parentItem,
                  anvil::BasicTag *tag)
@@ -132,4 +133,5 @@ bool treeItemNbtTagCompare(NbtTreeItemBase *left,
     return leftTag->getName().toLower() < rightTag->getName().toLower();
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

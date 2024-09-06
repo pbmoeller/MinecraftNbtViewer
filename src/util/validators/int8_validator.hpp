@@ -7,7 +7,8 @@
 // STL
 #include <cstdint>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class Int8Validator : public QValidator
 {
@@ -45,6 +46,7 @@ private:
     int8_t m_t;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_UTIL_VALIDATORS_INT8_VALIDATOR_HPP

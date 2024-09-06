@@ -7,7 +7,8 @@
 // STL
 #include <climits>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 template<typename T>
 static inline bool convertDoubleTo(double v, T *value, bool allow_precision_upgrade = true)
@@ -186,4 +187,5 @@ void FloatValidator::setRange(float bottom, float top, int decimals)
     }
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

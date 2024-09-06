@@ -2,7 +2,8 @@
 #include "nbt_treeitem_regionfile.hpp"
 #include "nbt_treeitem_regionchunk.hpp"
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 NbtTreeItemRegionFile::NbtTreeItemRegionFile(NbtTreeItemBase *parentItem,
                                              const QString &filename,
@@ -66,4 +67,5 @@ void NbtTreeItemRegionFile::fetchMore()
     }
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

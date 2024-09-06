@@ -15,7 +15,8 @@
 // STL
 #include <memory>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class NbtTreeItemNbtFile : public NbtTreeItemBase
 {
@@ -55,6 +56,7 @@ private:
     anvil::CompressionType m_compressionType;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTFILE_HPP

@@ -5,7 +5,8 @@
 // cpp-anvil
 #include <cpp-anvil/anvil/coordinates.hpp>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 NbtTreeItemRegionChunk::NbtTreeItemRegionChunk(NbtTreeItemBase *parentItem,
                                                anvil::Region *region,
@@ -66,4 +67,5 @@ void NbtTreeItemRegionChunk::fetchMore()
     }
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

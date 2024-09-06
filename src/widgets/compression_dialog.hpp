@@ -11,7 +11,8 @@ namespace Ui {
 class CompressionDialog;
 }
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class CompressionDialog : public QDialog
 {
@@ -28,6 +29,7 @@ private:
     Ui::CompressionDialog *m_ui;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_COMPRESSION_DIALOG_HPP

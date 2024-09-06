@@ -12,7 +12,8 @@
 #include <QApplication>
 #include <QClipboard>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 NbtTreeItemNbtTag::NbtTreeItemNbtTag(NbtTreeItemBase *parentItem,
                                      anvil::BasicTag *tag)
@@ -660,4 +661,5 @@ QString NbtTreeItemLongArrayTag::getLabel() const
     return name;
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

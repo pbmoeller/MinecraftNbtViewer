@@ -7,7 +7,8 @@
 // cpp-anvil
 #include <cpp-anvil/nbt.hpp>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class NbtTreeItemNbtTag : public NbtTreeItemBase
 {
@@ -195,6 +196,7 @@ public:
     virtual QString getLabel() const override;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_NBTTAG_HPP

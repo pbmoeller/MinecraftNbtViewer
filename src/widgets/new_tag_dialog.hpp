@@ -12,7 +12,8 @@ namespace Ui {
 class NewTagDialog;
 }
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class NewTagDialog : public QDialog
 {
@@ -35,6 +36,7 @@ private:
     NbtTreeItemNbtTag *m_parentItem;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_WIDGETS_NEW_TAG_DIALOG_HPP

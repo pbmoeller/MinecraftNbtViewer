@@ -13,8 +13,8 @@
 // Qt
 #include <QDir>
 
-namespace anv
-{
+namespace minecraft {
+namespace nbt {
 
 NbtDataTreeModel::NbtDataTreeModel(QObject *parent)
     : QAbstractItemModel(parent)
@@ -482,4 +482,5 @@ bool NbtDataTreeModel::canFetchMore(const QModelIndex& parent) const
     return true;
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

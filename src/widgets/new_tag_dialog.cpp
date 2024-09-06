@@ -13,7 +13,8 @@
 // STL
 #include <climits>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem,
                            anvil::TagType newItemTagType,
@@ -64,4 +65,5 @@ void NewTagDialog::accept()
     QDialog::accept();
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

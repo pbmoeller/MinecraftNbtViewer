@@ -7,8 +7,8 @@
 // Qt
 #include <QObject>
 
-namespace anv
-{
+namespace minecraft {
+namespace nbt {
 
 class MinecraftNbtViewerApp : public QObject
 {
@@ -21,6 +21,7 @@ private:
     MainWindow m_mainWindow;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_CORE_MINECRAFT_NBT_VIEWER_APP_HPP

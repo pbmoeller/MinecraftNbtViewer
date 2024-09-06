@@ -7,7 +7,8 @@
 // Qt
 #include <QIcon>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class IconProvider
 {
@@ -62,7 +63,8 @@ public:
     static QIcon icon(anvil::TagType tagType, IconSize iconSize = Size16);
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_UTIL_ICONPROVIDER_HPP
 

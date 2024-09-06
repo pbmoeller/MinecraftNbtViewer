@@ -7,7 +7,8 @@
 // cpp-anvil
 #include <cpp-anvil/nbt/basic_tag.hpp>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 void addNbtChild(NbtTreeItemBase *parentItem,
                  anvil::BasicTag *tag);
@@ -15,6 +16,7 @@ void addNbtChild(NbtTreeItemBase *parentItem,
 bool treeItemNbtTagCompare(NbtTreeItemBase *left,
                            NbtTreeItemBase *right);
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_MODELS_TREEITEMS_TREEITEM_UTIL_HPP

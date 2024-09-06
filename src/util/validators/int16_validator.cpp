@@ -4,7 +4,8 @@
 // STL
 #include <climits>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 Int16Validator::Int16Validator(QObject *parent)
     : Int16Validator(std::numeric_limits<int16_t>::min(),
@@ -97,4 +98,5 @@ void Int16Validator::setRange(int16_t bottom, int16_t top)
     }
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

@@ -15,7 +15,8 @@
 #include <QStandardPaths>
 #include <QDesktopServices>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -550,4 +551,5 @@ void MainWindow::showCustomContextMenu(const QPoint &pos)
     contextMenu->popup(m_ui->nbtDataTreeView->viewport()->mapToGlobal(pos));
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

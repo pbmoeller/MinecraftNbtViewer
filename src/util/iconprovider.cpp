@@ -1,7 +1,8 @@
 // MinecraftNbtViewer
 #include "iconprovider.hpp"
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 IconProvider::IconProvider()
 {
@@ -250,4 +251,5 @@ QIcon IconProvider::icon(anvil::TagType tagType, IconSize iconSize)
     }
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

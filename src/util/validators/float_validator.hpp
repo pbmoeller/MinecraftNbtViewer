@@ -4,7 +4,8 @@
 // Qt
 #include <QValidator>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class FloatValidator : public QValidator
 {
@@ -59,6 +60,7 @@ private:
     Notation m_notation;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTBTVIEWER_UTIL_VALIDATORS_FLOAT_VALIDATOR_HPP

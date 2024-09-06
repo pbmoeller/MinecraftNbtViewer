@@ -9,8 +9,8 @@
 #include <QSet>
 #include <QAbstractItemModel>
 
-namespace anv
-{
+namespace minecraft {
+namespace nbt {
 
 class NbtTreeItemBase;
 class NbtTreeItemNbtTag;
@@ -79,6 +79,7 @@ private:
     static const int ColumnCount = 1;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP

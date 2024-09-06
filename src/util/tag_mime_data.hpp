@@ -14,7 +14,9 @@
 Q_DECLARE_SMART_POINTER_METATYPE(std::shared_ptr);
 Q_DECLARE_METATYPE(std::shared_ptr<anvil::BasicTag>);
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
+
 
 class TagMimeData : public QMimeData
 {
@@ -36,6 +38,7 @@ private:
     QStringList m_formats;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_UTIL_TAG_MIME_DATA_HPP

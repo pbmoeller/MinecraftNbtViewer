@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/icons/grass_block_64x64.png"));
-    anv::MinecraftNbtViewerApp mApp;
+    minecraft::nbt::MinecraftNbtViewerApp mApp;
     mApp.create();
     return app.exec();
 }

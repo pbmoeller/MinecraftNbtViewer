@@ -14,7 +14,8 @@
 // STL
 #include <memory>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class NbtTreeItemRegionFile : public NbtTreeItemBase
 {
@@ -42,6 +43,7 @@ private:
     std::unique_ptr<anvil::Region> m_region;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_REGIONFILE_HPP

@@ -13,8 +13,8 @@
 #include <QString>
 #include <QIcon>
 
-namespace anv
-{
+namespace minecraft {
+namespace nbt {
 
 class NbtTreeItemBase
 {
@@ -75,6 +75,7 @@ protected:
     QVector<NbtTreeItemBase*> m_children;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_BASE_HPP

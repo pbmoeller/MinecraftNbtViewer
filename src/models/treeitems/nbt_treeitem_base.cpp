@@ -6,7 +6,8 @@
 // Qt
 #include <QDebug>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 NbtTreeItemBase::NbtTreeItemBase(NbtTreeItemBase *parentItem)
     : m_parent(parentItem)
@@ -222,4 +223,5 @@ NbtTreeItemBase* NbtTreeItemBase::markItemDirty()
     return nullptr;
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

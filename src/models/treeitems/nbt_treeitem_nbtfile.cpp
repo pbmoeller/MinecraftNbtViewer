@@ -6,7 +6,8 @@
 // cpp-anvil
 #include <cpp-anvil/nbt/io.hpp>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 NbtTreeItemNbtFile::NbtTreeItemNbtFile(NbtTreeItemBase *parentItem,
                                        const QString &filename,
@@ -138,4 +139,5 @@ anvil::CompressionType NbtTreeItemNbtFile::getCompression() const
     return m_compressionType;
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

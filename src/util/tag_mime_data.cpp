@@ -1,7 +1,8 @@
 // MinecraftNbtViewer
 #include "tag_mime_data.hpp"
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 const QString TagMimeData::TagMimeType = "application/x.amc.nbttag";
 
@@ -47,4 +48,5 @@ std::shared_ptr<anvil::BasicTag> TagMimeData::toTagData() const
     return m_tag;
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

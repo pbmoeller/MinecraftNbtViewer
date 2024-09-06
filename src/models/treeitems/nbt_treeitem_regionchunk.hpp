@@ -14,7 +14,8 @@
 // STL
 #include <memory>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class NbtTreeItemRegionChunk : public NbtTreeItemBase
 {
@@ -38,6 +39,7 @@ private:
     anvil::Region *m_parentRegion;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_REGIONCHUNK_HPP

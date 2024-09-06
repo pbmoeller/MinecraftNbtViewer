@@ -4,7 +4,8 @@
 // STL
 #include <climits>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 Int8Validator::Int8Validator(QObject *parent)
     : Int8Validator(std::numeric_limits<int8_t>::min(),
@@ -97,4 +98,5 @@ void Int8Validator::setRange(int8_t bottom, int8_t top)
     }
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

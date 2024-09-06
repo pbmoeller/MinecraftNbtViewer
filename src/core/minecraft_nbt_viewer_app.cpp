@@ -1,8 +1,8 @@
 // MinecraftNbtViewer
 #include "minecraft_nbt_viewer_app.hpp"
 
-namespace anv
-{
+namespace minecraft {
+namespace nbt {
 
 MinecraftNbtViewerApp::MinecraftNbtViewerApp(QObject *parent)
     : QObject(parent)
@@ -16,4 +16,5 @@ void MinecraftNbtViewerApp::create()
     m_mainWindow.show();
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

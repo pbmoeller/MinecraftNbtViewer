@@ -25,7 +25,8 @@
 #include <QMessageBox>
 #include <QRegularExpression>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 QValidator* createValidator(anvil::TagType tagType)
 {
@@ -485,4 +486,5 @@ bool EditDialog::checkAndSetArrayValue(const QString &value, anvil::BasicTag *ta
     return dataChanged;
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

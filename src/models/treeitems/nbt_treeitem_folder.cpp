@@ -9,7 +9,8 @@
 #include <QFileInfo>
 #include <QString>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 const QStringList KnownFilesFilter = QStringList({
     "*.dat"
@@ -144,4 +145,5 @@ QIcon NbtTreeItemFolderWorld::getIcon() const
     return QIcon(":/icons/16x16/World.png");
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

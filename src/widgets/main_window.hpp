@@ -11,7 +11,8 @@ namespace Ui {
 class MainWindow;
 }
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class NbtDataTreeModel;
 
@@ -83,6 +84,7 @@ private:
     NbtDataTreeModel *m_nbtTreeModel;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_WIDGETS_MAIN_WINDOW_HPP

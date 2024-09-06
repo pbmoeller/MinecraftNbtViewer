@@ -2,7 +2,8 @@
 #include "compression_dialog.hpp"
 #include "ui_compression_dialog.h"
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 CompressionDialog::CompressionDialog(const anvil::CompressionType compression,
                                      QWidget *parent)
@@ -27,4 +28,5 @@ anvil::CompressionType CompressionDialog::getSelectedCompressionType() const
     return static_cast<anvil::CompressionType>(m_ui->compressionCombo->currentData().toInt());
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

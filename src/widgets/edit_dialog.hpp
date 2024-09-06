@@ -13,7 +13,8 @@ class QLineEdit;
 class QTextEdit;
 class QPushButton;
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 // Forward declarations
 class NbtTreeItemNbtTag;
@@ -60,6 +61,7 @@ private:
     QTextEdit *m_textEdit;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_WIDGETS_EDIT_DIALOG_HPP

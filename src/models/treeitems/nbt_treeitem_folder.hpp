@@ -7,7 +7,8 @@
 // Qt
 #include <QString>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 class NbtTreeItemFolder : public NbtTreeItemBase
 {
@@ -51,6 +52,7 @@ public:
     virtual QIcon getIcon() const override;
 };
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTBTVIEWER_MODELS_TREEITEMS_NBT_TREEITEM_FOLDER_HPP

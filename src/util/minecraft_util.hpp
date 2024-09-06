@@ -4,10 +4,12 @@
 // Qt
 #include <QString>
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
 bool isMinecraftWorldDirectory(const QString &directory);
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_UTIL_MINECRAFT_UTIL_HPP

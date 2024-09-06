@@ -7,8 +7,8 @@
 // Qt
 #include <QFileInfo>
 
-namespace anv
-{
+namespace minecraft {
+namespace nbt {
 
 bool isMinecraftWorldDirectory(const QString &directory)
 {
@@ -18,4 +18,5 @@ bool isMinecraftWorldDirectory(const QString &directory)
         && anvil::isNbtFile(levelDatFile.absoluteFilePath().toStdString());
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
