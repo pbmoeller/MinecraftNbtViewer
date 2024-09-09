@@ -195,20 +195,20 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *it
         return;
     }
 
+    // Add to model
+    NbtTreeItemBase *treeItem = fromIndex(index);
+    int pos = treeItem->children().size();
+    beginInsertRows(index, pos, pos);
+    addNbtChild(treeItem, newTag.get());
+    endInsertRows();
+
+    markItemDirty(treeItem);
+
     if(item->tagType() == anvil::TagType::List) {
         anvil::tag_cast<anvil::ListTag*>(item->tag())->push_back(std::move(newTag));
     } else if(item->tagType() == anvil::TagType::Compound) {
         anvil::tag_cast<anvil::CompoundTag*>(item->tag())->push_back(std::move(newTag));
     }
-
-    // Add to model
-    NbtTreeItemBase *treeItem = fromIndex(index);
-    int pos = treeItem->children().size();
-    beginInsertRows(index, pos, pos);
-    addNbtChild(treeItem, newTag.get());    // Invalid ptr !?!?
-    endInsertRows();
-
-    markItemDirty(treeItem);
 }
 
 void NbtDataTreeModel::addNewNbtFile(const QModelIndex &index)

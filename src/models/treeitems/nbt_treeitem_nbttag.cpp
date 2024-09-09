@@ -407,15 +407,15 @@ void pasteHelper(NbtTreeItemNbtTag *item)
             // Create a new ownership and transfer it to CompoundTag.
             // This is necessary when pasting again and if the shared_ptr get deleted.
             auto newTag = tagData->clone();
-            anvil::BasicTag *tagPtr = newTag.get();
+
+            // Now create new TreeItems from new data
+            addNbtChild(item, newTag.get());
+
             if(item->tagType() == anvil::TagType::List) {
                 tag_cast<anvil::ListTag*>(item->tag())->push_back(std::move(newTag));
             } else if(item->tagType() == anvil::TagType::List) {
                 tag_cast<anvil::CompoundTag*>(item->tag())->push_back(std::move(newTag));
             }
-
-            // Now cerate new TreeItems from new data
-            addNbtChild(item, tagPtr);
         }
     }
 }
