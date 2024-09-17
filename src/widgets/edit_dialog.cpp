@@ -154,7 +154,7 @@ void EditDialog::setupUi(EditFunction function)
             m_textEdit->setText(valueToString());
 
             gLayout->addWidget(m_textEdit, currentRow, 1);
-        } else if(anvil::isValueTag(tagType)) {
+        } else if(anvil::isPrimitiveTag(tagType)) {
             m_lineEditValue = new QLineEdit();
             m_lineEditValue->setText(valueToString());
             m_lineEditValue->setValidator(createValidator(tagType));
@@ -198,7 +198,7 @@ void EditDialog::setupUi(EditFunction function)
         if(tagType == anvil::TagType::String) {
             m_textEdit->setFocus(Qt::OtherFocusReason);
             m_textEdit->selectAll();
-        } else if(anvil::isValueTag(tagType)) {
+        } else if(anvil::isPrimitiveTag(tagType)) {
             m_lineEditValue->setFocus(Qt::OtherFocusReason);
             m_lineEditValue->selectAll();
         } else if(anvil::isContainerTag(tagType)) {
