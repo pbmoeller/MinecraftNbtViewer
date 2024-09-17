@@ -39,9 +39,13 @@ QValidator* createValidator(anvil::TagType tagType)
     } else if(tagType == anvil::TagType::Long) {
         return new Int64Validator();
     } else if(tagType == anvil::TagType::Float) {
-        return new FloatValidator();
+        auto v = new FloatValidator();
+        v->setNotation(FloatValidator::StandardNotation);
+        return v;
     } else if(tagType == anvil::TagType::Double) {
-        return new QDoubleValidator();
+        auto v = new QDoubleValidator();
+        v->setNotation(QDoubleValidator::StandardNotation);
+        return v;
     } else {
 
     }
@@ -103,7 +107,7 @@ void EditDialog::accept()
                 stringTag->setValue(value.toStdString());
                 dataChanged = true;
             }
-        } else if(anvil::isValueTag(tagType)) {
+        } else if(anvil::isPrimitiveTag(tagType)) {
             QString value = m_lineEditValue->text();
 
             dataChanged = checkAndSetValue(value, m_treeItem->tag());
@@ -224,25 +228,33 @@ void EditDialog::setupUi(EditFunction function)
 
 QString EditDialog::valueToString() const
 {
+    QString s;
     switch(m_treeItem->tag()->type()) {
         case anvil::TagType::Byte:
-            return QString::number(tag_cast<anvil::ByteTag*>(m_treeItem->tag())->value());
+            s = QLocale().toString(tag_cast<anvil::ByteTag*>(m_treeItem->tag())->value());
+            break;
         case anvil::TagType::Short:
-            return QString::number(tag_cast<anvil::ShortTag*>(m_treeItem->tag())->value());
+            s = QLocale().toString(tag_cast<anvil::ShortTag*>(m_treeItem->tag())->value());
+            break;
         case anvil::TagType::Int:
-            return QString::number(tag_cast<anvil::IntTag*>(m_treeItem->tag())->value());
+            s = QLocale().toString(tag_cast<anvil::IntTag*>(m_treeItem->tag())->value());
+            break;
         case anvil::TagType::Long:
-            return QString::number(tag_cast<anvil::LongTag*>(m_treeItem->tag())->value());
+            s = QLocale().toString(tag_cast<anvil::LongTag*>(m_treeItem->tag())->value());
+            break;
         case anvil::TagType::Float:
-            return QString::number(tag_cast<anvil::FloatTag*>(m_treeItem->tag())->value(), 'g', 6);
+            s = QLocale().toString(tag_cast<anvil::FloatTag*>(m_treeItem->tag())->value(), 'g', 6);
+            break;
         case anvil::TagType::Double:
-            return QString::number(tag_cast<anvil::DoubleTag*>(m_treeItem->tag())->value(), 'g', 16);
+            s = QLocale().toString(tag_cast<anvil::DoubleTag*>(m_treeItem->tag())->value(), 'g', 16);
+            break;
         case anvil::TagType::String:
-            return QString(tag_cast<anvil::StringTag*>(m_treeItem->tag())->value().c_str());
+            s = QString(tag_cast<anvil::StringTag*>(m_treeItem->tag())->value().c_str());
+            break;
         default:
             break;
     }
-    return QString();
+    return s;
 }
 
 QString EditDialog::arrayToString() const
@@ -343,7 +355,7 @@ bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
         }
         case anvil::TagType::Float:
         {
-            float newValue = value.toFloat(&ok);
+            float newValue = QLocale().toFloat(value, &ok);
             anvil::FloatTag *floatTag = anvil::tag_cast<anvil::FloatTag*>(tag);
             if(ok && floatTag->value() != newValue) {
                 floatTag->setValue(newValue);
@@ -353,7 +365,7 @@ bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
         }
         case anvil::TagType::Double:
         {
-            double newValue = value.toDouble(&ok);
+            double newValue = QLocale().toDouble(value, &ok);
             anvil::DoubleTag *doubleTag = anvil::tag_cast<anvil::DoubleTag*>(tag);
             if(ok && doubleTag->value() != newValue) {
                 doubleTag->setValue(newValue);

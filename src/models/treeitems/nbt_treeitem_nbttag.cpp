@@ -337,7 +337,7 @@ QString NbtTreeItemFloatTag::label() const
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
     }
-    name += QString::number(tag->value(), 'g', 6);
+    name += QLocale().toString(tag->value(), 'g', 6);
 
     return name;
 }
@@ -364,7 +364,7 @@ QString NbtTreeItemDoubleTag::label() const
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
     }
-    name += QString::number(tag->value(), 'g', 16);
+    name += QLocale().toString(tag->value(), 'g', 16);
 
     return name;
 }
