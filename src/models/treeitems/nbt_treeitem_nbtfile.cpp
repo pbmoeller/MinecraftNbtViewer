@@ -102,10 +102,6 @@ void NbtTreeItemNbtFile::fetchMore()
     if(m_nbtRootTag) {
         anvil::CompoundTag *tag = anvil::tag_cast<anvil::CompoundTag*>(m_nbtRootTag.get());
         addNbtChild(this, tag);
-        /*for(amc::AbstractTag *childTag : tag->getValue()) {
-            addNbtChild(this, childTag);
-        }*/
-
         sort();
     }
 }
