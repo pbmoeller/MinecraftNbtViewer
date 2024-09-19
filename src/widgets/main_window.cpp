@@ -400,6 +400,7 @@ void MainWindow::addNbtTag(anvil::TagType tagType)
                 m_nbtTreeModel->addNbtTag(index, tagItem, tagType, tagName, size);
             }
         }
+        m_ui->nbtDataTreeView->expand(index);
     }
 }
 
