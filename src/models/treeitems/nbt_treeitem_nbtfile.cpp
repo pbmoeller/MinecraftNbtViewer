@@ -6,6 +6,9 @@
 // cpp-anvil
 #include <cpp-anvil/nbt/io.hpp>
 
+// Qt
+#include <QFileInfo>
+
 namespace minecraft {
 namespace nbt {
 
@@ -60,7 +63,7 @@ void NbtTreeItemNbtFile::save()
         fetchMore();
     }
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    anvil::saveToFile(filename, m_nbtRootTag.get(), m_compressionType);
+    bool ret = anvil::saveToFile(filename, m_nbtRootTag.get(), m_compressionType);
 }
 
 void NbtTreeItemNbtFile::saveAs(const QString &filename, const anvil::CompressionType compression)
@@ -69,7 +72,11 @@ void NbtTreeItemNbtFile::saveAs(const QString &filename, const anvil::Compressio
     if(canFetchMore()) {
         fetchMore();
     }
-    anvil::saveToFile(filename.toStdString(), m_nbtRootTag.get(), compression);
+    bool ret = anvil::saveToFile(filename.toStdString(), m_nbtRootTag.get(), compression);
+    if(ret) {
+        m_filename = QFileInfo(filename).fileName();
+        m_compressionType = compression;
+    }
 }
 
 bool NbtTreeItemNbtFile::canRefresh() const
