@@ -150,7 +150,7 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *it
         return;
     }
 
-    // TODO: Maybe check  the list type in advance, so that it is not cerated if it cannot be added.
+    // TODO: Maybe check  the list type in advance, so that it is not created if it cannot be added.
 
     std::unique_ptr<anvil::BasicTag> newTag;
     switch(type) {
