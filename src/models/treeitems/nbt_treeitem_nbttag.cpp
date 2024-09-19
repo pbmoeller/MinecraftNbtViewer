@@ -408,6 +408,21 @@ void pasteHelper(NbtTreeItemNbtTag *item)
             // This is necessary when pasting again and if the shared_ptr get deleted.
             auto newTag = tagData->clone();
 
+            // Check if the item is CompoundTag and if it already has a tag with the name.
+            // The CompoundTag does not allow 2 items to have the same name -> rename.
+            if(item->tagType() == anvil::TagType::Compound) {
+                std::string name = newTag->name();
+                anvil::CompoundTag *parent = tag_cast<anvil::CompoundTag*>(item->tag());
+                int index = 1;
+                while(parent->hasChild(name)) {
+                    name = newTag->name() + " (" + std::to_string(index) + ")";
+                    ++index;
+                }
+                if(name != newTag->name()) {
+                    newTag->setName(name);
+                }
+            }
+
             // Now create new TreeItems from new data
             addNbtChild(item, newTag.get());
 
