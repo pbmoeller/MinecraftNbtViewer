@@ -413,7 +413,7 @@ void pasteHelper(NbtTreeItemNbtTag *item)
 
             if(item->tagType() == anvil::TagType::List) {
                 tag_cast<anvil::ListTag*>(item->tag())->push_back(std::move(newTag));
-            } else if(item->tagType() == anvil::TagType::List) {
+            } else if(item->tagType() == anvil::TagType::Compound) {
                 tag_cast<anvil::CompoundTag*>(item->tag())->push_back(std::move(newTag));
             }
         }
