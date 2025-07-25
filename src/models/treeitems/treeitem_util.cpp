@@ -7,11 +7,9 @@
 namespace minecraft {
 namespace nbt {
 
-void addNbtChild(NbtTreeItemBase *parentItem,
-                 anvil::BasicTag *tag)
+void addNbtChild(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
 {
-    switch(tag->type())
-    {
+    switch(tag->type()) {
         case anvil::TagType::Byte:
         {
             new NbtTreeItemByteTag(parentItem, tag);
@@ -49,8 +47,9 @@ void addNbtChild(NbtTreeItemBase *parentItem,
         }
         case anvil::TagType::List:
         {
-            NbtTreeItemListTag *treeItem = new NbtTreeItemListTag(parentItem, tag);
-            for(std::unique_ptr<anvil::BasicTag> &childTag : anvil::tag_cast<anvil::ListTag*>(tag)->value()) {
+            NbtTreeItemListTag* treeItem = new NbtTreeItemListTag(parentItem, tag);
+            for(std::unique_ptr<anvil::BasicTag>& childTag :
+                anvil::tag_cast<anvil::ListTag*>(tag)->value()) {
                 addNbtChild(treeItem, childTag.get());
             }
             treeItem->sort();
@@ -58,8 +57,9 @@ void addNbtChild(NbtTreeItemBase *parentItem,
         }
         case anvil::TagType::Compound:
         {
-            NbtTreeItemCompoundTag *treeItem = new NbtTreeItemCompoundTag(parentItem, tag);
-            for(std::unique_ptr<anvil::BasicTag> &childTag : anvil::tag_cast<anvil::CompoundTag*>(tag)->value()) {
+            NbtTreeItemCompoundTag* treeItem = new NbtTreeItemCompoundTag(parentItem, tag);
+            for(std::unique_ptr<anvil::BasicTag>& childTag :
+                anvil::tag_cast<anvil::CompoundTag*>(tag)->value()) {
                 addNbtChild(treeItem, childTag.get());
             }
             treeItem->sort();
@@ -94,22 +94,19 @@ void addNbtChild(NbtTreeItemBase *parentItem,
     return;
 }
 
-bool treeItemNbtTagCompare(NbtTreeItemBase *left,
-                           NbtTreeItemBase *right)
+bool treeItemNbtTagCompare(NbtTreeItemBase* left, NbtTreeItemBase* right)
 {
     if(!left || !right) {
         return false;
     }
 
-    NbtTreeItemNbtTag *leftTag = dynamic_cast<NbtTreeItemNbtTag*>(left);
-    NbtTreeItemNbtTag *rightTag = dynamic_cast<NbtTreeItemNbtTag*>(right);
+    NbtTreeItemNbtTag* leftTag  = dynamic_cast<NbtTreeItemNbtTag*>(left);
+    NbtTreeItemNbtTag* rightTag = dynamic_cast<NbtTreeItemNbtTag*>(right);
 
-    if(leftTag != nullptr
-       && rightTag == nullptr) {
+    if(leftTag != nullptr && rightTag == nullptr) {
         return true;
     }
-    if(rightTag != nullptr
-       && leftTag == nullptr) {
+    if(rightTag != nullptr && leftTag == nullptr) {
         return false;
     }
     if(leftTag->tagType() == anvil::TagType::Compound

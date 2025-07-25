@@ -12,26 +12,21 @@
 namespace minecraft {
 namespace nbt {
 
-const QStringList KnownFilesFilter = QStringList({
-    "*.dat"
-    "*.mca"
-    "*.mcr"
-    "*.json"
-    "*.dat_old"
-    "*.dat_mcr"
-    "*.schematic"
-});
+const QStringList KnownFilesFilter = QStringList({"*.dat"
+                                                  "*.mca"
+                                                  "*.mcr"
+                                                  "*.json"
+                                                  "*.dat_old"
+                                                  "*.dat_mcr"
+                                                  "*.schematic"});
 
-NbtTreeItemFolder::NbtTreeItemFolder(NbtTreeItemBase *parentItem,
-                                     const QString &folderName,
-                                     const QString &pathToFolder)
+NbtTreeItemFolder::NbtTreeItemFolder(NbtTreeItemBase* parentItem, const QString& folderName,
+                                     const QString& pathToFolder)
     : NbtTreeItemBase(parentItem)
     , m_canFetchData(true)
     , m_folderName(folderName)
     , m_pathToFolder(pathToFolder)
-{
-
-}
+{ }
 
 NbtTreeItemFolder::~NbtTreeItemFolder() = default;
 
@@ -77,8 +72,7 @@ void NbtTreeItemFolder::fetchMore()
     sort();
 }
 
-void NbtTreeItemFolder::readKnownFilesInDirectory(NbtTreeItemBase *parent,
-                                                  const QString &directory)
+void NbtTreeItemFolder::readKnownFilesInDirectory(NbtTreeItemBase* parent, const QString& directory)
 {
     QDir dir(directory);
 
@@ -95,22 +89,19 @@ void NbtTreeItemFolder::readKnownFilesInDirectory(NbtTreeItemBase *parent,
     }
 
     // Files
-    for(QString filename : dir.entryList(QStringList()
-                                            << "*.dat"
-                                            << "*.nbt"
-                                            << "*.mca"
-                                            << "*.mcr"
-                                            << "*.json"
-                                            << "*.dat_old"
-                                            << "*.dat_mcr"
-                                            << "*.schematic",
+    for(QString filename : dir.entryList(QStringList() << "*.dat"
+                                                       << "*.nbt"
+                                                       << "*.mca"
+                                                       << "*.mcr"
+                                                       << "*.json"
+                                                       << "*.dat_old"
+                                                       << "*.dat_mcr"
+                                                       << "*.schematic",
                                          QDir::Files)) {
         QFileInfo fileInfo(filename);
-        if(fileInfo.suffix() == "dat"
-            || fileInfo.suffix() == "nbt"
-            || fileInfo.suffix() == "dat_old"
-            || fileInfo.suffix() == "dat_mcr"
-            || fileInfo.suffix() == "schematic") {
+        if(fileInfo.suffix() == "dat" || fileInfo.suffix() == "nbt"
+           || fileInfo.suffix() == "dat_old" || fileInfo.suffix() == "dat_mcr"
+           || fileInfo.suffix() == "schematic") {
             new NbtTreeItemNbtFile(parent, fileInfo.fileName(), directory);
         } else if(fileInfo.suffix() == "mca" || fileInfo.suffix() == "mcr") {
             new NbtTreeItemRegionFile(parent, fileInfo.fileName(), directory);
@@ -124,13 +115,11 @@ void NbtTreeItemFolder::readKnownFilesInDirectory(NbtTreeItemBase *parent,
 // NbtTreeItemFolderWorld
 //
 
-NbtTreeItemFolderWorld::NbtTreeItemFolderWorld(NbtTreeItemBase *parentItem,
-                                               const QString &folderName,
-                                               const QString &pathToFolder)
+NbtTreeItemFolderWorld::NbtTreeItemFolderWorld(NbtTreeItemBase* parentItem,
+                                               const QString& folderName,
+                                               const QString& pathToFolder)
     : NbtTreeItemFolder(parentItem, folderName, pathToFolder)
-{
-
-}
+{ }
 
 NbtTreeItemFolderWorld::~NbtTreeItemFolderWorld() = default;
 

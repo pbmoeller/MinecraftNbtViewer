@@ -13,9 +13,8 @@ namespace nbt {
 class NbtTreeItemFolder : public NbtTreeItemBase
 {
 public:
-    NbtTreeItemFolder(NbtTreeItemBase *parentItem,
-                      const QString &folderName,
-                      const QString &pathToFolder);
+    NbtTreeItemFolder(NbtTreeItemBase* parentItem, const QString& folderName,
+                      const QString& pathToFolder);
     virtual ~NbtTreeItemFolder();
 
     virtual QIcon icon() const override;
@@ -32,8 +31,7 @@ public:
     virtual void fetchMore() override;
 
 protected:
-    void readKnownFilesInDirectory(NbtTreeItemBase *parent,
-                                   const QString &directory);
+    void readKnownFilesInDirectory(NbtTreeItemBase* parent, const QString& directory);
 
 private:
     bool m_canFetchData;
@@ -44,9 +42,8 @@ private:
 class NbtTreeItemFolderWorld : public NbtTreeItemFolder
 {
 public:
-    NbtTreeItemFolderWorld(NbtTreeItemBase *parentItem,
-                           const QString &folderName,
-                           const QString &pathToFolder);
+    NbtTreeItemFolderWorld(NbtTreeItemBase* parentItem, const QString& folderName,
+                           const QString& pathToFolder);
     virtual ~NbtTreeItemFolderWorld();
 
     virtual QIcon icon() const override;

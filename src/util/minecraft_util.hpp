@@ -7,7 +7,7 @@
 namespace minecraft {
 namespace nbt {
 
-bool isMinecraftWorldDirectory(const QString &directory);
+bool isMinecraftWorldDirectory(const QString& directory);
 
 } // namespace nbt
 } // namespace minecraft

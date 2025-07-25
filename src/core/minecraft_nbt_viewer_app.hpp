@@ -13,7 +13,7 @@ namespace nbt {
 class MinecraftNbtViewerApp : public QObject
 {
 public:
-    MinecraftNbtViewerApp(QObject *parent = nullptr);
+    MinecraftNbtViewerApp(QObject* parent = nullptr);
 
     void create();
 

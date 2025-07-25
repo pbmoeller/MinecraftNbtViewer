@@ -19,12 +19,12 @@ QStringList TagMimeData::formats() const
     return m_formats;
 }
 
-bool TagMimeData::hasFormat(const QString &mimeType) const
+bool TagMimeData::hasFormat(const QString& mimeType) const
 {
     return m_formats.contains(mimeType);
 }
 
-QVariant TagMimeData::retrieveData(const QString &mimeType, QMetaType type) const
+QVariant TagMimeData::retrieveData(const QString& mimeType, QMetaType type) const
 {
     if(mimeType == TagMimeType) {
         return QVariant::fromValue(m_tag);
@@ -33,7 +33,7 @@ QVariant TagMimeData::retrieveData(const QString &mimeType, QMetaType type) cons
     }
 }
 
-void TagMimeData::setData(const QString &mimeType, std::shared_ptr<anvil::BasicTag> &data)
+void TagMimeData::setData(const QString& mimeType, std::shared_ptr<anvil::BasicTag>& data)
 {
     if(mimeType == TagMimeType) {
         m_tag = data;

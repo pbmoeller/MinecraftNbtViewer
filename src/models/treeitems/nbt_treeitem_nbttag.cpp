@@ -1,27 +1,24 @@
 // MinecraftNbtViewer
 #include "nbt_treeitem_nbttag.hpp"
+#include "models/nbt_data_treemodel.hpp"
 #include "nbt_treeitem_nbtfile.hpp"
 #include "nbt_treeitem_regionfile.hpp"
 #include "treeitem_util.hpp"
-#include "models/nbt_data_treemodel.hpp"
 #include "util/tag_mime_data.hpp"
 #include "widgets/edit_dialog.hpp"
 
 // Qt
-#include <QObject>
 #include <QApplication>
 #include <QClipboard>
+#include <QObject>
 
 namespace minecraft {
 namespace nbt {
 
-NbtTreeItemNbtTag::NbtTreeItemNbtTag(NbtTreeItemBase *parentItem,
-                                     anvil::BasicTag *tag)
+NbtTreeItemNbtTag::NbtTreeItemNbtTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemBase(parentItem)
     , m_tag(tag)
-{
-
-}
+{ }
 
 NbtTreeItemNbtTag::~NbtTreeItemNbtTag() = default;
 
@@ -57,12 +54,12 @@ bool NbtTreeItemNbtTag::canRename() const
     return (dynamic_cast<NbtTreeItemListTag*>(m_parent) == nullptr);
 }
 
-void NbtTreeItemNbtTag::rename(const QString &name)
+void NbtTreeItemNbtTag::rename(const QString& name)
 {
     m_tag->setName(name.toStdString());
 }
 
-void NbtTreeItemNbtTag::openRenameDialog(NbtDataTreeModel *model)
+void NbtTreeItemNbtTag::openRenameDialog(NbtDataTreeModel* model)
 {
     EditDialog editDialog(this, model, EditDialog::EditFunction::Rename);
     editDialog.exec();
@@ -73,7 +70,7 @@ bool NbtTreeItemNbtTag::canEdit() const
     return true;
 }
 
-void NbtTreeItemNbtTag::openEditDialog(NbtDataTreeModel *model)
+void NbtTreeItemNbtTag::openEditDialog(NbtDataTreeModel* model)
 {
     EditDialog editDialog(this, model, EditDialog::EditFunction::EditValue);
     editDialog.exec();
@@ -90,7 +87,7 @@ void NbtTreeItemNbtTag::deleteTag()
     m_tag = nullptr;
 }
 
-void NbtTreeItemNbtTag::deleteChildTag(anvil::BasicTag *tag)
+void NbtTreeItemNbtTag::deleteChildTag(anvil::BasicTag* tag)
 {
     Q_UNUSED(tag);
 }
@@ -102,18 +99,19 @@ bool NbtTreeItemNbtTag::canCut() const
 
 void NbtTreeItemNbtTag::cut()
 {
-    NbtTreeItemBase *parentItem = parent();
+    NbtTreeItemBase* parentItem = parent();
     std::unique_ptr<anvil::BasicTag> tag;
 
     // Check if parent is ListTag or CompoundTag
     // If one of these Items take NbtTag
-    NbtTreeItemListTag *parentListTag = dynamic_cast<NbtTreeItemListTag*>(parentItem);
-    NbtTreeItemCompoundTag *parentCompoundTag = dynamic_cast<NbtTreeItemCompoundTag*>(parentItem);
+    NbtTreeItemListTag* parentListTag         = dynamic_cast<NbtTreeItemListTag*>(parentItem);
+    NbtTreeItemCompoundTag* parentCompoundTag = dynamic_cast<NbtTreeItemCompoundTag*>(parentItem);
     if(parentListTag) {
-        anvil::ListTag *listTag = dynamic_cast<anvil::ListTag*>(parentListTag->tag());
-        tag = listTag->take(m_tag);
+        anvil::ListTag* listTag = dynamic_cast<anvil::ListTag*>(parentListTag->tag());
+        tag                     = listTag->take(m_tag);
     } else if(parentCompoundTag) {
-        anvil::CompoundTag *compoundTag = dynamic_cast<anvil::CompoundTag*>(parentCompoundTag->tag());
+        anvil::CompoundTag* compoundTag =
+            dynamic_cast<anvil::CompoundTag*>(parentCompoundTag->tag());
         tag = compoundTag->take(m_tag);
     } else {
         return;
@@ -122,7 +120,7 @@ void NbtTreeItemNbtTag::cut()
     // Item to clipboard
     std::shared_ptr<anvil::BasicTag> data(std::move(tag));
 
-    TagMimeData *mimeData = new TagMimeData();
+    TagMimeData* mimeData = new TagMimeData();
     mimeData->setData(TagMimeData::TagMimeType, data);
     qApp->clipboard()->setMimeData(mimeData);
 
@@ -139,7 +137,7 @@ void NbtTreeItemNbtTag::copy()
 {
     std::shared_ptr<anvil::BasicTag> data(m_tag->clone());
 
-    TagMimeData *mimeData = new TagMimeData();
+    TagMimeData* mimeData = new TagMimeData();
     mimeData->setData(TagMimeData::TagMimeType, data);
     qApp->clipboard()->setMimeData(mimeData);
 }
@@ -147,12 +145,12 @@ void NbtTreeItemNbtTag::copy()
 bool NbtTreeItemNbtTag::canMoveUp() const
 {
     // Check if we have a parent
-    NbtTreeItemNbtTag *parentItem = dynamic_cast<NbtTreeItemNbtTag*>(m_parent);
+    NbtTreeItemNbtTag* parentItem = dynamic_cast<NbtTreeItemNbtTag*>(m_parent);
     if(parentItem) {
         // Check if tag is valid and is of type List
-        anvil::BasicTag *parentTag = parentItem->tag();
+        anvil::BasicTag* parentTag = parentItem->tag();
         if(parentTag && parentTag->type() == anvil::TagType::List) {
-            anvil::ListTag *listTag = tag_cast<anvil::ListTag*>(parentTag);
+            anvil::ListTag* listTag = tag_cast<anvil::ListTag*>(parentTag);
 
             // Now check if the moving makes sense
             if(listTag->indexOf(m_tag) > 0) {
@@ -166,12 +164,12 @@ bool NbtTreeItemNbtTag::canMoveUp() const
 bool NbtTreeItemNbtTag::canMoveDown() const
 {
     // Check if we have a parent
-    NbtTreeItemNbtTag *parentItem = dynamic_cast<NbtTreeItemNbtTag*>(m_parent);
+    NbtTreeItemNbtTag* parentItem = dynamic_cast<NbtTreeItemNbtTag*>(m_parent);
     if(parentItem) {
         // Check if tag is valid and is of type List
-        anvil::BasicTag *parentTag = parentItem->tag();
+        anvil::BasicTag* parentTag = parentItem->tag();
         if(parentTag && parentTag->type() == anvil::TagType::List) {
-            anvil::ListTag *listTag = tag_cast<anvil::ListTag*>(parentTag);
+            anvil::ListTag* listTag = tag_cast<anvil::ListTag*>(parentTag);
 
             // Now check if the moving makes sense
             size_t idx = listTag->indexOf(m_tag);
@@ -185,14 +183,12 @@ bool NbtTreeItemNbtTag::canMoveDown() const
 
 void NbtTreeItemNbtTag::sort()
 {
-    std::sort(m_children.begin(),
-              m_children.end(),
-              &treeItemNbtTagCompare);
+    std::sort(m_children.begin(), m_children.end(), &treeItemNbtTagCompare);
 }
 
 NbtTreeItemBase* NbtTreeItemNbtTag::markItemDirty()
 {
-    NbtTreeItemBase *item = this;
+    NbtTreeItemBase* item = this;
 
     // Walk up the tree until we find a TreeItem which is not a NBT tag.
     while(item != nullptr) {
@@ -208,12 +204,9 @@ NbtTreeItemBase* NbtTreeItemNbtTag::markItemDirty()
 }
 
 /// ByteTag
-NbtTreeItemByteTag::NbtTreeItemByteTag(NbtTreeItemBase *parentItem,
-                                       anvil::BasicTag *tag)
+NbtTreeItemByteTag::NbtTreeItemByteTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemByteTag::~NbtTreeItemByteTag() = default;
 
@@ -224,7 +217,7 @@ QIcon NbtTreeItemByteTag::icon() const
 
 QString NbtTreeItemByteTag::label() const
 {
-    anvil::ByteTag *tag = anvil::tag_cast<anvil::ByteTag*>(m_tag);
+    anvil::ByteTag* tag = anvil::tag_cast<anvil::ByteTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
@@ -235,12 +228,9 @@ QString NbtTreeItemByteTag::label() const
 }
 
 /// ShortTag
-NbtTreeItemShortTag::NbtTreeItemShortTag(NbtTreeItemBase *parentItem,
-                                         anvil::BasicTag *tag)
+NbtTreeItemShortTag::NbtTreeItemShortTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemShortTag::~NbtTreeItemShortTag() = default;
 
@@ -251,7 +241,7 @@ QIcon NbtTreeItemShortTag::icon() const
 
 QString NbtTreeItemShortTag::label() const
 {
-    anvil::ShortTag *tag = anvil::tag_cast<anvil::ShortTag*>(m_tag);
+    anvil::ShortTag* tag = anvil::tag_cast<anvil::ShortTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
@@ -262,12 +252,9 @@ QString NbtTreeItemShortTag::label() const
 }
 
 /// IntTag
-NbtTreeItemIntTag::NbtTreeItemIntTag(NbtTreeItemBase *parentItem,
-                                     anvil::BasicTag *tag)
+NbtTreeItemIntTag::NbtTreeItemIntTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemIntTag::~NbtTreeItemIntTag() = default;
 
@@ -278,7 +265,7 @@ QIcon NbtTreeItemIntTag::icon() const
 
 QString NbtTreeItemIntTag::label() const
 {
-    anvil::IntTag *tag = anvil::tag_cast<anvil::IntTag*>(m_tag);
+    anvil::IntTag* tag = anvil::tag_cast<anvil::IntTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
@@ -289,12 +276,9 @@ QString NbtTreeItemIntTag::label() const
 }
 
 /// LongTag
-NbtTreeItemLongTag::NbtTreeItemLongTag(NbtTreeItemBase *parentItem,
-                                       anvil::BasicTag *tag)
+NbtTreeItemLongTag::NbtTreeItemLongTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemLongTag::~NbtTreeItemLongTag() = default;
 
@@ -305,7 +289,7 @@ QIcon NbtTreeItemLongTag::icon() const
 
 QString NbtTreeItemLongTag::label() const
 {
-    anvil::LongTag *tag = anvil::tag_cast<anvil::LongTag*>(m_tag);
+    anvil::LongTag* tag = anvil::tag_cast<anvil::LongTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
@@ -316,13 +300,10 @@ QString NbtTreeItemLongTag::label() const
 }
 
 /// FloatTag
-NbtTreeItemFloatTag::NbtTreeItemFloatTag(NbtTreeItemBase *parentItem,
-                                         anvil::BasicTag *tag)
+NbtTreeItemFloatTag::NbtTreeItemFloatTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
+{ }
 
-}
-    
 NbtTreeItemFloatTag::~NbtTreeItemFloatTag() = default;
 
 QIcon NbtTreeItemFloatTag::icon() const
@@ -332,7 +313,7 @@ QIcon NbtTreeItemFloatTag::icon() const
 
 QString NbtTreeItemFloatTag::label() const
 {
-    anvil::FloatTag *tag = anvil::tag_cast<anvil::FloatTag*>(m_tag);
+    anvil::FloatTag* tag = anvil::tag_cast<anvil::FloatTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
@@ -343,12 +324,9 @@ QString NbtTreeItemFloatTag::label() const
 }
 
 /// DoubleTag
-NbtTreeItemDoubleTag::NbtTreeItemDoubleTag(NbtTreeItemBase *parentItem,
-                                           anvil::BasicTag *tag)
+NbtTreeItemDoubleTag::NbtTreeItemDoubleTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemDoubleTag::~NbtTreeItemDoubleTag() = default;
 
@@ -359,7 +337,7 @@ QIcon NbtTreeItemDoubleTag::icon() const
 
 QString NbtTreeItemDoubleTag::label() const
 {
-    anvil::DoubleTag *tag = anvil::tag_cast<anvil::DoubleTag*>(m_tag);
+    anvil::DoubleTag* tag = anvil::tag_cast<anvil::DoubleTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
@@ -370,12 +348,9 @@ QString NbtTreeItemDoubleTag::label() const
 }
 
 /// StringTag
-NbtTreeItemStringTag::NbtTreeItemStringTag(NbtTreeItemBase *parentItem,
-                                           anvil::BasicTag *tag)
+NbtTreeItemStringTag::NbtTreeItemStringTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemStringTag::~NbtTreeItemStringTag() = default;
 
@@ -386,7 +361,7 @@ QIcon NbtTreeItemStringTag::icon() const
 
 QString NbtTreeItemStringTag::label() const
 {
-    anvil::StringTag *tag = anvil::tag_cast<anvil::StringTag*>(m_tag);
+    anvil::StringTag* tag = anvil::tag_cast<anvil::StringTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString(tag->name().c_str()).append(": ");
@@ -397,10 +372,10 @@ QString NbtTreeItemStringTag::label() const
 }
 
 /// ListTag & CompoundTag Helper
-void pasteHelper(NbtTreeItemNbtTag *item)
+void pasteHelper(NbtTreeItemNbtTag* item)
 {
-    const QMimeData *mimeData = qApp->clipboard()->mimeData();
-    const TagMimeData *tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
+    const QMimeData* mimeData      = qApp->clipboard()->mimeData();
+    const TagMimeData* tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
     if(tagMimeData && tagMimeData->hasFormat(TagMimeData::TagMimeType)) {
         std::shared_ptr<anvil::BasicTag> tagData = tagMimeData->toTagData();
         if(tagData && anvil::isCollectionTag(item->tagType())) {
@@ -411,9 +386,9 @@ void pasteHelper(NbtTreeItemNbtTag *item)
             // Check if the item is CompoundTag and if it already has a tag with the name.
             // The CompoundTag does not allow 2 items to have the same name -> rename.
             if(item->tagType() == anvil::TagType::Compound) {
-                std::string name = newTag->name();
-                anvil::CompoundTag *parent = tag_cast<anvil::CompoundTag*>(item->tag());
-                int index = 1;
+                std::string name           = newTag->name();
+                anvil::CompoundTag* parent = tag_cast<anvil::CompoundTag*>(item->tag());
+                int index                  = 1;
                 while(parent->hasChild(name)) {
                     name = newTag->name() + " (" + std::to_string(index) + ")";
                     ++index;
@@ -436,12 +411,9 @@ void pasteHelper(NbtTreeItemNbtTag *item)
 }
 
 /// CompoundTag
-NbtTreeItemCompoundTag::NbtTreeItemCompoundTag(NbtTreeItemBase *parentItem,
-                                               anvil::BasicTag *tag)
+NbtTreeItemCompoundTag::NbtTreeItemCompoundTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemCompoundTag::~NbtTreeItemCompoundTag() = default;
 
@@ -453,8 +425,8 @@ QIcon NbtTreeItemCompoundTag::icon() const
 QString NbtTreeItemCompoundTag::label() const
 {
     return QString(QObject::tr("%1: %2 entries"))
-                .arg(m_tag->name().c_str())
-                .arg(anvil::tag_cast<anvil::CompoundTag*>(m_tag)->size());
+        .arg(m_tag->name().c_str())
+        .arg(anvil::tag_cast<anvil::CompoundTag*>(m_tag)->size());
 }
 
 bool NbtTreeItemCompoundTag::canAddNbtTag(anvil::TagType type) const
@@ -463,14 +435,14 @@ bool NbtTreeItemCompoundTag::canAddNbtTag(anvil::TagType type) const
     return true;
 }
 
-void NbtTreeItemCompoundTag::deleteChildTag(anvil::BasicTag *tag)
+void NbtTreeItemCompoundTag::deleteChildTag(anvil::BasicTag* tag)
 {
     tag_cast<anvil::CompoundTag*>(m_tag)->erase(tag);
 }
 
 bool NbtTreeItemCompoundTag::canPaste() const
 {
-    const QMimeData *mimeData = qApp->clipboard()->mimeData();
+    const QMimeData* mimeData = qApp->clipboard()->mimeData();
     return mimeData->hasFormat(TagMimeData::TagMimeType);
 }
 
@@ -480,12 +452,9 @@ void NbtTreeItemCompoundTag::paste()
 }
 
 /// ListTag
-NbtTreeItemListTag::NbtTreeItemListTag(NbtTreeItemBase *parentItem,
-                                       anvil::BasicTag *tag)
+NbtTreeItemListTag::NbtTreeItemListTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemListTag::~NbtTreeItemListTag() = default;
 
@@ -503,7 +472,7 @@ QString NbtTreeItemListTag::label() const
 
 void NbtTreeItemListTag::swap(int indexA, int indexB)
 {
-    anvil::ListTag *listTag = dynamic_cast<anvil::ListTag*>(m_tag);
+    anvil::ListTag* listTag = dynamic_cast<anvil::ListTag*>(m_tag);
     if(listTag) {
         assert(indexA >= 0 && indexA < listTag->size());
         assert(indexB >= 0 && indexB < listTag->size());
@@ -515,7 +484,7 @@ void NbtTreeItemListTag::swap(int indexA, int indexB)
 bool NbtTreeItemListTag::canAddNbtTag(anvil::TagType type) const
 {
     if(m_children.size() > 0) {
-        anvil::ListTag *listTag = anvil::tag_cast<anvil::ListTag*>(m_tag);
+        anvil::ListTag* listTag = anvil::tag_cast<anvil::ListTag*>(m_tag);
         if(listTag && listTag->listType() == type) {
             return true;
         }
@@ -524,17 +493,17 @@ bool NbtTreeItemListTag::canAddNbtTag(anvil::TagType type) const
     return true;
 }
 
-void NbtTreeItemListTag::deleteChildTag(anvil::BasicTag *tag)
+void NbtTreeItemListTag::deleteChildTag(anvil::BasicTag* tag)
 {
     tag_cast<anvil::ListTag*>(m_tag)->erase(tag);
 }
 
 bool NbtTreeItemListTag::canPaste() const
 {
-    const QMimeData *mimeData = qApp->clipboard()->mimeData();
-    const TagMimeData *tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
+    const QMimeData* mimeData      = qApp->clipboard()->mimeData();
+    const TagMimeData* tagMimeData = dynamic_cast<const TagMimeData*>(mimeData);
     if(mimeData && mimeData->hasFormat(TagMimeData::TagMimeType)) {
-        anvil::ListTag *listTag = dynamic_cast<anvil::ListTag*>(m_tag);
+        anvil::ListTag* listTag = dynamic_cast<anvil::ListTag*>(m_tag);
         if(listTag) {
             if(listTag->size() == 0) {
                 return true;
@@ -557,12 +526,9 @@ void NbtTreeItemListTag::paste()
 }
 
 /// ByteArrayTag
-NbtTreeItemByteArrayTag::NbtTreeItemByteArrayTag(NbtTreeItemBase *parentItem,
-                                                 anvil::BasicTag *tag)
+NbtTreeItemByteArrayTag::NbtTreeItemByteArrayTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemByteArrayTag::~NbtTreeItemByteArrayTag() = default;
 
@@ -573,7 +539,7 @@ QIcon NbtTreeItemByteArrayTag::icon() const
 
 QString NbtTreeItemByteArrayTag::label() const
 {
-    anvil::ByteArrayTag *tag = anvil::tag_cast<anvil::ByteArrayTag*>(m_tag);
+    anvil::ByteArrayTag* tag = anvil::tag_cast<anvil::ByteArrayTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
@@ -584,12 +550,9 @@ QString NbtTreeItemByteArrayTag::label() const
 }
 
 /// IntArrayTag
-NbtTreeItemIntArrayTag::NbtTreeItemIntArrayTag(NbtTreeItemBase *parentItem,
-                                               anvil::BasicTag *tag)
+NbtTreeItemIntArrayTag::NbtTreeItemIntArrayTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemIntArrayTag::~NbtTreeItemIntArrayTag() = default;
 
@@ -600,7 +563,7 @@ QIcon NbtTreeItemIntArrayTag::icon() const
 
 QString NbtTreeItemIntArrayTag::label() const
 {
-    anvil::IntArrayTag *tag = anvil::tag_cast<anvil::IntArrayTag*>(m_tag);
+    anvil::IntArrayTag* tag = anvil::tag_cast<anvil::IntArrayTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());
@@ -611,12 +574,9 @@ QString NbtTreeItemIntArrayTag::label() const
 }
 
 /// LongArrayTag
-NbtTreeItemLongArrayTag::NbtTreeItemLongArrayTag(NbtTreeItemBase *parentItem,
-                                                 anvil::BasicTag *tag)
+NbtTreeItemLongArrayTag::NbtTreeItemLongArrayTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
-{
-
-}
+{ }
 
 NbtTreeItemLongArrayTag::~NbtTreeItemLongArrayTag() = default;
 
@@ -627,7 +587,7 @@ QIcon NbtTreeItemLongArrayTag::icon() const
 
 QString NbtTreeItemLongArrayTag::label() const
 {
-    anvil::LongArrayTag *tag = anvil::tag_cast<anvil::LongArrayTag*>(m_tag);
+    anvil::LongArrayTag* tag = anvil::tag_cast<anvil::LongArrayTag*>(m_tag);
     QString name;
     if(!tag->name().empty()) {
         name = QString("%1: ").arg(tag->name().c_str());

@@ -7,8 +7,8 @@
 #include <cpp-anvil/nbt/types.hpp>
 
 // Qt
-#include <QMessageBox>
 #include <QIntValidator>
+#include <QMessageBox>
 
 // STL
 #include <climits>
@@ -16,9 +16,8 @@
 namespace minecraft {
 namespace nbt {
 
-NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem,
-                           anvil::TagType newItemTagType,
-                           QWidget *parent)
+NewTagDialog::NewTagDialog(NbtTreeItemNbtTag* parentItem, anvil::TagType newItemTagType,
+                           QWidget* parent)
     : QDialog(parent)
     , m_ui(new Ui::NewTagDialog)
     , m_parentItem(parentItem)
@@ -27,10 +26,8 @@ NewTagDialog::NewTagDialog(NbtTreeItemNbtTag *parentItem,
     m_ui->sizeEdit->setValidator(new QIntValidator(0, std::numeric_limits<int>::max(), this));
     m_ui->sizeEdit->setText("0");
 
-    if(!(newItemTagType == anvil::TagType::ByteArray
-         || newItemTagType == anvil::TagType::IntArray
-         || newItemTagType == anvil::TagType::LongArray))
-    {
+    if(!(newItemTagType == anvil::TagType::ByteArray || newItemTagType == anvil::TagType::IntArray
+         || newItemTagType == anvil::TagType::LongArray)) {
         m_ui->sizeLabel->setEnabled(false);
         m_ui->sizeEdit->setEnabled(false);
     }
@@ -58,7 +55,8 @@ void NewTagDialog::accept()
 {
     QString tagName = m_ui->nameEdit->text();
     if(m_parentItem->hasChildWithName(tagName)) {
-        QMessageBox::information(this, windowTitle(), tr("The name already exists for this parent."));
+        QMessageBox::information(this, windowTitle(),
+                                 tr("The name already exists for this parent."));
         return;
     }
 

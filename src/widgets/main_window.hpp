@@ -9,7 +9,7 @@
 
 namespace Ui {
 class MainWindow;
-}
+} // namespace Ui
 
 namespace minecraft {
 namespace nbt {
@@ -21,13 +21,12 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
 public slots:
-    void closeEvent(QCloseEvent *event);
-    void treeviewCurrentItemChanged(const QModelIndex &current, 
-                                    const QModelIndex &previous);
+    void closeEvent(QCloseEvent* event);
+    void treeviewCurrentItemChanged(const QModelIndex& current, const QModelIndex& previous);
     void modifiedModel();
 
     /// Slots to Actions
@@ -73,15 +72,15 @@ private:
     void updateActions();
 
 private slots:
-    void showCustomContextMenu(const QPoint &pos);
+    void showCustomContextMenu(const QPoint& pos);
 
 private:
-    Ui::MainWindow *m_ui;
+    Ui::MainWindow* m_ui;
 
     QString m_currentDirectory;
     QString m_baseWindowTitle;
 
-    NbtDataTreeModel *m_nbtTreeModel;
+    NbtDataTreeModel* m_nbtTreeModel;
 };
 
 } // namespace nbt

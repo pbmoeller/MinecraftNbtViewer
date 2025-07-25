@@ -20,9 +20,8 @@ namespace nbt {
 class NbtTreeItemRegionFile : public NbtTreeItemBase
 {
 public:
-    NbtTreeItemRegionFile(NbtTreeItemBase *parentItem,
-                          const QString &filename,
-                          const QString &pathToFile);
+    NbtTreeItemRegionFile(NbtTreeItemBase* parentItem, const QString& filename,
+                          const QString& pathToFile);
     ~NbtTreeItemRegionFile();
 
     virtual QIcon icon() const override;

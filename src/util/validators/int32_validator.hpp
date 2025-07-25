@@ -17,23 +17,19 @@ class Int32Validator : public QValidator
     Q_PROPERTY(int32_t top READ top WRITE setTop NOTIFY topChanged)
 
 public:
-    explicit Int32Validator(QObject *parent = nullptr);
-    Int32Validator(int32_t bottom, int32_t top, QObject *parent = nullptr);
+    explicit Int32Validator(QObject* parent = nullptr);
+    Int32Validator(int32_t bottom, int32_t top, QObject* parent = nullptr);
     ~Int32Validator();
 
-    State validate(QString &input, int &pos) const override;
-    void fixup(QString &input) const override;
+    State validate(QString& input, int& pos) const override;
+    void fixup(QString& input) const override;
 
     void setBottom(int32_t bottom);
     void setTop(int32_t top);
     virtual void setRange(int32_t bottom, int32_t top);
 
-    int32_t bottom() const {
-        return m_b;
-    }
-    int32_t top() const {
-        return m_t;
-    }
+    int32_t bottom() const { return m_b; }
+    int32_t top() const { return m_t; }
 
 signals:
     void bottomChanged(int32_t bottom);

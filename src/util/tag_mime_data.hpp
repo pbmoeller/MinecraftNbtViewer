@@ -17,7 +17,6 @@ Q_DECLARE_METATYPE(std::shared_ptr<anvil::BasicTag>);
 namespace minecraft {
 namespace nbt {
 
-
 class TagMimeData : public QMimeData
 {
 public:
@@ -28,9 +27,9 @@ public:
     virtual ~TagMimeData();
 
     virtual QStringList formats() const;
-    virtual bool hasFormat(const QString &mimeType) const;
-    virtual QVariant retrieveData(const QString &mimeType, QMetaType type) const;
-    void setData(const QString &mimeType, std::shared_ptr<anvil::BasicTag> &data);
+    virtual bool hasFormat(const QString& mimeType) const;
+    virtual QVariant retrieveData(const QString& mimeType, QMetaType type) const;
+    void setData(const QString& mimeType, std::shared_ptr<anvil::BasicTag>& data);
     std::shared_ptr<anvil::BasicTag> toTagData() const;
 
 private:

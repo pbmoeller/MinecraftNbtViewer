@@ -17,23 +17,19 @@ class Int64Validator : public QValidator
     Q_PROPERTY(int64_t top READ top WRITE setTop NOTIFY topChanged)
 
 public:
-    explicit Int64Validator(QObject *parent = nullptr);
-    Int64Validator(int64_t bottom, int64_t top, QObject *parent = nullptr);
+    explicit Int64Validator(QObject* parent = nullptr);
+    Int64Validator(int64_t bottom, int64_t top, QObject* parent = nullptr);
     ~Int64Validator();
 
-    State validate(QString &input, int &pos) const override;
-    void fixup(QString &input) const override;
+    State validate(QString& input, int& pos) const override;
+    void fixup(QString& input) const override;
 
     void setBottom(int64_t bottom);
     void setTop(int64_t top);
     virtual void setRange(int64_t bottom, int64_t top);
 
-    int64_t bottom() const {
-        return m_b;
-    }
-    int64_t top() const {
-        return m_t;
-    }
+    int64_t bottom() const { return m_b; }
+    int64_t top() const { return m_t; }
 
 signals:
     void bottomChanged(int64_t bottom);

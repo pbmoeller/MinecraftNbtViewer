@@ -7,25 +7,19 @@
 namespace minecraft {
 namespace nbt {
 
-Int8Validator::Int8Validator(QObject *parent)
-    : Int8Validator(std::numeric_limits<int8_t>::min(),
-                    std::numeric_limits<int8_t>::max(),
-                    parent)
-{
+Int8Validator::Int8Validator(QObject* parent)
+    : Int8Validator(std::numeric_limits<int8_t>::min(), std::numeric_limits<int8_t>::max(), parent)
+{ }
 
-}
-
-Int8Validator::Int8Validator(int8_t bottom, int8_t top, QObject *parent)
+Int8Validator::Int8Validator(int8_t bottom, int8_t top, QObject* parent)
     : QValidator(parent)
     , m_b(bottom)
     , m_t(top)
-{
-
-}
+{ }
 
 Int8Validator::~Int8Validator() = default;
 
-QValidator::State Int8Validator::validate(QString &input, int &pos) const
+QValidator::State Int8Validator::validate(QString& input, int& pos) const
 {
     Q_UNUSED(pos);
 
@@ -60,7 +54,7 @@ QValidator::State Int8Validator::validate(QString &input, int &pos) const
     }
 }
 
-void Int8Validator::fixup(QString &input) const
+void Int8Validator::fixup(QString& input) const
 {
     Q_UNUSED(input);
 }
@@ -79,13 +73,13 @@ void Int8Validator::setRange(int8_t bottom, int8_t top)
 {
     bool rangeChanged = false;
     if(m_b != bottom) {
-        m_b = bottom;
+        m_b          = bottom;
         rangeChanged = true;
         emit bottomChanged(m_b);
     }
 
     if(m_t != top) {
-        m_t = top;
+        m_t          = top;
         rangeChanged = true;
         emit topChanged(m_t);
     }

@@ -10,12 +10,11 @@
 namespace minecraft {
 namespace nbt {
 
-bool isMinecraftWorldDirectory(const QString &directory)
+bool isMinecraftWorldDirectory(const QString& directory)
 {
     // Add more files to check if there are false results
     QFileInfo levelDatFile(directory + "/level.dat");
-    return levelDatFile.exists()
-        && anvil::isNbtFile(levelDatFile.absoluteFilePath().toStdString());
+    return levelDatFile.exists() && anvil::isNbtFile(levelDatFile.absoluteFilePath().toStdString());
 }
 
 } // namespace nbt

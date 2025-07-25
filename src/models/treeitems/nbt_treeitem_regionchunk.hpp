@@ -8,8 +8,8 @@
 #include <cpp-anvil/anvil/region.hpp>
 
 // Qt
-#include <QString>
 #include <QIcon>
+#include <QString>
 
 // STL
 #include <memory>
@@ -20,9 +20,7 @@ namespace nbt {
 class NbtTreeItemRegionChunk : public NbtTreeItemBase
 {
 public:
-    NbtTreeItemRegionChunk(NbtTreeItemBase *parentItem,
-                           anvil::Region *region,
-                           unsigned int index);
+    NbtTreeItemRegionChunk(NbtTreeItemBase* parentItem, anvil::Region* region, unsigned int index);
     ~NbtTreeItemRegionChunk();
 
     void sort();
@@ -36,7 +34,7 @@ public:
 private:
     bool m_canFetchData;
     unsigned int m_index;
-    anvil::Region *m_parentRegion;
+    anvil::Region* m_parentRegion;
 };
 
 } // namespace nbt

@@ -9,9 +9,9 @@ unsigned int getVersionMinor();
 unsigned int getVersionPatch();
 unsigned int getVersionTweak();
 
-const char * getVersion();
-const char * getGitBranch();
-const char * getGitHash();
+const char* getVersion();
+const char* getGitBranch();
+const char* getGitHash();
 
 } // namespace nbt
 } // namespace minecraft

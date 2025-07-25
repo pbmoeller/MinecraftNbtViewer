@@ -2,8 +2,8 @@
 #include "nbt_data_treemodel.hpp"
 #include "treeitems/nbt_treeitem_base.hpp"
 #include "treeitems/nbt_treeitem_folder.hpp"
-#include "treeitems/nbt_treeitem_nbttag.hpp"
 #include "treeitems/nbt_treeitem_nbtfile.hpp"
+#include "treeitems/nbt_treeitem_nbttag.hpp"
 #include "treeitems/treeitem_util.hpp"
 #include "util/minecraft_util.hpp"
 
@@ -16,12 +16,10 @@
 namespace minecraft {
 namespace nbt {
 
-NbtDataTreeModel::NbtDataTreeModel(QObject *parent)
+NbtDataTreeModel::NbtDataTreeModel(QObject* parent)
     : QAbstractItemModel(parent)
     , m_rootItem(nullptr)
-{
-
-}
+{ }
 
 NbtDataTreeModel::~NbtDataTreeModel()
 {
@@ -36,7 +34,7 @@ void NbtDataTreeModel::clear()
     m_rootItem = nullptr;
 }
 
-void NbtDataTreeModel::load(const QString &directory)
+void NbtDataTreeModel::load(const QString& directory)
 {
     beginResetModel();
     clear();
@@ -59,9 +57,9 @@ void NbtDataTreeModel::load(const QString &directory)
     endResetModel();
 }
 
-void NbtDataTreeModel::save(const QModelIndex &index)
+void NbtDataTreeModel::save(const QModelIndex& index)
 {
-    NbtTreeItemBase *treeItem = fromIndex(index);
+    NbtTreeItemBase* treeItem = fromIndex(index);
     if(treeItem) {
         treeItem->save();
         m_dirtyItems.remove(treeItem);
@@ -69,11 +67,10 @@ void NbtDataTreeModel::save(const QModelIndex &index)
     }
 }
 
-void NbtDataTreeModel::saveAs(const QModelIndex &index,
-                              const QString &saveFilename,
+void NbtDataTreeModel::saveAs(const QModelIndex& index, const QString& saveFilename,
                               const anvil::CompressionType compression)
 {
-    NbtTreeItemBase *treeItem = fromIndex(index);
+    NbtTreeItemBase* treeItem = fromIndex(index);
     if(treeItem) {
         treeItem->saveAs(saveFilename, compression);
         m_dirtyItems.remove(treeItem);
@@ -83,7 +80,7 @@ void NbtDataTreeModel::saveAs(const QModelIndex &index,
 
 void NbtDataTreeModel::saveAll()
 {
-    for(NbtTreeItemBase *treeItem : m_dirtyItems) {
+    for(NbtTreeItemBase* treeItem : m_dirtyItems) {
         treeItem->save();
     }
     m_dirtyItems.clear();
@@ -91,9 +88,9 @@ void NbtDataTreeModel::saveAll()
     emit modified();
 }
 
-void NbtDataTreeModel::refresh(const QModelIndex &index)
+void NbtDataTreeModel::refresh(const QModelIndex& index)
 {
-    NbtTreeItemBase *treeItem = fromIndex(index);
+    NbtTreeItemBase* treeItem = fromIndex(index);
 
     clearDirtyItems(treeItem);
     emit modified();
@@ -113,26 +110,26 @@ bool NbtDataTreeModel::isModified() const
     return !m_dirtyItems.isEmpty();
 }
 
-bool NbtDataTreeModel::isDirty(const QModelIndex &index)
+bool NbtDataTreeModel::isDirty(const QModelIndex& index)
 {
-    NbtTreeItemBase *treeItem = fromIndex(index);
+    NbtTreeItemBase* treeItem = fromIndex(index);
     return treeItem && m_dirtyItems.contains(treeItem);
 }
 
-NbtTreeItemBase* NbtDataTreeModel::fromIndex(const QModelIndex &index) const
+NbtTreeItemBase* NbtDataTreeModel::fromIndex(const QModelIndex& index) const
 {
     if(!index.isValid()) {
         return m_rootItem;
-    } 
+    }
     return static_cast<NbtTreeItemBase*>(index.internalPointer());
 }
 
-QModelIndex NbtDataTreeModel::toIndex(NbtTreeItemBase *item, int column) const
+QModelIndex NbtDataTreeModel::toIndex(NbtTreeItemBase* item, int column) const
 {
     if(!item || item == m_rootItem) {
         return QModelIndex();
     }
-    NbtTreeItemBase *parent = item->parent();
+    NbtTreeItemBase* parent = item->parent();
     if(!parent) {
         parent = m_rootItem;
     }
@@ -143,7 +140,7 @@ QModelIndex NbtDataTreeModel::toIndex(NbtTreeItemBase *item, int column) const
     return createIndex(row, column, item);
 }
 
-void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *item,
+void NbtDataTreeModel::addNbtTag(const QModelIndex& index, NbtTreeItemNbtTag* item,
                                  anvil::TagType type, const QString& name, int size)
 {
     if(!anvil::isContainerTag(item->tagType())) {
@@ -173,7 +170,8 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *it
             newTag = std::make_unique<anvil::DoubleTag>(name.toStdString());
             break;
         case anvil::TagType::ByteArray:
-            newTag = std::make_unique<anvil::ByteArrayTag>(name.toStdString(), std::vector<int8_t>(size, 0));
+            newTag = std::make_unique<anvil::ByteArrayTag>(name.toStdString(),
+                                                           std::vector<int8_t>(size, 0));
             break;
         case anvil::TagType::String:
             newTag = std::make_unique<anvil::StringTag>(name.toStdString());
@@ -185,10 +183,12 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *it
             newTag = std::make_unique<anvil::CompoundTag>(name.toStdString());
             break;
         case anvil::TagType::IntArray:
-            newTag = std::make_unique<anvil::IntArrayTag>(name.toStdString(), std::vector<int32_t>(size, 0));
+            newTag = std::make_unique<anvil::IntArrayTag>(name.toStdString(),
+                                                          std::vector<int32_t>(size, 0));
             break;
         case anvil::TagType::LongArray:
-            newTag = std::make_unique<anvil::LongArrayTag>(name.toStdString(), std::vector<int64_t>(size, 0));
+            newTag = std::make_unique<anvil::LongArrayTag>(name.toStdString(),
+                                                           std::vector<int64_t>(size, 0));
             break;
     }
     if(!newTag) {
@@ -196,8 +196,8 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *it
     }
 
     // Add to model
-    NbtTreeItemBase *treeItem = fromIndex(index);
-    int pos = treeItem->children().size();
+    NbtTreeItemBase* treeItem = fromIndex(index);
+    int pos                   = treeItem->children().size();
     beginInsertRows(index, pos, pos);
     addNbtChild(treeItem, newTag.get());
     endInsertRows();
@@ -211,36 +211,36 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex &index, NbtTreeItemNbtTag *it
     }
 }
 
-void NbtDataTreeModel::addNewNbtFile(const QModelIndex &index)
+void NbtDataTreeModel::addNewNbtFile(const QModelIndex& index)
 {
-    NbtTreeItemFolder *treeitemFolder = dynamic_cast<NbtTreeItemFolder*>(fromIndex(index));
+    NbtTreeItemFolder* treeitemFolder = dynamic_cast<NbtTreeItemFolder*>(fromIndex(index));
     if(!treeitemFolder) {
         return;
     }
 
     int pos = treeitemFolder->children().size();
     beginInsertRows(index, pos, pos);
-    NbtTreeItemNbtFile* nbtFile = NbtTreeItemNbtFile::createNewNbtFile(treeitemFolder,
-                                                                       treeitemFolder->path());
+    NbtTreeItemNbtFile* nbtFile =
+        NbtTreeItemNbtFile::createNewNbtFile(treeitemFolder, treeitemFolder->path());
     endInsertRows();
 
     markItemDirty(nbtFile);
 }
 
-void NbtDataTreeModel::renameTag(const QModelIndex &index)
+void NbtDataTreeModel::renameTag(const QModelIndex& index)
 {
     fromIndex(index)->openRenameDialog(this);
 }
 
-void NbtDataTreeModel::editTag(const QModelIndex &index)
+void NbtDataTreeModel::editTag(const QModelIndex& index)
 {
     fromIndex(index)->openEditDialog(this);
 }
 
-void NbtDataTreeModel::deleteTag(const QModelIndex &index)
+void NbtDataTreeModel::deleteTag(const QModelIndex& index)
 {
-    NbtTreeItemNbtTag *treeItem = dynamic_cast<NbtTreeItemNbtTag*>(fromIndex(index));
-    NbtTreeItemNbtTag *parentTreeItem = dynamic_cast<NbtTreeItemNbtTag*>(treeItem->parent());
+    NbtTreeItemNbtTag* treeItem       = dynamic_cast<NbtTreeItemNbtTag*>(fromIndex(index));
+    NbtTreeItemNbtTag* parentTreeItem = dynamic_cast<NbtTreeItemNbtTag*>(treeItem->parent());
     if(!treeItem) {
         return;
     }
@@ -261,10 +261,10 @@ void NbtDataTreeModel::deleteTag(const QModelIndex &index)
     markItemDirty(parentTreeItem);
 }
 
-void NbtDataTreeModel::cutTag(const QModelIndex &index)
+void NbtDataTreeModel::cutTag(const QModelIndex& index)
 {
-    NbtTreeItemBase *item = fromIndex(index);
-    NbtTreeItemBase *parentItem = item->parent();
+    NbtTreeItemBase* item       = fromIndex(index);
+    NbtTreeItemBase* parentItem = item->parent();
 
     if(item && item->canCut() && parentItem) {
         beginRemoveRows(index.parent(), index.row(), index.row());
@@ -275,18 +275,18 @@ void NbtDataTreeModel::cutTag(const QModelIndex &index)
     }
 }
 
-void NbtDataTreeModel::copyTag(const QModelIndex &index)
+void NbtDataTreeModel::copyTag(const QModelIndex& index)
 {
-    NbtTreeItemBase *item = fromIndex(index);
+    NbtTreeItemBase* item = fromIndex(index);
     if(item && item->canCopy()) {
         item->copy();
     }
 }
 
-void NbtDataTreeModel::pasteTag(const QModelIndex &index)
+void NbtDataTreeModel::pasteTag(const QModelIndex& index)
 {
-    NbtTreeItemBase *item = fromIndex(index);
-    qsizetype pos = item->children().size();
+    NbtTreeItemBase* item = fromIndex(index);
+    qsizetype pos         = item->children().size();
 
     if(item && item->canPaste()) {
         beginInsertRows(index, pos, pos);
@@ -297,32 +297,32 @@ void NbtDataTreeModel::pasteTag(const QModelIndex &index)
     }
 }
 
-void NbtDataTreeModel::moveUp(const QModelIndex &index)
+void NbtDataTreeModel::moveUp(const QModelIndex& index)
 {
-    int sourceRowIndex = index.row();
-    int targetRowIndex = index.row() - 1;
+    int sourceRowIndex       = index.row();
+    int targetRowIndex       = index.row() - 1;
     QModelIndex sourceParent = index.parent();
     QModelIndex targetParent = index.parent();
 
     beginMoveRows(sourceParent, sourceRowIndex, sourceRowIndex, targetParent, targetRowIndex);
-    NbtTreeItemBase *item = fromIndex(index);
-    NbtTreeItemListTag *parentItem = dynamic_cast<NbtTreeItemListTag*>(item->parent());
+    NbtTreeItemBase* item          = fromIndex(index);
+    NbtTreeItemListTag* parentItem = dynamic_cast<NbtTreeItemListTag*>(item->parent());
     parentItem->swap(sourceRowIndex, targetRowIndex);
     endMoveRows();
 
     markItemDirty(parentItem);
 }
 
-void NbtDataTreeModel::moveDown(const QModelIndex &index)
+void NbtDataTreeModel::moveDown(const QModelIndex& index)
 {
-    int sourceRowIndex = index.row() + 1;
-    int targetRowIndex = index.row();
+    int sourceRowIndex       = index.row() + 1;
+    int targetRowIndex       = index.row();
     QModelIndex sourceParent = index.parent();
     QModelIndex targetParent = index.parent();
 
     beginMoveRows(sourceParent, sourceRowIndex, sourceRowIndex, targetParent, targetRowIndex);
-    NbtTreeItemBase *item = fromIndex(index);
-    NbtTreeItemListTag *parentItem = dynamic_cast<NbtTreeItemListTag*>(item->parent());
+    NbtTreeItemBase* item          = fromIndex(index);
+    NbtTreeItemListTag* parentItem = dynamic_cast<NbtTreeItemListTag*>(item->parent());
     parentItem->swap(sourceRowIndex, targetRowIndex);
     endMoveRows();
 
@@ -336,10 +336,10 @@ void NbtDataTreeModel::itemChanged(NbtTreeItemBase* item)
     emit dataChanged(index, index);
 }
 
-void NbtDataTreeModel::markItemDirty(NbtTreeItemBase *treeItem)
+void NbtDataTreeModel::markItemDirty(NbtTreeItemBase* treeItem)
 {
     if(treeItem) {
-        NbtTreeItemBase *dirtyItem = treeItem->markItemDirty();
+        NbtTreeItemBase* dirtyItem = treeItem->markItemDirty();
         if(dirtyItem) {
             m_dirtyItems.insert(dirtyItem);
             emit modified();
@@ -347,12 +347,12 @@ void NbtDataTreeModel::markItemDirty(NbtTreeItemBase *treeItem)
     }
 }
 
-void NbtDataTreeModel::clearDirtyItems(NbtTreeItemBase *treeItem)
+void NbtDataTreeModel::clearDirtyItems(NbtTreeItemBase* treeItem)
 {
     if(m_dirtyItems.contains(treeItem)) {
         m_dirtyItems.remove(treeItem);
     }
-    for(NbtTreeItemBase *child : treeItem->children()) {
+    for(NbtTreeItemBase* child : treeItem->children()) {
         clearDirtyItems(child);
     }
 }
@@ -365,13 +365,13 @@ QVariant NbtDataTreeModel::headerData(int section, Qt::Orientation orientation, 
     return QVariant();
 }
 
-QVariant NbtDataTreeModel::data(const QModelIndex &index, int role) const
+QVariant NbtDataTreeModel::data(const QModelIndex& index, int role) const
 {
     if(!index.isValid()) {
         return QVariant();
     }
 
-    NbtTreeItemBase *item = fromIndex(index);
+    NbtTreeItemBase* item = fromIndex(index);
     if(item) {
         switch(role) {
             case Qt::DisplayRole:
@@ -389,13 +389,13 @@ QVariant NbtDataTreeModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-QModelIndex NbtDataTreeModel::index(int row, int column, const QModelIndex &parent) const
+QModelIndex NbtDataTreeModel::index(int row, int column, const QModelIndex& parent) const
 {
     if(row < 0 || column < 0 || column >= ColumnCount) {
         return QModelIndex();
     }
 
-    NbtTreeItemBase *parentItem;
+    NbtTreeItemBase* parentItem;
     if(parent.isValid()) {
         parentItem = fromIndex(parent);
     } else {
@@ -403,7 +403,7 @@ QModelIndex NbtDataTreeModel::index(int row, int column, const QModelIndex &pare
     }
 
     if(parentItem && row < parentItem->children().count()) {
-        NbtTreeItemBase *childItem = parentItem->children().at(row);
+        NbtTreeItemBase* childItem = parentItem->children().at(row);
         if(!childItem) {
             return QModelIndex();
         }
@@ -412,13 +412,13 @@ QModelIndex NbtDataTreeModel::index(int row, int column, const QModelIndex &pare
     return QModelIndex();
 }
 
-QModelIndex NbtDataTreeModel::parent(const QModelIndex &index) const
+QModelIndex NbtDataTreeModel::parent(const QModelIndex& index) const
 {
     if(!index.isValid()) {
         return QModelIndex();
     }
 
-    NbtTreeItemBase *childItem = static_cast<NbtTreeItemBase*>(index.internalPointer());
+    NbtTreeItemBase* childItem = static_cast<NbtTreeItemBase*>(index.internalPointer());
     if(!childItem || childItem == m_rootItem) {
         return QModelIndex();
     }
@@ -426,13 +426,13 @@ QModelIndex NbtDataTreeModel::parent(const QModelIndex &index) const
     return toIndex(childItem->parent(), 0);
 }
 
-int NbtDataTreeModel::columnCount(const QModelIndex &parent) const
+int NbtDataTreeModel::columnCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     return ColumnCount;
 }
 
-int NbtDataTreeModel::rowCount(const QModelIndex &parent) const
+int NbtDataTreeModel::rowCount(const QModelIndex& parent) const
 {
     if(!m_rootItem) {
         return 0;
@@ -442,7 +442,7 @@ int NbtDataTreeModel::rowCount(const QModelIndex &parent) const
         return m_rootItem->children().count();
     }
 
-    NbtTreeItemBase *parentItem = fromIndex(parent);
+    NbtTreeItemBase* parentItem = fromIndex(parent);
     if(!parentItem) {
         return 0;
     }
@@ -457,16 +457,16 @@ bool NbtDataTreeModel::hasChildren(const QModelIndex& parent) const
     if(!parent.isValid()) {
         return m_rootItem->children().count() > 0;
     }
-    NbtTreeItemBase *item = fromIndex(parent);
+    NbtTreeItemBase* item = fromIndex(parent);
     if(!item) {
         return false;
     }
     return (item->children().count() > 0 || item->canFetchMore());
 }
 
-void NbtDataTreeModel::fetchMore(const QModelIndex &parent)
+void NbtDataTreeModel::fetchMore(const QModelIndex& parent)
 {
-    NbtTreeItemBase *parentItem = fromIndex(parent);
+    NbtTreeItemBase* parentItem = fromIndex(parent);
     if(parentItem) {
         parentItem->fetchMore();
         beginInsertRows(parent, 0, parentItem->children().size());
@@ -476,7 +476,7 @@ void NbtDataTreeModel::fetchMore(const QModelIndex &parent)
 
 bool NbtDataTreeModel::canFetchMore(const QModelIndex& parent) const
 {
-    NbtTreeItemBase *parentItem = fromIndex(parent);
+    NbtTreeItemBase* parentItem = fromIndex(parent);
     if(parentItem) {
         return parentItem->canFetchMore();
     }

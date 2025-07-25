@@ -10,11 +10,9 @@
 namespace minecraft {
 namespace nbt {
 
-void addNbtChild(NbtTreeItemBase *parentItem,
-                 anvil::BasicTag *tag);
+void addNbtChild(NbtTreeItemBase* parentItem, anvil::BasicTag* tag);
 
-bool treeItemNbtTagCompare(NbtTreeItemBase *left,
-                           NbtTreeItemBase *right);
+bool treeItemNbtTagCompare(NbtTreeItemBase* left, NbtTreeItemBase* right);
 
 } // namespace nbt
 } // namespace minecraft

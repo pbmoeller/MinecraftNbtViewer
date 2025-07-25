@@ -8,24 +8,19 @@
 namespace minecraft {
 namespace nbt {
 
-NbtTreeItemRegionChunk::NbtTreeItemRegionChunk(NbtTreeItemBase *parentItem,
-                                               anvil::Region *region,
+NbtTreeItemRegionChunk::NbtTreeItemRegionChunk(NbtTreeItemBase* parentItem, anvil::Region* region,
                                                unsigned int index)
     : NbtTreeItemBase(parentItem)
     , m_canFetchData(true)
     , m_index(index)
     , m_parentRegion(region)
-{
-
-}
+{ }
 
 NbtTreeItemRegionChunk::~NbtTreeItemRegionChunk() = default;
 
 void NbtTreeItemRegionChunk::sort()
 {
-    std::sort(m_children.begin(),
-              m_children.end(),
-              &treeItemNbtTagCompare);
+    std::sort(m_children.begin(), m_children.end(), &treeItemNbtTagCompare);
 }
 
 QIcon NbtTreeItemRegionChunk::icon() const
@@ -35,12 +30,15 @@ QIcon NbtTreeItemRegionChunk::icon() const
 
 QString NbtTreeItemRegionChunk::label() const
 {
-    anvil::Vec2 chunkCoord = m_parentRegion->fromIndex(m_index);
+    anvil::Vec2 chunkCoord  = m_parentRegion->fromIndex(m_index);
     anvil::Vec2 regionCoord = m_parentRegion->xz();
-    anvil::Vec2 worldCoord = anvil::chunkRegion2ChunkWorld(chunkCoord, regionCoord);
+    anvil::Vec2 worldCoord  = anvil::chunkRegion2ChunkWorld(chunkCoord, regionCoord);
 
     return QString("Chunk [%1, %2]    -> in world (%3, %4)")
-        .arg(chunkCoord.x).arg(chunkCoord.z).arg(worldCoord.x).arg(worldCoord.z);
+        .arg(chunkCoord.x)
+        .arg(chunkCoord.z)
+        .arg(worldCoord.x)
+        .arg(worldCoord.z);
 }
 
 bool NbtTreeItemRegionChunk::canFetchMore() const
@@ -54,10 +52,10 @@ void NbtTreeItemRegionChunk::fetchMore()
 
     // Load Chunk in Region
     m_parentRegion->loadChunkAt(m_index);
-    anvil::Chunk &chunk = m_parentRegion->chunkAt(m_index);
-    anvil::CompoundTag *tag = chunk.rootTag();
+    anvil::Chunk& chunk     = m_parentRegion->chunkAt(m_index);
+    anvil::CompoundTag* tag = chunk.rootTag();
     if(tag) {
-        for(std::unique_ptr<anvil::BasicTag> &childTag : tag->value()) {
+        for(std::unique_ptr<anvil::BasicTag>& childTag : tag->value()) {
             addNbtChild(this, childTag.get());
         }
         sort();

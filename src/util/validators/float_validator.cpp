@@ -11,7 +11,7 @@ namespace minecraft {
 namespace nbt {
 
 template<typename T>
-static inline bool convertDoubleTo(double v, T *value, bool allow_precision_upgrade = true)
+static inline bool convertDoubleTo(double v, T* value, bool allow_precision_upgrade = true)
 {
     static_assert(std::numeric_limits<T>::is_integer);
 
@@ -27,31 +27,36 @@ static inline bool convertDoubleTo(double v, T *value, bool allow_precision_upgr
 
     double supremum;
     if(std::numeric_limits<T>::is_signed) {
-        supremum = -1.0 * std::numeric_limits<T>::min();    // -1 * (-2^63) = 2^63, exact (for T = qint64)
+        supremum =
+            -1.0 * std::numeric_limits<T>::min(); // -1 * (-2^63) = 2^63, exact (for T = qint64)
         *value = std::numeric_limits<T>::min();
-        if(v < std::numeric_limits<T>::min())
+        if(v < std::numeric_limits<T>::min()) {
             return false;
+        }
     } else {
         using ST = typename std::make_signed<T>::type;
-        supremum = -2.0 * std::numeric_limits<ST>::min();   // -2 * (-2^63) = 2^64, exact (for T = quint64)
+        supremum =
+            -2.0 * std::numeric_limits<ST>::min(); // -2 * (-2^63) = 2^64, exact (for T = quint64)
         v = fabs(v);
     }
     if constexpr(std::is_integral<T>::value && sizeof(T) > 4 && !allow_precision_upgrade) {
-        if(v > double(Q_INT64_C(1) << 53) || v < double(-((Q_INT64_C(1) << 53) + 1)))
+        if(v > double(Q_INT64_C(1) << 53) || v < double(-((Q_INT64_C(1) << 53) + 1))) {
             return false;
+        }
     }
 
     *value = std::numeric_limits<T>::max();
-    if(v >= supremum)
+    if(v >= supremum) {
         return false;
+    }
 
     // Now we can convert, these two conversions cannot be UB
     *value = T(v);
 
     QT_WARNING_PUSH
-        QT_WARNING_DISABLE_FLOAT_COMPARE
+    QT_WARNING_DISABLE_FLOAT_COMPARE
 
-        return *value == v;
+    return *value == v;
 
     QT_WARNING_POP
 }
@@ -73,27 +78,22 @@ static qint32 pow10(int exp)
     return result;
 }
 
-FloatValidator::FloatValidator(QObject *parent)
-    : FloatValidator(std::numeric_limits<float>::min(),
-                     std::numeric_limits<float>::max(),
-                     1000, parent)
-{
+FloatValidator::FloatValidator(QObject* parent)
+    : FloatValidator(std::numeric_limits<float>::min(), std::numeric_limits<float>::max(), 1000,
+                     parent)
+{ }
 
-}
-
-FloatValidator::FloatValidator(float bottom, float top, int decimals, QObject *parent)
+FloatValidator::FloatValidator(float bottom, float top, int decimals, QObject* parent)
     : QValidator(parent)
     , m_b(bottom)
     , m_t(top)
     , m_decimals(decimals)
     , m_notation(ScientificNotation)
-{
-
-}
+{ }
 
 FloatValidator::~FloatValidator() = default;
 
-QValidator::State FloatValidator::validate(QString &input, int &pos) const
+QValidator::State FloatValidator::validate(QString& input, int& pos) const
 {
     ((void)pos);
 
@@ -163,19 +163,19 @@ void FloatValidator::setRange(float bottom, float top, int decimals)
 {
     bool rangeChanged = false;
     if(m_b != bottom) {
-        m_b = bottom;
+        m_b          = bottom;
         rangeChanged = true;
         emit bottomChanged(m_b);
     }
 
     if(m_t != top) {
-        m_t = top;
+        m_t          = top;
         rangeChanged = true;
         emit topChanged(m_t);
     }
 
     if(m_decimals != decimals) {
-        m_decimals = decimals;
+        m_decimals   = decimals;
         rangeChanged = true;
         emit decimalsChanged(m_decimals);
     }

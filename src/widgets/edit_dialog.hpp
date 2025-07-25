@@ -32,10 +32,8 @@ public:
     };
 
 public:
-    EditDialog(NbtTreeItemNbtTag *treeItem,
-               NbtDataTreeModel *model,
-               EditFunction function = EditFunction::Rename,
-               QWidget *parent = nullptr);
+    EditDialog(NbtTreeItemNbtTag* treeItem, NbtDataTreeModel* model,
+               EditFunction function = EditFunction::Rename, QWidget* parent = nullptr);
     virtual ~EditDialog();
 
 protected slots:
@@ -45,20 +43,20 @@ private:
     void setupUi(EditFunction function);
     QString valueToString() const;
     QString arrayToString() const;
-    bool checkAndSetValue(const QString &value, anvil::BasicTag *tag);
-    bool checkAndSetArrayValue(const QString &value, anvil::BasicTag *tag);
+    bool checkAndSetValue(const QString& value, anvil::BasicTag* tag);
+    bool checkAndSetArrayValue(const QString& value, anvil::BasicTag* tag);
 
 private:
     // Data
-    NbtTreeItemNbtTag *m_treeItem;
-    NbtDataTreeModel *m_model;
+    NbtTreeItemNbtTag* m_treeItem;
+    NbtDataTreeModel* m_model;
     bool m_hasRenameField;
     bool m_hasEditField;
 
     // Ui elements
-    QLineEdit *m_lineEditName;
-    QLineEdit *m_lineEditValue;
-    QTextEdit *m_textEdit;
+    QLineEdit* m_lineEditName;
+    QLineEdit* m_lineEditValue;
+    QTextEdit* m_textEdit;
 };
 
 } // namespace nbt

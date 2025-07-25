@@ -4,10 +4,10 @@
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
 #include "util/iconprovider.hpp"
 #include "util/validators/float_validator.hpp"
-#include "util/validators/int8_validator.hpp"
 #include "util/validators/int16_validator.hpp"
 #include "util/validators/int32_validator.hpp"
 #include "util/validators/int64_validator.hpp"
+#include "util/validators/int8_validator.hpp"
 
 // cpp-anvil
 #include <cpp-anvil/nbt.hpp>
@@ -15,15 +15,15 @@
 // Qt
 #include <QByteArray>
 #include <QDebug>
-#include <QLabel>
-#include <QLineEdit>
-#include <QTextEdit>
-#include <QPushButton>
 #include <QGridLayout>
 #include <QHBoxLayout>
-#include <QSpacerItem>
+#include <QLabel>
+#include <QLineEdit>
 #include <QMessageBox>
+#include <QPushButton>
 #include <QRegularExpression>
+#include <QSpacerItem>
+#include <QTextEdit>
 
 namespace minecraft {
 namespace nbt {
@@ -47,16 +47,13 @@ QValidator* createValidator(anvil::TagType tagType)
         v->setNotation(QDoubleValidator::StandardNotation);
         return v;
     } else {
-
     }
-    
+
     return nullptr;
 }
 
-EditDialog::EditDialog(NbtTreeItemNbtTag *treeItem,
-                       NbtDataTreeModel *model,
-                       EditFunction function,
-                       QWidget *parent)
+EditDialog::EditDialog(NbtTreeItemNbtTag* treeItem, NbtDataTreeModel* model, EditFunction function,
+                       QWidget* parent)
     : QDialog(parent)
     , m_treeItem(treeItem)
     , m_model(model)
@@ -81,10 +78,12 @@ void EditDialog::accept()
         QString newName = m_lineEditName->text();
         if(m_treeItem->name() != newName) {
             // Check if there is already a sibling with the same name
-            NbtTreeItemBase *parentTreeItem = m_treeItem->parent();
-            for(NbtTreeItemBase *child : parentTreeItem->children()) {
+            NbtTreeItemBase* parentTreeItem = m_treeItem->parent();
+            for(NbtTreeItemBase* child : parentTreeItem->children()) {
                 if(newName == child->name()) {
-                    QMessageBox::information(this, windowTitle(), tr("There is already a sibling with this name. Please choose a diffrent."));
+                    QMessageBox::information(
+                        this, windowTitle(),
+                        tr("There is already a sibling with this name. Please choose a diffrent."));
                     m_lineEditName->setFocus(Qt::OtherFocusReason);
                     m_lineEditName->selectAll();
                     return;
@@ -101,8 +100,8 @@ void EditDialog::accept()
     if(m_hasEditField) {
         anvil::TagType tagType = m_treeItem->tag()->type();
         if(tagType == anvil::TagType::String) {
-            QString value = m_textEdit->toPlainText();
-            anvil::StringTag *stringTag = tag_cast<anvil::StringTag*>(m_treeItem->tag());
+            QString value               = m_textEdit->toPlainText();
+            anvil::StringTag* stringTag = tag_cast<anvil::StringTag*>(m_treeItem->tag());
             if(stringTag && value.toStdString() != stringTag->value()) {
                 stringTag->setValue(value.toStdString());
                 dataChanged = true;
@@ -127,16 +126,16 @@ void EditDialog::accept()
 
 void EditDialog::setupUi(EditFunction function)
 {
-    int currentRow          = 0;
-    anvil::TagType tagType    = m_treeItem->tag()->type();
-    m_hasRenameField        = m_treeItem->canRename();
-    m_hasEditField          = m_treeItem->canEdit() && !anvil::isContainerTag(tagType);
+    int currentRow         = 0;
+    anvil::TagType tagType = m_treeItem->tag()->type();
+    m_hasRenameField       = m_treeItem->canRename();
+    m_hasEditField         = m_treeItem->canEdit() && !anvil::isContainerTag(tagType);
 
-    QGridLayout *gLayout = new QGridLayout(this);
+    QGridLayout* gLayout = new QGridLayout(this);
 
     ///////    Row #1
     if(m_hasRenameField) {
-        QLabel *labelName = new QLabel(tr("Name:"));
+        QLabel* labelName = new QLabel(tr("Name:"));
         labelName->setAlignment(Qt::AlignLeft | Qt::AlignTop);
         m_lineEditName = new QLineEdit();
         m_lineEditName->setText(m_treeItem->tag()->name().c_str());
@@ -149,7 +148,7 @@ void EditDialog::setupUi(EditFunction function)
 
     ///////    Row #2
     if(m_hasEditField) {
-        QLabel *labelValue = new QLabel(tr("Value:"));
+        QLabel* labelValue = new QLabel(tr("Value:"));
         labelValue->setAlignment(Qt::AlignLeft | Qt::AlignTop);
         gLayout->addWidget(labelValue, currentRow, 0);
 
@@ -175,16 +174,16 @@ void EditDialog::setupUi(EditFunction function)
     }
 
     // Last Row
-    QPushButton *buttonCancel = new QPushButton(tr("Cancel"));
+    QPushButton* buttonCancel = new QPushButton(tr("Cancel"));
     buttonCancel->setAutoDefault(false);
-    QPushButton *buttonOk = new QPushButton(tr("Ok"));
+    QPushButton* buttonOk = new QPushButton(tr("Ok"));
     buttonOk->setDefault(true);
     buttonOk->setAutoDefault(true);
 
-    connect(buttonCancel,   &QPushButton::clicked, this, &QDialog::reject);
-    connect(buttonOk,       &QPushButton::clicked, this, &QDialog::accept);
+    connect(buttonCancel, &QPushButton::clicked, this, &QDialog::reject);
+    connect(buttonOk, &QPushButton::clicked, this, &QDialog::accept);
 
-    QHBoxLayout *hLayout = new QHBoxLayout();
+    QHBoxLayout* hLayout = new QHBoxLayout();
     hLayout->addStretch();
     hLayout->addWidget(buttonOk);
     hLayout->addWidget(buttonCancel);
@@ -246,7 +245,8 @@ QString EditDialog::valueToString() const
             s = QLocale().toString(tag_cast<anvil::FloatTag*>(m_treeItem->tag())->value(), 'g', 6);
             break;
         case anvil::TagType::Double:
-            s = QLocale().toString(tag_cast<anvil::DoubleTag*>(m_treeItem->tag())->value(), 'g', 16);
+            s = QLocale().toString(tag_cast<anvil::DoubleTag*>(m_treeItem->tag())->value(), 'g',
+                                   16);
             break;
         case anvil::TagType::String:
             s = QString(tag_cast<anvil::StringTag*>(m_treeItem->tag())->value().c_str());
@@ -263,8 +263,8 @@ QString EditDialog::arrayToString() const
     switch(m_treeItem->tag()->type()) {
         case anvil::TagType::ByteArray:
         {
-            int numbersPerLine = 16;
-            anvil::ByteArrayTag *byteArray = tag_cast<anvil::ByteArrayTag*>(m_treeItem->tag());
+            int numbersPerLine             = 16;
+            anvil::ByteArrayTag* byteArray = tag_cast<anvil::ByteArrayTag*>(m_treeItem->tag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>((*byteArray)[i]), 10) + "  ";
 
@@ -277,8 +277,8 @@ QString EditDialog::arrayToString() const
         }
         case anvil::TagType::IntArray:
         {
-            int numbersPerLine = 4;
-            anvil::IntArrayTag *byteArray = tag_cast<anvil::IntArrayTag*>(m_treeItem->tag());
+            int numbersPerLine            = 4;
+            anvil::IntArrayTag* byteArray = tag_cast<anvil::IntArrayTag*>(m_treeItem->tag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>(((*byteArray)[i])), 10) + "  ";
 
@@ -291,8 +291,8 @@ QString EditDialog::arrayToString() const
         }
         case anvil::TagType::LongArray:
         {
-            int numbersPerLine = 2;
-            anvil::LongArrayTag *byteArray = tag_cast<anvil::LongArrayTag*>(m_treeItem->tag());
+            int numbersPerLine             = 2;
+            anvil::LongArrayTag* byteArray = tag_cast<anvil::LongArrayTag*>(m_treeItem->tag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>((*byteArray)[i]), 10) + "  ";
 
@@ -308,15 +308,15 @@ QString EditDialog::arrayToString() const
     return out;
 }
 
-bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
+bool EditDialog::checkAndSetValue(const QString& value, anvil::BasicTag* tag)
 {
-    bool ok = false;
+    bool ok          = false;
     bool dataChanged = false;
     switch(tag->type()) {
         case anvil::TagType::Byte:
         {
-            int8_t newValue = static_cast<int8_t>(value.toInt(&ok));
-            anvil::ByteTag *byteTag = anvil::tag_cast<anvil::ByteTag*>(tag);
+            int8_t newValue         = static_cast<int8_t>(value.toInt(&ok));
+            anvil::ByteTag* byteTag = anvil::tag_cast<anvil::ByteTag*>(tag);
             if(ok && byteTag->value() != newValue) {
                 byteTag->setValue(newValue);
                 dataChanged = true;
@@ -325,8 +325,8 @@ bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
         }
         case anvil::TagType::Short:
         {
-            int16_t newValue = value.toShort(&ok);
-            anvil::ShortTag *shortTag = anvil::tag_cast<anvil::ShortTag*>(tag);
+            int16_t newValue          = value.toShort(&ok);
+            anvil::ShortTag* shortTag = anvil::tag_cast<anvil::ShortTag*>(tag);
             if(ok && shortTag->value() != newValue) {
                 shortTag->setValue(newValue);
                 dataChanged = true;
@@ -335,8 +335,8 @@ bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
         }
         case anvil::TagType::Int:
         {
-            int32_t newValue = value.toInt(&ok);
-            anvil::IntTag *intTag = anvil::tag_cast<anvil::IntTag*>(tag);
+            int32_t newValue      = value.toInt(&ok);
+            anvil::IntTag* intTag = anvil::tag_cast<anvil::IntTag*>(tag);
             if(ok && intTag->value() != newValue) {
                 intTag->setValue(newValue);
                 dataChanged = true;
@@ -345,8 +345,8 @@ bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
         }
         case anvil::TagType::Long:
         {
-            int64_t newValue = value.toLongLong(&ok);
-            anvil::LongTag *longTag = anvil::tag_cast<anvil::LongTag*>(tag);
+            int64_t newValue        = value.toLongLong(&ok);
+            anvil::LongTag* longTag = anvil::tag_cast<anvil::LongTag*>(tag);
             if(ok && longTag->value() != newValue) {
                 longTag->setValue(newValue);
                 dataChanged = true;
@@ -355,8 +355,8 @@ bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
         }
         case anvil::TagType::Float:
         {
-            float newValue = QLocale().toFloat(value, &ok);
-            anvil::FloatTag *floatTag = anvil::tag_cast<anvil::FloatTag*>(tag);
+            float newValue            = QLocale().toFloat(value, &ok);
+            anvil::FloatTag* floatTag = anvil::tag_cast<anvil::FloatTag*>(tag);
             if(ok && floatTag->value() != newValue) {
                 floatTag->setValue(newValue);
                 dataChanged = true;
@@ -365,8 +365,8 @@ bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
         }
         case anvil::TagType::Double:
         {
-            double newValue = QLocale().toDouble(value, &ok);
-            anvil::DoubleTag *doubleTag = anvil::tag_cast<anvil::DoubleTag*>(tag);
+            double newValue             = QLocale().toDouble(value, &ok);
+            anvil::DoubleTag* doubleTag = anvil::tag_cast<anvil::DoubleTag*>(tag);
             if(ok && doubleTag->value() != newValue) {
                 doubleTag->setValue(newValue);
                 dataChanged = true;
@@ -382,25 +382,27 @@ bool EditDialog::checkAndSetValue(const QString &value, anvil::BasicTag *tag)
     return dataChanged;
 }
 
-bool EditDialog::checkAndSetArrayValue(const QString &value, anvil::BasicTag *tag)
+bool EditDialog::checkAndSetArrayValue(const QString& value, anvil::BasicTag* tag)
 {
-    bool dataChanged = false;
-    bool setNewValues = true;
+    bool dataChanged            = false;
+    bool setNewValues           = true;
     bool oneOrMoreInvalidValues = false;
     switch(tag->type()) {
         case anvil::TagType::ByteArray:
         {
-            anvil::ByteArrayTag *arrTag = dynamic_cast<anvil::ByteArrayTag*>(tag);
+            anvil::ByteArrayTag* arrTag = dynamic_cast<anvil::ByteArrayTag*>(tag);
             if(!arrTag) {
                 return false;
             }
 
             std::vector<int8_t> byteArray;
-            for(const QString &str : value.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts)) {
+            for(const QString& str : value.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts)) {
                 bool ok;
                 int32_t nextValue = str.toInt(&ok);
-                if(!ok || (nextValue < std::numeric_limits<int8_t>::min() || nextValue > std::numeric_limits<int8_t>::max())) {
-                    nextValue = 0;
+                if(!ok
+                   || (nextValue < std::numeric_limits<int8_t>::min()
+                       || nextValue > std::numeric_limits<int8_t>::max())) {
+                    nextValue              = 0;
                     oneOrMoreInvalidValues = true;
                 }
                 byteArray.push_back(nextValue);
@@ -408,8 +410,11 @@ bool EditDialog::checkAndSetArrayValue(const QString &value, anvil::BasicTag *ta
 
             if(oneOrMoreInvalidValues) {
                 QMessageBox::StandardButton reply;
-                reply = QMessageBox::question(this, windowTitle(), tr("There are one or more invalid values, that will be set to 0.\nDo you want to apply these changes?"),
-                                              QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+                reply =
+                    QMessageBox::question(this, windowTitle(),
+                                          tr("There are one or more invalid values, that will be "
+                                             "set to 0.\nDo you want to apply these changes?"),
+                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
                 if(reply == QMessageBox::No) {
                     setNewValues = false;
                 }
@@ -424,17 +429,17 @@ bool EditDialog::checkAndSetArrayValue(const QString &value, anvil::BasicTag *ta
         }
         case anvil::TagType::IntArray:
         {
-            anvil::IntArrayTag *arrTag = dynamic_cast<anvil::IntArrayTag*>(tag);
+            anvil::IntArrayTag* arrTag = dynamic_cast<anvil::IntArrayTag*>(tag);
             if(!arrTag) {
                 return false;
             }
 
             std::vector<int32_t> intArray;
-            for(const QString &str : value.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts)) {
+            for(const QString& str : value.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts)) {
                 bool ok;
                 int32_t nextValue = str.toInt(&ok);
                 if(!ok) {
-                    nextValue = 0;
+                    nextValue              = 0;
                     oneOrMoreInvalidValues = true;
                 }
                 intArray.push_back(nextValue);
@@ -442,8 +447,11 @@ bool EditDialog::checkAndSetArrayValue(const QString &value, anvil::BasicTag *ta
 
             if(oneOrMoreInvalidValues) {
                 QMessageBox::StandardButton reply;
-                reply = QMessageBox::question(this, windowTitle(), tr("There are one or more invalid values, that will be set to 0.\nDo you want to apply these changes?"),
-                                              QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+                reply =
+                    QMessageBox::question(this, windowTitle(),
+                                          tr("There are one or more invalid values, that will be "
+                                             "set to 0.\nDo you want to apply these changes?"),
+                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
                 if(reply == QMessageBox::No) {
                     setNewValues = false;
                 }
@@ -458,17 +466,17 @@ bool EditDialog::checkAndSetArrayValue(const QString &value, anvil::BasicTag *ta
         }
         case anvil::TagType::LongArray:
         {
-            anvil::LongArrayTag *arrTag = dynamic_cast<anvil::LongArrayTag*>(tag);
+            anvil::LongArrayTag* arrTag = dynamic_cast<anvil::LongArrayTag*>(tag);
             if(!arrTag) {
                 return false;
             }
 
             std::vector<int64_t> longArray;
-            for(const QString &str : value.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts)) {
+            for(const QString& str : value.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts)) {
                 bool ok;
                 int64_t nextValue = str.toLongLong(&ok);
                 if(!ok) {
-                    nextValue = 0;
+                    nextValue              = 0;
                     oneOrMoreInvalidValues = true;
                 }
                 longArray.push_back(nextValue);
@@ -476,8 +484,11 @@ bool EditDialog::checkAndSetArrayValue(const QString &value, anvil::BasicTag *ta
 
             if(oneOrMoreInvalidValues) {
                 QMessageBox::StandardButton reply;
-                reply = QMessageBox::question(this, windowTitle(), tr("There are one or more invalid values, that will be set to 0.\nDo you want to apply these changes?"),
-                                              QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+                reply =
+                    QMessageBox::question(this, windowTitle(),
+                                          tr("There are one or more invalid values, that will be "
+                                             "set to 0.\nDo you want to apply these changes?"),
+                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
                 if(reply == QMessageBox::No) {
                     setNewValues = false;
                 }

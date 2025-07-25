@@ -10,7 +10,7 @@
 
 namespace Ui {
 class NewTagDialog;
-}
+} // namespace Ui
 
 namespace minecraft {
 namespace nbt {
@@ -20,9 +20,8 @@ class NewTagDialog : public QDialog
     Q_OBJECT
 
 public:
-    NewTagDialog(NbtTreeItemNbtTag *parentItem,
-                 anvil::TagType newItemTagType,
-                 QWidget *parent = nullptr);
+    NewTagDialog(NbtTreeItemNbtTag* parentItem, anvil::TagType newItemTagType,
+                 QWidget* parent = nullptr);
     ~NewTagDialog();
 
     QString name() const;
@@ -32,8 +31,8 @@ protected slots:
     virtual void accept() override;
 
 private:
-    Ui::NewTagDialog *m_ui;
-    NbtTreeItemNbtTag *m_parentItem;
+    Ui::NewTagDialog* m_ui;
+    NbtTreeItemNbtTag* m_parentItem;
 };
 
 } // namespace nbt

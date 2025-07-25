@@ -12,7 +12,7 @@
 // STL
 #include <iostream>
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     std::cout << "cpp-anvil Version: " << anvil::getCppAnvilVersion() << std::endl;
     std::cout << "MinecraftNbtViewer Version: " << minecraft::nbt::getVersion() << std::endl;

@@ -14,17 +14,18 @@ class FloatValidator : public QValidator
     Q_PROPERTY(float top READ top WRITE setTop NOTIFY topChanged)
 
 public:
-    explicit FloatValidator(QObject *parent = nullptr);
-    FloatValidator(float bottom, float top, int decimals, QObject *parent = nullptr);
+    explicit FloatValidator(QObject* parent = nullptr);
+    FloatValidator(float bottom, float top, int decimals, QObject* parent = nullptr);
     ~FloatValidator();
 
-    enum Notation {
+    enum Notation
+    {
         StandardNotation,
         ScientificNotation
     };
     Q_ENUM(Notation)
 
-    State validate(QString &input, int &pos) const override;
+    State validate(QString& input, int& pos) const override;
 
     void setBottom(float bottom);
     void setTop(float top);
@@ -32,25 +33,17 @@ public:
     void setNotation(Notation notation);
     virtual void setRange(float bottom, float top, int decimals = 0);
 
-    float bottom() const {
-        return m_b;
-    }
-    float top() const {
-        return m_t;
-    }
-    int decimals() const {
-        return m_decimals;
-    }
-    Notation notation() const {
-        return m_notation;
-    }
+    float bottom() const { return m_b; }
+    float top() const { return m_t; }
+    int decimals() const { return m_decimals; }
+    Notation notation() const { return m_notation; }
 
 signals:
     void bottomChanged(float bottom);
     void topChanged(float top);
     void decimalsChanged(int decimals);
     void notationChanged(Notation notation);
-    
+
 private:
     Q_DISABLE_COPY_MOVE(FloatValidator);
 

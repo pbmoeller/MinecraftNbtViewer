@@ -9,8 +9,8 @@
 #include <cpp-anvil/util/compression.hpp>
 
 // Qt
-#include <QString>
 #include <QIcon>
+#include <QString>
 
 // STL
 #include <memory>
@@ -21,9 +21,8 @@ namespace nbt {
 class NbtTreeItemNbtFile : public NbtTreeItemBase
 {
 public:
-    NbtTreeItemNbtFile(NbtTreeItemBase *parentItem,
-                       const QString &filename,
-                       const QString &pathToFile);
+    NbtTreeItemNbtFile(NbtTreeItemBase* parentItem, const QString& filename,
+                       const QString& pathToFile);
     ~NbtTreeItemNbtFile();
 
     virtual QIcon icon() const override;
@@ -31,10 +30,10 @@ public:
 
     virtual bool canSave() const;
     virtual void save() override;
-    virtual void saveAs(const QString &filename, const anvil::CompressionType compression) override;
+    virtual void saveAs(const QString& filename, const anvil::CompressionType compression) override;
 
     virtual bool canRefresh() const override;
-    
+
     virtual bool canOpenInExplorer() const override;
     virtual QString path() const override;
 
@@ -43,8 +42,8 @@ public:
 
     virtual NbtTreeItemBase* markItemDirty() override;
 
-    static NbtTreeItemNbtFile* createNewNbtFile(NbtTreeItemBase *parentItem,
-                                                const QString &pathToFile);
+    static NbtTreeItemNbtFile* createNewNbtFile(NbtTreeItemBase* parentItem,
+                                                const QString& pathToFile);
 
     anvil::CompressionType getCompression() const;
 

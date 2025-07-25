@@ -67,4 +67,3 @@ public:
 } // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_UTIL_ICONPROVIDER_HPP
-

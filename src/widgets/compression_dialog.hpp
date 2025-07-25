@@ -9,7 +9,7 @@
 
 namespace Ui {
 class CompressionDialog;
-}
+} // namespace Ui
 
 namespace minecraft {
 namespace nbt {
@@ -19,14 +19,13 @@ class CompressionDialog : public QDialog
     Q_OBJECT
 
 public:
-    CompressionDialog(const anvil::CompressionType compression,
-                      QWidget *parent = nullptr);
+    CompressionDialog(const anvil::CompressionType compression, QWidget* parent = nullptr);
     virtual ~CompressionDialog();
 
     anvil::CompressionType selectedCompressionType() const;
 
 private:
-    Ui::CompressionDialog *m_ui;
+    Ui::CompressionDialog* m_ui;
 };
 
 } // namespace nbt

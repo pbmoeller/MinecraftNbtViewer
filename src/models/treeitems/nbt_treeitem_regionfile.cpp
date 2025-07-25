@@ -5,16 +5,13 @@
 namespace minecraft {
 namespace nbt {
 
-NbtTreeItemRegionFile::NbtTreeItemRegionFile(NbtTreeItemBase *parentItem,
-                                             const QString &filename,
-                                             const QString &pathToFile)
+NbtTreeItemRegionFile::NbtTreeItemRegionFile(NbtTreeItemBase* parentItem, const QString& filename,
+                                             const QString& pathToFile)
     : NbtTreeItemBase(parentItem)
     , m_canFetchData(true)
     , m_filename(filename)
     , m_pathToFile(pathToFile)
-{
-
-}
+{ }
 
 NbtTreeItemRegionFile::~NbtTreeItemRegionFile() = default;
 
@@ -54,10 +51,9 @@ void NbtTreeItemRegionFile::fetchMore()
 
     // Initialize Region
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    m_region = std::make_unique<anvil::Region>();
+    m_region             = std::make_unique<anvil::Region>();
     m_region->loadPartiallyFromFile(filename);
-    for(unsigned int index = 0; index < anvil::Region::Chunks; ++index)
-    {
+    for(unsigned int index = 0; index < anvil::Region::Chunks; ++index) {
         if(m_region->isChunkLoadable(index)) {
             new NbtTreeItemRegionChunk(this, m_region.get(), index);
         }

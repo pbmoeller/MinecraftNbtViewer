@@ -4,12 +4,10 @@
 namespace minecraft {
 namespace nbt {
 
-MinecraftNbtViewerApp::MinecraftNbtViewerApp(QObject *parent)
+MinecraftNbtViewerApp::MinecraftNbtViewerApp(QObject* parent)
     : QObject(parent)
     , m_mainWindow()
-{
-
-}
+{ }
 
 void MinecraftNbtViewerApp::create()
 {

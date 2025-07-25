@@ -9,9 +9,9 @@
 #include <cpp-anvil/util/compression.hpp>
 
 // Qt
-#include <QVector>
-#include <QString>
 #include <QIcon>
+#include <QString>
+#include <QVector>
 
 namespace minecraft {
 namespace nbt {
@@ -19,12 +19,12 @@ namespace nbt {
 class NbtTreeItemBase
 {
 public:
-    NbtTreeItemBase(NbtTreeItemBase *parentItem = nullptr);
+    NbtTreeItemBase(NbtTreeItemBase* parentItem = nullptr);
     virtual ~NbtTreeItemBase();
 
     NbtTreeItemBase*& parent();
     QVector<NbtTreeItemBase*>& children();
-    bool hasChildWithName(const QString &name) const;
+    bool hasChildWithName(const QString& name) const;
 
     void sort();
     void clear();
@@ -35,16 +35,16 @@ public:
 
     virtual bool canSave() const;
     virtual void save();
-    virtual void saveAs(const QString &filename, const anvil::CompressionType compression);
+    virtual void saveAs(const QString& filename, const anvil::CompressionType compression);
 
     virtual bool canRefresh() const;
 
     virtual bool canRename() const;
-    virtual void rename(const QString &name);
-    virtual void openRenameDialog(NbtDataTreeModel *model);
+    virtual void rename(const QString& name);
+    virtual void openRenameDialog(NbtDataTreeModel* model);
 
     virtual bool canEdit() const;
-    virtual void openEditDialog(NbtDataTreeModel *model);
+    virtual void openEditDialog(NbtDataTreeModel* model);
 
     virtual bool canDelete() const;
 
@@ -71,7 +71,7 @@ public:
     virtual NbtTreeItemBase* markItemDirty();
 
 protected:
-    NbtTreeItemBase *m_parent;
+    NbtTreeItemBase* m_parent;
     QVector<NbtTreeItemBase*> m_children;
 };
 

@@ -12,17 +12,14 @@
 namespace minecraft {
 namespace nbt {
 
-NbtTreeItemNbtFile::NbtTreeItemNbtFile(NbtTreeItemBase *parentItem,
-                                       const QString &filename,
-                                       const QString &pathToFile)
+NbtTreeItemNbtFile::NbtTreeItemNbtFile(NbtTreeItemBase* parentItem, const QString& filename,
+                                       const QString& pathToFile)
     : NbtTreeItemBase(parentItem)
     , m_canFetchData(true)
     , m_filename(filename)
     , m_pathToFile(pathToFile)
     , m_compressionType(anvil::CompressionType::Gzip)
-{
-
-}
+{ }
 
 NbtTreeItemNbtFile::~NbtTreeItemNbtFile() = default;
 
@@ -63,10 +60,10 @@ void NbtTreeItemNbtFile::save()
         fetchMore();
     }
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    bool ret = anvil::saveToFile(filename, m_nbtRootTag.get(), m_compressionType);
+    bool ret             = anvil::saveToFile(filename, m_nbtRootTag.get(), m_compressionType);
 }
 
-void NbtTreeItemNbtFile::saveAs(const QString &filename, const anvil::CompressionType compression)
+void NbtTreeItemNbtFile::saveAs(const QString& filename, const anvil::CompressionType compression)
 {
     // Fetch data first if not already done or the root tag is empty.
     if(canFetchMore()) {
@@ -74,7 +71,7 @@ void NbtTreeItemNbtFile::saveAs(const QString &filename, const anvil::Compressio
     }
     bool ret = anvil::saveToFile(filename.toStdString(), m_nbtRootTag.get(), compression);
     if(ret) {
-        m_filename = QFileInfo(filename).fileName();
+        m_filename        = QFileInfo(filename).fileName();
         m_compressionType = compression;
     }
 }
@@ -105,9 +102,9 @@ void NbtTreeItemNbtFile::fetchMore()
 
     // Read NBT data
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    m_nbtRootTag = anvil::loadFromFile(filename, m_compressionType);
+    m_nbtRootTag         = anvil::loadFromFile(filename, m_compressionType);
     if(m_nbtRootTag) {
-        anvil::CompoundTag *tag = anvil::tag_cast<anvil::CompoundTag*>(m_nbtRootTag.get());
+        anvil::CompoundTag* tag = anvil::tag_cast<anvil::CompoundTag*>(m_nbtRootTag.get());
         addNbtChild(this, tag);
         sort();
     }
@@ -118,17 +115,17 @@ NbtTreeItemBase* NbtTreeItemNbtFile::markItemDirty()
     return this;
 }
 
-NbtTreeItemNbtFile* NbtTreeItemNbtFile::createNewNbtFile(NbtTreeItemBase *parentItem,
-                                                         const QString &pathToFile)
+NbtTreeItemNbtFile* NbtTreeItemNbtFile::createNewNbtFile(NbtTreeItemBase* parentItem,
+                                                         const QString& pathToFile)
 {
     if(!parentItem) {
         return nullptr;
     }
 
-    NbtTreeItemNbtFile *newItem = new NbtTreeItemNbtFile(parentItem, QString(), pathToFile);
-    newItem->m_canFetchData = false;
-    newItem->m_compressionType = anvil::CompressionType::Uncompressed;
-    newItem->m_nbtRootTag = std::make_unique<anvil::CompoundTag>();
+    NbtTreeItemNbtFile* newItem = new NbtTreeItemNbtFile(parentItem, QString(), pathToFile);
+    newItem->m_canFetchData     = false;
+    newItem->m_compressionType  = anvil::CompressionType::Uncompressed;
+    newItem->m_nbtRootTag       = std::make_unique<anvil::CompoundTag>();
     addNbtChild(newItem, newItem->m_nbtRootTag.get());
 
     return newItem;
