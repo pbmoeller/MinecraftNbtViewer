@@ -1,36 +1,43 @@
 // MinecraftNbtViewer
 #include "version.hpp"
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
-int getVersionMajor()
+unsigned int getVersionMajor()
 {
-    return @MINECRAFTNBTVIEWER_VERSION_MAJOR@;
+    return @MinecraftNbtViewer_VERSION_MAJOR@;
 }
 
-int getVersionMinor()
+unsigned int getVersionMinor()
 {
-    return @MINECRAFTNBTVIEWER_VERSION_MINOR@;
+    return @MinecraftNbtViewer_VERSION_MINOR@ +0;
 }
 
-int getVersionPatch()
+unsigned int getVersionPatch()
 {
-    return @MINECRAFTNBTVIEWER_VERSION_PATCH@;
+    return @MinecraftNbtViewer_VERSION_PATCH@ +0;
+}
+
+unsigned int getVersionTweak()
+{
+    return @MinecraftNbtViewer_VERSION_TWEAK@ +0;
 }
 
 const char * getVersion()
 {
-    return "@MINECRAFTNBTVIEWER_VERSION@";
+    return "@MinecraftNbtViewer_VERSION@";
 }
 
 const char * getGitBranch()
 {
-    return "@MINECRAFTNBTVIEWER_GIT_BRANCH@";
+    return "@MinecraftNbtViewer_GIT_BRANCH@";
 }
 
 const char * getGitHash()
 {
-    return "@MINECRAFTNBTVIEWER_GIT_HASH@";
+    return "@MinecraftNbtViewer_GIT_HASH@";
 }
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft

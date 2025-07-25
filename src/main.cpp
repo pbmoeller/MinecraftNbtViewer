@@ -15,11 +15,11 @@
 int main(int argc, char **argv)
 {
     std::cout << "cpp-anvil Version: " << anvil::getCppAnvilVersion() << std::endl;
-    std::cout << "MinecraftNbtViewer Version: " << anv::getVersion() << std::endl;
+    std::cout << "MinecraftNbtViewer Version: " << minecraft::nbt::getVersion() << std::endl;
     qRegisterMetaType<std::shared_ptr<anvil::BasicTag>>();
 
     QCoreApplication::setApplicationName("MinecraftNbtViewer");
-    QCoreApplication::setApplicationVersion(anv::getVersion());
+    QCoreApplication::setApplicationVersion(minecraft::nbt::getVersion());
 
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/icons/grass_block_64x64.png"));

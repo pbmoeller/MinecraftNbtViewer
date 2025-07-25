@@ -1,16 +1,19 @@
 #ifndef MINECRAFTNBTVIEWER_VERSION_HPP_IN
 #define MINECRAFTNBTVIEWER_VERSION_HPP_IN
 
-namespace anv {
+namespace minecraft {
+namespace nbt {
 
-int getVersionMajor();
-int getVersionMinor();
-int getVersionPatch();
+unsigned int getVersionMajor();
+unsigned int getVersionMinor();
+unsigned int getVersionPatch();
+unsigned int getVersionTweak();
 
 const char * getVersion();
 const char * getGitBranch();
 const char * getGitHash();
 
-} // namespace anv
+} // namespace nbt
+} // namespace minecraft
 
 #endif // MINECRAFTNBTVIEWER_VERSION_HPP_IN

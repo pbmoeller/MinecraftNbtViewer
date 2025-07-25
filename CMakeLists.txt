@@ -1,31 +1,28 @@
+####################################################################################################
+### Project
 cmake_minimum_required(VERSION 3.16)
 
 project(MinecraftNbtViewer
-    VERSION 0.1.0
-    LANGUAGES C CXX
+    VERSION     0.1.0
+    LANGUAGES   CXX
 )
 
-### Additional flags
+# C++ Standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-### Version
-set(MINECRAFTNBTVIEWER_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
-set(MINECRAFTNBTVIEWER_VERSION_MINOR ${PROJECT_VERSION_MINOR})
-set(MINECRAFTNBTVIEWER_VERSION_PATCH ${PROJECT_VERSION_PATCH})
-set(MINECRAFTNBTVIEWER_VERSION ${MINECRAFTNBTVIEWER_VERSION_MAJOR}.${MINECRAFTNBTVIEWER_VERSION_MINOR}.${MINECRAFTNBTVIEWER_VERSION_PATCH})
-
+### Git Version & Git Hash
 execute_process(
   COMMAND git rev-parse --abbrev-ref HEAD
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-  OUTPUT_VARIABLE MINECRAFTNBTVIEWER_GIT_BRANCH
+  OUTPUT_VARIABLE MinecraftNbtViewer_GIT_BRANCH
   OUTPUT_STRIP_TRAILING_WHITESPACE
   ERROR_QUIET
 )
 execute_process(
   COMMAND git log -1 --format=%h
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-  OUTPUT_VARIABLE MINECRAFTNBTVIEWER_GIT_HASH
+  OUTPUT_VARIABLE MinecraftNbtViewer_GIT_HASH
   OUTPUT_STRIP_TRAILING_WHITESPACE
   ERROR_QUIET
 )
@@ -35,26 +32,16 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-### Installation directories
-set(MinecraftNbtViewer_INSTALL_BINARY_DIR "bin")
-set(MinecraftNbtViewer_INSTALL_INCLUDE_DIR "include")
-set(MinecraftNbtViewer_INSTALL_LIBRARY_DIR "lib/${CMAKE_BUILD_TYPE}")
-set(MinecraftNbtViewer_INSTALL_CMAKE_CONFIG_DIR "share/MinecraftNbtViewer/cmake")
-set(MinecraftNbtViewer_INSTALL_ADDITIONAL_FILES_DIR "share/MinecraftNbtViewer")
+####################################################################################################
+### Dependencies
 
-### Search and include necessary packages
 find_package(Qt6 REQUIRED COMPONENTS Widgets Core)
 
 find_package(cppAnvil REQUIRED)
 
-### MinecraftNbtViewer
-add_subdirectory(src)
+####################################################################################################
+### Project Files
 
-### Install
-install(
-    FILES
-        "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE"
-        "${CMAKE_CURRENT_SOURCE_DIR}/readme.md"
-    DESTINATION
-        ${MinecraftNbtViewer_INSTALL_ADDITIONAL_FILES_DIR}
-)
+add_subdirectory("src")
+
+
