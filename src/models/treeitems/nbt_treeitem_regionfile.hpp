@@ -9,7 +9,7 @@
 
 // Qt
 #include <QString>
-#include <Qicon>
+#include <QIcon>
 
 // STL
 #include <memory>
