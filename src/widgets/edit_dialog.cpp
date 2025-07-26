@@ -263,8 +263,8 @@ QString EditDialog::arrayToString() const
     switch(m_treeItem->tag()->type()) {
         case anvil::TagType::ByteArray:
         {
-            int numbersPerLine             = 16;
-            anvil::ByteArrayTag* byteArray = tag_cast<anvil::ByteArrayTag*>(m_treeItem->tag());
+            int numbersPerLine = 16;
+            auto* byteArray    = tag_cast<anvil::ByteArrayTag*>(m_treeItem->tag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>((*byteArray)[i]), 10) + "  ";
 
@@ -277,8 +277,8 @@ QString EditDialog::arrayToString() const
         }
         case anvil::TagType::IntArray:
         {
-            int numbersPerLine            = 4;
-            anvil::IntArrayTag* byteArray = tag_cast<anvil::IntArrayTag*>(m_treeItem->tag());
+            int numbersPerLine = 4;
+            auto* byteArray    = tag_cast<anvil::IntArrayTag*>(m_treeItem->tag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>(((*byteArray)[i])), 10) + "  ";
 
@@ -291,8 +291,8 @@ QString EditDialog::arrayToString() const
         }
         case anvil::TagType::LongArray:
         {
-            int numbersPerLine             = 2;
-            anvil::LongArrayTag* byteArray = tag_cast<anvil::LongArrayTag*>(m_treeItem->tag());
+            int numbersPerLine = 2;
+            auto* byteArray    = tag_cast<anvil::LongArrayTag*>(m_treeItem->tag());
             for(int i = 0; i < byteArray->size(); ++i) {
                 out += QByteArray::number(static_cast<int>((*byteArray)[i]), 10) + "  ";
 
@@ -315,8 +315,8 @@ bool EditDialog::checkAndSetValue(const QString& value, anvil::BasicTag* tag)
     switch(tag->type()) {
         case anvil::TagType::Byte:
         {
-            int8_t newValue         = static_cast<int8_t>(value.toInt(&ok));
-            anvil::ByteTag* byteTag = anvil::tag_cast<anvil::ByteTag*>(tag);
+            int8_t newValue = static_cast<int8_t>(value.toInt(&ok));
+            auto* byteTag   = anvil::tag_cast<anvil::ByteTag*>(tag);
             if(ok && byteTag->value() != newValue) {
                 byteTag->setValue(newValue);
                 dataChanged = true;
@@ -325,8 +325,8 @@ bool EditDialog::checkAndSetValue(const QString& value, anvil::BasicTag* tag)
         }
         case anvil::TagType::Short:
         {
-            int16_t newValue          = value.toShort(&ok);
-            anvil::ShortTag* shortTag = anvil::tag_cast<anvil::ShortTag*>(tag);
+            int16_t newValue = value.toShort(&ok);
+            auto* shortTag   = anvil::tag_cast<anvil::ShortTag*>(tag);
             if(ok && shortTag->value() != newValue) {
                 shortTag->setValue(newValue);
                 dataChanged = true;
@@ -335,8 +335,8 @@ bool EditDialog::checkAndSetValue(const QString& value, anvil::BasicTag* tag)
         }
         case anvil::TagType::Int:
         {
-            int32_t newValue      = value.toInt(&ok);
-            anvil::IntTag* intTag = anvil::tag_cast<anvil::IntTag*>(tag);
+            int32_t newValue = value.toInt(&ok);
+            auto* intTag     = anvil::tag_cast<anvil::IntTag*>(tag);
             if(ok && intTag->value() != newValue) {
                 intTag->setValue(newValue);
                 dataChanged = true;
@@ -345,8 +345,8 @@ bool EditDialog::checkAndSetValue(const QString& value, anvil::BasicTag* tag)
         }
         case anvil::TagType::Long:
         {
-            int64_t newValue        = value.toLongLong(&ok);
-            anvil::LongTag* longTag = anvil::tag_cast<anvil::LongTag*>(tag);
+            int64_t newValue = value.toLongLong(&ok);
+            auto* longTag    = anvil::tag_cast<anvil::LongTag*>(tag);
             if(ok && longTag->value() != newValue) {
                 longTag->setValue(newValue);
                 dataChanged = true;
@@ -355,8 +355,8 @@ bool EditDialog::checkAndSetValue(const QString& value, anvil::BasicTag* tag)
         }
         case anvil::TagType::Float:
         {
-            float newValue            = QLocale().toFloat(value, &ok);
-            anvil::FloatTag* floatTag = anvil::tag_cast<anvil::FloatTag*>(tag);
+            float newValue = QLocale().toFloat(value, &ok);
+            auto* floatTag = anvil::tag_cast<anvil::FloatTag*>(tag);
             if(ok && floatTag->value() != newValue) {
                 floatTag->setValue(newValue);
                 dataChanged = true;
@@ -365,8 +365,8 @@ bool EditDialog::checkAndSetValue(const QString& value, anvil::BasicTag* tag)
         }
         case anvil::TagType::Double:
         {
-            double newValue             = QLocale().toDouble(value, &ok);
-            anvil::DoubleTag* doubleTag = anvil::tag_cast<anvil::DoubleTag*>(tag);
+            double newValue = QLocale().toDouble(value, &ok);
+            auto* doubleTag = anvil::tag_cast<anvil::DoubleTag*>(tag);
             if(ok && doubleTag->value() != newValue) {
                 doubleTag->setValue(newValue);
                 dataChanged = true;
@@ -501,6 +501,8 @@ bool EditDialog::checkAndSetArrayValue(const QString& value, anvil::BasicTag* ta
 
             break;
         }
+        default:
+            break;
     }
 
     return dataChanged;

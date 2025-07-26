@@ -127,7 +127,7 @@ NbtTreeItemBase* NbtDataTreeModel::fromIndex(const QModelIndex& index) const
 QModelIndex NbtDataTreeModel::toIndex(NbtTreeItemBase* item, int column) const
 {
     if(!item || item == m_rootItem) {
-        return QModelIndex();
+        return {};
     }
     NbtTreeItemBase* parent = item->parent();
     if(!parent) {
@@ -135,7 +135,7 @@ QModelIndex NbtDataTreeModel::toIndex(NbtTreeItemBase* item, int column) const
     }
     int row = parent->children().lastIndexOf(item);
     if(row == -1) {
-        return QModelIndex();
+        return {};
     }
     return createIndex(row, column, item);
 }
@@ -189,6 +189,8 @@ void NbtDataTreeModel::addNbtTag(const QModelIndex& index, NbtTreeItemNbtTag* it
         case anvil::TagType::LongArray:
             newTag = std::make_unique<anvil::LongArrayTag>(name.toStdString(),
                                                            std::vector<int64_t>(size, 0));
+            break;
+        default:
             break;
     }
     if(!newTag) {
