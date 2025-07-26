@@ -11,6 +11,8 @@ project(MinecraftNbtViewer
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+
 ### Git Version & Git Hash
 execute_process(
   COMMAND git rev-parse --abbrev-ref HEAD
@@ -37,7 +39,19 @@ set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Core)
 
-find_package(cppAnvil REQUIRED)
+find_package(CppAnvil REQUIRED)
+
+####################################################################################################
+### Tools
+
+if(MinecraftNbtViewer_CLANG_TIDY)
+    find_program(CLANG_TIDY_EXECUTABLE
+        NAMES clang-tidy
+        REQUIRED
+    )
+    set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY_EXECUTABLE} -p ${CMAKE_BINARY_DIR})
+    set(CMAKE_C_CLANG_TIDY   ${CLANG_TIDY_EXECUTABLE} -p ${CMAKE_BINARY_DIR})
+endif()
 
 ####################################################################################################
 ### Project Files
