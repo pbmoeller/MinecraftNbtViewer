@@ -37,11 +37,12 @@ QVector<NbtTreeItemBase*>& NbtTreeItemBase::children()
 
 bool NbtTreeItemBase::hasChildWithName(const QString& name) const
 {
-    for(int i = 0; i < m_children.size(); ++i) {
-        if(m_children[i]->name() == name) {
+    for(const auto& child : m_children) {
+        if(child->name() == name) {
             return true;
         }
     }
+
     return false;
 }
 
@@ -66,26 +67,26 @@ void NbtTreeItemBase::sort()
 
 void NbtTreeItemBase::clear()
 {
-    for(qsizetype i = 0; i < m_children.size(); ++i) {
-        m_children[i]->parent() = nullptr;
-        delete m_children[i];
+    for(auto& child : m_children) {
+        child->parent() = nullptr;
+        delete child;
     }
     m_children.clear();
 }
 
 QIcon NbtTreeItemBase::icon() const
 {
-    return QIcon();
+    return {};
 }
 
 QString NbtTreeItemBase::name() const
 {
-    return QString();
+    return {};
 }
 
 QString NbtTreeItemBase::label() const
 {
-    return QString();
+    return {};
 }
 
 bool NbtTreeItemBase::canSave() const
@@ -191,7 +192,7 @@ bool NbtTreeItemBase::canOpenInExplorer() const
 
 QString NbtTreeItemBase::path() const
 {
-    return QString();
+    return {};
 }
 
 bool NbtTreeItemBase::canFetchMore() const

@@ -14,8 +14,8 @@
 
 int main(int argc, char** argv)
 {
-    std::cout << "cpp-anvil Version: " << anvil::getCppAnvilVersion() << std::endl;
-    std::cout << "MinecraftNbtViewer Version: " << minecraft::nbt::getVersion() << std::endl;
+    std::cout << "cpp-anvil Version: " << anvil::getCppAnvilVersion() << "\n"
+              << "MinecraftNbtViewer Version: " << minecraft::nbt::getVersion() << std::endl;
     qRegisterMetaType<std::shared_ptr<anvil::BasicTag>>();
 
     QCoreApplication::setApplicationName("MinecraftNbtViewer");

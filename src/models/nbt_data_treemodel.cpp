@@ -364,13 +364,13 @@ QVariant NbtDataTreeModel::headerData(int section, Qt::Orientation orientation, 
     Q_UNUSED(section);
     Q_UNUSED(orientation);
     Q_UNUSED(role);
-    return QVariant();
+    return {};
 }
 
 QVariant NbtDataTreeModel::data(const QModelIndex& index, int role) const
 {
     if(!index.isValid()) {
-        return QVariant();
+        return {};
     }
 
     NbtTreeItemBase* item = fromIndex(index);
@@ -388,13 +388,13 @@ QVariant NbtDataTreeModel::data(const QModelIndex& index, int role) const
                 return item->icon();
         }
     }
-    return QVariant();
+    return {};
 }
 
 QModelIndex NbtDataTreeModel::index(int row, int column, const QModelIndex& parent) const
 {
     if(row < 0 || column < 0 || column >= ColumnCount) {
-        return QModelIndex();
+        return {};
     }
 
     NbtTreeItemBase* parentItem;
@@ -407,22 +407,22 @@ QModelIndex NbtDataTreeModel::index(int row, int column, const QModelIndex& pare
     if(parentItem && row < parentItem->children().count()) {
         NbtTreeItemBase* childItem = parentItem->children().at(row);
         if(!childItem) {
-            return QModelIndex();
+            return {};
         }
         return createIndex(row, column, childItem);
     }
-    return QModelIndex();
+    return {};
 }
 
 QModelIndex NbtDataTreeModel::parent(const QModelIndex& index) const
 {
     if(!index.isValid()) {
-        return QModelIndex();
+        return {};
     }
 
     NbtTreeItemBase* childItem = static_cast<NbtTreeItemBase*>(index.internalPointer());
     if(!childItem || childItem == m_rootItem) {
-        return QModelIndex();
+        return {};
     }
 
     return toIndex(childItem->parent(), 0);
