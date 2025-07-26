@@ -36,7 +36,7 @@ signals:
     void topChanged(int16_t top);
 
 private:
-    Q_DISABLE_COPY_MOVE(Int16Validator);
+    Q_DISABLE_COPY_MOVE(Int16Validator)
 
     int16_t m_b;
     int16_t m_t;

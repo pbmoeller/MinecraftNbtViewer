@@ -45,7 +45,7 @@ signals:
     void notationChanged(Notation notation);
 
 private:
-    Q_DISABLE_COPY_MOVE(FloatValidator);
+    Q_DISABLE_COPY_MOVE(FloatValidator)
 
     float m_b;
     float m_t;

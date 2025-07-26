@@ -36,7 +36,7 @@ signals:
     void topChanged(int64_t top);
 
 private:
-    Q_DISABLE_COPY_MOVE(Int64Validator);
+    Q_DISABLE_COPY_MOVE(Int64Validator)
 
     int64_t m_b;
     int64_t m_t;
