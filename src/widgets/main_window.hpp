@@ -51,6 +51,9 @@ public slots:
     void moveUp();
     void moveDown();
 
+    // Help Menu
+    void about();
+
     // Add NBT Tag
     void addByteTag();
     void addShortTag();

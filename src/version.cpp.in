@@ -39,5 +39,10 @@ const char * getGitHash()
     return "@MinecraftNbtViewer_GIT_HASH@";
 }
 
+const char* getApplicationName()
+{
+    return "@MinecraftNbtViewer_APP_NAME@";
+}
+
 } // namespace nbt
 } // namespace minecraft

@@ -29,6 +29,7 @@ set(MinecraftNbtViewer_HEADER
     "util/iconprovider.hpp"
 
     # Widgets
+    "widgets/about_dialog.hpp"
     "widgets/main_window.hpp"
     "widgets/new_tag_dialog.hpp"
     "widgets/edit_dialog.hpp"
@@ -64,6 +65,7 @@ set(MinecraftNbtViewer_SOURCES
     "util/iconprovider.cpp"
 
     # Widgets
+    "widgets/about_dialog.cpp"
     "widgets/main_window.cpp"
     "widgets/new_tag_dialog.cpp"
     "widgets/edit_dialog.cpp"
@@ -81,6 +83,8 @@ set(MinecraftNbtViewer_UI
 set(MinecraftNbtViewer_RESOURCES
     "${MinecraftNbtViewer_SOURCE_DIR}/resources/resources.qrc"
 )
+
+set(MinecraftNbtViewer_APP_NAME "MinecraftNbtViewer")
 
 configure_file(
     "version.cpp.in"

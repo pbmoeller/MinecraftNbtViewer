@@ -97,5 +97,6 @@
         <file>icons/24x24/MoveUp.png</file>
         <file>icons/32x32/MoveDown.png</file>
         <file>icons/32x32/MoveUp.png</file>
+        <file>icons/grass_block_128x128.png</file>
     </qresource>
 </RCC>

@@ -1,5 +1,6 @@
 // MinecraftNbtViewer
 #include "main_window.hpp"
+#include "about_dialog.hpp"
 #include "compression_dialog.hpp"
 #include "models/nbt_data_treemodel.hpp"
 #include "models/treeitems/nbt_treeitem_folder.hpp"
@@ -7,6 +8,7 @@
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
 #include "new_tag_dialog.hpp"
 #include "ui_main_window.h"
+#include "version.hpp"
 
 // Qt
 #include <QCloseEvent>
@@ -251,6 +253,12 @@ void MainWindow::moveDown()
     }
 }
 
+void MainWindow::about()
+{
+    AboutDialog aboutDialog;
+    aboutDialog.exec();
+}
+
 void MainWindow::addByteTag()
 {
     addNbtTag(anvil::TagType::Byte);
@@ -346,6 +354,7 @@ void MainWindow::initConnections()
     connect(m_ui->actionMoveDown, &QAction::triggered, this, &MainWindow::moveDown);
 
     // Help Menu
+    connect(m_ui->actionAbout, &QAction::triggered, this, &MainWindow::about);
 
     // Toolbar Add Tags
     connect(m_ui->actionAdd_ByteTag, &QAction::triggered, this, &MainWindow::addByteTag);

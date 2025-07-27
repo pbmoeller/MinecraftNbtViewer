@@ -13,6 +13,8 @@ const char* getVersion();
 const char* getGitBranch();
 const char* getGitHash();
 
+const char* getApplicationName();
+
 } // namespace nbt
 } // namespace minecraft
 
