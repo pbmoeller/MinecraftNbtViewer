@@ -38,8 +38,10 @@ set(CMAKE_AUTORCC ON)
 ### Dependencies
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Core)
+message(STATUS "Found Qt6: ${Qt6_VERSION} (${Qt6Widgets_VERSION})")
 
 find_package(CppAnvil REQUIRED)
+message(STATUS "Found CppAnvil: ${CppAnvil_VERSION}")
 
 ####################################################################################################
 ### Tools
