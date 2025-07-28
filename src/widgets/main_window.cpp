@@ -8,14 +8,18 @@
 #include "models/treeitems/nbt_treeitem_nbttag.hpp"
 #include "new_tag_dialog.hpp"
 #include "ui_main_window.h"
+#include "util/iconprovider.hpp"
 #include "version.hpp"
 
 // Qt
 #include <QCloseEvent>
 #include <QDesktopServices>
 #include <QFileDialog>
+#include <QGuiApplication>
 #include <QMessageBox>
+#include <QPalette>
 #include <QStandardPaths>
+#include <QStyleHints>
 
 namespace minecraft {
 namespace nbt {
@@ -26,6 +30,7 @@ MainWindow::MainWindow(QWidget* parent)
     , m_baseWindowTitle(QApplication::applicationName())
 {
     m_ui->setupUi(this);
+    updateActionIcons();
     this->setWindowTitle(m_baseWindowTitle);
 
     m_nbtTreeModel = new NbtDataTreeModel();
@@ -447,6 +452,26 @@ void MainWindow::updateActions()
         m_ui->actionAdd_ListTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::List));
         m_ui->actionAdd_CompoundTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Compound));
     }
+}
+
+bool MainWindow::isDarkMode() const
+{
+    const auto scheme = QGuiApplication::styleHints()->colorScheme();
+    return scheme == Qt::ColorScheme::Dark;
+}
+
+void MainWindow::updateActionIcons()
+{
+    IconProvider::IconSize size = IconProvider::Size16;
+    IconProvider::IconMode mode = isDarkMode() ? IconProvider::Dark : IconProvider::Light;
+
+    m_ui->actionAdd_ByteArrayTag->setIcon(
+        IconProvider::icon(IconProvider::ByteArrayTag, size, mode));
+    m_ui->actionAdd_IntArrayTag->setIcon(IconProvider::icon(IconProvider::IntArrayTag, size, mode));
+    m_ui->actionAdd_LongArrayTag->setIcon(
+        IconProvider::icon(IconProvider::LongArrayTag, size, mode));
+    m_ui->actionRename->setIcon(IconProvider::icon(IconProvider::Rename, size, mode));
+    m_ui->actionAdd_ListTag->setIcon(IconProvider::icon(IconProvider::ListTag, size, mode));
 }
 
 void MainWindow::showCustomContextMenu(const QPoint& pos)

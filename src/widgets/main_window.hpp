@@ -73,6 +73,8 @@ private:
     bool userReallyWantsToQuit();
     void addNbtTag(anvil::TagType tagType);
     void updateActions();
+    bool isDarkMode() const;
+    void updateActionIcons();
 
 private slots:
     void showCustomContextMenu(const QPoint& pos);

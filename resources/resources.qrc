@@ -98,5 +98,26 @@
         <file>icons/32x32/MoveDown.png</file>
         <file>icons/32x32/MoveUp.png</file>
         <file>icons/grass_block_128x128.png</file>
+        <file>icons/16x16/About.png</file>
+        <file>icons/24x24/About.png</file>
+        <file>icons/32x32/About.png</file>
+        <file>icons/16x16/ByteArrayTagDark.png</file>
+        <file>icons/16x16/IntArrayTagDark.png</file>
+        <file>icons/16x16/LongArrayTagDark.png</file>
+        <file>icons/16x16/RenameAltDark.png</file>
+        <file>icons/16x16/RenameDark.png</file>
+        <file>icons/24x24/ByteArrayTagDark.png</file>
+        <file>icons/24x24/IntArrayTagDark.png</file>
+        <file>icons/24x24/LongArrayTagDark.png</file>
+        <file>icons/24x24/RenameAltDark.png</file>
+        <file>icons/24x24/RenameDark.png</file>
+        <file>icons/32x32/ByteArrayTagDark.png</file>
+        <file>icons/32x32/IntArrayTagDark.png</file>
+        <file>icons/32x32/LongArrayTagDark.png</file>
+        <file>icons/32x32/RenameAltDark.png</file>
+        <file>icons/32x32/RenameDark.png</file>
+        <file>icons/16x16/ListTagDark.png</file>
+        <file>icons/24x24/ListTagDark.png</file>
+        <file>icons/32x32/ListTagDark.png</file>
     </qresource>
 </RCC>

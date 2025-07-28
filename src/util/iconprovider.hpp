@@ -13,6 +13,12 @@ namespace nbt {
 class IconProvider
 {
 public:
+    enum IconMode
+    {
+        Light,
+        Dark,
+    };
+
     enum IconSize
     {
         Size16 = 16,
@@ -59,7 +65,7 @@ public:
 public:
     IconProvider();
 
-    static QIcon icon(IconType iconType, IconSize iconSize = Size16);
+    static QIcon icon(IconType iconType, IconSize iconSize = Size16, IconMode iconMode = Light);
     static QIcon icon(anvil::TagType tagType, IconSize iconSize = Size16);
 };
 

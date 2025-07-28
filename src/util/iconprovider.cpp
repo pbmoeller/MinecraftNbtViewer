@@ -6,12 +6,13 @@ namespace nbt {
 
 IconProvider::IconProvider() = default;
 
-QIcon IconProvider::icon(IconType iconType, IconSize iconSize)
+QIcon IconProvider::icon(IconType iconType, IconSize iconSize, IconMode iconMode)
 {
     if(iconSize == Size16) {
         switch(iconType) {
             case ByteArrayTag:
-                return QIcon(":/icons/16x16/ByteArrayTag.png");
+                return iconMode == Light ? QIcon(":/icons/16x16/ByteArrayTag.png")
+                                         : QIcon(":/icons/16x16/ByteArrayTagDark.png");
             case ByteTag:
                 return QIcon(":/icons/16x16/ByteTag.png");
             case Chunk:
@@ -39,13 +40,16 @@ QIcon IconProvider::icon(IconType iconType, IconSize iconSize)
             case Folder:
                 return QIcon(":/icons/16x16/Folder.png");
             case IntArrayTag:
-                return QIcon(":/icons/16x16/IntArrayTag.png");
+                return iconMode == Light ? QIcon(":/icons/16x16/IntArrayTag.png")
+                                         : QIcon(":/icons/16x16/IntArrayTagDark.png");
             case IntTag:
                 return QIcon(":/icons/16x16/IntTag.png");
             case ListTag:
-                return QIcon(":/icons/16x16/ListTag.png");
+                return iconMode == Light ? QIcon(":/icons/16x16/ListTag.png")
+                                         : QIcon(":/icons/16x16/ListTagDark.png");
             case LongArrayTag:
-                return QIcon(":/icons/16x16/LongArrayTag.png");
+                return iconMode == Light ? QIcon(":/icons/16x16/LongArrayTag.png")
+                                         : QIcon(":/icons/16x16/LongArrayTagDark.png");
             case LongTag:
                 return QIcon(":/icons/16x16/LongTag.png");
             case MoveDown:
@@ -65,7 +69,8 @@ QIcon IconProvider::icon(IconType iconType, IconSize iconSize)
             case Region:
                 return QIcon(":/icons/16x16/Region.png");
             case Rename:
-                return QIcon(":/icons/16x16/Rename.png");
+                return iconMode == Light ? QIcon(":/icons/16x16/Rename.png")
+                                         : QIcon(":/icons/16x16/RenameDark.png");
             case Save:
                 return QIcon(":/icons/16x16/Save.png");
             case ShortTag:
