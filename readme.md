@@ -8,7 +8,7 @@ It is based on [cpp-anvil](https://github.com/pbmoeller/cpp-anvil).
 
 ## Features
 
-- View and edit Minecraft NBT (Named Binary Tag) files
+- View, edit or create Minecraft NBT (Named Binary Tag) files
 - Browse and modify region files and world data
 - Tree-based visualization of NBT structures
 - Support for various Minecraft data types
@@ -25,8 +25,7 @@ It is based on [cpp-anvil](https://github.com/pbmoeller/cpp-anvil).
 
 - CMake >= 3.16
 - C++20 compatible compiler (MSVC, GCC, or Clang)
-- Qt (version required by the project)
-- Git
+- Qt6 (tested with Qt 6.7.2)
 
 ### Building
 
