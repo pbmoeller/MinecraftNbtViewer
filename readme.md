@@ -17,7 +17,7 @@ It is based on [cpp-anvil](https://github.com/pbmoeller/cpp-anvil).
 
 ## Screenshots
 
-<!-- Add screenshots here if available -->
+![MinecraftNbtViewer](/doc/minecraft_nbt_viewer.png)
 
 ## Getting Started
 
