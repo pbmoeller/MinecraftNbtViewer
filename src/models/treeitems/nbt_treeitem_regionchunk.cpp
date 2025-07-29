@@ -28,6 +28,12 @@ QIcon NbtTreeItemRegionChunk::icon() const
     return QIcon(":/icons/16x16/Chunk.png");
 }
 
+QString NbtTreeItemRegionChunk::name() const
+{
+    anvil::Vec2 chunkCoord = m_parentRegion->fromIndex(m_index);
+    return QString("Chunk [%1, %2]").arg(chunkCoord.x).arg(chunkCoord.z);
+}
+
 QString NbtTreeItemRegionChunk::label() const
 {
     anvil::Vec2 chunkCoord  = m_parentRegion->fromIndex(m_index);

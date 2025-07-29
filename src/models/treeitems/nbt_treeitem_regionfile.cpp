@@ -20,6 +20,11 @@ QIcon NbtTreeItemRegionFile::icon() const
     return QIcon(":/icons/16x16/Region.png");
 }
 
+QString NbtTreeItemRegionFile::name() const
+{
+    return m_filename;
+}
+
 QString NbtTreeItemRegionFile::label() const
 {
     return m_filename;

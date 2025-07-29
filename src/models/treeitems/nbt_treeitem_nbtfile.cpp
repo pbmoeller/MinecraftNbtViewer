@@ -28,6 +28,11 @@ QIcon NbtTreeItemNbtFile::icon() const
     return QIcon(":/icons/16x16/NbtFile.png");
 }
 
+QString NbtTreeItemNbtFile::name() const
+{
+    return m_filename;
+}
+
 QString NbtTreeItemNbtFile::label() const
 {
     QString label = m_filename;
