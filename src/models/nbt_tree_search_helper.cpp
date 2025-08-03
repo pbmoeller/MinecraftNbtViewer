@@ -49,18 +49,31 @@ QModelIndex NbtTreeSearchHelper::find(bool forward)
         return {};
     }
 
+    bool wrap = m_searchCriteria.matchFlags & Qt::MatchWrap;
+
     // If the user selected backwards search direction in the dialog,
     // then we need to switch switch the direction of next and previous.
     forward = (m_searchCriteria.direction == SearchDirection::Forward ? forward : !forward);
 
+    const QModelIndex startIndex = m_lastFindIndex;
     QModelIndex nextIndex = forward ? nextIndexDfs(m_lastFindIndex) : prevIndexDfs(m_lastFindIndex);
-    while(nextIndex.isValid()) {
+    while(nextIndex.isValid() && nextIndex != startIndex) {
         if(matchesCriteria(nextIndex)) {
             m_lastFindIndex = nextIndex;
             return nextIndex;
         }
 
         nextIndex = forward ? nextIndexDfs(nextIndex) : prevIndexDfs(nextIndex);
+
+        if(wrap && !nextIndex.isValid()) {
+            nextIndex = forward ? m_model->index(0, 0) : lastIndexDfs();
+        }
+    }
+
+    if(wrap && matchesCriteria(startIndex)) {
+        // If the start index matches the criteria, we return it.
+        m_lastFindIndex = startIndex;
+        return startIndex;
     }
 
     qDebug() << "No more items found matching criteria";
@@ -110,6 +123,26 @@ QModelIndex NbtTreeSearchHelper::prevIndexDfs(const QModelIndex& current)
 
     // Return parent if no previous siblings are available.
     return parent;
+}
+
+QModelIndex NbtTreeSearchHelper::lastIndexDfs()
+{
+    // Start from the root item. Double Check that it is vaid.
+    QModelIndex current = m_model->index(0, 0, QModelIndex());
+    if(!current.isValid()) {
+        return {};
+    }
+
+    while(true) {
+        int rowCount = m_model->rowCount(current);
+        if(rowCount > 0) {
+            // If the current item has children, go to the last child.
+            current = m_model->index(rowCount - 1, 0, current);
+        } else {
+            // If no children are available, return the current index.
+            return current;
+        }
+    }
 }
 
 bool NbtTreeSearchHelper::matchesCriteria(const QModelIndex& index) const
