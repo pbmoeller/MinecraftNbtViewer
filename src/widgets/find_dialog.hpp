@@ -23,7 +23,7 @@ class FindDialog : public QDialog
 
 public:
     explicit FindDialog(QWidget* parent = nullptr);
-    explicit FindDialog(const SearchCriteria &criteria, QWidget* parent = nullptr);
+    explicit FindDialog(const SearchCriteria& criteria, QWidget* parent = nullptr);
     virtual ~FindDialog();
 
     SearchCriteria searchCriteria() const;
@@ -33,8 +33,10 @@ protected slots:
     void anyCheckStateChanged(Qt::CheckState state);
     void updateNameCheck(const QString& text);
     void updateValueCheck(const QString& text);
+    void clear();
 
 private:
+    void setSearchCriteria(const SearchCriteria& criteria);
     void setupUi();
     void updateSearchButtonVisibility();
 

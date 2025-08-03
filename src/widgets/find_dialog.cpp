@@ -32,17 +32,7 @@ FindDialog::FindDialog(const SearchCriteria& criteria, QWidget* parent)
     : QDialog(parent)
 {
     setupUi();
-    m_nameCheck->setChecked(criteria.isFindName);
-    m_nameLineEdit->setText(criteria.name);
-    m_valueCheck->setChecked(criteria.isFindValue);
-    m_valueLineEdit->setText(criteria.value);
-    m_typeCombo->setCurrentIndex(m_typeCombo->findData(static_cast<int>(criteria.type)));
-    m_typeCheck->setChecked(criteria.isFindType);
-
-    m_directionCheck->setChecked(criteria.direction == SearchDirection::Backward);
-    m_matchCaseCheck->setChecked(criteria.matchFlags & Qt::MatchCaseSensitive);
-    m_wrapAroundCheck->setChecked(criteria.matchFlags & Qt::MatchWrap);
-    m_downwardsOnlyCheck->setChecked(!(criteria.matchFlags & Qt::MatchRecursive));
+    setSearchCriteria(criteria);
 }
 
 FindDialog::~FindDialog() = default;
@@ -101,6 +91,27 @@ void FindDialog::updateNameCheck(const QString& text)
 void FindDialog::updateValueCheck(const QString& text)
 {
     m_valueCheck->setChecked(!text.isEmpty());
+}
+
+void FindDialog::clear()
+{
+    SearchCriteria criteria;
+    setSearchCriteria(criteria);
+}
+
+void FindDialog::setSearchCriteria(const SearchCriteria& criteria)
+{
+    m_nameCheck->setChecked(criteria.isFindName);
+    m_nameLineEdit->setText(criteria.name);
+    m_valueCheck->setChecked(criteria.isFindValue);
+    m_valueLineEdit->setText(criteria.value);
+    m_typeCombo->setCurrentIndex(m_typeCombo->findData(static_cast<int>(criteria.type)));
+    m_typeCheck->setChecked(criteria.isFindType);
+
+    m_directionCheck->setChecked(criteria.direction == SearchDirection::Backward);
+    m_matchCaseCheck->setChecked(criteria.matchFlags & Qt::MatchCaseSensitive);
+    m_wrapAroundCheck->setChecked(criteria.matchFlags & Qt::MatchWrap);
+    m_downwardsOnlyCheck->setChecked(!(criteria.matchFlags & Qt::MatchRecursive));
 }
 
 void FindDialog::setupUi()
@@ -173,8 +184,11 @@ void FindDialog::setupUi()
     connect(m_searchButton, &QPushButton::clicked, this, &QDialog::accept);
     QPushButton* cancelButton = new QPushButton("Cancel");
     connect(cancelButton, &QPushButton::clicked, this, &QDialog::reject);
+    QPushButton* clearButton = new QPushButton("Clear");
+    connect(clearButton, &QPushButton::clicked, this, &FindDialog::clear);
 
     QHBoxLayout* hButtonLayout = new QHBoxLayout;
+    hButtonLayout->addWidget(clearButton);
     hButtonLayout->addStretch(1);
     hButtonLayout->addWidget(m_searchButton);
     hButtonLayout->addWidget(cancelButton);
