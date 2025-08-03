@@ -39,6 +39,8 @@ public:
 
     virtual bool canRefresh() const;
 
+    virtual bool isNbtTag() const;
+
     virtual bool canRename() const;
     virtual void rename(const QString& name);
     virtual void openRenameDialog(NbtDataTreeModel* model);

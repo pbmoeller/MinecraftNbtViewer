@@ -47,6 +47,11 @@ anvil::BasicTag* NbtTreeItemNbtTag::tag()
     return m_tag;
 }
 
+bool NbtTreeItemNbtTag::isNbtTag() const
+{
+    return true;
+}
+
 bool NbtTreeItemNbtTag::canRename() const
 {
     // Only Tags that are not children of ListTag can be renamed.

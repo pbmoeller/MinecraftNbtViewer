@@ -107,6 +107,11 @@ bool NbtTreeItemBase::canRefresh() const
     return false;
 }
 
+bool NbtTreeItemBase::isNbtTag() const
+{
+    return false;
+}
+
 bool NbtTreeItemBase::canRename() const
 {
     return false;

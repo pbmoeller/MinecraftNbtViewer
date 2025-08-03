@@ -22,6 +22,8 @@ public:
     anvil::TagType tagType() const;
     anvil::BasicTag* tag();
 
+    virtual bool isNbtTag() const override;
+
     virtual bool canRename() const;
     virtual void rename(const QString& name) override;
     virtual void openRenameDialog(NbtDataTreeModel* model) override;

@@ -1,6 +1,7 @@
 #include "nbt_tree_search_helper.hpp"
 #include "nbt_data_treemodel.hpp"
 #include "treeitems/nbt_treeitem_base.hpp"
+#include "treeitems/nbt_treeitem_nbttag.hpp"
 
 namespace minecraft {
 namespace nbt {
@@ -123,14 +124,31 @@ QModelIndex NbtTreeSearchHelper::prevIndexFwdDfs(const QModelIndex& current)
 bool NbtTreeSearchHelper::matchesCriteria(const QModelIndex& index) const
 {
     auto* treeItem = m_model->fromIndex(index);
-    if(treeItem) {
-        if(m_searchCriteria.name && !m_searchCriteria.name->isEmpty()) {
-            if(QString::compare(treeItem->name(), *m_searchCriteria.name, m_caseSensitivity) == 0) {
-                return true;
-            }
+    if(!treeItem) {
+        return false;
+    }
+
+    // Flag if at least one check has been made. We can not let the match succeed, if no check has
+    // been made.
+    bool atLeastOneChecked = false;
+
+    // Check for the name
+    if(m_searchCriteria.name && !m_searchCriteria.name->isEmpty()) {
+        atLeastOneChecked = true;
+        if(QString::compare(treeItem->name(), *m_searchCriteria.name, m_caseSensitivity) != 0) {
+            return false;
         }
     }
-    return false;
+
+    // Check for the type
+    if(m_searchCriteria.type && treeItem->isNbtTag()) {
+        atLeastOneChecked = true;
+        if(static_cast<NbtTreeItemNbtTag*>(treeItem)->tagType() != *m_searchCriteria.type) {
+            return false;
+        }
+    }
+
+    return atLeastOneChecked;
 }
 
 } // namespace nbt
