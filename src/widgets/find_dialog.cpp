@@ -28,23 +28,44 @@ FindDialog::FindDialog(QWidget* parent)
     setupUi();
 }
 
+FindDialog::FindDialog(const SearchCriteria& criteria, QWidget* parent)
+    : QDialog(parent)
+{
+    setupUi();
+    m_nameCheck->setChecked(criteria.isFindName);
+    m_nameLineEdit->setText(criteria.name);
+    m_valueCheck->setChecked(criteria.isFindValue);
+    m_valueLineEdit->setText(criteria.value);
+    m_typeCombo->setCurrentIndex(m_typeCombo->findData(static_cast<int>(criteria.type)));
+    m_typeCheck->setChecked(criteria.isFindType);
+
+    m_directionCheck->setChecked(criteria.direction == SearchDirection::Backward);
+    m_matchCaseCheck->setChecked(criteria.matchFlags & Qt::MatchCaseSensitive);
+    m_wrapAroundCheck->setChecked(criteria.matchFlags & Qt::MatchWrap);
+    m_downwardsOnlyCheck->setChecked(!(criteria.matchFlags & Qt::MatchRecursive));
+}
+
 FindDialog::~FindDialog() = default;
 
 SearchCriteria FindDialog::searchCriteria() const
 {
     SearchCriteria criteria;
-    if(m_nameCheck->isChecked() && !m_nameLineEdit->text().isEmpty()) {
-        criteria.name = m_nameLineEdit->text();
+    if(m_nameCheck->isChecked()) {
+        criteria.isFindName = true;
     }
-    if(m_valueCheck->isChecked() && !m_valueLineEdit->text().isEmpty()) {
-        criteria.value = m_valueLineEdit->text();
+    criteria.name = m_nameLineEdit->text();
+    if(m_valueCheck->isChecked()) {
+        criteria.isFindValue = true;
     }
+    criteria.value = m_valueLineEdit->text();
     if(m_typeCheck->isChecked()) {
-        criteria.type = static_cast<anvil::TagType>(m_typeCombo->currentData().toInt());
+        criteria.isFindType = true;
     }
+    criteria.type = static_cast<anvil::TagType>(m_typeCombo->currentData().toInt());
+
     criteria.direction =
         m_directionCheck->isChecked() ? SearchDirection::Backward : SearchDirection::Forward;
-    
+
     // Set Match Flags
     Qt::MatchFlags matchFlags{Qt::MatchExactly};
     if(m_matchCaseCheck->isChecked()) {

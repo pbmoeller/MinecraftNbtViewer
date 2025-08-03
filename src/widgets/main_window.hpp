@@ -1,6 +1,8 @@
 #ifndef MINECRAFTNBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
 #define MINECRAFTNBTVIEWER_WIDGETS_MAIN_WINDOW_HPP
 
+#include "models/nbt_tree_search_helper.hpp"
+
 // cpp-anvil
 #include <cpp-anvil/nbt/types.hpp>
 
@@ -89,6 +91,8 @@ private:
 
     QString m_currentDirectory;
     QString m_baseWindowTitle;
+
+    SearchCriteria m_searchLastCriteria;
 
     NbtDataTreeModel* m_nbtTreeModel;
 };

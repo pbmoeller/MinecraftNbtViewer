@@ -8,8 +8,6 @@
 // Qt
 #include <QDialog>
 
-#include <optional>
-
 class QCheckBox;
 class QComboBox;
 class QLabel;
@@ -24,7 +22,8 @@ class FindDialog : public QDialog
     Q_OBJECT
 
 public:
-    FindDialog(QWidget* parent = nullptr);
+    explicit FindDialog(QWidget* parent = nullptr);
+    explicit FindDialog(const SearchCriteria &criteria, QWidget* parent = nullptr);
     virtual ~FindDialog();
 
     SearchCriteria searchCriteria() const;

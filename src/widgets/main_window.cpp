@@ -329,12 +329,12 @@ void MainWindow::find()
 {
     QModelIndex currentIndex = m_ui->nbtDataTreeView->currentIndex();
     if(currentIndex.isValid()) {
-        FindDialog findDialog;
+        FindDialog findDialog(m_searchLastCriteria);
         auto ret = findDialog.exec();
         if(ret == QDialog::Accepted) {
-            auto criteria = findDialog.searchCriteria();
+            m_searchLastCriteria = findDialog.searchCriteria();
 
-            QModelIndex foundIndex = m_nbtTreeModel->find(currentIndex, criteria);
+            QModelIndex foundIndex = m_nbtTreeModel->find(currentIndex, m_searchLastCriteria);
             if(foundIndex.isValid()) {
                 m_ui->nbtDataTreeView->setCurrentIndex(foundIndex);
             } else {

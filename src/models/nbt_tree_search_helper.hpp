@@ -5,8 +5,6 @@
 
 #include <QModelIndex>
 
-#include <optional>
-
 namespace minecraft {
 namespace nbt {
 
@@ -21,11 +19,14 @@ enum class SearchDirection
 
 struct SearchCriteria
 {
-    std::optional<QString> name;
-    std::optional<QString> value;
-    std::optional<anvil::TagType> type;
+    QString name;
+    QString value;
+    anvil::TagType type{anvil::TagType::Byte};
     SearchDirection direction{SearchDirection::Forward};
-    Qt::MatchFlags matchFlags{Qt::MatchExactly | Qt::MatchRecursive};
+    Qt::MatchFlags matchFlags{Qt::MatchExactly};
+    bool isFindName{false};
+    bool isFindValue{false};
+    bool isFindType{false};
 };
 
 class NbtTreeSearchHelper

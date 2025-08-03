@@ -133,17 +133,17 @@ bool NbtTreeSearchHelper::matchesCriteria(const QModelIndex& index) const
     bool atLeastOneChecked = false;
 
     // Check for the name
-    if(m_searchCriteria.name && !m_searchCriteria.name->isEmpty()) {
+    if(m_searchCriteria.isFindName && !m_searchCriteria.name.isEmpty()) {
         atLeastOneChecked = true;
-        if(QString::compare(treeItem->name(), *m_searchCriteria.name, m_caseSensitivity) != 0) {
+        if(QString::compare(treeItem->name(), m_searchCriteria.name, m_caseSensitivity) != 0) {
             return false;
         }
     }
 
     // Check for the type
-    if(m_searchCriteria.type && treeItem->isNbtTag()) {
+    if(m_searchCriteria.isFindType && treeItem->isNbtTag()) {
         atLeastOneChecked = true;
-        if(static_cast<NbtTreeItemNbtTag*>(treeItem)->tagType() != *m_searchCriteria.type) {
+        if(static_cast<NbtTreeItemNbtTag*>(treeItem)->tagType() != m_searchCriteria.type) {
             return false;
         }
     }
