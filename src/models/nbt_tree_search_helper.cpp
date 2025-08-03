@@ -1,0 +1,130 @@
+#include "nbt_tree_search_helper.hpp"
+#include "nbt_data_treemodel.hpp"
+#include "treeitems/nbt_treeitem_base.hpp"
+
+namespace minecraft {
+namespace nbt {
+
+NbtTreeSearchHelper::NbtTreeSearchHelper(NbtDataTreeModel* model)
+    : m_model(model)
+{ }
+
+void NbtTreeSearchHelper::reset(const SearchCriteria& criteria, const QModelIndex& startIndex)
+{
+    m_searchCriteria = criteria;
+
+    m_lastFindIndex = startIndex;
+    m_lastFindItem  = m_model->fromIndex(startIndex);
+    m_lastFindRow   = startIndex.row();
+}
+
+QModelIndex NbtTreeSearchHelper::find(const QModelIndex& startIndex, const SearchCriteria& criteria)
+{
+    qDebug() << "NbtTreeSearchHelper::find() called";
+    reset(criteria, startIndex);
+
+    return findNext();
+}
+
+QModelIndex NbtTreeSearchHelper::findNext()
+{
+    qDebug() << "NbtTreeSearchHelper::findNext() called";
+    return find(true);
+}
+
+QModelIndex NbtTreeSearchHelper::findPrevious()
+{
+    qDebug() << "NbtTreeSearchHelper::findPrevious() called";
+    return find(false);
+}
+
+QModelIndex NbtTreeSearchHelper::find(bool forward)
+{
+    // The last index is invalid. We can not continue search.
+    if(!m_lastFindIndex.isValid()) {
+        return {};
+    }
+
+    QModelIndex nextIndex;
+    if(forward) {
+        nextIndex = nextIndexFwdDfs(m_lastFindIndex);
+        while(nextIndex.isValid() && !matchesCriteria(nextIndex)) {
+            nextIndex = nextIndexFwdDfs(nextIndex);
+        }
+    } else {
+        nextIndex = prevIndexFwdDfs(m_lastFindIndex);
+        while(nextIndex.isValid() && !matchesCriteria(nextIndex)) {
+            nextIndex = prevIndexFwdDfs(nextIndex);
+        }
+    }
+
+    if(nextIndex.isValid()) {
+        m_lastFindIndex = nextIndex;
+        qDebug() << "Found item: " << m_lastFindItem->label();
+        return nextIndex;
+    }
+
+    qDebug() << "No more items found matching criteria";
+    return {};
+}
+
+QModelIndex NbtTreeSearchHelper::nextIndexFwdDfs(const QModelIndex& current)
+{
+    // Has children? => go to first child
+    if(m_model->rowCount(current) > 0) {
+        return m_model->index(0, 0, current);
+    }
+
+    // Try to get next sibling. If the item itself is last child of the parent,
+    // then go up to the parent and continue to go to next sibling.
+    QModelIndex tmp = current;
+    while(tmp.isValid()) {
+        QModelIndex parent = tmp.parent();
+        int row            = tmp.row();
+        int siblings       = m_model->rowCount(parent);
+        if(row + 1 < siblings) {
+            return m_model->index(row + 1, 0, parent);
+        }
+        tmp = parent;
+    }
+
+    // Return empty index if no more parents/siblings/children can be found.
+    return {};
+}
+
+QModelIndex NbtTreeSearchHelper::prevIndexFwdDfs(const QModelIndex& current)
+{
+    QModelIndex parent = current.parent();
+    int row            = current.row();
+
+    // If the current Index has at least one sibling before itself in the list.
+    // Go to the sibling and as deep as possible in the hierarchy.
+    if(row > 0) {
+        QModelIndex previousSibling = m_model->index(row - 1, 0, parent);
+
+        while(m_model->rowCount(previousSibling) > 0) {
+            int lastChildRow = m_model->rowCount(previousSibling) - 1;
+            previousSibling  = m_model->index(lastChildRow, 0, previousSibling);
+        }
+        return previousSibling;
+    }
+
+    // Return parent if no previous siblings are available.
+    return parent;
+}
+
+bool NbtTreeSearchHelper::matchesCriteria(const QModelIndex& index) const
+{
+    auto* treeItem = m_model->fromIndex(index);
+    if(treeItem) {
+        if(m_searchCriteria.name && !m_searchCriteria.name->isEmpty()) {
+            if(treeItem->name() == m_searchCriteria.name.value()) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+} // namespace nbt
+} // namespace minecraft

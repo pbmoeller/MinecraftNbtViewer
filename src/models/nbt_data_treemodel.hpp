@@ -1,6 +1,8 @@
 #ifndef MINECRAFTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
 #define MINECRAFTVIEWER_MODELS_NBT_DATA_TREEMODEL_HPP
 
+#include "nbt_tree_search_helper.hpp"
+
 // cpp-anvil
 #include <cpp-anvil/nbt/types.hpp>
 #include <cpp-anvil/util/compression.hpp>
@@ -8,6 +10,8 @@
 // Qt
 #include <QAbstractItemModel>
 #include <QSet>
+
+#include <memory>
 
 namespace minecraft {
 namespace nbt {
@@ -50,6 +54,10 @@ public:
     void moveUp(const QModelIndex& index);
     void moveDown(const QModelIndex& index);
 
+    QModelIndex find(const QModelIndex &currentIndex, const SearchCriteria &criteria);
+    QModelIndex findNext(const QModelIndex& currentIndex);
+    QModelIndex findPrevious(const QModelIndex& currentIndex);
+
     void itemChanged(NbtTreeItemBase* item);
 
 private:
@@ -79,6 +87,7 @@ public:
 private:
     NbtTreeItemBase* m_rootItem;
     QSet<NbtTreeItemBase*> m_dirtyItems;
+    std::unique_ptr<NbtTreeSearchHelper> m_searchHelper;
 
     static const int ColumnCount = 1;
 };

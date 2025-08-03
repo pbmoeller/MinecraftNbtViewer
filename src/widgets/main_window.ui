@@ -45,7 +45,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>33</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -81,6 +81,10 @@
     <addaction name="separator"/>
     <addaction name="actionMoveUp"/>
     <addaction name="actionMoveDown"/>
+    <addaction name="separator"/>
+    <addaction name="actionFind"/>
+    <addaction name="actionFindPrevious"/>
+    <addaction name="actionFindNext"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -135,6 +139,10 @@
    <addaction name="actionAdd_LongArrayTag"/>
    <addaction name="actionAdd_ListTag"/>
    <addaction name="actionAdd_CompoundTag"/>
+   <addaction name="separator"/>
+   <addaction name="actionFind"/>
+   <addaction name="actionFindPrevious"/>
+   <addaction name="actionFindNext"/>
   </widget>
   <action name="actionOpen_File">
    <property name="icon">
@@ -413,6 +421,51 @@
    </property>
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionFind">
+   <property name="icon">
+    <iconset resource="../../resources/resources.qrc">
+     <normaloff>:/icons/16x16/Find.png</normaloff>:/icons/16x16/Find.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find...</string>
+   </property>
+   <property name="toolTip">
+    <string>Find</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionFindNext">
+   <property name="icon">
+    <iconset resource="../../resources/resources.qrc">
+     <normaloff>:/icons/16x16/FindNext.png</normaloff>:/icons/16x16/FindNext.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find Next</string>
+   </property>
+   <property name="toolTip">
+    <string>Find Next</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionFindPrevious">
+   <property name="icon">
+    <iconset resource="../../resources/resources.qrc">
+     <normaloff>:/icons/16x16/FindPrev.png</normaloff>:/icons/16x16/FindPrev.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find Previous</string>
+   </property>
+   <property name="toolTip">
+    <string>Find Previous</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
    </property>
   </action>
  </widget>

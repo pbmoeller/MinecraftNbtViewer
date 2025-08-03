@@ -68,6 +68,11 @@ public slots:
     void addListTag();
     void addCompoundTag();
 
+    // Find
+    void find();
+    void findNext();
+    void findPrevious();
+
 private:
     void initConnections();
     bool userReallyWantsToQuit();
