@@ -39,8 +39,8 @@ public:
     void reset(const SearchCriteria& criteria, const QModelIndex& startIndex);
 
     QModelIndex find(const QModelIndex& startIndex, const SearchCriteria& criteria);
-    QModelIndex findNext();
-    QModelIndex findPrevious();
+    QModelIndex findNext(const QModelIndex& startIndex);
+    QModelIndex findPrevious(const QModelIndex& startIndex);
 
 private:
     QModelIndex find(bool forward = true);

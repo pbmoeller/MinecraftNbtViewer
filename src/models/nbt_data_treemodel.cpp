@@ -342,13 +342,13 @@ QModelIndex NbtDataTreeModel::find(const QModelIndex& currentIndex, const Search
 QModelIndex NbtDataTreeModel::findNext(const QModelIndex& currentIndex)
 {
     qDebug() << "NbtDataTreeModel::findNext called! Implementation needed.";
-    auto index = m_searchHelper->findNext();
+    auto index = m_searchHelper->findNext(currentIndex);
     return index;
 }
 QModelIndex NbtDataTreeModel::findPrevious(const QModelIndex& currentIndex)
 {
     qDebug() << "NbtDataTreeModel::findPrevious called! Implementation needed.";
-    auto index = m_searchHelper->findPrevious();
+    auto index = m_searchHelper->findPrevious(currentIndex);
     return index;
 }
 

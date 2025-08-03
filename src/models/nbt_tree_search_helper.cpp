@@ -12,29 +12,28 @@ NbtTreeSearchHelper::NbtTreeSearchHelper(NbtDataTreeModel* model)
 void NbtTreeSearchHelper::reset(const SearchCriteria& criteria, const QModelIndex& startIndex)
 {
     m_searchCriteria = criteria;
-
     m_lastFindIndex = startIndex;
-    m_lastFindItem  = m_model->fromIndex(startIndex);
-    m_lastFindRow   = startIndex.row();
 }
 
 QModelIndex NbtTreeSearchHelper::find(const QModelIndex& startIndex, const SearchCriteria& criteria)
 {
     qDebug() << "NbtTreeSearchHelper::find() called";
-    reset(criteria, startIndex);
+    m_searchCriteria = criteria;
 
-    return findNext();
+    return findNext(startIndex);
 }
 
-QModelIndex NbtTreeSearchHelper::findNext()
+QModelIndex NbtTreeSearchHelper::findNext(const QModelIndex& startIndex)
 {
     qDebug() << "NbtTreeSearchHelper::findNext() called";
+    m_lastFindIndex = startIndex;
     return find(true);
 }
 
-QModelIndex NbtTreeSearchHelper::findPrevious()
+QModelIndex NbtTreeSearchHelper::findPrevious(const QModelIndex& startIndex)
 {
     qDebug() << "NbtTreeSearchHelper::findPrevious() called";
+    m_lastFindIndex = startIndex;
     return find(false);
 }
 
@@ -60,7 +59,7 @@ QModelIndex NbtTreeSearchHelper::find(bool forward)
 
     if(nextIndex.isValid()) {
         m_lastFindIndex = nextIndex;
-        qDebug() << "Found item: " << m_lastFindItem->label();
+        //qDebug() << "Found item: " << m_lastFindItem->label();
         return nextIndex;
     }
 
