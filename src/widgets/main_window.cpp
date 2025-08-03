@@ -340,7 +340,7 @@ void MainWindow::find()
             } else {
                 QMessageBox::information(this, tr("Find"), tr("Item not found."));
             }
-            
+
         } else {
             qDebug() << "Find Rejected";
         }
@@ -350,26 +350,22 @@ void MainWindow::find()
 void MainWindow::findNext()
 {
     QModelIndex currentIndex = m_ui->nbtDataTreeView->currentIndex();
-    if(currentIndex.isValid()) {
-        QModelIndex foundIndex = m_nbtTreeModel->findNext(currentIndex);
-        if(foundIndex.isValid()) {
-            m_ui->nbtDataTreeView->setCurrentIndex(foundIndex);
-        } else {
-            QMessageBox::information(this, tr("Find"), tr("Item not found."));
-        }
+    QModelIndex foundIndex   = m_nbtTreeModel->findNext(currentIndex);
+    if(foundIndex.isValid()) {
+        m_ui->nbtDataTreeView->setCurrentIndex(foundIndex);
+    } else {
+        QMessageBox::information(this, tr("Find"), tr("Item not found."));
     }
 }
 
 void MainWindow::findPrevious()
 {
     QModelIndex currentIndex = m_ui->nbtDataTreeView->currentIndex();
-    if(currentIndex.isValid()) {
-        QModelIndex foundIndex = m_nbtTreeModel->findPrevious(currentIndex);
-        if(foundIndex.isValid()) {
-            m_ui->nbtDataTreeView->setCurrentIndex(foundIndex);
-        } else {
-            QMessageBox::information(this, tr("Find"), tr("Item not found."));
-        }
+    QModelIndex foundIndex   = m_nbtTreeModel->findPrevious(currentIndex);
+    if(foundIndex.isValid()) {
+        m_ui->nbtDataTreeView->setCurrentIndex(foundIndex);
+    } else {
+        QMessageBox::information(this, tr("Find"), tr("Item not found."));
     }
 }
 
