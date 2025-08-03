@@ -44,9 +44,19 @@ SearchCriteria FindDialog::searchCriteria() const
     }
     criteria.direction =
         m_directionCheck->isChecked() ? SearchDirection::Backward : SearchDirection::Forward;
-    criteria.caseSensitive = m_matchCaseCheck->isChecked();
-    criteria.downOnly      = m_downwardsOnlyCheck->isChecked();
-    criteria.wrapAround    = m_wrapAroundCheck->isChecked();
+    
+    // Set Match Flags
+    Qt::MatchFlags matchFlags{Qt::MatchExactly};
+    if(m_matchCaseCheck->isChecked()) {
+        matchFlags |= Qt::MatchCaseSensitive;
+    }
+    if(!m_downwardsOnlyCheck->isChecked()) {
+        matchFlags |= Qt::MatchRecursive;
+    }
+    if(m_wrapAroundCheck->isChecked()) {
+        matchFlags |= Qt::MatchWrap;
+    }
+    criteria.matchFlags = matchFlags;
 
     return criteria;
 }

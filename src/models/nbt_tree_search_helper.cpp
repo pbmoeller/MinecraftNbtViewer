@@ -12,13 +12,17 @@ NbtTreeSearchHelper::NbtTreeSearchHelper(NbtDataTreeModel* model)
 void NbtTreeSearchHelper::reset(const SearchCriteria& criteria, const QModelIndex& startIndex)
 {
     m_searchCriteria = criteria;
-    m_lastFindIndex = startIndex;
+    m_lastFindIndex  = startIndex;
 }
 
 QModelIndex NbtTreeSearchHelper::find(const QModelIndex& startIndex, const SearchCriteria& criteria)
 {
     qDebug() << "NbtTreeSearchHelper::find() called";
     m_searchCriteria = criteria;
+
+    m_caseSensitivity = m_searchCriteria.matchFlags.testFlag(Qt::MatchCaseSensitive)
+                          ? Qt::CaseSensitive
+                          : Qt::CaseInsensitive;
 
     return findNext(startIndex);
 }
@@ -63,7 +67,7 @@ QModelIndex NbtTreeSearchHelper::find(bool forward)
 
     if(nextIndex.isValid()) {
         m_lastFindIndex = nextIndex;
-        //qDebug() << "Found item: " << m_lastFindItem->label();
+        // qDebug() << "Found item: " << m_lastFindItem->label();
         return nextIndex;
     }
 
@@ -121,7 +125,7 @@ bool NbtTreeSearchHelper::matchesCriteria(const QModelIndex& index) const
     auto* treeItem = m_model->fromIndex(index);
     if(treeItem) {
         if(m_searchCriteria.name && !m_searchCriteria.name->isEmpty()) {
-            if(treeItem->name() == m_searchCriteria.name.value()) {
+            if(QString::compare(treeItem->name(), *m_searchCriteria.name, m_caseSensitivity) == 0) {
                 return true;
             }
         }

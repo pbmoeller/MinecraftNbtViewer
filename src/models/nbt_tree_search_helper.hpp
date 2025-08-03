@@ -25,9 +25,7 @@ struct SearchCriteria
     std::optional<QString> value;
     std::optional<anvil::TagType> type;
     SearchDirection direction{SearchDirection::Forward};
-    bool caseSensitive{false};
-    bool wrapAround{false};
-    bool downOnly{false};
+    Qt::MatchFlags matchFlags{Qt::MatchExactly | Qt::MatchRecursive};
 };
 
 class NbtTreeSearchHelper
@@ -56,6 +54,9 @@ private:
     NbtTreeItemBase* m_lastFindItem{nullptr};
     QModelIndex m_lastFindIndex{QModelIndex()};
     qsizetype m_lastFindRow{-1};
+
+    // Matching variables
+    Qt::CaseSensitivity m_caseSensitivity{Qt::CaseInsensitive};
 };
 
 } // namespace nbt
