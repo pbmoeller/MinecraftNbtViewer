@@ -44,6 +44,10 @@ QModelIndex NbtTreeSearchHelper::find(bool forward)
         return {};
     }
 
+    // If the user selected backwards search direction in the dialog,
+    // then we need to switch switch the direction of next and previous.
+    forward = (m_searchCriteria.direction == SearchDirection::Forward ? forward : !forward);
+
     QModelIndex nextIndex;
     if(forward) {
         nextIndex = nextIndexFwdDfs(m_lastFindIndex);
