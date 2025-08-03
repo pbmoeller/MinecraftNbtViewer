@@ -63,6 +63,15 @@ void FindDialog::updateSearchButtonVisibility(bool checked)
                                || m_typeCheck->isChecked());
 }
 
+void FindDialog::updateNameCheck(const QString& text) {
+    m_nameCheck->setChecked(!text.isEmpty());
+}
+
+void FindDialog::updateValueCheck(const QString& text)
+{
+    m_valueCheck->setChecked(!text.isEmpty());
+}
+
 void FindDialog::setupUi()
 {
     ///// Find Box
@@ -72,6 +81,7 @@ void FindDialog::setupUi()
     m_nameCheck          = new QCheckBox("Name:");
     connect(m_nameCheck, &QCheckBox::clicked, this, &FindDialog::updateSearchButtonVisibility);
     m_nameLineEdit = new QLineEdit();
+    connect(m_nameLineEdit, &QLineEdit::textChanged, this, &FindDialog::updateNameCheck);
 
     gLayout->addWidget(m_nameCheck, 0, 0);
     gLayout->addWidget(m_nameLineEdit, 0, 1);
@@ -80,6 +90,7 @@ void FindDialog::setupUi()
     m_valueCheck = new QCheckBox("Value:");
     connect(m_valueCheck, &QCheckBox::clicked, this, &FindDialog::updateSearchButtonVisibility);
     m_valueLineEdit = new QLineEdit();
+    connect(m_valueLineEdit, &QLineEdit::textChanged, this, &FindDialog::updateValueCheck);
 
     gLayout->addWidget(m_valueCheck, 1, 0);
     gLayout->addWidget(m_valueLineEdit, 1, 1);

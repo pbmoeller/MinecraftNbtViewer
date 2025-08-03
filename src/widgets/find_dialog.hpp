@@ -32,6 +32,8 @@ public:
 protected slots:
     virtual void accept() override;
     void updateSearchButtonVisibility(bool checked = false);
+    void updateNameCheck(const QString& text);
+    void updateValueCheck(const QString& text);
 
 private:
     void setupUi();
