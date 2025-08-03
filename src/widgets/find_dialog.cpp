@@ -6,8 +6,8 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QComboBox>
-#include <QGroupBox>
 #include <QGridLayout>
+#include <QGroupBox>
 #include <QLineEdit>
 #include <QPushButton>
 
@@ -56,14 +56,14 @@ void FindDialog::accept()
     QDialog::accept();
 }
 
-void FindDialog::updateSearchButtonVisibility(bool checked)
+void FindDialog::anyCheckStateChanged(Qt::CheckState state)
 {
-    Q_UNUSED(checked)
-    m_searchButton->setEnabled(m_nameCheck->isChecked() || m_valueCheck->isChecked()
-                               || m_typeCheck->isChecked());
+    Q_UNUSED(state);
+    updateSearchButtonVisibility();
 }
 
-void FindDialog::updateNameCheck(const QString& text) {
+void FindDialog::updateNameCheck(const QString& text)
+{
     m_nameCheck->setChecked(!text.isEmpty());
 }
 
@@ -78,8 +78,8 @@ void FindDialog::setupUi()
     QGridLayout* gLayout = new QGridLayout;
 
     // Row #1
-    m_nameCheck          = new QCheckBox("Name:");
-    connect(m_nameCheck, &QCheckBox::clicked, this, &FindDialog::updateSearchButtonVisibility);
+    m_nameCheck = new QCheckBox("Name:");
+    connect(m_nameCheck, &QCheckBox::checkStateChanged, this, &FindDialog::anyCheckStateChanged);
     m_nameLineEdit = new QLineEdit();
     connect(m_nameLineEdit, &QLineEdit::textChanged, this, &FindDialog::updateNameCheck);
 
@@ -88,7 +88,7 @@ void FindDialog::setupUi()
 
     // Row #2
     m_valueCheck = new QCheckBox("Value:");
-    connect(m_valueCheck, &QCheckBox::clicked, this, &FindDialog::updateSearchButtonVisibility);
+    connect(m_valueCheck, &QCheckBox::checkStateChanged, this, &FindDialog::anyCheckStateChanged);
     m_valueLineEdit = new QLineEdit();
     connect(m_valueLineEdit, &QLineEdit::textChanged, this, &FindDialog::updateValueCheck);
 
@@ -97,10 +97,10 @@ void FindDialog::setupUi()
 
     // Row #3
     m_typeCheck = new QCheckBox("Type:");
-    connect(m_typeCheck, &QCheckBox::clicked, this, &FindDialog::updateSearchButtonVisibility);
+    connect(m_typeCheck, &QCheckBox::checkStateChanged, this, &FindDialog::anyCheckStateChanged);
     m_typeCombo = new QComboBox();
     m_typeCombo->setMinimumWidth(200);
-    
+
     const IconProvider::IconSize iconSize = IconProvider::IconSize::Size16;
     addComboItem(m_typeCombo, anvil::TagType::Byte, iconSize);
     addComboItem(m_typeCombo, anvil::TagType::Short, iconSize);
@@ -124,9 +124,9 @@ void FindDialog::setupUi()
     ///// Search Options Box
     QVBoxLayout* vLayout = new QVBoxLayout;
 
-    m_directionCheck = new QCheckBox("Backward direction");
-    m_matchCaseCheck = new QCheckBox("Match case");
-    m_wrapAroundCheck = new QCheckBox("Wrap around");
+    m_directionCheck     = new QCheckBox("Backward direction");
+    m_matchCaseCheck     = new QCheckBox("Match case");
+    m_wrapAroundCheck    = new QCheckBox("Wrap around");
     m_downwardsOnlyCheck = new QCheckBox("Downwards only");
     vLayout->addWidget(m_directionCheck);
     vLayout->addWidget(m_matchCaseCheck);
@@ -157,6 +157,12 @@ void FindDialog::setupUi()
     setLayout(gOuterLayout);
 
     updateSearchButtonVisibility();
+}
+
+void FindDialog::updateSearchButtonVisibility()
+{
+    m_searchButton->setEnabled(m_nameCheck->isChecked() || m_valueCheck->isChecked()
+                               || m_typeCheck->isChecked());
 }
 
 } // namespace nbt
