@@ -66,6 +66,8 @@ void NbtTreeItemNbtFile::save()
     }
     std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
     bool ret             = anvil::saveToFile(filename, m_nbtRootTag.get(), m_compressionType);
+
+    Q_UNUSED(ret);
 }
 
 void NbtTreeItemNbtFile::saveAs(const QString& filename, const anvil::CompressionType compression)
