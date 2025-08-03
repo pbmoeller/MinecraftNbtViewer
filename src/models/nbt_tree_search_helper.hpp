@@ -43,8 +43,8 @@ public:
 
 private:
     QModelIndex find(bool forward = true);
-    QModelIndex nextIndexFwdDfs(const QModelIndex& current);
-    QModelIndex prevIndexFwdDfs(const QModelIndex& current);
+    QModelIndex nextIndexDfs(const QModelIndex& current);
+    QModelIndex prevIndexDfs(const QModelIndex& current);
 
     bool matchesCriteria(const QModelIndex& index) const;
 

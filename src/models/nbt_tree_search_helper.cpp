@@ -53,30 +53,21 @@ QModelIndex NbtTreeSearchHelper::find(bool forward)
     // then we need to switch switch the direction of next and previous.
     forward = (m_searchCriteria.direction == SearchDirection::Forward ? forward : !forward);
 
-    QModelIndex nextIndex;
-    if(forward) {
-        nextIndex = nextIndexFwdDfs(m_lastFindIndex);
-        while(nextIndex.isValid() && !matchesCriteria(nextIndex)) {
-            nextIndex = nextIndexFwdDfs(nextIndex);
+    QModelIndex nextIndex = forward ? nextIndexDfs(m_lastFindIndex) : prevIndexDfs(m_lastFindIndex);
+    while(nextIndex.isValid()) {
+        if(matchesCriteria(nextIndex)) {
+            m_lastFindIndex = nextIndex;
+            return nextIndex;
         }
-    } else {
-        nextIndex = prevIndexFwdDfs(m_lastFindIndex);
-        while(nextIndex.isValid() && !matchesCriteria(nextIndex)) {
-            nextIndex = prevIndexFwdDfs(nextIndex);
-        }
-    }
 
-    if(nextIndex.isValid()) {
-        m_lastFindIndex = nextIndex;
-        // qDebug() << "Found item: " << m_lastFindItem->label();
-        return nextIndex;
+        nextIndex = forward ? nextIndexDfs(nextIndex) : prevIndexDfs(nextIndex);
     }
 
     qDebug() << "No more items found matching criteria";
     return {};
 }
 
-QModelIndex NbtTreeSearchHelper::nextIndexFwdDfs(const QModelIndex& current)
+QModelIndex NbtTreeSearchHelper::nextIndexDfs(const QModelIndex& current)
 {
     // Has children? => go to first child
     if(m_model->rowCount(current) > 0) {
@@ -100,7 +91,7 @@ QModelIndex NbtTreeSearchHelper::nextIndexFwdDfs(const QModelIndex& current)
     return {};
 }
 
-QModelIndex NbtTreeSearchHelper::prevIndexFwdDfs(const QModelIndex& current)
+QModelIndex NbtTreeSearchHelper::prevIndexDfs(const QModelIndex& current)
 {
     QModelIndex parent = current.parent();
     int row            = current.row();
