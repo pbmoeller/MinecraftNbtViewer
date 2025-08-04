@@ -21,6 +21,7 @@ QModelIndex NbtTreeSearchHelper::find(const QModelIndex& startIndex, const Searc
     qDebug() << "NbtTreeSearchHelper::find() called";
     m_searchCriteria = criteria;
 
+    m_matchType       = criteria.matchFlags & 0x0F;
     m_caseSensitivity = m_searchCriteria.matchFlags.testFlag(Qt::MatchCaseSensitive)
                           ? Qt::CaseSensitive
                           : Qt::CaseInsensitive;
@@ -159,8 +160,29 @@ bool NbtTreeSearchHelper::matchesCriteria(const QModelIndex& index) const
     // Check for the name
     if(m_searchCriteria.isFindName && !m_searchCriteria.name.isEmpty()) {
         atLeastOneChecked = true;
-        if(QString::compare(treeItem->name(), m_searchCriteria.name, m_caseSensitivity) != 0) {
-            return false;
+        auto s            = treeItem->name();
+        switch(m_matchType) {
+            case Qt::MatchExactly:
+                if(QString::compare(s, m_searchCriteria.name, m_caseSensitivity) != 0) {
+                    return false;
+                }
+                break;
+            case Qt::MatchStartsWith:
+                if(!s.startsWith(m_searchCriteria.name, m_caseSensitivity)) {
+                    return false;
+                }
+                break;
+            case Qt::MatchEndsWith:
+                if(!s.endsWith(m_searchCriteria.name, m_caseSensitivity)) {
+                    return false;
+                }
+                break;
+            case Qt::MatchContains:
+            default:
+                if(!s.contains(m_searchCriteria.name, m_caseSensitivity)) {
+                    return false;
+                }
+                break;
         }
     }
 

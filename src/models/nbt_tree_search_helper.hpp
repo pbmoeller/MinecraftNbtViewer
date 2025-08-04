@@ -59,6 +59,7 @@ private:
 
     // Matching variables
     Qt::CaseSensitivity m_caseSensitivity{Qt::CaseInsensitive};
+    uint m_matchType{Qt::MatchExactly};
 };
 
 } // namespace nbt
