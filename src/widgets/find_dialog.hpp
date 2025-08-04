@@ -8,11 +8,13 @@
 // Qt
 #include <QDialog>
 
+class QButtonGroup;
 class QCheckBox;
 class QComboBox;
 class QLabel;
 class QLineEdit;
 class QPushButton;
+class QRadioButton;
 
 namespace minecraft {
 namespace nbt {
@@ -39,12 +41,12 @@ private:
     void setSearchCriteria(const SearchCriteria& criteria);
     void setupUi();
     void updateSearchButtonVisibility();
+    void updateFocus();
 
 private:
     QCheckBox* m_nameCheck;
     QCheckBox* m_valueCheck;
     QCheckBox* m_typeCheck;
-    QCheckBox* m_directionCheck;
     QCheckBox* m_matchCaseCheck;
     QCheckBox* m_wrapAroundCheck;
     QCheckBox* m_recursiveCheck;
@@ -52,6 +54,14 @@ private:
     QLineEdit* m_valueLineEdit;
     QComboBox* m_typeCombo;
     QPushButton* m_searchButton;
+    QButtonGroup* m_matchRadioButtons;
+    QRadioButton* m_matchExactlyRadio;
+    QRadioButton* m_matchContainsRadio;
+    QRadioButton* m_matchStartsWithRadio;
+    QRadioButton* m_matchEndsWithRadio;
+    QRadioButton* m_forwardRadio;
+    QRadioButton* m_backwardRadio;
+    QButtonGroup* m_directionRadioButtons;
 };
 
 } // namespace nbt
