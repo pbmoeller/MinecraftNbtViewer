@@ -47,7 +47,7 @@ private:
     QCheckBox* m_directionCheck;
     QCheckBox* m_matchCaseCheck;
     QCheckBox* m_wrapAroundCheck;
-    QCheckBox* m_downwardsOnlyCheck;
+    QCheckBox* m_recursiveCheck;
     QLineEdit* m_nameLineEdit;
     QLineEdit* m_valueLineEdit;
     QComboBox* m_typeCombo;

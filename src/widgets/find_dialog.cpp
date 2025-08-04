@@ -61,7 +61,7 @@ SearchCriteria FindDialog::searchCriteria() const
     if(m_matchCaseCheck->isChecked()) {
         matchFlags |= Qt::MatchCaseSensitive;
     }
-    if(!m_downwardsOnlyCheck->isChecked()) {
+    if(m_recursiveCheck->isChecked()) {
         matchFlags |= Qt::MatchRecursive;
     }
     if(m_wrapAroundCheck->isChecked()) {
@@ -111,7 +111,7 @@ void FindDialog::setSearchCriteria(const SearchCriteria& criteria)
     m_directionCheck->setChecked(criteria.direction == SearchDirection::Backward);
     m_matchCaseCheck->setChecked(criteria.matchFlags & Qt::MatchCaseSensitive);
     m_wrapAroundCheck->setChecked(criteria.matchFlags & Qt::MatchWrap);
-    m_downwardsOnlyCheck->setChecked(!(criteria.matchFlags & Qt::MatchRecursive));
+    m_recursiveCheck->setChecked(criteria.matchFlags & Qt::MatchRecursive);
 }
 
 void FindDialog::setupUi()
@@ -166,14 +166,14 @@ void FindDialog::setupUi()
     ///// Search Options Box
     QVBoxLayout* vLayout = new QVBoxLayout;
 
-    m_directionCheck     = new QCheckBox("Backward direction");
-    m_matchCaseCheck     = new QCheckBox("Match case");
-    m_wrapAroundCheck    = new QCheckBox("Wrap around");
-    m_downwardsOnlyCheck = new QCheckBox("Downwards only");
+    m_directionCheck  = new QCheckBox("Backward direction");
+    m_matchCaseCheck  = new QCheckBox("Match case");
+    m_wrapAroundCheck = new QCheckBox("Wrap around");
+    m_recursiveCheck  = new QCheckBox("Recursive");
     vLayout->addWidget(m_directionCheck);
     vLayout->addWidget(m_matchCaseCheck);
     vLayout->addWidget(m_wrapAroundCheck);
-    vLayout->addWidget(m_downwardsOnlyCheck);
+    vLayout->addWidget(m_recursiveCheck);
 
     QGroupBox* searchOptionsGroup = new QGroupBox("Search Options");
     searchOptionsGroup->setLayout(vLayout);
