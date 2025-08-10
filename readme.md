@@ -1,4 +1,4 @@
-[![MinecraftNbtViewer Version v0.1.0](https://img.shields.io/badge/MinecraftNbtViewer-v0.1.0-green)](https://github.com/pbmoeller/MinecraftNbtViewer)
+[![MinecraftNbtViewer Version v0.2.0](https://img.shields.io/badge/MinecraftNbtViewer-v0.2.0-green)](https://github.com/pbmoeller/MinecraftNbtViewer)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://github.com/pbmoeller/MinecraftNbtViewer/blob/main/LICENSE)
 
 # MinecraftNbtViewer
