@@ -23,7 +23,8 @@ struct SearchCriteria
     QString value;
     anvil::TagType type{anvil::TagType::Byte};
     SearchDirection direction{SearchDirection::Forward};
-    Qt::MatchFlags matchFlags{Qt::MatchExactly | Qt::MatchRecursive};
+    Qt::MatchFlags matchFlags{Qt::MatchExactly};
+    bool subtreeOnly{false};
     bool fetchMore{false};
     bool isFindName{false};
     bool isFindValue{false};
@@ -50,7 +51,7 @@ private:
 
     bool matchesCriteria(const QModelIndex& index) const;
     bool matchString(const QString& sourceString, const QString& searchString, uint matchType,
-                      Qt::CaseSensitivity caseSensitivity) const;
+                     Qt::CaseSensitivity caseSensitivity) const;
 
 private:
     NbtDataTreeModel* m_model{nullptr};

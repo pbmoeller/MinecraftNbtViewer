@@ -18,7 +18,6 @@ void NbtTreeSearchHelper::reset(const SearchCriteria& criteria, const QModelInde
 
 QModelIndex NbtTreeSearchHelper::find(const QModelIndex& startIndex, const SearchCriteria& criteria)
 {
-    qDebug() << "NbtTreeSearchHelper::find() called";
     m_searchCriteria = criteria;
 
     m_matchType       = criteria.matchFlags & 0x0F;
@@ -31,14 +30,12 @@ QModelIndex NbtTreeSearchHelper::find(const QModelIndex& startIndex, const Searc
 
 QModelIndex NbtTreeSearchHelper::findNext(const QModelIndex& startIndex)
 {
-    qDebug() << "NbtTreeSearchHelper::findNext() called";
     m_lastFindIndex = startIndex;
     return find(true);
 }
 
 QModelIndex NbtTreeSearchHelper::findPrevious(const QModelIndex& startIndex)
 {
-    qDebug() << "NbtTreeSearchHelper::findPrevious() called";
     m_lastFindIndex = startIndex;
     return find(false);
 }
@@ -128,7 +125,7 @@ QModelIndex NbtTreeSearchHelper::prevIndexDfs(const QModelIndex& current)
             if(childCount == 0) {
                 break;
             }
-            auto lastChild = m_model->index(childCount - 1, 0, previousSibling);
+            auto lastChild  = m_model->index(childCount - 1, 0, previousSibling);
             previousSibling = lastChild;
         }
 

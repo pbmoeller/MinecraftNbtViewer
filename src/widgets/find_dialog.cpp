@@ -4,6 +4,7 @@
 #include <cpp-anvil/nbt/types.hpp>
 
 #include <QBoxLayout>
+#include <QButtonGroup>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QGridLayout>
@@ -11,7 +12,6 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QRadioButton>
-#include <QButtonGroup>
 
 namespace minecraft {
 namespace nbt {
@@ -46,10 +46,10 @@ FindDialog::~FindDialog() = default;
 SearchCriteria FindDialog::searchCriteria() const
 {
     SearchCriteria criteria;
-    criteria.name = m_nameLineEdit->text();
+    criteria.name       = m_nameLineEdit->text();
     criteria.isFindName = m_nameCheck->isChecked();
-    
-    criteria.value = m_valueLineEdit->text();
+
+    criteria.value       = m_valueLineEdit->text();
     criteria.isFindValue = m_typeCheck->isChecked();
 
     criteria.type = static_cast<anvil::TagType>(m_typeCombo->currentData().toInt());
@@ -59,7 +59,8 @@ SearchCriteria FindDialog::searchCriteria() const
         criteria.direction = static_cast<SearchDirection>(directionRadioValue);
     }
 
-    criteria.fetchMore = m_fetchMore->isChecked();
+    criteria.subtreeOnly = m_subtreeOnlyCheck->isChecked();
+    criteria.fetchMore   = m_fetchMore->isChecked();
 
     // Set Match Flags
     Qt::MatchFlags matchFlags{Qt::MatchExactly};
@@ -70,9 +71,6 @@ SearchCriteria FindDialog::searchCriteria() const
 
     if(m_matchCaseCheck->isChecked()) {
         matchFlags |= Qt::MatchCaseSensitive;
-    }
-    if(m_recursiveCheck->isChecked()) {
-        matchFlags |= Qt::MatchRecursive;
     }
     if(m_wrapAroundCheck->isChecked()) {
         matchFlags |= Qt::MatchWrap;
@@ -122,7 +120,7 @@ void FindDialog::setSearchCriteria(const SearchCriteria& criteria)
     m_backwardRadio->setChecked(criteria.direction == SearchDirection::Backward);
     m_matchCaseCheck->setChecked(criteria.matchFlags & Qt::MatchCaseSensitive);
     m_wrapAroundCheck->setChecked(criteria.matchFlags & Qt::MatchWrap);
-    m_recursiveCheck->setChecked(criteria.matchFlags & Qt::MatchRecursive);
+    m_subtreeOnlyCheck->setChecked(criteria.subtreeOnly);
     m_fetchMore->setChecked(criteria.fetchMore);
 
     uint matchType = criteria.matchFlags & 0x0F;
@@ -180,12 +178,14 @@ void FindDialog::setupUi()
 
     m_directionRadioButtons = new QButtonGroup(this);
     m_directionRadioButtons->addButton(m_forwardRadio, static_cast<int>(SearchDirection::Forward));
-    m_directionRadioButtons->addButton(m_backwardRadio, static_cast<int>(SearchDirection::Backward));
+    m_directionRadioButtons->addButton(m_backwardRadio,
+                                       static_cast<int>(SearchDirection::Backward));
 
-    m_matchCaseCheck  = new QCheckBox("Case Sensitive");
-    m_wrapAroundCheck = new QCheckBox("Wrap around");
-    m_recursiveCheck  = new QCheckBox("Recursive");
-    m_fetchMore       = new QCheckBox("Fetch More");
+    m_matchCaseCheck   = new QCheckBox("Case Sensitive");
+    m_wrapAroundCheck  = new QCheckBox("Wrap around");
+    m_subtreeOnlyCheck = new QCheckBox("Subtree Only");
+    m_subtreeOnlyCheck->setDisabled(true); // Disable for now, as it is not implemented
+    m_fetchMore        = new QCheckBox("Fetch More");
 
     m_searchButton = new QPushButton("Search");
     connect(m_searchButton, &QPushButton::clicked, this, &QDialog::accept);
@@ -220,7 +220,7 @@ void FindDialog::setupUi()
     QGridLayout* optsLayout = new QGridLayout;
     optsLayout->addWidget(m_matchCaseCheck, 0, 0);
     optsLayout->addWidget(m_wrapAroundCheck, 0, 1);
-    optsLayout->addWidget(m_recursiveCheck, 1, 0);
+    optsLayout->addWidget(m_subtreeOnlyCheck, 1, 0);
     optsLayout->addWidget(m_fetchMore, 1, 1);
     QGroupBox* searchOptionsGroup = new QGroupBox("Search Options");
     searchOptionsGroup->setLayout(optsLayout);

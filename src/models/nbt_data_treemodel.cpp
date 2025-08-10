@@ -335,19 +335,16 @@ void NbtDataTreeModel::moveDown(const QModelIndex& index)
 
 QModelIndex NbtDataTreeModel::find(const QModelIndex& currentIndex, const SearchCriteria& criteria)
 {
-    qDebug() << "NbtDataTreeModel::find called! Implementation needed.";
     auto index = m_searchHelper->find(currentIndex, criteria);
     return index;
 }
 QModelIndex NbtDataTreeModel::findNext(const QModelIndex& currentIndex)
 {
-    qDebug() << "NbtDataTreeModel::findNext called! Implementation needed.";
     auto index = m_searchHelper->findNext(currentIndex);
     return index;
 }
 QModelIndex NbtDataTreeModel::findPrevious(const QModelIndex& currentIndex)
 {
-    qDebug() << "NbtDataTreeModel::findPrevious called! Implementation needed.";
     auto index = m_searchHelper->findPrevious(currentIndex);
     return index;
 }
