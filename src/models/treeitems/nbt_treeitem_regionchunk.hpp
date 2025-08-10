@@ -26,6 +26,7 @@ public:
     void sort();
 
     virtual QIcon icon() const override;
+    virtual QString name() const override;
     virtual QString label() const override;
 
     virtual bool canFetchMore() const override;

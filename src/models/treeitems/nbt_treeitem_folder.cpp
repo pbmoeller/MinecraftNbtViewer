@@ -35,6 +35,11 @@ QIcon NbtTreeItemFolder::icon() const
     return QIcon(":/icons/16x16/Folder.png");
 }
 
+QString NbtTreeItemFolder::name() const
+{
+    return m_folderName;
+}
+
 QString NbtTreeItemFolder::label() const
 {
     return m_folderName;

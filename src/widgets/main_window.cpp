@@ -2,6 +2,7 @@
 #include "main_window.hpp"
 #include "about_dialog.hpp"
 #include "compression_dialog.hpp"
+#include "find_dialog.hpp"
 #include "models/nbt_data_treemodel.hpp"
 #include "models/treeitems/nbt_treeitem_folder.hpp"
 #include "models/treeitems/nbt_treeitem_nbtfile.hpp"
@@ -324,6 +325,50 @@ void MainWindow::addCompoundTag()
     addNbtTag(anvil::TagType::Compound);
 }
 
+void MainWindow::find()
+{
+    QModelIndex currentIndex = m_ui->nbtDataTreeView->currentIndex();
+    if(currentIndex.isValid()) {
+        FindDialog findDialog(m_searchLastCriteria);
+        auto ret = findDialog.exec();
+        if(ret == QDialog::Accepted) {
+            m_searchLastCriteria = findDialog.searchCriteria();
+
+            QModelIndex foundIndex = m_nbtTreeModel->find(currentIndex, m_searchLastCriteria);
+            if(foundIndex.isValid()) {
+                m_ui->nbtDataTreeView->setCurrentIndex(foundIndex);
+            } else {
+                QMessageBox::information(this, tr("Find"), tr("Item not found."));
+            }
+
+        } else {
+            qDebug() << "Find Rejected";
+        }
+    }
+}
+
+void MainWindow::findNext()
+{
+    QModelIndex currentIndex = m_ui->nbtDataTreeView->currentIndex();
+    QModelIndex foundIndex   = m_nbtTreeModel->findNext(currentIndex);
+    if(foundIndex.isValid()) {
+        m_ui->nbtDataTreeView->setCurrentIndex(foundIndex);
+    } else {
+        QMessageBox::information(this, tr("Find"), tr("Item not found."));
+    }
+}
+
+void MainWindow::findPrevious()
+{
+    QModelIndex currentIndex = m_ui->nbtDataTreeView->currentIndex();
+    QModelIndex foundIndex   = m_nbtTreeModel->findPrevious(currentIndex);
+    if(foundIndex.isValid()) {
+        m_ui->nbtDataTreeView->setCurrentIndex(foundIndex);
+    } else {
+        QMessageBox::information(this, tr("Find"), tr("Item not found."));
+    }
+}
+
 void MainWindow::initConnections()
 {
     /// General UI
@@ -374,6 +419,11 @@ void MainWindow::initConnections()
     connect(m_ui->actionAdd_LongArrayTag, &QAction::triggered, this, &MainWindow::addLongArrayTag);
     connect(m_ui->actionAdd_ListTag, &QAction::triggered, this, &MainWindow::addListTag);
     connect(m_ui->actionAdd_CompoundTag, &QAction::triggered, this, &MainWindow::addCompoundTag);
+
+    // Find
+    connect(m_ui->actionFind, &QAction::triggered, this, &MainWindow::find);
+    connect(m_ui->actionFindPrevious, &QAction::triggered, this, &MainWindow::findPrevious);
+    connect(m_ui->actionFindNext, &QAction::triggered, this, &MainWindow::findNext);
 }
 
 bool MainWindow::userReallyWantsToQuit()
@@ -451,6 +501,10 @@ void MainWindow::updateActions()
         m_ui->actionAdd_LongArrayTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::LongArray));
         m_ui->actionAdd_ListTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::List));
         m_ui->actionAdd_CompoundTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Compound));
+
+        m_ui->actionFind->setEnabled(true);
+        m_ui->actionFindPrevious->setEnabled(true); // TODO: Set based on FinDData
+        m_ui->actionFindNext->setEnabled(true);     // TODO: Set based on FinDData
     }
 }
 

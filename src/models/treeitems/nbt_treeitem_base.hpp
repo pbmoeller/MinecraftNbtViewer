@@ -32,12 +32,15 @@ public:
     virtual QIcon icon() const;
     virtual QString name() const;
     virtual QString label() const;
+    virtual QString value() const;
 
     virtual bool canSave() const;
     virtual void save();
     virtual void saveAs(const QString& filename, const anvil::CompressionType compression);
 
     virtual bool canRefresh() const;
+
+    virtual bool isNbtTag() const;
 
     virtual bool canRename() const;
     virtual void rename(const QString& name);

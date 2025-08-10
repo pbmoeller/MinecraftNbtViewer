@@ -1,5 +1,6 @@
 // MinecraftNbtViewer
 #include "nbt_data_treemodel.hpp"
+#include "nbt_tree_search_helper.hpp"
 #include "treeitems/nbt_treeitem_base.hpp"
 #include "treeitems/nbt_treeitem_folder.hpp"
 #include "treeitems/nbt_treeitem_nbtfile.hpp"
@@ -19,6 +20,7 @@ namespace nbt {
 NbtDataTreeModel::NbtDataTreeModel(QObject* parent)
     : QAbstractItemModel(parent)
     , m_rootItem(nullptr)
+    , m_searchHelper(std::make_unique<NbtTreeSearchHelper>(this))
 { }
 
 NbtDataTreeModel::~NbtDataTreeModel()
@@ -329,6 +331,22 @@ void NbtDataTreeModel::moveDown(const QModelIndex& index)
     endMoveRows();
 
     markItemDirty(parentItem);
+}
+
+QModelIndex NbtDataTreeModel::find(const QModelIndex& currentIndex, const SearchCriteria& criteria)
+{
+    auto index = m_searchHelper->find(currentIndex, criteria);
+    return index;
+}
+QModelIndex NbtDataTreeModel::findNext(const QModelIndex& currentIndex)
+{
+    auto index = m_searchHelper->findNext(currentIndex);
+    return index;
+}
+QModelIndex NbtDataTreeModel::findPrevious(const QModelIndex& currentIndex)
+{
+    auto index = m_searchHelper->findPrevious(currentIndex);
+    return index;
 }
 
 void NbtDataTreeModel::itemChanged(NbtTreeItemBase* item)

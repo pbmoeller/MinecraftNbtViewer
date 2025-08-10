@@ -47,6 +47,11 @@ anvil::BasicTag* NbtTreeItemNbtTag::tag()
     return m_tag;
 }
 
+bool NbtTreeItemNbtTag::isNbtTag() const
+{
+    return true;
+}
+
 bool NbtTreeItemNbtTag::canRename() const
 {
     // Only Tags that are not children of ListTag can be renamed.
@@ -227,6 +232,11 @@ QString NbtTreeItemByteTag::label() const
     return name;
 }
 
+QString NbtTreeItemByteTag::value() const
+{
+    return QString::number(m_tag->asByteTag()->value());
+}
+
 /// ShortTag
 NbtTreeItemShortTag::NbtTreeItemShortTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -249,6 +259,11 @@ QString NbtTreeItemShortTag::label() const
     name += QString::number(tag->value());
 
     return name;
+}
+
+QString NbtTreeItemShortTag::value() const
+{
+    return QString::number(m_tag->asShortTag()->value());
 }
 
 /// IntTag
@@ -275,6 +290,11 @@ QString NbtTreeItemIntTag::label() const
     return name;
 }
 
+QString NbtTreeItemIntTag::value() const
+{
+    return QString::number(m_tag->asIntTag()->value());
+}
+
 /// LongTag
 NbtTreeItemLongTag::NbtTreeItemLongTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -297,6 +317,11 @@ QString NbtTreeItemLongTag::label() const
     name += QString::number(tag->value());
 
     return name;
+}
+
+QString NbtTreeItemLongTag::value() const
+{
+    return QString::number(m_tag->asLongTag()->value());
 }
 
 /// FloatTag
@@ -323,6 +348,11 @@ QString NbtTreeItemFloatTag::label() const
     return name;
 }
 
+QString NbtTreeItemFloatTag::value() const
+{
+    return QString::number(m_tag->asFloatTag()->value());
+}
+
 /// DoubleTag
 NbtTreeItemDoubleTag::NbtTreeItemDoubleTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -347,6 +377,11 @@ QString NbtTreeItemDoubleTag::label() const
     return name;
 }
 
+QString NbtTreeItemDoubleTag::value() const
+{
+    return QString::number(m_tag->asDoubleTag()->value());
+}
+
 /// StringTag
 NbtTreeItemStringTag::NbtTreeItemStringTag(NbtTreeItemBase* parentItem, anvil::BasicTag* tag)
     : NbtTreeItemNbtTag(parentItem, tag)
@@ -369,6 +404,11 @@ QString NbtTreeItemStringTag::label() const
     name += tag->value().c_str();
 
     return name;
+}
+
+QString NbtTreeItemStringTag::value() const
+{
+    return QString(m_tag->asStringTag()->value().c_str());
 }
 
 /// ListTag & CompoundTag Helper

@@ -119,5 +119,14 @@
         <file>icons/16x16/ListTagDark.png</file>
         <file>icons/24x24/ListTagDark.png</file>
         <file>icons/32x32/ListTagDark.png</file>
+        <file>icons/16x16/Find.png</file>
+        <file>icons/24x24/Find.png</file>
+        <file>icons/32x32/Find.png</file>
+        <file>icons/24x24/FindNext.png</file>
+        <file>icons/24x24/FindPrev.png</file>
+        <file>icons/16x16/FindNext.png</file>
+        <file>icons/16x16/FindPrev.png</file>
+        <file>icons/32x32/FindNext.png</file>
+        <file>icons/32x32/FindPrev.png</file>
     </qresource>
 </RCC>

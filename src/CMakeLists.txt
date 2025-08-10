@@ -10,6 +10,7 @@ set(MinecraftNbtViewer_HEADER
 
     # Models
     "models/nbt_data_treemodel.hpp"
+    "models/nbt_tree_search_helper.hpp"
     "models/treeitems/nbt_treeitem_base.hpp"
     "models/treeitems/nbt_treeitem_folder.hpp"
     "models/treeitems/nbt_treeitem_nbtfile.hpp"
@@ -30,6 +31,7 @@ set(MinecraftNbtViewer_HEADER
 
     # Widgets
     "widgets/about_dialog.hpp"
+    "widgets/find_dialog.hpp"
     "widgets/main_window.hpp"
     "widgets/new_tag_dialog.hpp"
     "widgets/edit_dialog.hpp"
@@ -46,6 +48,7 @@ set(MinecraftNbtViewer_SOURCES
 
     # Models
     "models/nbt_data_treemodel.cpp"
+    "models/nbt_tree_search_helper.cpp"
     "models/treeitems/nbt_treeitem_base.cpp"
     "models/treeitems/nbt_treeitem_folder.cpp"
     "models/treeitems/nbt_treeitem_nbtfile.cpp"
@@ -66,6 +69,7 @@ set(MinecraftNbtViewer_SOURCES
 
     # Widgets
     "widgets/about_dialog.cpp"
+    "widgets/find_dialog.cpp"
     "widgets/main_window.cpp"
     "widgets/new_tag_dialog.cpp"
     "widgets/edit_dialog.cpp"

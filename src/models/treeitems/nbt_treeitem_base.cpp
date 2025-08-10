@@ -89,6 +89,11 @@ QString NbtTreeItemBase::label() const
     return {};
 }
 
+QString NbtTreeItemBase::value() const
+{
+    return {};
+}
+
 bool NbtTreeItemBase::canSave() const
 {
     return false;
@@ -103,6 +108,11 @@ void NbtTreeItemBase::saveAs(const QString& filename, const anvil::CompressionTy
 }
 
 bool NbtTreeItemBase::canRefresh() const
+{
+    return false;
+}
+
+bool NbtTreeItemBase::isNbtTag() const
 {
     return false;
 }
