@@ -59,6 +59,7 @@ public:
 
     virtual QIcon icon() const override;
     virtual QString label() const override;
+    virtual QString value() const override;
 };
 
 class NbtTreeItemShortTag : public NbtTreeItemNbtTag
@@ -69,6 +70,7 @@ public:
 
     virtual QIcon icon() const override;
     virtual QString label() const override;
+    virtual QString value() const override;
 };
 
 class NbtTreeItemIntTag : public NbtTreeItemNbtTag
@@ -79,6 +81,7 @@ public:
 
     virtual QIcon icon() const override;
     virtual QString label() const override;
+    virtual QString value() const override;
 };
 
 class NbtTreeItemLongTag : public NbtTreeItemNbtTag
@@ -89,6 +92,7 @@ public:
 
     virtual QIcon icon() const override;
     virtual QString label() const override;
+    virtual QString value() const override;
 };
 
 class NbtTreeItemFloatTag : public NbtTreeItemNbtTag
@@ -99,6 +103,7 @@ public:
 
     virtual QIcon icon() const override;
     virtual QString label() const override;
+    virtual QString value() const override;
 };
 
 class NbtTreeItemDoubleTag : public NbtTreeItemNbtTag
@@ -109,6 +114,7 @@ public:
 
     virtual QIcon icon() const override;
     virtual QString label() const override;
+    virtual QString value() const override;
 };
 
 class NbtTreeItemStringTag : public NbtTreeItemNbtTag
@@ -119,6 +125,7 @@ public:
 
     virtual QIcon icon() const override;
     virtual QString label() const override;
+    virtual QString value() const override;
 };
 
 class NbtTreeItemCompoundTag : public NbtTreeItemNbtTag

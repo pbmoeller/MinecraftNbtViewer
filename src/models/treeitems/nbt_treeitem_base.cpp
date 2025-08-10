@@ -89,6 +89,11 @@ QString NbtTreeItemBase::label() const
     return {};
 }
 
+QString NbtTreeItemBase::value() const
+{
+    return {};
+}
+
 bool NbtTreeItemBase::canSave() const
 {
     return false;

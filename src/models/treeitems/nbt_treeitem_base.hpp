@@ -32,6 +32,7 @@ public:
     virtual QIcon icon() const;
     virtual QString name() const;
     virtual QString label() const;
+    virtual QString value() const;
 
     virtual bool canSave() const;
     virtual void save();

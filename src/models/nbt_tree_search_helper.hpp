@@ -48,6 +48,8 @@ private:
     QModelIndex lastIndexDfs();
 
     bool matchesCriteria(const QModelIndex& index) const;
+    bool matchString(const QString& sourceString, const QString& searchString, uint matchType,
+                      Qt::CaseSensitivity caseSensitivity) const;
 
 private:
     NbtDataTreeModel* m_model{nullptr};
