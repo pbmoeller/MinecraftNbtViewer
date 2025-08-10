@@ -54,14 +54,19 @@ void NbtTreeItemRegionFile::fetchMore()
 {
     m_canFetchData = false;
 
-    // Initialize Region
-    std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
-    m_region             = std::make_unique<anvil::Region>();
-    m_region->loadPartiallyFromFile(filename);
-    for(unsigned int index = 0; index < anvil::Region::Chunks; ++index) {
-        if(m_region->isChunkLoadable(index)) {
-            new NbtTreeItemRegionChunk(this, m_region.get(), index);
+    // This should be put in a try-catch block because loading might fail and throw.
+    try {
+        // Initialize Region
+        std::string filename = (m_pathToFile + "/" + m_filename).toStdString();
+        m_region             = std::make_unique<anvil::Region>();
+        m_region->loadPartiallyFromFile(filename);
+        for(unsigned int index = 0; index < anvil::Region::Chunks; ++index) {
+            if(m_region->isChunkLoadable(index)) {
+                new NbtTreeItemRegionChunk(this, m_region.get(), index);
+            }
         }
+    } catch(const std::exception& e) {
+        qDebug() << "Failed to load region file:" << m_filename << "Error:" << e.what();
     }
 }
 
