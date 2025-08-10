@@ -50,6 +50,7 @@ private:
     QCheckBox* m_matchCaseCheck;
     QCheckBox* m_wrapAroundCheck;
     QCheckBox* m_recursiveCheck;
+    QCheckBox* m_fetchMore;
     QLineEdit* m_nameLineEdit;
     QLineEdit* m_valueLineEdit;
     QComboBox* m_typeCombo;

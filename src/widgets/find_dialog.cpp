@@ -46,23 +46,20 @@ FindDialog::~FindDialog() = default;
 SearchCriteria FindDialog::searchCriteria() const
 {
     SearchCriteria criteria;
-    if(m_nameCheck->isChecked()) {
-        criteria.isFindName = true;
-    }
     criteria.name = m_nameLineEdit->text();
-    if(m_valueCheck->isChecked()) {
-        criteria.isFindValue = true;
-    }
+    criteria.isFindName = m_nameCheck->isChecked();
+    
     criteria.value = m_valueLineEdit->text();
-    if(m_typeCheck->isChecked()) {
-        criteria.isFindType = true;
-    }
+    criteria.isFindValue = m_typeCheck->isChecked();
+
     criteria.type = static_cast<anvil::TagType>(m_typeCombo->currentData().toInt());
 
     int directionRadioValue = m_directionRadioButtons->checkedId();
     if(directionRadioValue != -1) {
         criteria.direction = static_cast<SearchDirection>(directionRadioValue);
     }
+
+    criteria.fetchMore = m_fetchMore->isChecked();
 
     // Set Match Flags
     Qt::MatchFlags matchFlags{Qt::MatchExactly};
@@ -126,6 +123,7 @@ void FindDialog::setSearchCriteria(const SearchCriteria& criteria)
     m_matchCaseCheck->setChecked(criteria.matchFlags & Qt::MatchCaseSensitive);
     m_wrapAroundCheck->setChecked(criteria.matchFlags & Qt::MatchWrap);
     m_recursiveCheck->setChecked(criteria.matchFlags & Qt::MatchRecursive);
+    m_fetchMore->setChecked(criteria.fetchMore);
 
     uint matchType = criteria.matchFlags & 0x0F;
     m_matchExactlyRadio->setChecked(matchType == Qt::MatchExactly);
@@ -187,6 +185,7 @@ void FindDialog::setupUi()
     m_matchCaseCheck  = new QCheckBox("Case Sensitive");
     m_wrapAroundCheck = new QCheckBox("Wrap around");
     m_recursiveCheck  = new QCheckBox("Recursive");
+    m_fetchMore       = new QCheckBox("Fetch More");
 
     m_searchButton = new QPushButton("Search");
     connect(m_searchButton, &QPushButton::clicked, this, &QDialog::accept);
@@ -222,6 +221,7 @@ void FindDialog::setupUi()
     optsLayout->addWidget(m_matchCaseCheck, 0, 0);
     optsLayout->addWidget(m_wrapAroundCheck, 0, 1);
     optsLayout->addWidget(m_recursiveCheck, 1, 0);
+    optsLayout->addWidget(m_fetchMore, 1, 1);
     QGroupBox* searchOptionsGroup = new QGroupBox("Search Options");
     searchOptionsGroup->setLayout(optsLayout);
 

@@ -83,6 +83,10 @@ QModelIndex NbtTreeSearchHelper::find(bool forward)
 
 QModelIndex NbtTreeSearchHelper::nextIndexDfs(const QModelIndex& current)
 {
+    if(m_searchCriteria.fetchMore && m_model->canFetchMore(current)) {
+        m_model->fetchMore(current);
+    }
+
     // Has children? => go to first child
     if(m_model->rowCount(current) > 0) {
         return m_model->index(0, 0, current);
@@ -115,10 +119,19 @@ QModelIndex NbtTreeSearchHelper::prevIndexDfs(const QModelIndex& current)
     if(row > 0) {
         QModelIndex previousSibling = m_model->index(row - 1, 0, parent);
 
-        while(m_model->rowCount(previousSibling) > 0) {
-            int lastChildRow = m_model->rowCount(previousSibling) - 1;
-            previousSibling  = m_model->index(lastChildRow, 0, previousSibling);
+        while(true) {
+            if(m_searchCriteria.fetchMore && m_model->canFetchMore(previousSibling)) {
+                m_model->fetchMore(previousSibling);
+            }
+
+            int childCount = m_model->rowCount(previousSibling);
+            if(childCount == 0) {
+                break;
+            }
+            auto lastChild = m_model->index(childCount - 1, 0, previousSibling);
+            previousSibling = lastChild;
         }
+
         return previousSibling;
     }
 
@@ -135,6 +148,10 @@ QModelIndex NbtTreeSearchHelper::lastIndexDfs()
     }
 
     while(true) {
+        if(m_searchCriteria.fetchMore && m_model->canFetchMore(current)) {
+            m_model->fetchMore(current);
+        }
+
         int rowCount = m_model->rowCount(current);
         if(rowCount > 0) {
             // If the current item has children, go to the last child.

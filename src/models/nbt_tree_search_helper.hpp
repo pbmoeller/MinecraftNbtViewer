@@ -24,6 +24,7 @@ struct SearchCriteria
     anvil::TagType type{anvil::TagType::Byte};
     SearchDirection direction{SearchDirection::Forward};
     Qt::MatchFlags matchFlags{Qt::MatchExactly | Qt::MatchRecursive};
+    bool fetchMore{false};
     bool isFindName{false};
     bool isFindValue{false};
     bool isFindType{false};
