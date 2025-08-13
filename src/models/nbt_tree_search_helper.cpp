@@ -40,6 +40,12 @@ QModelIndex NbtTreeSearchHelper::findPrevious(const QModelIndex& startIndex)
     return find(false);
 }
 
+bool NbtTreeSearchHelper::canFind() const
+{
+    return m_searchCriteria.isFindName || m_searchCriteria.isFindValue
+        || m_searchCriteria.isFindType;
+}
+
 QModelIndex NbtTreeSearchHelper::find(bool forward)
 {
     // The last index is invalid. We can not continue search.

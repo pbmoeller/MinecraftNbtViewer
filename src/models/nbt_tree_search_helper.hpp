@@ -43,6 +43,8 @@ public:
     QModelIndex findNext(const QModelIndex& startIndex);
     QModelIndex findPrevious(const QModelIndex& startIndex);
 
+    bool canFind() const;
+
 private:
     QModelIndex find(bool forward = true);
     QModelIndex nextIndexDfs(const QModelIndex& current);

@@ -349,6 +349,11 @@ QModelIndex NbtDataTreeModel::findPrevious(const QModelIndex& currentIndex)
     return index;
 }
 
+bool NbtDataTreeModel::canFind() const
+{
+    return m_searchHelper->canFind();
+}
+
 void NbtDataTreeModel::itemChanged(NbtTreeItemBase* item)
 {
     QModelIndex index = toIndex(item);

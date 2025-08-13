@@ -57,6 +57,7 @@ public:
     QModelIndex find(const QModelIndex &currentIndex, const SearchCriteria &criteria);
     QModelIndex findNext(const QModelIndex& currentIndex);
     QModelIndex findPrevious(const QModelIndex& currentIndex);
+    bool canFind() const;
 
     void itemChanged(NbtTreeItemBase* item);
 

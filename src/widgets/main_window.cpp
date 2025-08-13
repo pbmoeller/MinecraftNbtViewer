@@ -503,8 +503,8 @@ void MainWindow::updateActions()
         m_ui->actionAdd_CompoundTag->setEnabled(treeItem->canAddNbtTag(anvil::TagType::Compound));
 
         m_ui->actionFind->setEnabled(true);
-        m_ui->actionFindPrevious->setEnabled(true); // TODO: Set based on FinDData
-        m_ui->actionFindNext->setEnabled(true);     // TODO: Set based on FinDData
+        m_ui->actionFindPrevious->setEnabled(m_nbtTreeModel->canFind());
+        m_ui->actionFindNext->setEnabled(m_nbtTreeModel->canFind());
     }
 }
 
